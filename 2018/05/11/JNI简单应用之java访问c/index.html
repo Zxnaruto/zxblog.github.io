@@ -9,7 +9,7 @@
   <title>JNI简单应用之java访问c | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;JNI(java native interface),即java本地接口，来实现java程序与其他语言的交互，实际上就是调用本机已有的动态链接库的代码。这是一个简单的实例，通过java来访问c。 二、实现过程&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.编写相应的Java代码，平台是用eclipse编写还是记事本编写再用javac在命令">
-<meta name="keywords" content="java,c,JNI">
+<meta name="keywords" content="c,java,JNI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI简单应用之java访问c">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/11/JNI简单应用之java访问c/index.html">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI13.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI14.png">
-<meta property="og:updated_time" content="2018-05-13T05:31:00.797Z">
+<meta property="og:updated_time" content="2018-05-13T05:34:05.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI简单应用之java访问c">
 <meta name="twitter:description" content="一、简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;JNI(java native interface),即java本地接口，来实现java程序与其他语言的交互，实际上就是调用本机已有的动态链接库的代码。这是一个简单的实例，通过java来访问c。 二、实现过程&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.编写相应的Java代码，平台是用eclipse编写还是记事本编写再用javac在命令">
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;JNI(java native interface),即java本地接口，来实现java程序与其他语言的交互，实际上就是调用本机已有的动态链接库的代码。这是一个简单的实例，通过java来访问c。</p>
-<h4 id="二、实现过程"><a href="#二、实现过程" class="headerlink" title="二、实现过程"></a>二、实现过程</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;1.编写相应的Java代码，平台是用eclipse编写还是记事本编写再用javac在命令行编译成字节码都可以，我是用的eclipse编写的，代码如下：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI01.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;2.保存文件，找到文件的位置，在命令行中用javah命令编译JNItest.java文件，生成交互用的.c文件。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI02.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结果：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI03.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是没有选择生成位置，当然你可以用命令-d ..来决定&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生成的位置。里面的内容为：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI04.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;3.在vs或vc编译器中编辑c文件，将dos界面下生成c文件放到工程所在文件夹的位置，然后导入到头文件，此时程序会出现错误，这是就要找到你本机的JDK的include文件夹，把jni.h和jni_md.h放到该工程的文件夹下然后在工程中导入。再把用javah生成的.h中的#include&lt;jni.h&gt;改为#include”jni.h”。此时程序就没错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C代码：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI05.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C工程下加入的头文件：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI06.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导入头文件：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI07.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;4.生成动态库（.dll）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1)配置工程属性<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开资源试图，选中后右键选择属性，在常规中，选择配置类型中的动态库(.dll)，然后确定，如下图：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI08.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)编译器标题栏选中生成—&gt;配置管理器–&gt;根据自己电脑的位数来配置—&gt;确定<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI10.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)选择标题栏的生成—&gt;生成解决方案<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI11.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)之后你就可以到你c工程文件夹下的x64\Debug文件夹下看到这个.dll文件。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI12.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)由于java程序运行是在path中寻找路径的，为了让eclipse知道这个动态库的存在，就要将其路径（我的是：F:\C#代码\MyFirstJNI\x64\Debug）加入到环境变量PATH中。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI13.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之后就可以在eclipse中运行java程序了。</p>
+<h4 id="二、实现过程"><a href="#二、实现过程" class="headerlink" title="二、实现过程"></a>二、实现过程</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;1.编写相应的Java代码，平台是用eclipse编写还是记事本编写再用javac在命令行编译成字节码都可以，我是用的eclipse编写的，代码如下：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI01.png" alt=""><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;2.保存文件，找到文件的位置，在命令行中用javah命令编译JNItest.java文件，生成交互用的.c文件。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI02.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结果：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI03.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是没有选择生成位置，当然你可以用命令-d ..来决定&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生成的位置。里面的内容为：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI04.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;3.在vs或vc编译器中编辑c文件，将dos界面下生成c文件放到工程所在文件夹的位置，然后导入到头文件，此时程序会出现错误，这是就要找到你本机的JDK的include文件夹，把jni.h和jni_md.h放到该工程的文件夹下然后在工程中导入。再把用javah生成的.h中的#include&lt;jni.h&gt;改为#include”jni.h”。此时程序就没错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C代码：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI05.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C工程下加入的头文件：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI06.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导入头文件：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI07.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;4.生成动态库（.dll）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1)配置工程属性<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开资源试图，选中后右键选择属性，在常规中，选择配置类型中的动态库(.dll)，然后确定，如下图：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI08.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)编译器标题栏选中生成—&gt;配置管理器–&gt;根据自己电脑的位数来配置—&gt;确定<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI10.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)选择标题栏的生成—&gt;生成解决方案<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI11.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)之后你就可以到你c工程文件夹下的x64\Debug文件夹下看到这个.dll文件。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI12.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)由于java程序运行是在path中寻找路径的，为了让eclipse知道这个动态库的存在，就要将其路径（我的是：F:\C#代码\MyFirstJNI\x64\Debug）加入到环境变量PATH中。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI13.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之后就可以在eclipse中运行java程序了。</p>
 <h4 id="三、结果如下"><a href="#三、结果如下" class="headerlink" title="三、结果如下"></a>三、结果如下</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JNI14.png" alt=""></p>
 <h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;这是一个java程序调用c的一个简单的JNI应用，在c文件里返回的字符串，通过java调用显示在eclipse中。同时，让我大致了解了JNI的配置及工作原理。为以后学习JNI开了一个好头。<br><br></p>
 <h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
@@ -290,11 +290,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">c</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">c</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -551,11 +551,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +567,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
