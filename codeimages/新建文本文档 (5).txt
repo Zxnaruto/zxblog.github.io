@@ -1,0 +1,166 @@
+---
+title: 'struts2应用之一HelloWorld'
+
+date: 2018-05-03 01:20:00
+
+tags: 
+    - java
+    - Struts
+categories: "java应用和框架"
+
+---
+
+
+
+# struts2应用之一HelloWorld
+#### 1.实现步骤
+(1)打开myeclipse新建一个Web Project
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts01.png)
+(2)为项目命名为HelloWorld,然后Finish<!--more-->
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts02.png)
+(3)选中项目右键，选择MyEclipse在弹出的框中点击Add struts capailities
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts03.png)
+(4)在弹出的对话框中选择struts 2.1 和  /* ,然后Finish
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts04.png)
+(5)此时你会在你的项目文件夹下看到多了struts core libraries 以及在src文件夹下出现了个struts.xml
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts05.png)
+注：当然如果你用的编译器不自带Struts，你可以到官网去下载你所需要的版本([Struts下载](http://struts.apache.org/download.cgi)),然后按照下图把下载好的jar包放入到你的项目的WEB-INF\lib下。 (所需jar包，在你下好的文件struts-2.3.34\lib下)
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts06.png)
+(6)编辑HelloAction类，首先在src下新建一个package，我建的名为：indi.zx.j2eetest，然后在该包中新建HelloAction类，添加如下代码：
+```
+package indi.zx.j2eetest;
+
+public class HelloAction {
+  
+	private String name;
+	
+	
+	public String execute()throws Exception{
+		return "success";
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
+}
+```
+(7)编辑index.jsp
+```
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'index.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  </head>
+  
+  <body>
+  <h1>Hello XiaoHuZiXianShengZx</h1>
+  <form action="hello">
+  <input type="text" name="name" />
+  <input type="submit" value="提交" />
+  </form>
+  </body>
+</html>
+
+```
+(8)编辑hello.jsp
+```
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'hello.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <body>
+  Hello,<s:property value="name" />
+  
+  </body>
+</html>
+```
+(9)配置struts.xml
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="mypackage" extends="struts-default">
+<action name="hello" class="indi.zx.j2eetest.HelloAction" method="execute">
+    <result name="success">/hello.jsp</result>
+</action>
+</package>
+</struts>    
+
+```
+(10)配置web.xml，要是按照上面步骤可以不用改这个文件，以后会在其他项目中编辑这个文件。
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>
+  		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+  	</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping></web-app>
+
+```
+#### 2.结果显示
+首页
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts07.png)
+输入XiaoHuZiZx点击提交后
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/struts08.png)
+
+
+
+
+
+
