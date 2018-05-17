@@ -6,22 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Java ArrayList类实现与调用 | XiaoHuZiZx</title>
+  <title>Word 操作在任意一页添加页码和页眉 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.问题描述 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个关于数组链表类的实现。包含对数组链表的一般操作。  1.保持基础数组和其容量，以及当前项数。 2.可以扩增数组的容量。 3.提供get和set的实现。 4.提供size(),isEmpty(),clear(),remove(),add(),trimToSize()。 5.提供一个实现迭代器(Iterator)接口的类，可以完成对">
-<meta name="keywords" content="java,List">
+  <meta name="description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
+<meta name="keywords" content="word">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java ArrayList类实现与调用">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/05/ArrayList类/index.html">
+<meta property="og:title" content="Word 操作在任意一页添加页码和页眉">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="1.问题描述 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个关于数组链表类的实现。包含对数组链表的一般操作。  1.保持基础数组和其容量，以及当前项数。 2.可以扩增数组的容量。 3.提供get和set的实现。 4.提供size(),isEmpty(),clear(),remove(),add(),trimToSize()。 5.提供一个实现迭代器(Iterator)接口的类，可以完成对">
+<meta property="og:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/MyArrayList.png">
-<meta property="og:updated_time" content="2018-05-06T07:50:58.981Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word06.png">
+<meta property="og:updated_time" content="2018-05-17T16:06:53.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java ArrayList类实现与调用">
-<meta name="twitter:description" content="1.问题描述 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个关于数组链表类的实现。包含对数组链表的一般操作。  1.保持基础数组和其容量，以及当前项数。 2.可以扩增数组的容量。 3.提供get和set的实现。 4.提供size(),isEmpty(),clear(),remove(),add(),trimToSize()。 5.提供一个实现迭代器(Iterator)接口的类，可以完成对">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/MyArrayList.png">
+<meta name="twitter:title" content="Word 操作在任意一页添加页码和页眉">
+<meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -197,20 +202,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ArrayList类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Word 操作在任意一页添加页码和页眉" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java ArrayList类实现与调用
+      Word 操作在任意一页添加页码和页眉
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/05/05/ArrayList类/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
+        <a href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" class="archive-article-date">
+  	<time datetime="2018-05-17T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
 </a>
         
         
@@ -225,22 +230,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h4><p> &nbsp;&nbsp;&nbsp;&nbsp;这是一个关于数组链表类的实现。包含对数组链表的一般操作。</p>
-<ul>
-<li>1.保持基础数组和其容量，以及当前项数。</li>
-<li>2.可以扩增数组的容量。</li>
-<li>3.提供get和set的实现。</li>
-<li>4.提供size(),isEmpty(),clear(),remove(),add(),trimToSize()。</li>
-<li>5.提供一个实现迭代器(Iterator)接口的类，可以完成对数组元素的操作，即next,hasNext,remove。<a id="more"></a>
-<h4 id="2-MyArrayList类代码"><a href="#2-MyArrayList类代码" class="headerlink" title="2.MyArrayList类代码"></a>2.MyArrayList类代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">public class MyArrayList&lt;AnyType&gt; implements Iterable&lt;AnyType&gt; &#123;</span><br><span class="line"></span><br><span class="line">	private static final int DEFAULT_CAPACITY=10;//初始容量</span><br><span class="line">	private int theSize;//数组大小</span><br><span class="line">	private AnyType[] theItems;//声明数组</span><br><span class="line"></span><br><span class="line">	//构造函数，完成数组初始化，初始长度为10</span><br><span class="line">	public MyArrayList() &#123;</span><br><span class="line">		doClear();</span><br><span class="line">	&#125;</span><br><span class="line">	//清空数组</span><br><span class="line">	public void clear() &#123;</span><br><span class="line">		doClear();</span><br><span class="line">	&#125;</span><br><span class="line">	//清空实现</span><br><span class="line">	public void doClear() &#123;</span><br><span class="line">		theSize=0;</span><br><span class="line">		ensureCapacity(DEFAULT_CAPACITY);</span><br><span class="line">	&#125;</span><br><span class="line">	//返回数组大小</span><br><span class="line">	public int size() &#123;</span><br><span class="line">		return theSize;</span><br><span class="line">	&#125;</span><br><span class="line">	//判断数组是否为空</span><br><span class="line">	public boolean isEmpty() &#123;</span><br><span class="line">		return size()==0;</span><br><span class="line">	&#125;</span><br><span class="line">	//整理数组，当所含有元素的个数小于数组的大小时，对其进行修整，即实际长度与数组大小相同</span><br><span class="line">	public void trimToSize() &#123;</span><br><span class="line">		ensureCapacity(size());</span><br><span class="line">	&#125;</span><br><span class="line">	//获得idx位置上的元素</span><br><span class="line">	public AnyType get(int idx) &#123;</span><br><span class="line">		if(idx&lt;0||idx&gt;=size())</span><br><span class="line">			throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">		return theItems[idx];</span><br><span class="line">	&#125;</span><br><span class="line">	//重新对idx位置上的值赋值，并返回原有的值</span><br><span class="line">	public AnyType set(int idx,AnyType newVal) &#123;</span><br><span class="line">		if(idx&lt;0||idx&gt;=size())</span><br><span class="line">			throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">		AnyType old=theItems[idx];</span><br><span class="line">		theItems[idx]=newVal;</span><br><span class="line">		return old;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	//数组容量更新</span><br><span class="line">	public void ensureCapacity(int newCapacity) &#123;</span><br><span class="line">		if(newCapacity&lt;theSize)</span><br><span class="line">			return;</span><br><span class="line"></span><br><span class="line">		AnyType[] old=theItems;</span><br><span class="line">		theItems=(AnyType[])new Object[newCapacity];</span><br><span class="line">		for(int i=0;i&lt;size();i++) &#123;</span><br><span class="line">			theItems[i]=old[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//在数组末尾插入元素</span><br><span class="line">	public boolean add(AnyType x) &#123;</span><br><span class="line">		add(size(),x);</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	//在idx位置插入元素</span><br><span class="line">	public void add(int idx,AnyType x) &#123;</span><br><span class="line">		if(theItems.length==size())//判断并扩充数组</span><br><span class="line">			ensureCapacity(size()*2+1);//+1适用于大小为零的情况</span><br><span class="line">		for(int i=theSize;i&gt;idx;i--)</span><br><span class="line">			theItems[i]=theItems[i-1];</span><br><span class="line"></span><br><span class="line">		theItems[idx]=x;</span><br><span class="line"></span><br><span class="line">		theSize++;</span><br><span class="line">	&#125;</span><br><span class="line">	//删除idx位置上的元素，并返回该元素值</span><br><span class="line">	public AnyType remove(int idx) &#123;</span><br><span class="line">		AnyType removedItem=theItems[idx];</span><br><span class="line">		for(int i=idx;i&lt;size()-1;i++)</span><br><span class="line">			theItems[i]=theItems[i+1];//向前移动数组，补缺空位</span><br><span class="line"></span><br><span class="line">		theSize--;</span><br><span class="line">		return removedItem;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	//迭代器声明</span><br><span class="line">	public java.util.Iterator&lt;AnyType&gt; iterator() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return new ArrayListIterator();</span><br><span class="line">	&#125;</span><br><span class="line">	//内部类--迭代器的实现</span><br><span class="line">	private class ArrayListIterator implements java.util.Iterator&lt;AnyType&gt;&#123;</span><br><span class="line"></span><br><span class="line">		private int current=0;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		//是否有下一个元素</span><br><span class="line">		public boolean hasNext() &#123;</span><br><span class="line">			// TODO Auto-generated method stub</span><br><span class="line">			return current&lt;size();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		//当前元素的下一个元素</span><br><span class="line">		public AnyType next() &#123;</span><br><span class="line">			// TODO Auto-generated method stub</span><br><span class="line">			if(!hasNext())</span><br><span class="line">				throw new java.util.NoSuchElementException();</span><br><span class="line"></span><br><span class="line">			return theItems[current++];//数组从下标0开始所以current++</span><br><span class="line">		&#125;</span><br><span class="line">		public void remove() &#123;</span><br><span class="line">			MyArrayList.this.remove(--current);//调用外部类的remove,current是为了解决上面next()的current++,为了移除正确的位置所以current--</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="3-对上述类的调用代码ArrayListTest"><a href="#3-对上述类的调用代码ArrayListTest" class="headerlink" title="3.对上述类的调用代码ArrayListTest"></a>3.对上述类的调用代码ArrayListTest</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayListTest &#123;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line"></span><br><span class="line">		MyArrayList test=new MyArrayList();//创建MyArrayList对象 test</span><br><span class="line">		System.out.println(&quot;初始数组的大小:&quot;+test.size());</span><br><span class="line">		System.out.println(&quot;初始数组是否为空：&quot;+test.isEmpty());</span><br><span class="line">		//初始化数组元素</span><br><span class="line">		test.add(0, 1);</span><br><span class="line">		test.add(1, 2);</span><br><span class="line">		test.add(2, 3);</span><br><span class="line">		test.add(3, 4);</span><br><span class="line">		test.add(4, 5);</span><br><span class="line">		test.add(5, 6);</span><br><span class="line">		test.add(6, 7);</span><br><span class="line">		test.add(7, 8);</span><br><span class="line">		test.add(8, 9);</span><br><span class="line">		test.add(9, 10);</span><br><span class="line">		//test.add(10, 11);</span><br><span class="line">		System.out.println(&quot;数组元素为：&quot;);</span><br><span class="line">		for(int i=0;i&lt;test.size();i++) &#123;</span><br><span class="line">			System.out.print(&quot; &quot;+test.get(i));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;\n&quot;+&quot;数组的大小:&quot;+test.size());</span><br><span class="line">		System.out.println(&quot;数组是否为空：&quot;+test.isEmpty());</span><br><span class="line">		//调用set</span><br><span class="line">		System.out.println(&quot;调用set:&quot;);</span><br><span class="line">		test.set(6, 15);</span><br><span class="line">		for(int i=0;i&lt;test.size();i++) &#123;</span><br><span class="line">			System.out.print(&quot; &quot;+test.get(i));</span><br><span class="line">		&#125;</span><br><span class="line">		//调用remove</span><br><span class="line">		test.remove(6);</span><br><span class="line">		System.out.println(&quot;\n&quot;+&quot;remove后的数组：&quot;);</span><br><span class="line">		for(int i=0;i&lt;test.size();i++) &#123;</span><br><span class="line">			System.out.print(&quot; &quot;+test.get(i));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		//清除数组</span><br><span class="line">		test.clear();</span><br><span class="line">		System.out.println(&quot;\n&quot;+&quot;clear后的数组：&quot;);</span><br><span class="line">		for(int i=0;i&lt;test.size();i++) &#123;</span><br><span class="line">			System.out.print(&quot; &quot;+test.get(i));</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;数组是否为空：&quot;+test.isEmpty());</span><br><span class="line"></span><br><span class="line">		//初始化数组元素</span><br><span class="line">		test.add(1);</span><br><span class="line">		test.add(2);</span><br><span class="line">		test.add(3);</span><br><span class="line">		test.add(4);</span><br><span class="line">		test.add(5);</span><br><span class="line">		test.add(6);</span><br><span class="line">		test.add(7);</span><br><span class="line">		test.add(8);</span><br><span class="line">		test.add(9);</span><br><span class="line">		test.add(10);</span><br><span class="line">		test.add(11);</span><br><span class="line">     System.out.println(&quot;迭代器调用结果：&quot;);</span><br><span class="line">     //迭代器调用</span><br><span class="line">     Iterator ite=test.iterator();</span><br><span class="line">     while(ite.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">     System.out.print(&quot; &quot;+ite.next());</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   //add插入</span><br><span class="line">   		test.add(3,100);</span><br><span class="line">   		System.out.println(&quot;\n&quot;+&quot;add后的数组：&quot;);</span><br><span class="line">   		for(int i=0;i&lt;test.size();i++) &#123;</span><br><span class="line">   			System.out.print(&quot; &quot;+test.get(i));</span><br><span class="line">   		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-运行结果"><a href="#4-运行结果" class="headerlink" title="4.运行结果"></a>4.运行结果</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/MyArrayList.png" alt=""><br><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
-<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto/JavaDataStructure" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
-</ul>
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。</p>
+<h4 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.    把光标放到要添加第一页的地方的段首。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.    选择页面布局–&gt;分隔符—&gt;下一页，此时会在你放光标的那一页的上面出现空白的一页<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png" alt=""><br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.    之后再在你放光标的位置(即光标位置不变)，再次执行一下上一步。产生第二个空白页。在光标之前有两个空白页<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.    选择插入–&gt;页码–&gt;设置页码格式<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word02.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.    选择页码格式，设置页码起点为1<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word03.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.    选择页码—&gt;选择放置页码的位置，这是在你光标的那一页就会变成第一页。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word04.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.    此时标题栏会自动跳到设计，你可以直接点击链接到前一页页眉，或者退出编辑模式后双击第一页(上面产生的第一页)的数字1，会自动跳转这个选项。然后点击链接到前一页页眉。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word05.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.    然后退出页眉页脚编辑模式，按delete删除前两个空白页，这时你会发现，首页和目录页还是会有1，2页，此时你可以双击页码把它删除(就像编辑文档时点击backspace)就可以了，由于它们与下面没有联系了，所以不会影响。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word06.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.    至于页眉你可以双击第一页的的1然后在页眉会有连接到上一页页眉，再点一次，然后再编辑第一页页眉，之后就会区别开了。到此也就完成了页脚和页眉与首页和目录的区分。</p>
 
       
 
@@ -285,11 +276,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
         		</li>
       		
 		</ul>
@@ -302,7 +289,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
+        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
         		</li>
       		
 		</ul>
@@ -357,7 +344,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/05/ArrayList类/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -371,18 +358,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《复仇者联盟3：无限战争》
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/05/04/0-1背包问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">0-1背包问题</div>
+    <a href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">struts2传值方式与动态result</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,7 +390,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="ArrayList类" ></div> 
+  <div id="SOHUCS" sid="Word 操作在任意一页添加页码和页眉" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
