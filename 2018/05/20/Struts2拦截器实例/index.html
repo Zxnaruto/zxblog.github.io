@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Archives: 2018/5 | XiaoHuZiZx</title>
+  <title>Struts2拦截器实例 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/archives/2018/05/page/2/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个简单的拦截器的实例，通过拦截器实现用户权限的限制，只有用户名为zx的用户在登陆后可以访问note.jsp，其他用户如果访问这个界面就会跳回到登陆界面。下面我们来实现这个实例： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.编写拦截器代码：123456789101112131415161718public clas">
+<meta name="keywords" content="java,Struts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts2拦截器实例">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/20/Struts2拦截器实例/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个简单的拦截器的实例，通过拦截器实现用户权限的限制，只有用户名为zx的用户在登陆后可以访问note.jsp，其他用户如果访问这个界面就会跳回到登陆界面。下面我们来实现这个实例： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.编写拦截器代码：123456789101112131415161718public clas">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx06.png">
+<meta property="og:updated_time" content="2018-05-19T16:59:12.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="Struts2拦截器实例">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是一个简单的拦截器的实例，通过拦截器实现用户权限的限制，只有用户名为zx的用户在登陆后可以访问note.jsp，其他用户如果访问这个界面就会跳回到登陆界面。下面我们来实现这个实例： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.编写拦截器代码：123456789101112131415161718public clas">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,85 +203,86 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Struts2拦截器实例" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/">《复仇者联盟3：无限战争》</a>
+    <h1 class="article-title" itemprop="name">
+      Struts2拦截器实例
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/日常//" class="article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/05/ArrayList类/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
+        
+        <a href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/" class="archive-article-date">
+  	<time datetime="2018-05-19T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/05/ArrayList类/">Java ArrayList类实现与调用</a>
-    </h1>
-  
+        
+        
 
-        <div class="article-info info-on-right">
-          
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个简单的拦截器的实例，通过拦截器实现用户权限的限制，只有用户名为zx的用户在登陆后可以访问note.jsp，其他用户如果访问这个界面就会跳回到登陆界面。下面我们来实现这个实例：</p>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-1-编写拦截器代码："><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-1-编写拦截器代码：" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.编写拦截器代码："></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.编写拦截器代码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class LoginInterceptor extends AbstractInterceptor &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String intercept(ActionInvocation invocation) throws Exception &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line">		Map session=invocation.getInvocationContext().getSession();//接收LoginAction传来的值</span><br><span class="line">		//session=ActionContext.getContext().getSession();</span><br><span class="line">		if(session.get(&quot;loginSign&quot;)==null)&#123;//没传来</span><br><span class="line">			return &quot;login&quot;;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			String result=invocation.invoke();//invocation调用，相当于success</span><br><span class="line">			return result;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-2-编写LoginAction代码："><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-2-编写LoginAction代码：" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.编写LoginAction代码："></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.编写LoginAction代码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class LoginAction extends ActionSupport&#123;</span><br><span class="line"></span><br><span class="line">	private String username;</span><br><span class="line">	@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line">	Map session;//声明map</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public String execute() throws Exception&#123;</span><br><span class="line">		if(username.equals(&quot;zx&quot;))&#123;</span><br><span class="line">			session=ActionContext.getContext().getSession();</span><br><span class="line">			session.put(&quot;loginSign&quot;, &quot;loginSuccess&quot;);//map传值</span><br><span class="line">			return &quot;success&quot;;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return &quot;login&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getUsername() &#123;</span><br><span class="line">		return username;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setUsername(String username) &#123;</span><br><span class="line">		this.username = username;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-3-配置struts-xml"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-3-配置struts-xml" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.配置struts.xml:"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.配置struts.xml:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line">&lt;package name=&quot;tokenTest&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line">&lt;interceptors&gt;</span><br><span class="line">&lt;interceptor name=&quot;auth&quot; class=&quot;indi.zx.interceptor.LoginInterceptor&quot;&gt;</span><br><span class="line">&lt;/interceptor&gt;</span><br><span class="line">&lt;interceptor-stack name=&quot;authStack&quot;&gt;</span><br><span class="line">&lt;interceptor-ref name=&quot;auth&quot;&gt;&lt;/interceptor-ref&gt;</span><br><span class="line">&lt;interceptor-ref name=&quot;defaultStack&quot;&gt;&lt;/interceptor-ref&gt;</span><br><span class="line">&lt;/interceptor-stack&gt;</span><br><span class="line">&lt;/interceptors&gt;</span><br><span class="line">&lt;!-- 注意：动作名称与jsp名称不能相同 --&gt;</span><br><span class="line">&lt;action name=&quot;loginzx&quot; class=&quot;indi.zx.action.LoginAction&quot;&gt;</span><br><span class="line">&lt;result name=&quot;success&quot;&gt;login.jsp&lt;/result&gt;</span><br><span class="line">&lt;result name=&quot;login&quot;&gt;login.jsp&lt;/result&gt;</span><br><span class="line">&lt;/action&gt;</span><br><span class="line"></span><br><span class="line">&lt;action name=&quot;note&quot;&gt;</span><br><span class="line">&lt;result&gt;note.jsp&lt;/result&gt;</span><br><span class="line">&lt;result name=&quot;login&quot;&gt;index.jsp&lt;/result&gt;</span><br><span class="line">&lt;interceptor-ref name=&quot;authStack&quot;&gt;&lt;/interceptor-ref&gt;</span><br><span class="line">&lt;/action&gt;</span><br><span class="line">&lt;/package&gt;</span><br><span class="line"></span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-4-编写index-jsp"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-4-编写index-jsp" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.编写index.jsp:"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.编写index.jsp:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;loginzx.action&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    姓名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;</span><br><span class="line">    密码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-5-编写login-jsp"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-5-编写login-jsp" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.编写login.jsp:"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.编写login.jsp:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">要引入标签：</span><br><span class="line">&lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot; %&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    欢迎用户：&lt;s:property value=&quot;username&quot; /&gt;&lt;br&gt;</span><br><span class="line">  &lt;a href=&quot;&lt;%=request.getContextPath() %&gt;/note.action&quot;&gt;访问note&lt;/a&gt;&lt;br&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-6-编写note-jsp"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-6-编写note-jsp" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.编写note.jsp:"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.编写note.jsp:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  您已登陆，可以操作&lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-7-结果显示："><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-7-结果显示：" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.结果显示："></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.结果显示：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx01.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除zx任意用户登陆：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx02.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx03.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;访问note:<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx01.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zx用户登陆:<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx05.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;访问note:<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/strutsInEx06.png" alt=""><br><br></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
+<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
+<li>另外，基础struts工程的创建这里就不叙述了，如果不太清楚可以访问：<a href="https://zxnaruto.github.io/zxblog.github.io/2018/05/11/struts2应用之一HelloWorld">Sturts2之HelloWorld</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -278,350 +292,135 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+     
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/20/Struts2拦截器实例/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/04/0-1背包问题/" class="archive-article-date">
-  	<time datetime="2018-05-03T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Struts2自定义拦截器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/04/0-1背包问题/">0-1背包问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/04/自典序问题/" class="archive-article-date">
-  	<time datetime="2018-05-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/04/自典序问题/">字典序问题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/03/贪吃蛇小游戏/" class="archive-article-date">
-  	<time datetime="2018-05-03T11:33:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/03/贪吃蛇小游戏/">贪吃蛇小游戏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/游戏开发//" class="article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/03/学生信息管理系统/" class="archive-article-date">
-  	<time datetime="2018-05-03T09:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/03/学生信息管理系统/">学生信息管理系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/C语言类//" class="article-tag-list-link color5">C语言类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/03/自动扩充数组/" class="archive-article-date">
-  	<time datetime="2018-05-02T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/03/自动扩充数组/">自动扩充数组</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/03/启程/" class="archive-article-date">
-  	<time datetime="2018-05-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/03/启程/">启程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zxblog.github.io/archives/2018/05/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/archives/2018/05/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+  <div id="SOHUCS" sid="Struts2拦截器实例" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
   
 
+  
 
+  
 
-<!--PC��WAP����Ӧ��-->
-<div id="SOHUCS" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = 'cytAwfJDC'; 
-var conf = 'prod_269e22fa7b64cfca16d4b4115a58652c'; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
           </div>
         </div>
@@ -656,8 +455,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
