@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Archives: 2018/5 | XiaoHuZiZx</title>
+  <title>算法原理总结 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/archives/2018/05/index.html">
+  <meta name="description" content="一、递归1.概念：直接或间接的调用自身。2.递归实现原理(个人理解)：类似于栈，先进后出，递归先把一个问题分成n个规模，先将这n个问题按n,n-1,…….1,放入栈中，然后从1开始解，这是得到一个结果，返回给返回给2(第二层)，第二层在此基础上计算，再返回一个值，最终到n，结果也就出来了。3.说明：(1)递归每一次调用自身，都会进一步得到最终结果，适用于具有一定规律，且可以将问题划分为多个与元问题">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法原理总结">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/21/算法原理总结/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、递归1.概念：直接或间接的调用自身。2.递归实现原理(个人理解)：类似于栈，先进后出，递归先把一个问题分成n个规模，先将这n个问题按n,n-1,…….1,放入栈中，然后从1开始解，这是得到一个结果，返回给返回给2(第二层)，第二层在此基础上计算，再返回一个值，最终到n，结果也就出来了。3.说明：(1)递归每一次调用自身，都会进一步得到最终结果，适用于具有一定规律，且可以将问题划分为多个与元问题">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-21T15:32:58.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="算法原理总结">
+<meta name="twitter:description" content="一、递归1.概念：直接或间接的调用自身。2.递归实现原理(个人理解)：类似于栈，先进后出，递归先把一个问题分成n个规模，先将这n个问题按n,n-1,…….1,放入栈中，然后从1开始解，这是得到一个结果，返回给返回给2(第二层)，第二层在此基础上计算，再返回一个值，最终到n，结果也就出来了。3.说明：(1)递归每一次调用自身，都会进一步得到最终结果，适用于具有一定规律，且可以将问题划分为多个与元问题">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,36 +195,86 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-算法原理总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      算法原理总结
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/21/算法原理总结/" class="archive-article-date">
+
+        
+        <a href="/zxblog.github.io/2018/05/21/算法原理总结/" class="archive-article-date">
   	<time datetime="2018-05-21T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/21/算法原理总结/">算法原理总结</a>
-    </h1>
-  
+        
+        
 
-        <div class="article-info info-on-right">
-          
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、递归"><a href="#一、递归" class="headerlink" title="一、递归"></a>一、递归</h4><p>1.概念：直接或间接的调用自身。<br>2.递归实现原理(个人理解)：类似于栈，先进后出，递归先把一个问题分成n个规模，先将这n个问题按n,n-1,…….1,放入栈中，然后从1开始解，这是得到一个结果，返回给返回给2(第二层)，第二层在此基础上计算，再返回一个值，最终到n，结果也就出来了。<br>3.说明：<br>(1)递归每一次调用自身，都会进一步得到最终结果，适用于具有一定规律，且可以将问题划分为多个与元问题相同的子问题。<br>(2)这类问题往往用递推可以解，但是你会发现在n不确定时无法入手，即便在n确定的情况下，如果n过大，则会导致递推的代码量十分臃肿。所以之所以用递归而非递推是由于一般递推的步骤过于繁琐。运用递归可以简化代码，但同样有缺点，就是问题规模很大时，问题计算的时间复杂度就会越高，总之就是效率不高，不适合处理子问题数量十分大的问题。<br><a id="more"></a><br>4.例子：<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://github.com/Zxnaruto/JavaDataStructure/tree/master/BinarySearch(折半查找" target="_blank" rel="noopener">折半查找</a>)</p>
+<h4 id="二、分治策略"><a href="#二、分治策略" class="headerlink" title="二、分治策略"></a>二、分治策略</h4><p>1.概念：将一个规模为n的问题分解为k个规模较小的子问题，这些子问题相互独立且与原问题相同，递归的解这些子问题，然后将子问题合并得到原问题的解。<br>2.适用情况：<br>(1)整体问题难以解决，但问题的规模缩小到一定的规模就可以较容易地解决。<br>(2)问题可以分解为若干个规模较小的模式相同的子问题，即该问题具有最优子结构性质。<br>(3)合并问题分解出的子问题的解可以得到问题的解。<br>(4)问题所分解出的各个子问题之间是独立的，即子问题之间不存在公共的子问题。<br>3.说明：<br>分治法是对一些用普通递推难以解决的问题给出了一个有效的解决方法，但由于是以递归为基础的，所以缺点自然而然和上面一样，如果问题规模很大，则时间复杂度会很高。同时，分治法也有它相应的难点，其在于找到一种有效划分子问题的方法。这就需要多练习来找感觉了。<br>4.例子：<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://github.com/Zxnaruto/JavaDataStructure/tree/master/HalfOfTheSet(半数集" target="_blank" rel="noopener">半数集</a>)</p>
+<h4 id="三、动态规划"><a href="#三、动态规划" class="headerlink" title="三、动态规划"></a>三、动态规划</h4><p>1.概念：这个方法也是通过子问题来求解最终问题，但与分治法不同的是，这些子问题相互之间不独立，所以这时就需要在解决一个子问题后记录下它的值，在以后不管什么时候用到直接调用。避免重复计算，即在该计算中，填表是十分重要的。<br>2.适用情况：<br>(1)问题包含最优子结构性质：所谓最优子结构性质，就是当问题的最优解包含其子问题的的最优解。举个例子：在单源点最短路径中，如果1到5的最短路径为1-&gt;3-&gt;5,这时可以知道1到3的最优解为1-&gt;3。即后一步的最优解都包含上一步的最优解。<br>(2)子问题重叠性质：在解决问题的时候，往往会计算许多重复的子问题，为了避免这样，就需要把每次计算的结果放到一个表中。避免重复计算，当再次用到时，只是简单的查下表就可以了。<br>3.说明：与分治法一样，该方法也要每个子问题都要找，但由于子问题之间不相互独立，所以为了不重复解决子问题，动态规划法利用一个表来记录计算过的结果，这样节省了许多时间。<br>4.例子：<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://github.com/Zxnaruto/JavaDataStructure/tree/master/0-1BagProblem%EF%BC%88背包问题%EF%BC%89" target="_blank" rel="noopener">背包问题</a></p>
+<h4 id="四、贪心法"><a href="#四、贪心法" class="headerlink" title="四、贪心法"></a>四、贪心法</h4><p>1.概念：贪心算法总是做出当前看来是最好的选择，它不从整体最优考虑，其所做出的选择只是在某种意义上的局部最优选择。<br>2.适用情况：<br>(1)贪心选择性质：所谓贪心选择性质是指所求问题的整体最优解可以通过一系列局部最优选择，即贪心选择来达到，这是贪心算法与动态规划的主要区别。<br>(2)最优子结构性质：与上面的含义相同。<br>3.说明：贪心算法实质就是通过局部最优来求解最终结果的最优，仅在当前状态下做出最好选择，然后再去解做出这个选择后产生的相应的子问题。贪心法并不每个问题都要计算，只选取局部最优，最终得到全局最优。但其有个明显的缺点那就是不可靠，有可能返回的是错误的结果，但这种几率一般比较小。<br>4.例子：<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://github.com/Zxnaruto/JavaDataStructure/tree/master/TheShortestPathOfTheUnitPoint(单源点最短路径" target="_blank" rel="noopener">单源点最短路径</a>)</p>
+<h4 id="五、回溯法"><a href="#五、回溯法" class="headerlink" title="五、回溯法"></a>五、回溯法</h4><p>1.概念：按照深度优先原则，每个节点都要找，只要是符合问题所约束的条件都可以。</p>
+<h4 id="六、分支限界法"><a href="#六、分支限界法" class="headerlink" title="六、分支限界法"></a>六、分支限界法</h4><p>1.概念：按照广度优先原则，只要找到符合约束条件的结果就停止搜索，返回结果。</p>
+<h4 id="七、随机化算法"><a href="#七、随机化算法" class="headerlink" title="七、随机化算法"></a>七、随机化算法</h4><p>1.概念：所谓随机化算法，就是通过随机产生的结果作为问题的输入，从而得出问题的解。<br>2.适用情况：<br>(1)一般隐式的用于完美散列和通用散列。<br>(2)测试大数是否是素数的随机化算法。<br>3.例子：<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <a href="https://github.com/Zxnaruto/JavaDataStructure/tree/master/PrimeTest(素性测试" target="_blank" rel="noopener">素性测试</a>)</p>
+<p><br></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
+<li>未完还带补充。</li>
+<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
+<li>另外，如需更多代码请访问我的Github：<a href="https://github.com/Zxnaruto/JavaDataStructure" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,7 +286,8 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+     
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -244,498 +300,115 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/21/算法原理总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/" class="archive-article-date">
-  	<time datetime="2018-05-19T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Struts2拦截器实例</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/">Struts2拦截器实例</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" class="archive-article-date">
-  	<time datetime="2018-05-18T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">Struts2自定义拦截器</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" class="archive-article-date">
-  	<time datetime="2018-05-17T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/">Word 操作在任意一页添加页码和页眉</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/" class="archive-article-date">
-  	<time datetime="2018-05-13T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/">struts2传值方式与动态result</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/13/复联3观后感/" class="archive-article-date">
-  	<time datetime="2018-05-13T04:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/13/复联3观后感/">复联3观后感</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/日常//" class="article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/11/JNI简单应用之java访问c/" class="archive-article-date">
-  	<time datetime="2018-05-11T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/11/JNI简单应用之java访问c/">JNI简单应用之java访问c</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/游戏开发//" class="article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/11/struts2应用之一HelloWorld/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:22:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/11/struts2应用之一HelloWorld/">struts2应用之一HelloWorld</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/08/在1~n中随机产生m个互不相同的数/" class="archive-article-date">
-  	<time datetime="2018-05-08T12:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/08/在1~n中随机产生m个互不相同的数/">在1~n中随机产生m个互不相同的数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/08/不溢出随机数发生器/" class="archive-article-date">
-  	<time datetime="2018-05-08T10:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/08/不溢出随机数发生器/">不溢出随机数发生器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/archives/2018/05/page/2/">2</a><a class="extend next" rel="next" href="/zxblog.github.io/archives/2018/05/page/2/">Next &raquo;</a>
-    </nav>
+  
+  <div id="SOHUCS" sid="算法原理总结" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
   
 
+  
 
+  
 
-<!--PC��WAP����Ӧ��-->
-<div id="SOHUCS" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = 'cytAwfJDC'; 
-var conf = 'prod_269e22fa7b64cfca16d4b4115a58652c'; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
           </div>
         </div>
@@ -770,8 +443,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
