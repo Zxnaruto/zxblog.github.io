@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Hibernate框架结构 | XiaoHuZiZx</title>
+  <title>Tag: sql | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.如图">
-<meta name="keywords" content="java,Hibernate">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hibernate框架结构">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/07/04/Hibernate框架结构/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="XiaoHuZiZx">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/tags/sql/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="1.如图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Hibernate.jpg">
-<meta property="og:updated_time" content="2018-07-05T01:05:59.476Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hibernate框架结构">
-<meta name="twitter:description" content="1.如图">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Hibernate.jpg">
+<meta name="twitter:title" content="XiaoHuZiZx">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -197,236 +190,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hibernate框架结构" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Hibernate框架结构
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-new">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/" class="archive-article-date">
+  	<time datetime="2018-07-05T06:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">数据库表与表之间的关系</a>
     </h1>
   
 
-        
-        <a href="/zxblog.github.io/2018/07/04/Hibernate框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-04T13:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        
-        
-
-		<span class="archive-article-date">
-			浏览次数: <span id="busuanzi_value_page_pv"></span>
-		</span>
-        
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-如图"><a href="#1-如图" class="headerlink" title="1.如图"></a>1.如图</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Hibernate.jpg" alt=""><br><a id="more"></a></p>
-<h4 id="2-说明"><a href="#2-说明" class="headerlink" title="2.说明"></a>2.说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate是一个开放源码的ORM(Object Relation Mapping 对象关系映射)框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用面向对象编程思维来操纵数据库。因此Hibernate是传统 Java 对象和数据库服务器之间的桥梁，用来处理基于 O/R 映射机制和模式的那些对象。</p>
-<h4 id="3-Hibernate-优势"><a href="#3-Hibernate-优势" class="headerlink" title="3.Hibernate 优势"></a>3.Hibernate 优势</h4><ul>
-<li>Hibernate 使用 XML 文件来处理映射 Java 类别到数据库表格中，并且不用编写任何代码。</li>
-<li>为在数据库中直接储存和检索 Java 对象提供简单的 APIs。</li>
-<li>如果在数据库中或任何其它表格中出现变化，那么仅需要改变 XML 文件属性。</li>
-<li>抽象不熟悉的 SQL 类型，并为我们提供工作中所熟悉的 Java 对象。</li>
-<li>Hibernate 不需要应用程序服务器来操作。</li>
-<li>操控你数据库中对象复杂的关联。</li>
-<li>最小化与访问数据库的智能提取策略。</li>
-<li>提供简单的数据询问。<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate框架就是为了方便对数据库的操作，同时，也是为了完成数据持久化。</li>
-</ul>
-<p><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>如有不正确还请见谅。</li>
-<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto/JavaDataStructure" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+          
 
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/07/04/Hibernate框架结构/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/zxblog.github.io/2018/07/05/MyEclipse逆向生成Hibernate对象关系/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MyEclipse逆向生成Hibernate对象关系
-        
-      </div>
-    </a>
   
   
-    <a href="/zxblog.github.io/2018/07/04/Struts2综合应用之NinjaManagementSystem-忍者信息管理系统/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Struts2综合应用之NinjaManagementSystem(忍者信息管理系统)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Hibernate框架结构" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytAwfJDC",
-        conf: "69772892f08535443ed942691be63dc1"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -462,9 +279,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

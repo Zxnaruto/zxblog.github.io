@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>XiaoHuZiZx</title>
+  <title>数据库表与表之间的关系 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="layout: newtitle: 数据库表与表之间的关系date: 2018-07-05 14:26:30 tags:  - sql categories: — 1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对">
+  <meta name="description" content="1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对多关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约">
+<meta name="keywords" content="sql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XiaoHuZiZx">
+<meta property="og:title" content="数据库表与表之间的关系">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/07/05/数据库表与表之间的关系/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="layout: newtitle: 数据库表与表之间的关系date: 2018-07-05 14:26:30 tags:  - sql categories: — 1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对">
+<meta property="og:description" content="1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对多关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T06:29:00.754Z">
+<meta property="og:updated_time" content="2018-07-05T06:33:33.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
-<meta name="twitter:description" content="layout: newtitle: 数据库表与表之间的关系date: 2018-07-05 14:26:30 tags:  - sql categories: — 1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对">
+<meta name="twitter:title" content="数据库表与表之间的关系">
+<meta name="twitter:description" content="1.一对一关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。 2.一对多关系&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -194,17 +195,35 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据库表与表之间的关系" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="new-数据库表与表之间的关系" class="article article-type-new " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库表与表之间的关系
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/" class="archive-article-date">
+  	<time datetime="2018-07-05T06:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        
+        
+
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>layout: new<br>title: 数据库表与表之间的关系<br>date: 2018-07-05 14:26:30</p>
-<p>tags: </p>
-<pre><code>- sql
-</code></pre><p>categories: —</p>
-<h4 id="1-一对一关系"><a href="#1-一对一关系" class="headerlink" title="1.一对一关系"></a>1.一对一关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。</p>
+        <h4 id="1-一对一关系"><a href="#1-一对一关系" class="headerlink" title="1.一对一关系"></a>1.一对一关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。</p>
 <h4 id="2-一对多关系"><a href="#2-一对多关系" class="headerlink" title="2.一对多关系"></a>2.一对多关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约束。<br><a id="more"></a></p>
 <h4 id="3-多对多关系"><a href="#3-多对多关系" class="headerlink" title="3.多对多关系"></a>3.多对多关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓多对多关系，就是要在两张表之外，在建立一个关联表，对关联表创建联合主键，以及相关属性关联外键。注意：改变的是关联表，且要先创建联合主键再关联外键。</p>
 <h5 id="nbsp-nbsp-nbsp-注："><a href="#nbsp-nbsp-nbsp-注：" class="headerlink" title="&nbsp;&nbsp;&nbsp;注："></a>&nbsp;&nbsp;&nbsp;注：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;外键：如果公共关键字在一个关系中是主关键字，那么这个公共关键字被称为另一个关系的外键。由此可见，外键表示了两个关系之间的联系。以另一个关系的外键作主关键字的表被称为主表，具有此外键的表被称为主表的从表。外键又称作外关键字。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 个人理解：一个表的属性是另一个表的主键，它们之间有关联。只有这另一个表里有那条属性的值，原表才可以包含相应的值。</p>
@@ -252,6 +271,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
      
       
 
@@ -487,14 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -503,11 +525,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,7 +541,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
