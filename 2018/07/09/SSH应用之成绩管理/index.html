@@ -37,10 +37,21 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH18.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH19.jpg">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH26.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH29.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH30.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH31.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH32.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH33.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH34.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH35.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH21.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH22.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH23.png">
-<meta property="og:updated_time" content="2018-07-09T08:17:32.414Z">
+<meta property="og:updated_time" content="2018-07-09T08:35:32.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH应用之成绩管理">
 <meta name="twitter:description" content="一、总体设计1.1 数据库设计&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(c">
@@ -260,29 +271,9 @@ var _hmt = _hmt || [];
 <p> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH20.png" alt="">  </p>
 <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (8)在struts.xml中配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"> &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"> &lt;action name=&quot;score&quot; class=&quot;edu.rg.score.action.HelloAction&quot;&gt;</span><br><span class="line"> &lt;result name=&quot;success&quot;&gt;index.jsp&lt;/result&gt;</span><br><span class="line">&lt;/action&gt;</span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure>
-<p><br><br>  &nbsp; &nbsp;&nbsp;&nbsp;2.学生成绩信息添加<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (1)在ScoreDao类中添加增加学生信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> //添加学生信息</span><br><span class="line"> public void addScore(Score score)&#123;</span><br><span class="line"> this.getHibernateTemplate().save(score);&#125;</span><br><span class="line"> </span><br><span class="line">```  </span><br><span class="line"> &lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (2)在ScoreService类中编写调用dao的方法</span><br></pre></td></tr></table></figure></p>
-<p>//新增<br> public boolean addScore(Score score){<br>  try {scoreDao.addScore(score);<br>      return true;<br>    } catch (Exception e) {<br>    // TODO: handle exception<br>    e.printStackTrace();<br>     }return false;}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (3)在HelloAction类中引入dao实体</span><br></pre></td></tr></table></figure>
-<p> //新增学员信息<br> public String add(){<br> boolean flag=scoreService.addScore(score);<br>    if(flag){<br>    message=”<script>alert(‘新增成功’)</script>“;<br>    return execute();//如果添加成功，则刷新列表<br>    }else{<br>    message=”<script>alert(‘新增失败’)</script>“;<br>    return “false”;}}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (4)新建add.jsp，作为添加页面，单标签action的地址</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp; 提交元素的name属性</span><br></pre></td></tr></table></figure>
-<p>  body style=”background: url(images/6.jpg)”&gt;<br>   <center><br>   <form action="score!add" method="post"><br>    <p>添加学生考试信息</p><br>    <p>学号：<input type="text" name="score.stuNo"></p><br>    <p>姓名：<input type="text" name="score.stuName"></p><br>    <p>平时：<input type="text" name="score.dailyScore"></p><br>    <p>考试：<input type="text" name="score.examScore"></p><br>     <p>班级：<br>       <select name="score.clsNo"><br>       <option value="no1">计科01班</option><br>       <option value="no2">计科02班</option><br>        option value=”no3”&gt;计科03班<br>        </select><br>         </p><br>      <p><input type="submit" value="提交"></p><br>      </form><br>      </center><br>   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  (5)在index.jsp中添加页面跳转</span><br></pre></td></tr></table></figure>
-<p> input align=”middle” onclick=”location.href=’add.jsp’” type=”button”<br>    value=”新增学员考试信息”&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;3.学生成绩信息修改与删除</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  (1)在ScoreDao类中添加个根据id查询学生成绩信息、修改学生信息及删除学生信息</span><br></pre></td></tr></table></figure>
-<p> //删除学生信息<br> public void delScore(Score score){<br>   this.getHibernateTemplate().delete(score);}<br> //通过ID查询学生信息<br> public Score getScore(String id){<br>   return this.getHibernateTemplate().get(Score.class, id);}<br> //通过ID修改学生信息<br> public void updateScore(Score score){<br>   this.getHibernateTemplate().bulkUpdate(“update Score set stuName<br>    = ?,dailyScore = ?,”+”examScore = ?,clsNo=? where stuNo=?”,<br> score.getStuName(),score.getDailyScore(),score.getExamScore(),score.getClsNo(),score.getStuNo());}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (2)在Score1Service类中添加调用dao的方法</span><br></pre></td></tr></table></figure>
-<p>//删除<br>public boolean delScore(Score score){<br>     try {scoreDao.delScore(score);<br>    return true;} catch (Exception e) {<br>    // TODO: handle exception<br>    e.printStackTrace();}<br>     return false;}<br>//根据ID查对象<br>public Score getScore(String id){Score score=null;<br>    try {score = scoreDao.getScore(id);<br>    return score;} catch (Exception e) {<br>    // TODO: handle exception<br>    e.printStackTrace();}<br>    return score;}<br> //修改学生考试成绩<br> public boolean updateScore(Score score){<br>     try {scoreDao.updateScore(score);<br>     return true;} catch (Exception e) {<br>     // TODO: handle exception<br>      e.printStackTrace();}<br>      return false;}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line"> &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (3)在HelloAction类中添加执行</span><br></pre></td></tr></table></figure>
-<p>//删除学员信息<br>public String del(){<br>   boolean flag=scoreService.delScore(score);<br>   if(flag){message=”<script>alert(‘删除成功’)</script>“;<br>    return execute();//如果添加成功，则刷新列表}else{<br>    message=”<script>alert(‘删除失败’)</script>“;<br>    return “false”;}}<br>//根据ID查到这个学生成绩对象，把该对象转发到edit页面进行修改<br>public String toUpdate(){<br>    score = scoreService.getScore(score.getStuNo());<br>    if(score!=null){return “edit”;<br>    }else{return execute();}}<br>//修改学生成绩<br>public String doUpdate(){<br>    boolean flag=scoreService.updateScore(score);<br>     if(flag){message=”<script>alert(‘修改成功’)</script>“;<br>    return execute();//如果添加成功，则刷新列表<br>     }else{message=”<script>alert(‘修改失败’)</script>“;<br>    return “edit”;}}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (4)新建edit.jsp,为修改页面</span><br></pre></td></tr></table></figure>
-<p> body&gt;<br>   <center><br>   <form action="score!doUpdate" method="post"><br>    <!-- 将不用修改的score.stuNo放入隐藏作用域 --><br>    <input type="hidden" name="score.stuNo" value="${score.stuNo}"><br>    <p>编辑学生考试信息</p><br>    <p>姓名：<input type="text" name="score.stuName" value="${score.stuName}"></p><br>    <p>平时：<input type="text" name="score.dailyScore" value="${score.dailyScore}"></p><br>     <p>考试：<input type="text" name="score.examScore" value="${score.examScore}"></p><br>     <p>班级：<br>     <select name="score.clsNo"><br>     <option value="no1">计科01班</option><br>     <option value="no2">计科02班</option><br>     <option value="no3">计科03班</option><br>     </select><br>       </p><br>    <p><input type="submit" value="提交"></p><br>     </form><br>     </center><br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (5)在index.jsp中添加页面跳转</span><br></pre></td></tr></table></figure>
-<td> a href=”javascript:void(0)” onclick=”if(confirm(‘你确定要删除吗？’)) {location.href =’score!del?score.stuNo=${score.stuNo}’}”&gt;删除/<br>  a href=”score!toUpdate?score.stuNo=${score.stuNo}”&gt;修改</td>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (6)在struts.xml中添加响应</span><br></pre></td></tr></table></figure>
-<result name="false">index.jsp</result><br><result name="edit">edit.jsp</result>
-
-<p><code>`</code></p>
+<p><br><br>  &nbsp; &nbsp;&nbsp;&nbsp;2.学生成绩信息添加<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (1)在ScoreDao类中添加增加学生信息<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH25.png" alt=""><br> <br><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (2)在ScoreService类中编写调用dao的方法<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH26.png" alt=""><br><br><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (3)在HelloAction类中引入dao实体<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH27.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (4)新建add.jsp，作为添加页面，单标签action的地址<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 提交元素的name属性</p>
+<p> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH28.png" alt="">  </p>
+<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  (5)在index.jsp中添加页面跳转<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH29.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;3.学生成绩信息修改与删除<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  (1)在ScoreDao类中添加个根据id查询学生成绩信息、修改学生信息及删除学生信息<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH30.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (2)在Score1Service类中添加调用dao的方法<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH31.png" alt=""><br> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (3)在HelloAction类中添加执行<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH32.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (4)新建edit.jsp,为修改页面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH33.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (5)在index.jsp中添加页面跳转<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH34.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (6)在struts.xml中添加响应<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH35.png" alt="">  </p>
 <h4 id="2-3-实现结果"><a href="#2-3-实现结果" class="headerlink" title="2.3 实现结果"></a>2.3 实现结果</h4><p>  &nbsp; &nbsp;&nbsp;&nbsp; 1.初始界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH21.png" alt=""><br> &nbsp; &nbsp;&nbsp;&nbsp; 2.修改界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH22.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp;  3.添加界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH23.png" alt="">  </p>
 <h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>&nbsp; &nbsp;&nbsp;&nbsp; 该成绩管理系统通过Struts作为动作的控制器、Hibernate和Spring作为数据库操作和依赖注入完成的一个简单的SSH框架的应用。<br><br></p>
 <h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
@@ -598,7 +589,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,11 +601,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,10 +618,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
