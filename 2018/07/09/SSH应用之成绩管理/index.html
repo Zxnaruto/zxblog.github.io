@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH21.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH22.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH23.png">
-<meta property="og:updated_time" content="2018-07-09T07:48:53.926Z">
+<meta property="og:updated_time" content="2018-07-09T07:58:42.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH应用之成绩管理">
 <meta name="twitter:description" content="一、总体设计1.1 数据库设计&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(c">
@@ -258,7 +258,7 @@ var _hmt = _hmt || [];
 <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  (6)在applicationContext.xml中对这三个类进行注入，举一个例子(dao注入)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- dao注入 --&gt;</span><br><span class="line"> &lt;bean id=&quot;scoreDao&quot; class=&quot;edu.rg.score.dao.ScoreDao&quot;&gt;</span><br><span class="line"> &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
 <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (7)在index.jsp中引入指令和添加迭代集合数据的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;</span><br></pre></td></tr></table></figure></p>
 <p> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH20.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (8)在struts.xml中配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"> &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"> &lt;action name=&quot;score&quot; class=&quot;edu.rg.score.action.HelloAction&quot;&gt;</span><br><span class="line"> &lt;result name=&quot;success&quot;&gt;index.jsp&lt;/result&gt;</span><br><span class="line">&lt;/action&gt;</span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure></p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;2.学生成绩信息添加<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (1)在ScoreDao类中添加增加学生信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> //添加学生信息</span><br><span class="line"> public void addScore(Score score)&#123;</span><br><span class="line"> this.getHibernateTemplate().save(score);&#125;</span><br><span class="line"> </span><br><span class="line">```  </span><br><span class="line"> </span><br><span class="line">  &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (2)在ScoreService类中编写调用dao的方法</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp; &nbsp;&nbsp;&nbsp;2.学生成绩信息添加<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (1)在ScoreDao类中添加增加学生信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void addScore(Score score)&#123;</span><br><span class="line">this.getHibernateTemplate().save(score);&#125; ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (2)在ScoreService类中编写调用dao的方法</span><br></pre></td></tr></table></figure></p>
 <p>//新增<br> public boolean addScore(Score score){<br>  try {scoreDao.addScore(score);<br>      return true;<br>    } catch (Exception e) {<br>    // TODO: handle exception<br>    e.printStackTrace();<br>     }return false;}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (3)在HelloAction类中引入dao实体</span><br></pre></td></tr></table></figure>
 <p> //新增学员信息<br> public String add(){<br> boolean flag=scoreService.addScore(score);<br>    if(flag){<br>    message=”<script>alert(‘新增成功’)</script>“;<br>    return execute();//如果添加成功，则刷新列表<br>    }else{<br>    message=”<script>alert(‘新增失败’)</script>“;<br>    return “false”;}}</p>
@@ -587,7 +587,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,11 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,7 +627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
