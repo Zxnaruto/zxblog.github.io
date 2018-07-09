@@ -1,0 +1,85 @@
+1.JNI是通过调用系统自带的库函数来进行装载生成的动态链接库，至于如何调用已经装在好的动态库中的函数，
+这和java运行基本程序一样，当程序用到方法时，自动会去相应的位置去调用。
+
+2.在java中，调用非静态方法需要对象的引用即实例化一个对象，而静态方法则调用类本身。
+  静态方法是属于类本身的，非静态方法是属于一个实例化对象的。
+  静态方法调用是对对象的引用，非静态方法的调用是对类本身的引用。
+
+
+
+
+git clone https://github.com/iissnan/hexo-theme-next themes/next
+
+https://github.com/iissnan/hexo-theme-next.git   Muse
+
+
+1.  git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+
+
+只取上一半表示取大于等于符号内数的最小整数，取下一半表示取小于等于符号内数的最大整数 
+
+畅言：
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cytAwfJDC'; 
+var conf = 'prod_269e22fa7b64cfca16d4b4115a58652c'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+<% if (!index && post.comments && config.disqus_shortname){ %>
+ <section id="comments">
+   <div id="disqus_thread">
+     这里还有很多代码
+   </div>
+ </section>
+ <% } %>
+
+<span id="busuanzi_container_page_pv">
+  浏览次数: <span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+<% if(!index){ %>
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+<% } %>
+
+
+![](https://zxnaruto.github.io/zxblog.github.io/codeimages/数组自增长度运行结果.png)
+&nbsp;
+---
+title: '自动扩充数组'
+
+date: 2018-05-03 01:20:00
+
+tags: 
+    - java
+    - LinkList
+categories: "算法和数据结构"
+
+---
+
+
+
+<!--more-->
+
+<br>
+#### 注:
+* 所做的分析都是笔者自己的见解，如有不正确还请见谅。
+* 另外，如需代码请访问我的Github：[https://github.com/Zxnaruto](https://github.com/Zxnaruto/JavaDataStructure)
+
+
+1.数据库含有外键要先更新非外键表（该属性在该表一般为主属性），再更新存在外键的表。
+2.spring 事务就是保证数据库的正常操作，操作正确更新，操作错误不更新，回滚。
+3.spring注入依靠配置文件.xml以及相应的get和set方法，调用或传递值
+4.spring aop可以针对某个方法或事物在其前后或返回结果时添加相应的动作。使功能更丰富
+
+#### 注:
+* 如有不正确还请见谅。
+* 另外，我做了一些关于Spring、Struts、Hibernate的小应用可以帮助理解这些框架，如需代码请访问我的Github：[https://github.com/Zxnaruto](https://github.com/Zxnaruto)

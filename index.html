@@ -192,6 +192,102 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SSH应用之成绩管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/">SSH应用之成绩管理</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/" class="archive-article-date">
+  	<time datetime="2018-07-09T07:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、总体设计"><a href="#一、总体设计" class="headerlink" title="一、总体设计"></a>一、总体设计</h3><h4 id="1-1-数据库设计"><a href="#1-1-数据库设计" class="headerlink" title="1.1 数据库设计"></a>1.1 数据库设计</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(clsNo)。其中学号为主键，班级编号为外键。<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring-框架结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1040,102 +1136,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Struts2自定义拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">Struts2自定义拦截器</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" class="archive-article-date">
-  	<time datetime="2018-05-18T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Struts2中我们可以自定义一个拦截器来拦截特定的方法，下面我们来实现一个基本的拦截器，并调用它，并调用未拦截的方法进行对比。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.创建拦截器类：新建包indi.zx.Interceptor,在该包中创建LoggerInterceptor类，该类继承自MethodFilterInterceptor，用来显示的显示拦截器调用了该方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author XiaoHuZiXianShengZx</span><br><span class="line"> * 自定义拦截器用于拦截特定的方法</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">@SuppressWarnings(&quot;serial&quot;)</span><br><span class="line">public class LoggerInterceptor extends MethodFilterInterceptor&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	protected String doIntercept(ActionInvocation chain) throws Exception &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;------前置拦截操作------&quot;);</span><br><span class="line">		String result=chain.invoke();//执行下一个操作，如：调用其他action或执行其他拦截器</span><br><span class="line">		System.out.println(&quot;------后置拦截操作------&quot;);</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1261,7 +1261,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,7 +1273,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,11 +1285,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,6 +1302,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
             
             <div class="clearfix"></div>
