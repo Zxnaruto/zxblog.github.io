@@ -6,16 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>categories | XiaoHuZiZx</title>
+  <title>JavaWeb:购物车 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/categories/index.html">
+  <meta name="description" content="一、说明这是一个JavaWeb购物车简单的应用。通过页面显示购物车和商品，顾客可以添加、修改、删除商品。有关购物车的商品信息会保存到数据库，下次登陆时自动读取。主要用到的技术：  (1)jquery (2)jQueryAjax (3)三层架构：web、service、dao (4)Servlet、jsp">
+<meta name="keywords" content="java,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb:购物车">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb-购物车/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、说明这是一个JavaWeb购物车简单的应用。通过页面显示购物车和商品，顾客可以添加、修改、删除商品。有关购物车的商品信息会保存到数据库，下次登陆时自动读取。主要用到的技术：  (1)jquery (2)jQueryAjax (3)三层架构：web、service、dao (4)Servlet、jsp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T03:37:57.697Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/shop01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/shop02.png">
+<meta property="og:updated_time" content="2018-08-21T17:08:55.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="JavaWeb:购物车">
+<meta name="twitter:description" content="一、说明这是一个JavaWeb购物车简单的应用。通过页面显示购物车和商品，顾客可以添加、修改、删除商品。有关购物车的商品信息会保存到数据库，下次登陆时自动读取。主要用到的技术：  (1)jquery (2)jQueryAjax (3)三层架构：web、service、dao (4)Servlet、jsp">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/shop01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -191,20 +198,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="categories-" class="article article-type-categories " itemscope itemprop="blogPost">
+            <article id="post-JavaWeb-购物车" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      JavaWeb:购物车
     </h1>
   
 
         
-        <a href="/zxblog.github.io/categories/index.html" class="archive-article-date">
-  	<time datetime="2018-05-01T02:24:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
+        <a href="/zxblog.github.io/2018/08/22/JavaWeb-购物车/" class="archive-article-date">
+  	<time datetime="2018-08-21T17:07:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
 </a>
         
         
@@ -219,7 +226,37 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>这是一个JavaWeb购物车简单的应用。通过页面显示购物车和商品，顾客可以添加、修改、删除商品。有关购物车的商品信息会保存到数据库，下次登陆时自动读取。<br>主要用到的技术：</p>
+<ul>
+<li>(1)jquery</li>
+<li>(2)jQueryAjax</li>
+<li>(3)三层架构：web、service、dao</li>
+<li>(4)Servlet、jsp <a id="more"></a>
+<h4 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h4></li>
+<li>1项目结构及所需jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/shop01.png" alt=""></li>
+<li>2.由于代码比较多，就举一些小部分来说明一下，如需完整代码，请访问我的github。</li>
+<li><p>3.在执行添加购物车时，先看数据库中是否有相同的，如果没有就添加，如果有就提示该商品已经在购物车，可以去购物车中进行操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public ReturnResult add(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line"></span><br><span class="line">	int flag=0;</span><br><span class="line">	boolean flag1=false;</span><br><span class="line">	ReturnResult result=new ReturnResult();</span><br><span class="line">	int id=Integer.parseInt(request.getParameter(&quot;id&quot;));</span><br><span class="line">	String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">	float price=Float.parseFloat(request.getParameter(&quot;price&quot;));</span><br><span class="line">	int num=Integer.parseInt(request.getParameter(&quot;num&quot;));</span><br><span class="line">	GoodsService goods = new GoodsServiceImpl();</span><br><span class="line">	flag1=goods.isExist(id);</span><br><span class="line">	if(flag1==true) &#123;</span><br><span class="line">		result.returnFail(&quot;该商品已经在购物车中！！！&quot;);</span><br><span class="line">		PrintUtil.write(result, response);</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">	flag=goods.add(id,name, price, num);</span><br><span class="line">	if(flag==1) &#123;</span><br><span class="line">		result.returnSuccess(&quot;添加购物车成功！！！&quot;);</span><br><span class="line">		 PrintUtil.write(result, response);</span><br><span class="line">	&#125;else &#123;	</span><br><span class="line">		result.returnFail(&quot;添加购物车失败！！！&quot;);</span><br><span class="line">		 PrintUtil.write(result, response);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.在jsp页面所做的操作，比如：单机按钮，之后的动作交给ajax去找相应的servlet，以添加购物车为例。这里面可以看出jquery是如何从页面获取数据，以及ajax是怎么调用servlet的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">function add_shoppingcart(btn) &#123;//将btn(dom)转换为jQuery对象 </span><br><span class="line">		//获取input标签的父类td 的所有元素</span><br><span class="line">		var tds = $(btn).parent().siblings();//获取商品的信息，有n列就有n个tds.eq(),里面的参数从零开始，siblings() 获得匹配集合中每个元素的同胞，通过选择器进行筛选是可选的。</span><br><span class="line">		var id=tds.eq(0).text();</span><br><span class="line">		var name = tds.eq(1).text();//商品名称，eq将匹配元素集合缩减为位于指定索引的新元素。</span><br><span class="line">		var price = tds.eq(2).text();//商品价格</span><br><span class="line">		var num=1;</span><br><span class="line">		</span><br><span class="line">		$.ajax(&#123;</span><br><span class="line">	        url:contextPath+&quot;/ShopCarServlet&quot;,//servlet路径</span><br><span class="line">	        method:&quot;post&quot;,//请求方式</span><br><span class="line">	        //传个servlet中add方法，servlet可以以id来获取页面id值</span><br><span class="line">	        //id:id 后面的id是ajax获取页面的id servlet可以</span><br><span class="line">	        //通过前面的id获取页面id值 request.getParam.....</span><br><span class="line">	        data:&#123;id:id,name:name,price:price,num:num,action:&quot;add&quot;&#125;,</span><br><span class="line">	        //收集返回的json串，判断是否成功</span><br><span class="line">	        success:function(jsonStr)&#123;</span><br><span class="line">	            var result=eval(&quot;(&quot;+jsonStr+&quot;)&quot;);</span><br><span class="line">	            </span><br><span class="line">	            if(result.status==1)&#123;</span><br><span class="line">	                 //在页面弹出对话框显示结果</span><br><span class="line">	            	alert(result.data);</span><br><span class="line">	            	//添加新行</span><br><span class="line">	            	var new_tr = $(&apos;&lt;tr&gt;&apos;</span><br><span class="line">	        				+&apos;&lt;td&gt;&apos;</span><br><span class="line">	        				+id</span><br><span class="line">	        				+&apos;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;td&gt;&apos;</span><br><span class="line">	        				+ name</span><br><span class="line">	        				+ &apos;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;td&gt;&apos;</span><br><span class="line">	        				+ price</span><br><span class="line">	        				+ &apos;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;td align=&quot;center&quot;&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;input type=&quot;button&quot; value=&quot;-&quot; onclick=&quot;change(this, -1);&quot;/&gt; &apos;</span><br><span class="line">	        				+ &apos;&lt;input type=&quot;text&quot; size=&quot;3&quot; readonly value=&quot;1&quot;/&gt; &apos;</span><br><span class="line">	        				+ &apos;&lt;input type=&quot;button&quot; value=&quot;+&quot; onclick=&quot;change(this, 1);&quot;/&gt; &apos;</span><br><span class="line">	        				+ &apos;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;td&gt;&apos;</span><br><span class="line">	        				+ price</span><br><span class="line">	        				+ &apos;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;td align=&quot;center&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;x&quot; onclick=&quot;del(this);&quot;/&gt;&lt;/td&gt;&apos;</span><br><span class="line">	        				+ &apos;&lt;/tr&gt;&apos;);</span><br><span class="line">	        		$(&quot;#goods&quot;).append(new_tr);//生成新行放在表的后面</span><br><span class="line">	        		total();//计算总价</span><br><span class="line">	            &#125;else&#123;</span><br><span class="line">	            	alert(result.message);</span><br><span class="line">	           </span><br><span class="line">	            &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;);</span><br><span class="line">					</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.在jsp页面加载时，自动调用js方法,这里是为了在每次添加、修改商品后可以重新计算价格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">window.onload=function()&#123;</span><br><span class="line">	var trs = $(&quot;#goods tr&quot;); // 获取tbody下的所有行，id选择器</span><br><span class="line">	var sum = 0;</span><br><span class="line">	for (var i = 0; i &lt; trs.length; i++) &#123;</span><br><span class="line">		var td = trs.eq(i).children().eq(4);// 获取每一行第5列的值</span><br><span class="line">		var m = td.text();</span><br><span class="line">		sum += parseFloat(m);</span><br><span class="line">	&#125;</span><br><span class="line">	$(&quot;#total&quot;).text(sum);//得到计算结果，并显示在td中</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.防止页面保留未操作前的页面显示，在相应执行方法后加如下代码(js)，就可自动刷新页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location.reload(true);//刷新一下页面</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7.EL表达式可以不用加“”就放在其中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  &lt;td align=&quot;center&quot;&gt;</span><br><span class="line">     &lt;input type=&quot;button&quot; value=&quot;-&quot; onclick=&quot;change(this, -1);&quot;/&gt; </span><br><span class="line">  &lt;input type=&quot;text&quot; size=&quot;3&quot; readonly value=$&#123;good.g_num&#125; /&gt; </span><br><span class="line">  &lt;input type=&quot;button&quot; value=&quot;+&quot; onclick=&quot;change(this, 1);&quot;/&gt; </span><br><span class="line">&lt;/td&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="三、结果显示"><a href="#三、结果显示" class="headerlink" title="三、结果显示"></a>三、结果显示</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/shop02.png" alt=""><br><br></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
+<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
+<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
+</ul>
+
       
 
       
@@ -258,8 +295,34 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
      
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -309,7 +372,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb-购物车/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,6 +384,25 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/zxblog.github.io/2018/08/22/JavaWeb小总结-Servlet传数据到jsp方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaWeb小总结+Servlet传数据到jsp方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/zxblog.github.io/2018/08/21/JavaWeb验证码：以登陆为例/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb验证码：以登陆为例</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -339,6 +421,26 @@ var _hmt = _hmt || [];
 </aside>
 
 
+
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid="JavaWeb-购物车" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -374,7 +476,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

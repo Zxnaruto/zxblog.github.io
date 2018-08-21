@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>categories | XiaoHuZiZx</title>
+  <title>JavaWeb小总结+Servlet传数据到jsp方式 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/categories/index.html">
+  <meta name="description" content="一、servlet传数据到jsp页面的方式1.利用session在同一个会话共享数据123 // 将数据存到session中以便于在前台获取HttpSession session = request.getSession();session.setAttribute(&amp;quot;***&amp;quot;, ***);">
+<meta name="keywords" content="java,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb小总结+Servlet传数据到jsp方式">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb小总结-Servlet传数据到jsp方式/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、servlet传数据到jsp页面的方式1.利用session在同一个会话共享数据123 // 将数据存到session中以便于在前台获取HttpSession session = request.getSession();session.setAttribute(&amp;quot;***&amp;quot;, ***);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T03:37:57.697Z">
+<meta property="og:updated_time" content="2018-08-21T17:30:29.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="JavaWeb小总结+Servlet传数据到jsp方式">
+<meta name="twitter:description" content="一、servlet传数据到jsp页面的方式1.利用session在同一个会话共享数据123 // 将数据存到session中以便于在前台获取HttpSession session = request.getSession();session.setAttribute(&amp;quot;***&amp;quot;, ***);">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -191,20 +195,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="categories-" class="article article-type-categories " itemscope itemprop="blogPost">
+            <article id="post-JavaWeb小总结-Servlet传数据到jsp方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      JavaWeb小总结+Servlet传数据到jsp方式
     </h1>
   
 
         
-        <a href="/zxblog.github.io/categories/index.html" class="archive-article-date">
-  	<time datetime="2018-05-01T02:24:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
+        <a href="/zxblog.github.io/2018/08/22/JavaWeb小总结-Servlet传数据到jsp方式/" class="archive-article-date">
+  	<time datetime="2018-08-21T17:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
 </a>
         
         
@@ -219,7 +223,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="一、servlet传数据到jsp页面的方式"><a href="#一、servlet传数据到jsp页面的方式" class="headerlink" title="一、servlet传数据到jsp页面的方式"></a>一、servlet传数据到jsp页面的方式</h4><p>1.利用session在同一个会话共享数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> // 将数据存到session中以便于在前台获取</span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">session.setAttribute(&quot;***&quot;, ***);</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>这样之后就可以用EL表达式调用你set的值，或者session.getAttribute(“”)<br>其中“”之中的为页面调用时所用的参数名,无“”的为你要传的具体值<br>2.利用可web全局上下文共享数据的ServletContext<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getServletContext.setAttribute(&quot;***&quot;,***);</span><br></pre></td></tr></table></figure></p>
+<p>之后在页面用&lt;%=application.getAttribute(“***”)%&gt;调用<br>3.request共享一次请求的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requesr.setAttribute(&quot;***&quot;,***);</span><br></pre></td></tr></table></figure></p>
+<p>页面：&lt;%=request.getAttribute(“***”)%&gt;</p>
+<h4 id="二、一般都以实体作为对象来查询数据-然后返回一个实体集合"><a href="#二、一般都以实体作为对象来查询数据-然后返回一个实体集合" class="headerlink" title="二、一般都以实体作为对象来查询数据,然后返回一个实体集合"></a>二、一般都以实体作为对象来查询数据,然后返回一个实体集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Goods&gt; show() &#123;</span><br><span class="line">	// TODO Auto-generated method stub</span><br><span class="line">	List&lt;Goods&gt; list=new ArrayList&lt;Goods&gt;();</span><br><span class="line">	String sql=&quot;select * from goods&quot;;</span><br><span class="line">	try &#123;</span><br><span class="line">		ps=conn.prepareStatement(sql);</span><br><span class="line">		rs=ps.executeQuery();</span><br><span class="line">		while(rs.next()) &#123;</span><br><span class="line">			Goods goods=new Goods();</span><br><span class="line">			goods.setG_id(rs.getInt(&quot;g_id&quot;));</span><br><span class="line">			goods.setG_name(rs.getString(&quot;g_name&quot;));</span><br><span class="line">			goods.setG_charge(rs.getFloat(&quot;g_charge&quot;));</span><br><span class="line">			goods.setG_num(rs.getInt(&quot;g_num&quot;));</span><br><span class="line">			list.add(goods);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		// TODO Auto-generated catch block</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在页面(这时为了在页面调用，就要用到上面的方法)输出的时候会调用相应实体的get方法。</p>
+<p><br></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
+<li>如有不正确还请见谅。</li>
+<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
+</ul>
+
       
 
       
@@ -258,8 +274,34 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
      
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -309,7 +351,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb小总结-Servlet传数据到jsp方式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,6 +363,16 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2018/08/22/JavaWeb-购物车/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb:购物车</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -339,6 +391,26 @@ var _hmt = _hmt || [];
 </aside>
 
 
+
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid="JavaWeb小总结-Servlet传数据到jsp方式" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -374,7 +446,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
