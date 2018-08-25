@@ -6,22 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>jQuery Ajax应用：以用户登陆为例 | XiaoHuZiZx</title>
+  <title>Servlet基础和原理 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
-<meta name="keywords" content="java,Servlet,jQuery Ajax">
+  <meta name="description" content="一、Servlet基础1.1. Web应用的演变 1.1.1. 单机程序软件从附着于电脑硬件之日起，就在不断的进行着自我完善和演变。从其使用模式的角度出发，可以简单分为单机程序和网络程序。发展到今时今日仍有大量的不依赖网络的单机程序被我们使用，如记事本、Excel、PPT、ZIP压缩等软件都是大家熟知的装机必备软件。">
+<meta name="keywords" content="java,Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery Ajax应用：以用户登陆为例">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/index.html">
+<meta property="og:title" content="Servlet基础和原理">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/25/Servlet基础和原理/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
+<meta property="og:description" content="一、Servlet基础1.1. Web应用的演变 1.1.1. 单机程序软件从附着于电脑硬件之日起，就在不断的进行着自我完善和演变。从其使用模式的角度出发，可以简单分为单机程序和网络程序。发展到今时今日仍有大量的不依赖网络的单机程序被我们使用，如记事本、Excel、PPT、ZIP压缩等软件都是大家熟知的装机必备软件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png">
-<meta property="og:updated_time" content="2018-08-12T03:22:36.577Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet06.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet07.png">
+<meta property="og:updated_time" content="2018-08-25T11:08:45.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery Ajax应用：以用户登陆为例">
-<meta name="twitter:description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png">
+<meta name="twitter:title" content="Servlet基础和原理">
+<meta name="twitter:description" content="一、Servlet基础1.1. Web应用的演变 1.1.1. 单机程序软件从附着于电脑硬件之日起，就在不断的进行着自我完善和演变。从其使用模式的角度出发，可以简单分为单机程序和网络程序。发展到今时今日仍有大量的不依赖网络的单机程序被我们使用，如记事本、Excel、PPT、ZIP压缩等软件都是大家熟知的装机必备软件。">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -197,20 +203,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jQuery-Ajax应用：以用户登陆为例" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Servlet基础和原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      jQuery Ajax应用：以用户登陆为例
+      Servlet基础和原理
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/" class="archive-article-date">
-  	<time datetime="2018-08-12T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+        <a href="/zxblog.github.io/2018/08/25/Servlet基础和原理/" class="archive-article-date">
+  	<time datetime="2018-08-25T11:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
 </a>
         
         
@@ -225,41 +231,105 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。<br>优点：响应速度更快<br>下面就以用户登陆为例来说明一下Ajax的具体实现<br><a id="more"></a></p>
-<h4 id="二、详细说明"><a href="#二、详细说明" class="headerlink" title="二、详细说明"></a>二、详细说明</h4><p>首先来说一下整个项目具体的结构，这里采用三层架构实现，即表示层(web)、业务逻辑层(service)、数据访问层(dao)。<br>下面是具体的结构，如图<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png" alt=""><br>其中util为工具包，里面包含数据库链接类、以json结果返回类和输出类。bean里面为实体分装用户对象。<br>页面部分以jsp为载体，login.jsp、loginsuccess.jsp、index.jsp 其中index是为了在启动是跳转到login.jsp而存在的。index由web.xml配置。<br>login.js:具体的ajax方法。</p>
-<p>该程序就是通过单击事件调用js中的以ajax为主体的方法，然后调用servlet，再调用service，在调用dao，结果以逆向方式返回，最终servlet返回一个json字符串给ajax,由ajax在页面响应结果是否正确。</p>
-<h4 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h4><p>1.login.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//登录的方法</span><br><span class="line">function login()&#123;</span><br><span class="line">    var name=$(&quot;#name&quot;).val();//通过id获取数据</span><br><span class="line">    var password=$(&quot;#password&quot;).val();</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:contextPath+&quot;/Login&quot;,</span><br><span class="line">        method:&quot;post&quot;,</span><br><span class="line">        data:&#123;action:&quot;check&quot;,name:name,password:password&#125;,</span><br><span class="line">        success:function(jsonStr)&#123;</span><br><span class="line">        	 var result = eval(&quot;(&quot;+jsonStr+&quot;)&quot;);</span><br><span class="line">            if(result.status==1)&#123;</span><br><span class="line">            	alert(result.data);</span><br><span class="line">                window.location.href=contextPath+&quot;/pre/loginsuccess.jsp&quot;;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">            	alert(result.message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 其中 var name=$(“#name”).val();就是通过id从表单中获取name的值<br>(2) url:contextPath+”/Login”: 就是要访问的servlet的路径<br>contextPath是在login.jsp通过引入c标签，获取的当前根目录的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;</span><br><span class="line">&lt;c:set var=&quot;ctx&quot; value=&quot;$&#123;pageContext.request.contextPath&#125;&quot; /&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">var contextPath=&quot;$&#123;ctx&#125;&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>(3) method:以post方式请求，这里请求的就是servlet中的doPost方法。<br>(4) data：就是所要传输的数据以及在servlet中调用的相应的方法。<br>(5) success:就是当执行成功时，接收servlet返回的json串，通过json串判断具体执行哪个方法。</p>
-<p>2.Login.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(urlPatterns = &#123; &quot;/Login&quot; &#125;, name = &quot;Login&quot;)</span><br><span class="line">public class Login extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line">	public Class getServletClass()&#123;</span><br><span class="line">		return Login.class;</span><br><span class="line">	&#125;</span><br><span class="line">	 @Override</span><br><span class="line">	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		doPost(req,resp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	@Override</span><br><span class="line">	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		</span><br><span class="line">		 String actionIndicator = req.getParameter(&quot;action&quot;);//获取servlet返回的字符串特指action</span><br><span class="line">		 Method method = null;</span><br><span class="line">	      //  Object result = null;</span><br><span class="line">	      </span><br><span class="line">            try &#123;</span><br><span class="line">            	//获取该类所需求的方法,这里指获取check方法</span><br><span class="line">				method = getServletClass().getDeclaredMethod(actionIndicator, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">				//执行方法</span><br><span class="line">				method.invoke(this, req, resp);//方法实现	</span><br><span class="line">			&#125; catch (NoSuchMethodException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (SecurityException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (IllegalArgumentException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (InvocationTargetException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">           </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">     * 登陆的方法</span><br><span class="line">     * @param request</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">public ReturnResult check(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">	    ReturnResult result=new ReturnResult();</span><br><span class="line">		boolean flag=false;</span><br><span class="line">		String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">		 String password=request.getParameter(&quot;password&quot;);</span><br><span class="line">		PersonService per=new PersonService();</span><br><span class="line">		flag=per.check(name, password);</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		if(flag==true) &#123;</span><br><span class="line"></span><br><span class="line">			result.returnSuccess(&quot;登陆成功&quot;);</span><br><span class="line">			 PrintUtil.write(result, response);//向ajax传值</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			result.returnFail(&quot;登陆失败&quot;);</span><br><span class="line">			 PrintUtil.write(result, response);</span><br><span class="line">	</span><br><span class="line">		&#125;</span><br><span class="line">		  </span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 在该servlet中，重写了doPost和doGet方法，通过ajax请求的方式而调用相应的方法，这里都是调用doPost方法<br>注意：由于servlet只会调用它原本由的方法，即你重写的它的原方法，要想调用自己写的方法，就需要在那些原有方法中执行自己写的方法。当然，也不是简单的调用，为了在调用的方法中再次实现servlet，则需要用下面的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//getServletClass()</span><br><span class="line">public Class getServletClass()&#123;</span><br><span class="line">		return Login.class;</span><br><span class="line">	&#125;</span><br><span class="line">//在doPost中调用所要调用的方法</span><br><span class="line">String actionIndicator = req.getParameter(&quot;action&quot;);//获取servlet返回的字符串特指action</span><br><span class="line">		 Method method = null;</span><br><span class="line">//获取该类所需求的方法,这里指获取check方法</span><br><span class="line">method = getServletClass().getDeclaredMethod(actionIndicator, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">//执行方法</span><br><span class="line">method.invoke(this, req, resp);//方法实现</span><br></pre></td></tr></table></figure></p>
-<p>这时项目在运行时会通过doPost再次调用check方法，最终完成具体操作。</p>
-<p>3.如何返回json串<br>(1) ReturnResult.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private int status;</span><br><span class="line">private Object data;</span><br><span class="line"></span><br><span class="line">public ReturnResult returnSuccess(Object obj)&#123;</span><br><span class="line">       this.status=Constants.ReturnResult.SUCCESS;</span><br><span class="line">       this.data=obj;</span><br><span class="line">       return this;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>(2)Constants.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * json 格式返回数据的 status 标示说明</span><br><span class="line">  */</span><br><span class="line"> public static interface ReturnResult&#123;</span><br><span class="line">     public static int SUCCESS=1;</span><br><span class="line">     public static int FAIL=-1;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以有上面可以知道，它会返回一个ReturnResult，其中包含status和data<br>然后通过PrintUtil.java转化成json串，以响应的方式来返回个ajax<br><code>`</code><br>public class PrintUtil {</p>
-<pre><code>private static void print(String msg,HttpServletResponse response){
-    PrintWriter writer=null;
-    try {
-        if(null != response){
-            writer=response.getWriter();
-            writer.print(msg);
-            writer.flush();
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }finally {
-        writer.close();
-    }
-}
-public static void write(Object obj,HttpServletResponse response){
-    response.setContentType(&quot;text/html; charset=utf-8&quot;);
-    String json = JSONObject.toJSONString(obj);
-    print(json,response);
-}
-</code></pre><p>}<br><code>`</code><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
-<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
+        <h3 id="一、Servlet基础"><a href="#一、Servlet基础" class="headerlink" title="一、Servlet基础"></a>一、Servlet基础</h3><h4 id="1-1-Web应用的演变"><a href="#1-1-Web应用的演变" class="headerlink" title="1.1. Web应用的演变"></a>1.1. Web应用的演变</h4><ul>
+<li>1.1.1. 单机程序<br>软件从附着于电脑硬件之日起，就在不断的进行着自我完善和演变。从其使用模式的角度出发，可以简单分为单机程序和网络程序。发展到今时今日仍有大量的不依赖网络的单机程序被我们使用，如记事本、Excel、PPT、ZIP压缩等软件都是大家熟知的装机必备软件。<a id="more"></a></li>
+<li>1.1.2. 网络程序<br>当电脑越来越多的参与到日常生产生活中，单机程序已经不能满足企业的需要。企业级应用要求能够最大程度的让更多的客户端参与到协同办公之中，所以依赖于网络的程序开始大力发展起来。最早的网络程序是基于主机+终端模式的，也就是整个应用中只有一台大型主机，各个操作地点都是使用一条专线与主机相连，终端不提供任何运算和界面，类似于Unix形式，所有的运算和处理都由主机来完成。主机一般处理能力非常强大，并且稳定，主要机型都是由IBM这样的大公司提供。但主机的高昂的价格以及扩展难、维护费用高等弊端并不是一般企业所能承受，所以除银行、航空订票、证券等大企业在使用以外，大多数企业开始转投CS架构的程序，即客户端服务器架构。</li>
+<li>1.1.3. 网络程序-CS架构<br>CS架构的发展过程经历了两层CS架构，三层CS架构以及多层CS架构的演变。<br>两层的CS架构是由客户端和后面的数据库组成的。数据库用于存放数据，并且使用数据库编程语言编写业务逻辑，客户端则使用VB、VC、Delphi这样的可视化编程方便的语言来开发客户端的输入输出界面。用户通过界面向服务器发送请求，服务器发回的数据则通过界面进行显示，服务器的角色就由数据库来充当。这样做的好处就是开发效率高，满足企业需求。但是这种架构存在着很大的弊端，第一是可移植性差，如当数据库从SQL Server更换为Oracle时就必须将业务逻辑用新的语言再重新编写一遍；第二则是大型系统做不了，因为客户端与数据库需要建立持续的连接，而数据库能够支持的最大连接数是有限制的。所以在2000年这样的架构流行之后，慢慢的就开始向三层CS架构转变。<br>三层的CS架构指的是客户端+应用服务器+数据库，即将混合在数据库端的业务逻辑从中分离出来，放入到应用服务器中，数据库只负责数据的管理、存储及检索。客户端负责界面。三层之中的应用服务器其实也是程序，类似于前面讲过的TCP、Socket编程，任何支持TCP编程的语言都可以作为应用服务器。三层CS架构的工作流程如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet01.png" alt=""><br>用户通过GUI（图形用户界面）进行操作，然后调用客户端的通信模块，通信模块依据自定义协议将请求数据打包，通过网络发送该请求，到达应用服务器时，应用服务器同样也有一个通信模块，将收到的数据包按照协议进行拆包，调用相应的业务处理模块，处理数据，其中可能需要访问数据库来完成数据的获取，将处理完的结果再次发送给通信模块，通信模块将结果按照自定义协议进行打包，然后将数据包发送给客户端的通信模块，客户端进行拆包获取响应数据，将结果显示在界面上，更新界面上的数据显示。<br>这样的程序结构虽然在一定程度上降低了对数据库编程的依赖，并且能够适应大型的应用程序，但数据通信模块的增加却提升了开发的难度以及整体架构的复杂度。</li>
+<li>1.1.4. 网络程序-BS架构<br>为了降低三层CS架构中与通信有关的复杂度，BS架构开始成为了网络程序中一大重要的架构类型。<br>BS架构即Browser + Web Server + DB。其工作流程如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet02.png" alt=""><br>由于三层CS架构中，自定义协议提升了整体的复杂度，那么就将自定义协议变成标准的HTTP协议。于是客户端使用HTTP协议进行数据打包拆包的程序即各厂商依据标准开发的浏览器，Web服务器也是基于HTTP协议由一些厂商提供，如IIS，Apache等。这样基于浏览器和服务器的架构中，由于协议已被限定，所以与通信有关的数据打包拆包的过程都不用我们开发人员来编写程序，只需要考虑将HTTP协议解析出来的数据进行业务处理，以及将什么样的结果提供给响应即可。也就是开发过程中只需要考虑7,8,9这三个步骤即可。于是大大降低了网络程序的开发难度，所以这种架构得到了大量的应用。<h4 id="1-2-什么是Servlet"><a href="#1-2-什么是Servlet" class="headerlink" title="1.2. 什么是Servlet"></a>1.2. 什么是Servlet</h4></li>
+<li>1.2.1. 扩展Web服务器功能<br>在BS架构中，早期的Web服务器只能处理静态资源的请求，也就是无法根据请求进行计算后再生成相应的HTML内容。为了补充Web服务器的这个缺陷，于是增强服务器功能的CGI技术最早产生了。CGI（Common Gateway Interface通用网关接口）也是一种规范，可以使用不同的语言来开发，如Perl，C，Java等都可以。当客户端请求静态资源时，Web服务器会自己处理并返回，当客户端请求动态资源时，Web服务器会把请求转交给扩展程序来处理，并将扩展程序的处理结果返回给客户端。但是CGI技术开发复杂，性能较差，只要有一个请求到达，Web服务器就会单独分配一个进程来进行处理，可移植性不好，所以慢慢就由后来的Servlet技术所取代。<br>Servlet技术是使用Java语言开发的一套组件规范，不再像CGI技术那样需要分配单独的进程来处理请求，而是单独分配一个线程来处理，于是大大提升了处理效率。并且Java语言是跨平台的语言，也提升了Web服务器扩展程序的可移植性，已经取代了CGI技术，成为BS架构中的主流技术。所有后续的BS架构中的主流框架本质上都是基于Servlet来实现的。</li>
+<li>1.2.2. 组件规范<br>组件规范是依靠一套API来实现的，也就是说开发中只要基于Sun公司提供的这套API，按照一定的规则来编写程序，那么就可以实现针对Web服务器的功能扩展。<br>但是组件只是对部分功能的一个实现，不能单独运行，必须放在一定的环境中才能运行。而这个针对各个组件进行管理、创建、销毁的运行环境即容器。</li>
+<li>1.2.3. Servlet组件运行原理<br>Servlet作为补充Web服务器功能的组件，需要依赖于Servlet容器才能运行，它的运行原理如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet03.png" alt=""><br>在浏览器中输入请求地址后，浏览器会依据IP地址及端口号找到对应的Web服务器，如果请求的是静态资源，Web服务器直接提供响应；如果请求的是动态资源，Web服务器的通信模块会将该请求传递给Servlet容器的通信模块，Servlet容器负责创建Servlet实例，并将请求中的数据解析出来传递给Servlet。在Servlet处理完数据之后，响应结果也是由容器的通信模块负责返回给Web服务器。后续的Servlet的销毁及管理都由容器来负责。<br>能够充当Servlet容器这个角色的有很多软件，如Tomcat、Weblogic、JBoss等。而这些Servlet容器不仅仅具备了管理Servlet组件的功能，也具备了Web服务器的一些功能，所以很多时候只要安装一个Tomcat软件就同时具备了Web服务器及Servlet容器的双重功能。<h4 id="1-3-常见错误及解决方法"><a href="#1-3-常见错误及解决方法" class="headerlink" title="1.3. 常见错误及解决方法"></a>1.3. 常见错误及解决方法</h4></li>
+<li>1.3.1. 404错误产生原因及解决方法<br>在刚开始进行Web应用开发的时候，经常看见页面出现404这个数字，我们一般会称之为运行产生了404错误。类似于404这个数字，还有可能在页面上看到405、500这两个数字，他们都是服务器执行完客户端的请求以后，返回给客户端的一个关于执行结果的状态编码说明。 如果在运行结果页面中没有看到期待的页面，却看到了404、405、500这样的数字，那么代表着服务器告诉客户端运行产生了错误，掌握何种错误情况产生对应的数字将有利于问题的解决。<br>404产生的原因为Web服务器（容器）根据请求地址找不到对应资源，以下情况都会出现404的错误提示：</li>
+</ul>
+<ol>
+<li>输入的地址有误（应用名大小写不正确，名称拼写不正确）</li>
+<li>在web.xml文件中<servlet>和<servlet-mapping>中的两个<servlet-name>不一致</servlet-name></servlet-mapping></servlet></li>
+<li>没有将工程部署到Tomcat的webapps下面</li>
+<li>Web工程部署时的结构没有遵循Servlet的规范<br>具体的解决办法就是根据上面提到的4种情况，逐条进行检查。</li>
+</ol>
+<ul>
+<li>1.3.2. 容器如何找到service（）方法<br>当在浏览器中输入 <a href="http://localhost:8080/firstweb/sayHi" target="_blank" rel="noopener">http://localhost:8080/firstweb/sayHi</a> 这个地址后，容器是如何找到 HelloServlet.class这个文件并执行的呢？<br>首先容器会根据firstweb这个应用名找到位于webapps下面对应的文件夹，然后根据地址中的“/sayHi”到web.xml文件中寻找与之匹配的<url-pattern>节点，找到匹配的节点后会找到与该节点紧邻的<servlet-name>节点，获取名称并在此寻找与该名称相等的<servlet-name>节点，找到相等的节点后，搜寻该节点下面紧邻的<servlet-class>节点，于是获取到了与该地址相对应的类名，借助于ClassLoader加载该类文件，创建对象并调用service（）方法，客户端即看到了与该地址匹配的运行结果。</servlet-class></servlet-name></servlet-name></url-pattern></li>
+<li>1.3.3. 405错误产生原因及解决方法<br>405这个错误的产生原因是容器找不到service方法来处理请求。以下情况容器都将视为没有找到service（）方法</li>
+</ul>
+<ol>
+<li>service方法名写错，字母顺序不对或大小写错误</li>
+<li>service方法参数类型与标准不一致，或参数顺序与标准不一致。一定是先HttpServletRequest，然后是HttpServletResponse类型</li>
+<li>service方法异常、返回值类型与标准不一致，一定是抛出ServletException、IOException。返回值类型是void。</li>
+</ol>
+<ul>
+<li>解决405错误的方法即检查service方法是否存在，签名（方法名、参数、返回值、异常类型）是否与覆盖的父类中的方法一致。</li>
+<li>1.3.4. 500错误产生原因及解决方法<br>500的错误原因是请求的Servlet在执行service方法的过程中出现了错误，程序不能继续运行了。以下情况容器都将视为500的一种情况，而返回给客户端这个错误说明。</li>
+</ul>
+<ol>
+<li>Servlet没有继承HttpServlet或实现Servlet接口</li>
+<li>web.xml文件中的<servlet-class>写错，与真正的包名类名不符</servlet-class></li>
+<li>service方法中的代码运行时抛出异常</li>
+</ol>
+<ul>
+<li>解决500的方法为依据上面三种情况依次进行检测，逐条排除。<h4 id="1-4-HTTP协议"><a href="#1-4-HTTP协议" class="headerlink" title="1.4.HTTP协议"></a>1.4.HTTP协议</h4></li>
+<li>1.4.1. 什么是HTTP协议<br>HTTP协议是HyperText Transfer Protocol的缩写，即超文本传输协议。是由w3c（万维网联盟）制定的一种应用层协议，用来定义浏览器与web服务器之间如何通信以及通信的数据格式。<br>因为BS架构中的通信模块就是以HTTP这个协议作为标准协议的，所以对该协议有所了解可以更好的编写程序。</li>
+<li>1.4.2. HTTP协议是如何通信的<br>HTTP协议的通信过程可以分为以下四个步骤：</li>
+</ul>
+<ol>
+<li>浏览器根据IP地址和端口号与服务器建立连接</li>
+<li>向Web服务器发送请求数据包</li>
+<li>Web服务器接收请求数据包后，发送相应的响应数据包</li>
+<li>浏览器接收响应数据后关闭连接</li>
+</ol>
+<ul>
+<li>在这个过程中，一次请求对应一次连接，当浏览器再次发请求给服务器时，Web服务器并不知道这就是上次发请求的客户端，这也是HTTP协议的一个特点-无状态协议。这种需要时建立连接，使用结束后立即断开连接的方式使得Web服务器可以利用有限的连接为尽可能多的客户提供服务。也正是具备了这样的特点，才使得BS结构能够承载企业级应用的大量访问。</li>
+<li>1.4.3. HTTP协议中的数据格式<br>在HTTP协议控制的数据走向中，既包括客户端发送给服务器端的请求数据也包括服务器端返回给客户端的响应信息，而具有一定规范的数据格式是保证通信标准的第一要素。借助于一些浏览器的插件或者浏览器本身内嵌的功能模块，可以实现对请求数据、响应数据的抓取，熟练掌握这些数据的主要部分，可以有利于理解BS模型中的一些处理问题的方式。通常情况下的请求数据包及响应数据包结构如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet04.png" alt=""></li>
+<li>1.4.4. 请求数据包组成<br>请求数据包包含三个部分：</li>
+</ul>
+<ol>
+<li>请求行，包括请求方式，请求资源路径，以及协议版本</li>
+<li>消息头是由若干的键值对组成，主要用于传递给Web服务器一些信息。如，浏览器版本、接受资源的类型等</li>
+<li>在消息头的下面会跟着一个空白行，这样就可以区分出消息头与实体内容这两个部分。而在请求数据包中，大部分情况实体内容为空，只有当请求方式为POST时，实体内容才有要提交的表单数据</li>
+</ol>
+<ul>
+<li>请求数据包常见结构如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet05.png" alt=""></li>
+<li>1.5.5. 响应数据包组成<br>响应数据包也包含三个部分：</li>
+</ul>
+<ol>
+<li>状态行，包括协议类型、版本、状态码、状态描述</li>
+<li>消息头（若干），也是多组键值对组成的信息说明。如返回的Content-Type消息头可以告诉浏览器返回的结果数据类型和字符集</li>
+<li>实体内容，位于消息头下面的一个空白行之后。空白行意在通知浏览器消息头的结束以及结果内容的开始，浏览器就从这里开始数据的逐行解析。</li>
+</ol>
+<ul>
+<li>响应数据包常见结构如图所示。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet06.png" alt=""><h4 id="1-5-Servlet如何处理HTTP协议"><a href="#1-5-Servlet如何处理HTTP协议" class="headerlink" title="1.5.Servlet如何处理HTTP协议"></a>1.5.Servlet如何处理HTTP协议</h4></li>
+<li>1.5.1. 如何控制通信数据<br>HTTP协议在Web容器这端主要表现为通信数据的到达以及响应数据的返回。于是Web容器将这两部分数据解释为两个对象，一个是与请求数据对应的HttpServletRequest对象，一个是与响应数据对应的HttpServletResponse对象。对于Servlet来讲，主要的业务逻辑过程就是从请求对象中获取数据，经过加工后将结果附着在响应对象中发送回客户端。</li>
+<li><p>1.5.2. HttpServletRequest对象<br>借助于HttpServletRequest对象可以实现很多操作，如读取请求行、消息头信息，取得路径信息等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//例子</span><br><span class="line">HttpServletRequest request;</span><br><span class="line">request.getParameter();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>1.5.3. HttpServletResponse对象<br>HttpServletResponse对象最主要的作用即设置给浏览器的响应内容及浏览器的解码方式，此外设置cookie及重定向也都是响应对象的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//例子</span><br><span class="line">HttpServletResponse response;</span><br><span class="line">response.sendRedirect();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="二、servlet工作原理"><a href="#二、servlet工作原理" class="headerlink" title="二、servlet工作原理"></a>二、servlet工作原理</h3><h4 id="1-1-请求方式"><a href="#1-1-请求方式" class="headerlink" title="1.1. 请求方式"></a>1.1. 请求方式</h4><ul>
+<li>1.1.1. 请求方式的种类<br>请求数据包中的请求行的第一个参数就是请求方式，是客户端向Web服务器发送请求时的意向说明，以此告知服务器该如何处理及解析提交的这些数据，而客户端提交的数据也会因为采用的提交方式不同来处理。后续的一切解析都是基于请求方式的不同而不同。在RFC标准文档中有详细的规定来说明请求方式的种类及作用。<br>区分请求种类也会为浏览器采用不同的缓存方式处理后续请求提供一个依据，从而提升响应速度。所以对于编程人员来讲，使用正确的请求方式是Web应用的一个重要方面。<br>根据RFC文档的说明，请求的种类包括如表所示内容。</li>
+<li><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/servlet07.png" alt=""><br>HTTP协议中定义了的这些方法（有时也叫“动作”）用来表示对指定数据的操作。有些方法（比如HEAD, GET, OPTIONS, and TRACE) 被定义为安全方法，这些方法针对的只是信息的返回，并不会改变服务器的状态（换句话说就是这些方法不会产生副作用）。不安全的方法（例如POST, PUT and DELETE) 应该用特殊的方式向用户展示，通常是按钮而不是链接，这样就可以使用户意识到可能要负的责任（例如一个按钮带来的资金交易。）</li>
+<li>1.1.2. GET请求方式的特点<br>使用GET提交数据时，form中的数据将编码到URL中。在使用上，当且仅当请求幂等（字面意思是请求任意次返回同样的结果，本质是请求本身不会改变服务器数据和状态）时使用GET。重复访问时使用GET方法请求的页面，浏览器会使用缓存处理后续请求。当编程人员正确的使用GET后，浏览器会给出很好的缓存配合，响应速度更快。<br>原则上，服务器端处理GET和POST请求是没有分别的。但由于数据通过不同的方法编码，需要有不同的解码机制。所以，方法变化将导致处理请求的代码变化。比如对于CGI(通用网关接口：web服务器运行外部程序的规范，按CGI编写的程序可以扩展服务功能)，处理GET时通过环境变量获得参数，处理POST请求时则通过标准输入(stdin) 获得数据。<br>从使用经验上有如下总结：<br>•    GET是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。<br>•    GET传送的数据量较小，不能大于2KB。<br>•    GET安全性非常低<br>•    <form method="get" action="xxx?b=b">跟<form method="get" action="xxx">是一样的，也就是说，action页面后边带的参数列表会被忽视；而<form method="post" action="xxx?b=b">跟<form method="post" action="xxx">是不一样的。<br>如下情况中浏览器会发送GET类型的请求：<br>•    在地址栏输入一个地址<br>•    点击页面中的链接<br>•    表单的默认提交方式</form></form></form></form></li>
+<li>1.1.3. POST请求方式的特点<br>POST方式提交的数据是在HTTP协议的Hearder中进行传输的。在使用上，当请求会改变服务器数据或状态时（更新数据，上传文件）应该使用POST。使用POST方法的Form提交时，浏览器基于POST将产生永久改变的假设，将让用户进行提交确认。<br>提交数据时，Form提交的第一步是创建数据集，并根据ENCTYPE对数据集进行编码。ENCTYPE有两个值：multipart/form-data，application/x-www-form-urlencoded（默认值），前者可同时用于GET、POST，后者只用于POST。进行数据传输时，对于GET方法，数据集使用content type application/x-www-form-urlencoded编码并附在URL后面，在这种模式下，数据严格限制为ASCII码；对于POST，使用content-type编码字符集并将其构造成消息发送<br>服务器端处理数据时，处理POST请求时则通过标准输入(stdin) 获得数据。<br>从使用经验上有如下总结：<br>•    POST是将表单内各个字段与其内容放置在实体内容中内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。<br>•    POST传送的数据量较大，一般被默认为不受限制<br>•    POST安全性较高<br>将表单的Method属性设置为POST时，浏览器会发送POST请求。<h4 id="1-2-Servlet如何运行"><a href="#1-2-Servlet如何运行" class="headerlink" title="1.2.Servlet如何运行"></a>1.2.Servlet如何运行</h4></li>
+<li>1.2.1. Servlet运行的步骤<br>Servlet作为Web服务器的补充功能在运行时需要受到Servlet容器的管理，其运行的流程如下：</li>
+</ul>
+<ol>
+<li>浏览器依据IP建立与容器的连接</li>
+<li>浏览器将请求数据打包</li>
+<li>容器解析请求数据包，封装request和response对象</li>
+<li>容器依据请求资源路径找到Servlet创建对象</li>
+<li>容器将request和response对象作为参数传入service方法，并调用</li>
+<li>容器将响应数据打包发给浏览器</li>
+<li>浏览器取出结果，生成页面<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3>Servlet是一个容器，其次Servlet通过容器创建Servlet实例，来实现对用户的动态请求进行处理，并把处理结果返回给Web服务器。总之，Servlet就是一个可以处理动态请求的Web组件。<br><br><h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4></li>
+</ol>
+<ul>
+<li>如有不正确还请见谅。</li>
+<li>另外，关于servlet的实际应用如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
 </ul>
 
       
@@ -311,16 +381,23 @@ public static void write(Object obj,HttpServletResponse response){
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery Ajax</a>
-        		</li>
       		
 		</ul>
 	</div>
 
      
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -370,7 +447,7 @@ public static void write(Object obj,HttpServletResponse response){
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/25/Servlet基础和原理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +461,9 @@ public static void write(Object obj,HttpServletResponse response){
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop HA(高可用)集群搭建
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于向hadoop集群上传文件以及下载文件</div>
+    <a href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb发送请求的三种方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -425,7 +493,7 @@ public static void write(Object obj,HttpServletResponse response){
   
 
   
-  <div id="SOHUCS" sid="jQuery-Ajax应用：以用户登陆为例" ></div> 
+  <div id="SOHUCS" sid="Servlet基础和原理" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
