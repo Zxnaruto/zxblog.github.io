@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>JavaWeb注销方式 | XiaoHuZiZx</title>
+  <title>正则表达式 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、说明当我们在编写登陆程序时往往都会用到注销，注销往往都是去除在session中的缓存。下面我们来说一下session注销的方式。 二、实现我们常常在登陆页面后会显示登陆的用户名，该用户名一般是在后台用servlet传输数据到jsp的方式(在我前面写的文章有)。">
-<meta name="keywords" content="java,Servlet">
+  <meta name="description" content="由于自己突然对NLP感兴趣，而在自然语言处理(NLP)中我们经常会用到正则表达式，所以了解和会用正则表达式还是很有必要的。所谓正则表达式就是通过用一些规定的字符的书写组合方式来方便人们从庞大的数据集合中提取想要的信息的一种方式。下面推荐一个正则表达式检验的工具：https://regexr.com/还有一个练习网站：https://alf.nu/RegexGolf">
+<meta name="keywords" content="NLP,正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb注销方式">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb注销方式/index.html">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/27/正则表达式/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、说明当我们在编写登陆程序时往往都会用到注销，注销往往都是去除在session中的缓存。下面我们来说一下session注销的方式。 二、实现我们常常在登陆页面后会显示登陆的用户名，该用户名一般是在后台用servlet传输数据到jsp的方式(在我前面写的文章有)。">
+<meta property="og:description" content="由于自己突然对NLP感兴趣，而在自然语言处理(NLP)中我们经常会用到正则表达式，所以了解和会用正则表达式还是很有必要的。所谓正则表达式就是通过用一些规定的字符的书写组合方式来方便人们从庞大的数据集合中提取想要的信息的一种方式。下面推荐一个正则表达式检验的工具：https://regexr.com/还有一个练习网站：https://alf.nu/RegexGolf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T15:56:23.617Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/regex.jpg">
+<meta property="og:updated_time" content="2018-08-27T15:46:55.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaWeb注销方式">
-<meta name="twitter:description" content="一、说明当我们在编写登陆程序时往往都会用到注销，注销往往都是去除在session中的缓存。下面我们来说一下session注销的方式。 二、实现我们常常在登陆页面后会显示登陆的用户名，该用户名一般是在后台用servlet传输数据到jsp的方式(在我前面写的文章有)。">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="由于自己突然对NLP感兴趣，而在自然语言处理(NLP)中我们经常会用到正则表达式，所以了解和会用正则表达式还是很有必要的。所谓正则表达式就是通过用一些规定的字符的书写组合方式来方便人们从庞大的数据集合中提取想要的信息的一种方式。下面推荐一个正则表达式检验的工具：https://regexr.com/还有一个练习网站：https://alf.nu/RegexGolf">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/regex.jpg">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -195,20 +197,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JavaWeb注销方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则表达式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaWeb注销方式
+      正则表达式
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/08/22/JavaWeb注销方式/" class="archive-article-date">
-  	<time datetime="2018-08-22T15:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+        <a href="/zxblog.github.io/2018/08/27/正则表达式/" class="archive-article-date">
+  	<time datetime="2018-08-27T15:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
         
         
@@ -223,10 +225,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>当我们在编写登陆程序时往往都会用到注销，注销往往都是去除在session中的缓存。下面我们来说一下session注销的方式。</p>
-<h4 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h4><p>我们常常在登陆页面后会显示登陆的用户名，该用户名一般是在后台用servlet传输数据到jsp的方式(在我前面写的文章有)。<br><a id="more"></a><br>举个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession(); // 将数据存到session中以便于在前台获session.setAttribute(&quot;username&quot;, name);</span><br><span class="line"></span><br><span class="line">//在页面用EL表达式调用</span><br><span class="line">$&#123;username&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注销时要删除session信息，就可以用下面这种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest request;</span><br><span class="line">HttpSession session=request.getSession();</span><br><span class="line">//只删除，session中的username,一般是删除特定的session</span><br><span class="line">session.removeAttribute(&quot;username&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">session.invalidate();//删除所有</span><br></pre></td></tr></table></figure></p>
-<h4 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h4><p>一般页面所获取的数据都是后台set后前台获取的，所以注销的一般也是所获取的数据。</p>
+        <p>由于自己突然对NLP感兴趣，而在自然语言处理(NLP)中我们经常会用到正则表达式，所以了解和会用正则表达式还是很有必要的。<br>所谓正则表达式就是通过用一些规定的字符的书写组合方式来方便人们从庞大的数据集合中提取想要的信息的一种方式。<br>下面推荐一个正则表达式检验的工具：<a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a><br>还有一个练习网站：<a href="https://alf.nu/RegexGolf" target="_blank" rel="noopener">https://alf.nu/RegexGolf</a><br><a id="more"></a></p>
+<h4 id="正则表达式语法"><a href="#正则表达式语法" class="headerlink" title="正则表达式语法"></a>正则表达式语法</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/regex.jpg" alt=""></p>
 
       
 
@@ -271,11 +271,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
         		</li>
       		
 		</ul>
@@ -283,17 +283,6 @@ var _hmt = _hmt || [];
 
      
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -343,7 +332,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/22/JavaWeb注销方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/27/正则表达式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -357,18 +346,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaWeb发送请求的三种方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/08/22/JavaWeb小总结-Servlet传数据到jsp方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaWeb小总结+Servlet传数据到jsp方式</div>
+    <a href="/zxblog.github.io/2018/08/25/md5与sha加密/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">md5与sha加密</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -398,7 +378,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="JavaWeb注销方式" ></div> 
+  <div id="SOHUCS" sid="正则表达式" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
