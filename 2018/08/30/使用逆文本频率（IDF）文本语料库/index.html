@@ -6,36 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>gcc使用方法 | XiaoHuZiZx</title>
+  <title>使用逆文本频率（IDF）文本语料库 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。 二、编译C程序1.c首先创建一个工作目录mycfile">
-<meta name="keywords" content="C,Linux">
+  <meta name="description" content="在进行关键字提取的时候，我们可以使用逆向文件频率（IDF）文本语料库，这里用的是github上有的语料库。语料库：语料库在提取关键字之前我们要先明白一些关于Python optparse模块的知识，因为下面关键字提取时用到了这个模块。 一、optparseOptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方">
+<meta name="keywords" content="python,NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gcc使用方法">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/07/21/gcc使用方法/index.html">
+<meta property="og:title" content="使用逆文本频率（IDF）文本语料库">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/30/使用逆文本频率（IDF）文本语料库/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。 二、编译C程序1.c首先创建一个工作目录mycfile">
+<meta property="og:description" content="在进行关键字提取的时候，我们可以使用逆向文件频率（IDF）文本语料库，这里用的是github上有的语料库。语料库：语料库在提取关键字之前我们要先明白一些关于Python optparse模块的知识，因为下面关键字提取时用到了这个模块。 一、optparseOptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc01.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc02.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc03.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc04.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc05.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc06.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc07.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc08.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc09.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc10.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc11.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc12.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc13.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc14.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc15.jpg">
-<meta property="og:updated_time" content="2018-07-21T13:10:47.579Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/NLP_TF_IDF.png">
+<meta property="og:updated_time" content="2018-08-30T09:40:09.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gcc使用方法">
-<meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。 二、编译C程序1.c首先创建一个工作目录mycfile">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc01.jpg">
+<meta name="twitter:title" content="使用逆文本频率（IDF）文本语料库">
+<meta name="twitter:description" content="在进行关键字提取的时候，我们可以使用逆向文件频率（IDF）文本语料库，这里用的是github上有的语料库。语料库：语料库在提取关键字之前我们要先明白一些关于Python optparse模块的知识，因为下面关键字提取时用到了这个模块。 一、optparseOptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/NLP_TF_IDF.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -211,20 +197,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gcc使用方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用逆文本频率（IDF）文本语料库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      gcc使用方法
+      使用逆文本频率（IDF）文本语料库
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/07/21/gcc使用方法/" class="archive-article-date">
-  	<time datetime="2018-07-21T12:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
+        <a href="/zxblog.github.io/2018/08/30/使用逆文本频率（IDF）文本语料库/" class="archive-article-date">
+  	<time datetime="2018-08-30T09:37:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
 </a>
         
         
@@ -239,23 +225,27 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。</p>
-<h4 id="二、编译C程序"><a href="#二、编译C程序" class="headerlink" title="二、编译C程序"></a>二、编译C程序</h4><h5 id="1-c首先创建一个工作目录mycfile"><a href="#1-c首先创建一个工作目录mycfile" class="headerlink" title="1.c首先创建一个工作目录mycfile"></a>1.c首先创建一个工作目录mycfile</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc01.jpg" alt=""><br><a id="more"></a></p>
-<h5 id="2-进入该目录，创建一个C源文件test-c"><a href="#2-进入该目录，创建一个C源文件test-c" class="headerlink" title="2.进入该目录，创建一个C源文件test.c"></a>2.进入该目录，创建一个C源文件test.c</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc02.jpg" alt=""></p>
-<h5 id="3-Ubuntu系统下使用gedit-test-c命令对源文件进行编辑，输入源代码，并保存。"><a href="#3-Ubuntu系统下使用gedit-test-c命令对源文件进行编辑，输入源代码，并保存。" class="headerlink" title="3.Ubuntu系统下使用gedit test.c命令对源文件进行编辑，输入源代码，并保存。"></a>3.Ubuntu系统下使用gedit test.c命令对源文件进行编辑，输入源代码，并保存。</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc03.jpg" alt=""></p>
-<h5 id="4-使用gcc-test-c命令对源文件进行编译，这时当前目录下生成了一个绿色的文件（默认名为a-out），绿色表示该文件是可执行文件，所以a-out就是我们编译之后的程序了。"><a href="#4-使用gcc-test-c命令对源文件进行编译，这时当前目录下生成了一个绿色的文件（默认名为a-out），绿色表示该文件是可执行文件，所以a-out就是我们编译之后的程序了。" class="headerlink" title="4.使用gcc test.c命令对源文件进行编译，这时当前目录下生成了一个绿色的文件（默认名为a.out），绿色表示该文件是可执行文件，所以a.out就是我们编译之后的程序了。"></a>4.使用gcc test.c命令对源文件进行编译，这时当前目录下生成了一个绿色的文件（默认名为a.out），绿色表示该文件是可执行文件，所以a.out就是我们编译之后的程序了。</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc04.jpg" alt=""></p>
-<h5 id="5-使用-加程序名-就可以运行该程序，如下图，运行成功！"><a href="#5-使用-加程序名-就可以运行该程序，如下图，运行成功！" class="headerlink" title="5.使用 ./ 加程序名 就可以运行该程序，如下图，运行成功！"></a>5.使用 ./ 加程序名 就可以运行该程序，如下图，运行成功！</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc05.jpg" alt=""></p>
-<h5 id="6-如果要指定生成程序的名称，可以在编译时加-o参数指定-格式：gcc-源文件名-o-生成文件名"><a href="#6-如果要指定生成程序的名称，可以在编译时加-o参数指定-格式：gcc-源文件名-o-生成文件名" class="headerlink" title="6.如果要指定生成程序的名称，可以在编译时加-o参数指定,格式：gcc 源文件名 -o 生成文件名"></a>6.如果要指定生成程序的名称，可以在编译时加-o参数指定,格式：gcc 源文件名 -o 生成文件名</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc06.jpg" alt=""><br>默认情况下，生成的程序是具有可执行权限的，如果没有，可以使用命令添加<br>sudo chmod +x 程序名</p>
-<h4 id="三、分步骤编译"><a href="#三、分步骤编译" class="headerlink" title="三、分步骤编译"></a>三、分步骤编译</h4><p>C程序的编译过程有四个步骤：预处理(Preprocessing)  编译(Compilation)  汇编(Assembly)  链接(Linking)，gcc如果不带参数的话，默认是一次性完成这四个步骤的，直接生成可执行程序文件。<br>可以使用控制参数来分步编译。</p>
-<h5 id="1-E预处理"><a href="#1-E预处理" class="headerlink" title="1. -E预处理"></a>1. -E预处理</h5><p>gcc -E test.c -o test.i    #test.i在test.c的基础上把头文件的内容插入进去了<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc07.jpg" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc08.jpg" alt=""><br>使用cat 文件名|wc -l 命令可以查看文件有多少行<br>可见，源代码只有6行，预处理后把头文件内容插入进去了，有863行</p>
-<h5 id="2-S-编译为汇编代码"><a href="#2-S-编译为汇编代码" class="headerlink" title="2. -S 编译为汇编代码"></a>2. -S 编译为汇编代码</h5><p>gcc -S test.i -o test.s    #.s是汇编代码文件后缀，这时候汇编代码文件只有37行了，由此可知，汇编只是把需要用到的函数进行汇编，头文件里大多数的代码都没有用到。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc09.jpg" alt=""></p>
-<h5 id="3-c-汇编为目标文件"><a href="#3-c-汇编为目标文件" class="headerlink" title="3. -c 汇编为目标文件"></a>3. -c 汇编为目标文件</h5><p>gcc -c test.s -o test.o    #.o是目标文件扩展名，目标文件与可执行文件类似，都是机器能够识别的二进制文件，但由于没有链接，结构会稍有不同。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc10.jpg" alt=""></p>
-<h5 id="4-链接并生成可执行文件"><a href="#4-链接并生成可执行文件" class="headerlink" title="4.链接并生成可执行文件"></a>4.链接并生成可执行文件</h5><p>没有参数<br>gcc test.o -o test     #Linux下的可执行文件一般没有后缀。在链接阶段，所有的目标文件被安排在可执行程序中的恰当的位置，同时该程序所调用的库函数也从各自所在的档案库中连到合适的地方。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc11.jpg" alt=""><br>**如果有多个源文件，可以这样编译（省去第1、2步）：<br>gcc -c test1.c -o test1.o<br>gcc -c test2.c -o test2.o<br>gcc -c testn.c -o testn.o<br>gcc test1.o test2.o testn.o -o test<br>就OK了，这个test文件就是可执行文件（程序）</p>
-<p>其他参数：<br>-pedantic    #帮助程序员发现一些不符合ANSI/ISO C标准的代码<br>-Wall      #让gcc显示警告信息<br>-Werror     #让gcc在编译中遇到错误时停止继续<br>-ldirname    # -l加目录名 将该目录加入到程序头文件目录列表中</p>
-<h4 id="补充说明："><a href="#补充说明：" class="headerlink" title="补充说明："></a>补充说明：</h4><p>./ 加程序名 就可以运行程序，这个 ./并不代表”运行”的意思，而是”当前目录”，如果直接使用程序所在的绝对路径也能运行此程序：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc12.jpg" alt=""><br>如果把该程序所在的目录路径保存到环境变量中，就可以在任何目录下调用此程序了（直接输入程序名就行）。<br>首先打开 环境变量配置文件/etc/profile （如果没有w权限，要先提升一下权限，sudo chmod 666 /etc/profile）<br>再用命令：gedit  /etc/profile<br>在文件末尾输入：export PATH=$PATH:/home/cof/mycfile    //这个cof是你的用户名<br>保存，就OK了。退出当前目录，测试一下：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc13.jpg" alt=""><br>？？怎么没反应，原因如下，test是系统已有的命令<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc14.jpg" alt=""><br>把原来的程序换个名字就行了。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc15.jpg" alt=""><br>运行成功了，以后我们在mycfile目录下自己写的程序也能像系统提供的命令一样，随时随地调用了。</p>
+        <p>在进行关键字提取的时候，我们可以使用逆向文件频率（IDF）文本语料库，这里用的是github上有的语料库。<br>语料库：<a href="https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big" target="_blank" rel="noopener">语料库</a><br>在提取关键字之前我们要先明白一些关于Python optparse模块的知识，因为下面关键字提取时用到了这个模块。</p>
+<h4 id="一、optparse"><a href="#一、optparse" class="headerlink" title="一、optparse"></a>一、optparse</h4><p>OptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行说明。<br>也就是说，开发人员可以自定义命令去使用，使对程序的设计更加灵活。我们可以在命令行中输入自定义的命令来跑程序。<br>具体操作步骤：</p>
+<ul>
+<li>1、首先我们要导入模块    from  optparse import  OptionParser</li>
+<li>2、创建一个  用户帮助说明的文档参数 (这个是可选的)<br>&nbsp; &nbsp; &nbsp;USAGE = “usage: python NPL01.py [file name] -k [top k]”<br>&nbsp; &nbsp; &nbsp;也就是用户输入命令的格式。[file name] -k [top k]</li>
+<li>3、创建 OptionParser模块对象parser<br>&nbsp; &nbsp; &nbsp;parser=OptionParser(USAGE)</li>
+<li><p>4、在对象中增加参数选项<br>&nbsp; &nbsp; &nbsp; parser.add_option(“-k”,dest=”topK”)<br>&nbsp; &nbsp; &nbsp; parser.add_option(“-v”, action=””, type=””,dest=””,default=””,help=””)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add_option()参数说明：</span><br><span class="line">action:存储方式，分为三种store、store_false、store_true</span><br><span class="line">type:类型</span><br><span class="line">dest:存储的变量</span><br><span class="line">default:默认值</span><br><span class="line">help:帮助信息</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5、调用optionparser的解析函数<br> fakeArgs=[‘NBA.txt’,’-k’,’10’]<br> opt,args=parser.parse_args(fakeArgs)</p>
+<h1 id="opt包含add-option中的dest值，而对应的value值，是add-option-函数中的default的参数或者是由用户传入optParser-parse-args-的参数-即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action-”store”-其形成的字典是dest-命令-k后的第一个参数"><a href="#opt包含add-option中的dest值，而对应的value值，是add-option-函数中的default的参数或者是由用户传入optParser-parse-args-的参数-即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action-”store”-其形成的字典是dest-命令-k后的第一个参数" class="headerlink" title="opt包含add_option中的dest值，而对应的value值，是add_option()函数中的default的参数或者是由用户传入optParser.parse_args()的参数(即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action=”store”,其形成的字典是dest+命令-k后的第一个参数)"></a>opt包含add_option中的dest值，而对应的value值，是add_option()函数中的default的参数或者是由用户传入optParser.parse_args()的参数(即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action=”store”,其形成的字典是dest+命令-k后的第一个参数)</h1><p>剩下的值就是args数组中的值<br>此时opt、args里的值为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opt= &#123;&apos;topK&apos;: &apos;10&apos;&#125;</span><br><span class="line">args= [&apos;NBA.txt&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：下面是action的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STORE_ACTIONS = (&quot;store&quot;, &quot;store_const&quot;,&quot;store_true&quot;,&quot;store_false&quot;,&quot;append&quot;,&quot;append_const&quot;,&quot;count&quot;)</span><br><span class="line"></span><br><span class="line"> action默认取值store。</span><br><span class="line"> store 表示将命令行参数的值保存在options对象中。如果我们对optParser.parse_args()函数传入的参数列表中带有‘-k’，那么就会将列表中‘-k’的下一个元素作为其dest的实参topK值，它们两个参数形成一个字典中的一个元素&#123;topK：NBA.txt&#125;。相反当我们的参数列表中没有‘-k’这个元素时，那么topK的值就会为空。</span><br><span class="line"> </span><br><span class="line"> store_false 命令中中存在&apos;-k&apos;dest的值将会返回False，而不是NBA.txt，也就是说dest的值与&apos;-k&apos;的后一位无关，只与‘-k’存在不存在有关。</span><br><span class="line"> store_ture  这与action=&quot;store_false&quot;类似，只有其中有参数&apos;-k&apos;存在，则dest的值为True,如果&apos;-k&apos;不存在，那么verbose的值为None。</span><br></pre></td></tr></table></figure></p>
+<h4 id="二、关键词提取"><a href="#二、关键词提取" class="headerlink" title="二、关键词提取"></a>二、关键词提取</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import jieba.analyse</span><br><span class="line">from optparse import OptionParser</span><br><span class="line"></span><br><span class="line">USAGE = &quot;usage: python NPL01.py [file name] -k [top k]&quot; # 参数格式 [file name] -k [top k]</span><br><span class="line"></span><br><span class="line">parser=OptionParser(USAGE)</span><br><span class="line">parser.add_option(&quot;-k&quot;,dest=&quot;topK&quot;)</span><br><span class="line">fakeArgs=[&apos;NBA.txt&apos;,&apos;-k&apos;,&apos;10&apos;] # 代替了在命令行中传参</span><br><span class="line">opt,args=parser.parse_args(fakeArgs) #解析</span><br><span class="line"></span><br><span class="line">print(&quot;opt=&quot;,opt)</span><br><span class="line">print(&quot;args=&quot;,args)</span><br><span class="line"></span><br><span class="line">if len(args)&lt;1:</span><br><span class="line">    print(USAGE)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line">file_name=args[0] # NBA.txt</span><br><span class="line"></span><br><span class="line">if opt.topK is None:</span><br><span class="line">    topK=10</span><br><span class="line">else:</span><br><span class="line">    topK=int(opt.topK) #键值对取topK的值 opt[&apos;topK&apos;:&apos;10&apos;],然后类型转换</span><br><span class="line"></span><br><span class="line">content=open(file_name,&apos;rb&apos;).read()</span><br><span class="line">jieba.analyse.set_idf_path(&quot;./extra_dict/idf.txt.big&quot;)# 加入自定义字典</span><br><span class="line">tags=jieba.analyse.extract_tags(content,topK=topK)# 解析</span><br><span class="line"></span><br><span class="line">print(&quot;,&quot;.join(tags))</span><br></pre></td></tr></table></figure>
+<h4 id="三、结果显示"><a href="#三、结果显示" class="headerlink" title="三、结果显示"></a>三、结果显示</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/NLP_TF_IDF.png" alt=""></p>
 <p><br></p>
 <h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>所做的分析来自笔者一个朋友的见解，如有不正确还请见谅。</li>
+<li>如有不正确还请见谅。</li>
+<li>另外，如需素材和代码请访问我的Github：<a href="https://github.com/Zxnaruto/" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
 </ul>
 
       
@@ -301,11 +291,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
         		</li>
       		
 		</ul>
@@ -362,7 +352,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/07/21/gcc使用方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/30/使用逆文本频率（IDF）文本语料库/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -376,18 +366,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/08/08/hadoop集群搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hadoop集群搭建
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot 初识二</div>
+    <a href="/zxblog.github.io/2018/08/27/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,7 +398,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="gcc使用方法" ></div> 
+  <div id="SOHUCS" sid="使用逆文本频率（IDF）文本语料库" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
