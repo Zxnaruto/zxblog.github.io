@@ -217,28 +217,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>在进行关键字提取的时候，我们可以使用逆向文件频率（IDF）文本语料库，这里用的是github上有的语料库。<br>语料库：<a href="https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big" target="_blank" rel="noopener">语料库</a><br>在提取关键字之前我们要先明白一些关于Python optparse模块的知识，因为下面关键字提取时用到了这个模块。</p>
-<h4 id="一、optparse"><a href="#一、optparse" class="headerlink" title="一、optparse"></a>一、optparse</h4><p>OptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行说明。<br>也就是说，开发人员可以自定义命令去使用，使对程序的设计更加灵活。我们可以在命令行中输入自定义的命令来跑程序。<br>具体操作步骤：</p>
-<ul>
-<li>1、首先我们要导入模块    from  optparse import  OptionParser</li>
-<li>2、创建一个  用户帮助说明的文档参数 (这个是可选的)<br>&nbsp; &nbsp; &nbsp;USAGE = “usage: python NPL01.py [file name] -k [top k]”<br>&nbsp; &nbsp; &nbsp;也就是用户输入命令的格式。[file name] -k [top k]</li>
-<li>3、创建 OptionParser模块对象parser<br>&nbsp; &nbsp; &nbsp;parser=OptionParser(USAGE)</li>
-<li><p>4、在对象中增加参数选项<br>&nbsp; &nbsp; &nbsp; parser.add_option(“-k”,dest=”topK”)<br>&nbsp; &nbsp; &nbsp; parser.add_option(“-v”, action=””, type=””,dest=””,default=””,help=””)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add_option()参数说明：</span><br><span class="line">action:存储方式，分为三种store、store_false、store_true</span><br><span class="line">type:类型</span><br><span class="line">dest:存储的变量</span><br><span class="line">default:默认值</span><br><span class="line">help:帮助信息</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>5、调用optionparser的解析函数<br> fakeArgs=[‘NBA.txt’,’-k’,’10’]<br> opt,args=parser.parse_args(fakeArgs)</p>
-<h1 id="opt包含add-option中的dest值，而对应的value值，是add-option-函数中的default的参数或者是由用户传入optParser-parse-args-的参数-即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action-”store”-其形成的字典是dest-命令-k后的第一个参数"><a href="#opt包含add-option中的dest值，而对应的value值，是add-option-函数中的default的参数或者是由用户传入optParser-parse-args-的参数-即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action-”store”-其形成的字典是dest-命令-k后的第一个参数" class="headerlink" title="opt包含add_option中的dest值，而对应的value值，是add_option()函数中的default的参数或者是由用户传入optParser.parse_args()的参数(即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action=”store”,其形成的字典是dest+命令-k后的第一个参数)"></a>opt包含add_option中的dest值，而对应的value值，是add_option()函数中的default的参数或者是由用户传入optParser.parse_args()的参数(即命令后面紧挨的值，该例子中就是-k后的第一个值，这是由于默认action=”store”,其形成的字典是dest+命令-k后的第一个参数)</h1><p>剩下的值就是args数组中的值<br>此时opt、args里的值为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opt= &#123;&apos;topK&apos;: &apos;10&apos;&#125;</span><br><span class="line">args= [&apos;NBA.txt&apos;]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：下面是action的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STORE_ACTIONS = (&quot;store&quot;, &quot;store_const&quot;,&quot;store_true&quot;,&quot;store_false&quot;,&quot;append&quot;,&quot;append_const&quot;,&quot;count&quot;)</span><br><span class="line"></span><br><span class="line"> action默认取值store。</span><br><span class="line"> store 表示将命令行参数的值保存在options对象中。如果我们对optParser.parse_args()函数传入的参数列表中带有‘-k’，那么就会将列表中‘-k’的下一个元素作为其dest的实参topK值，它们两个参数形成一个字典中的一个元素&#123;topK：NBA.txt&#125;。相反当我们的参数列表中没有‘-k’这个元素时，那么topK的值就会为空。</span><br><span class="line"> </span><br><span class="line"> store_false 命令中中存在&apos;-k&apos;dest的值将会返回False，而不是NBA.txt，也就是说dest的值与&apos;-k&apos;的后一位无关，只与‘-k’存在不存在有关。</span><br><span class="line"> store_ture  这与action=&quot;store_false&quot;类似，只有其中有参数&apos;-k&apos;存在，则dest的值为True,如果&apos;-k&apos;不存在，那么verbose的值为None。</span><br></pre></td></tr></table></figure></p>
-<h4 id="二、关键词提取"><a href="#二、关键词提取" class="headerlink" title="二、关键词提取"></a>二、关键词提取</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import jieba.analyse</span><br><span class="line">from optparse import OptionParser</span><br><span class="line"></span><br><span class="line">USAGE = &quot;usage: python NPL01.py [file name] -k [top k]&quot; # 参数格式 [file name] -k [top k]</span><br><span class="line"></span><br><span class="line">parser=OptionParser(USAGE)</span><br><span class="line">parser.add_option(&quot;-k&quot;,dest=&quot;topK&quot;)</span><br><span class="line">fakeArgs=[&apos;NBA.txt&apos;,&apos;-k&apos;,&apos;10&apos;] # 代替了在命令行中传参</span><br><span class="line">opt,args=parser.parse_args(fakeArgs) #解析</span><br><span class="line"></span><br><span class="line">print(&quot;opt=&quot;,opt)</span><br><span class="line">print(&quot;args=&quot;,args)</span><br><span class="line"></span><br><span class="line">if len(args)&lt;1:</span><br><span class="line">    print(USAGE)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line">file_name=args[0] # NBA.txt</span><br><span class="line"></span><br><span class="line">if opt.topK is None:</span><br><span class="line">    topK=10</span><br><span class="line">else:</span><br><span class="line">    topK=int(opt.topK) #键值对取topK的值 opt[&apos;topK&apos;:&apos;10&apos;],然后类型转换</span><br><span class="line"></span><br><span class="line">content=open(file_name,&apos;rb&apos;).read()</span><br><span class="line">jieba.analyse.set_idf_path(&quot;./extra_dict/idf.txt.big&quot;)# 加入自定义字典</span><br><span class="line">tags=jieba.analyse.extract_tags(content,topK=topK)# 解析</span><br><span class="line"></span><br><span class="line">print(&quot;,&quot;.join(tags))</span><br></pre></td></tr></table></figure>
-<h4 id="三、结果显示"><a href="#三、结果显示" class="headerlink" title="三、结果显示"></a>三、结果显示</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/NLP_TF_IDF.png" alt=""></p>
-<p><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>如有不正确还请见谅。</li>
-<li>另外，如需素材和代码请访问我的Github：<a href="https://github.com/Zxnaruto/" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
-</ul>
-
+<h4 id="一、optparse"><a href="#一、optparse" class="headerlink" title="一、optparse"></a>一、optparse</h4><p>OptionParser是python中用来处理命令行的模块，在我们使用python进行流程化开发中必要的工具。它功能强大，而且易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行说明。<br>也就是说，开发人员可以自定义命令去使用，使对程序的设计更加灵活。我们可以在命令行中输入自定义的命令来跑程序。<br>具体操作步骤：<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/08/30/使用逆文本频率（IDF）文本语料库/#more">more >></a>
+        
       
 
       
@@ -1292,19 +1274,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,11 +1286,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,7 +1322,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,10 +1331,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1376,7 +1358,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1384,7 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
