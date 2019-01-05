@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Java面向对象：封装、继承及多态以及有关的小结 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
+  <meta name="description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面向对象：封装、继承及多态以及有关的小结">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/04/Java面向对象：封装、继承及多态以及有关的小结/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
+<meta property="og:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/cxcz.png">
-<meta property="og:updated_time" content="2019-01-05T07:43:54.181Z">
+<meta property="og:updated_time" content="2019-01-05T07:49:46.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面向对象：封装、继承及多态以及有关的小结">
-<meta name="twitter:description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
+<meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java面向对象：封装、继承及多态以及有关的小结"><a href="#Java面向对象：封装、继承及多态以及有关的小结" class="headerlink" title="Java面向对象：封装、继承及多态以及有关的小结"></a>Java面向对象：封装、继承及多态以及有关的小结</h1><h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。</p>
+        <h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。</p>
 <h3 id="二、解释"><a href="#二、解释" class="headerlink" title="二、解释"></a>二、解释</h3><h4 id="1、封装"><a href="#1、封装" class="headerlink" title="1、封装"></a>1、封装</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通过分装在数据外面的被授权的操作，才能够与这个抽象类型交互。<br>（重点：抽象数据类型、数据、基于数据的操作）<br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;(2)封装是一种信息隐藏技术，在java中通过关键字private，protected和public实现封装。<br>&nbsp;&nbsp;&nbsp;&nbsp;(3)封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。要访问该类的代码和数据，必须通过严格的接口控制。封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。适当的封装可以让代码更容易理解与维护，也加强了代码的安全性。<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;封装的优点：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)良好的封装可以减少耦合。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)类内部的结构可以自由修改。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)可以对成员变量进行更加精准的控制。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)隐藏信息，实现细节。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;封装的步骤：<br>(1) 修改属性的可见性来限制对属性的访问（一般限制为private）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>(2)对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">​</span><br><span class="line">    public int getAge()&#123;</span><br><span class="line">      return age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public String getName()&#123;</span><br><span class="line">      return name;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public void setAge(int age)&#123;</span><br><span class="line">      this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public void setName(String name)&#123;</span><br><span class="line">      this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -746,11 +746,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,10 +763,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,6 +778,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
@@ -786,19 +790,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
             <div class="clearfix"></div>
