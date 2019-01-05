@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Java面向对象：封装、继承及多态以及有关的小结 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
+  <meta name="description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面向对象：封装、继承及多态以及有关的小结">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/04/Java面向对象：封装、继承及多态以及有关的小结/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
+<meta property="og:description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/cxcz.png">
-<meta property="og:updated_time" content="2019-01-05T07:49:46.658Z">
+<meta property="og:updated_time" content="2019-01-05T07:55:42.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面向对象：封装、继承及多态以及有关的小结">
-<meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
+<meta name="twitter:description" content="Java面向对象：封装、继承及多态以及有关的小结一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。</p>
+        <h1 id="Java面向对象：封装、继承及多态以及有关的小结"><a href="#Java面向对象：封装、继承及多态以及有关的小结" class="headerlink" title="Java面向对象：封装、继承及多态以及有关的小结"></a>Java面向对象：封装、继承及多态以及有关的小结</h1><h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。</p>
 <h3 id="二、解释"><a href="#二、解释" class="headerlink" title="二、解释"></a>二、解释</h3><h4 id="1、封装"><a href="#1、封装" class="headerlink" title="1、封装"></a>1、封装</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通过分装在数据外面的被授权的操作，才能够与这个抽象类型交互。<br>（重点：抽象数据类型、数据、基于数据的操作）<br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;(2)封装是一种信息隐藏技术，在java中通过关键字private，protected和public实现封装。<br>&nbsp;&nbsp;&nbsp;&nbsp;(3)封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。要访问该类的代码和数据，必须通过严格的接口控制。封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。适当的封装可以让代码更容易理解与维护，也加强了代码的安全性。<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;封装的优点：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)良好的封装可以减少耦合。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)类内部的结构可以自由修改。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)可以对成员变量进行更加精准的控制。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)隐藏信息，实现细节。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;封装的步骤：<br>(1) 修改属性的可见性来限制对属性的访问（一般限制为private）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>(2)对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">​</span><br><span class="line">    public int getAge()&#123;</span><br><span class="line">      return age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public String getName()&#123;</span><br><span class="line">      return name;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public void setAge(int age)&#123;</span><br><span class="line">      this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    public void setName(String name)&#123;</span><br><span class="line">      this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -371,11 +371,11 @@ var _hmt = _hmt || [];
 <li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。<h5 id="注9：构造方法与实例方法的区别"><a href="#注9：构造方法与实例方法的区别" class="headerlink" title="注9：构造方法与实例方法的区别"></a>注9：构造方法与实例方法的区别</h5>构造方法：类里的一个特殊的方法，不能有返回值。是在类实例化时所要执行的方法，目的是对该类进行一些参数的初始化。且构造方法不可以被子类继承。<br>实例方法：就是指类中的除去构造方法的那些方法。<ul>
 <li>构造方法的主要作用：<br>1.创建对象。任何一个对象创建时，都需要初始化才能使用，所以任何类想要创建实例对象就必须具有构造函数。(即下面所提到的Example e=new Example())<br>2.对象初始化。构造函数可以对对象进行初始化，并且是给与之格式（参数列表）相符合的对象初始化，是具有一定针对性的初始化函数。(即下面的Example e=new Example(1,2,3))</li>
 <li>区别：主要在三个方面，修饰符、返回值、命名<br>1.构造方法可以有访问修饰符，private、protected、public，但不可以有任何非访问性质的修饰符，如：static、final、synchronized、abstract等。<br>2.构造方法无任何返回值类型，连void也不可以。实例方法可以有任何返回值类型。<br>3.命名方面，构造方法与类名相同，实例方法可以与类名相同，但一般会有所区别。<br>注：如果一个类没有声明构造方法，java会自动声明一个隐式的构造方法。</li>
-<li>构造方法的声明与调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//1.隐式默认构造方法</span><br><span class="line">public class Example&#123;&#125;</span><br><span class="line">//2.显示默认构造方法</span><br><span class="line">public class Example&#123;</span><br><span class="line">public Example()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">//3.自定义构造方法，无默认构造方法</span><br><span class="line">public class Example&#123;</span><br><span class="line">private int a;</span><br><span class="line">private int b;</span><br><span class="line">private int c;</span><br><span class="line">public Example(int a,int b,int c)&#123;</span><br><span class="line">this.a=a;</span><br><span class="line">this.b=b;</span><br><span class="line">this.c=c;</span><br><span class="line">&#125;</span><br><span class="line">........//get和set方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关于实例化以及有参与无参的区别</span><br><span class="line">1.Example e1=new Example();//正确</span><br><span class="line">2.Example e2=new Example();//正确</span><br><span class="line">3.Example e3=new Example();//错误，由于没有默认的构造方法。</span><br><span class="line">正确的做法：Example e3=new Example(1,2,3);</span><br><span class="line">或者同时编写e3和e2，此时若是想用无参构造函数实例化对象，则需要在类中声明get和set方法。</span><br><span class="line">例如：</span><br><span class="line">Example e=new Example();</span><br><span class="line">e.setA(1);</span><br><span class="line">e.setB(2);</span><br><span class="line">e.setC(3);</span><br><span class="line"></span><br><span class="line">之后可以用get获得在具体的值</span><br><span class="line">```  </span><br><span class="line">注意：如果使用了有参构造方法，JVM就不会生成默认的构造方法，所以为了使用无参数的构造函数，就要显示的声明一个无参的构造函数。</span><br><span class="line"></span><br><span class="line">##### 注：10.Java显示调用与隐式调用</span><br><span class="line">关于继承的调用顺序：静态初始化块(先父后子)--&gt;父类非静态初始化块--&gt;父类构造方法--&gt;子类的非静态初始化块--&gt;子类构造器</span><br></pre></td></tr></table></figure>
-</li>
+<li>构造方法的声明与调用</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//1.隐式默认构造方法</span><br><span class="line">public class Example&#123;&#125;</span><br><span class="line">//2.显示默认构造方法</span><br><span class="line">public class Example&#123;</span><br><span class="line">public Example()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">//3.自定义构造方法，无默认构造方法</span><br><span class="line">public class Example&#123;</span><br><span class="line">private int a;</span><br><span class="line">private int b;</span><br><span class="line">private int c;</span><br><span class="line">public Example(int a,int b,int c)&#123;</span><br><span class="line">this.a=a;</span><br><span class="line">this.b=b;</span><br><span class="line">this.c=c;</span><br><span class="line">&#125;</span><br><span class="line">........//get和set方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关于实例化以及有参与无参的区别</span><br><span class="line">1.Example e1=new Example();//正确</span><br><span class="line">2.Example e2=new Example();//正确</span><br><span class="line">3.Example e3=new Example();//错误，由于没有默认的构造方法。</span><br><span class="line">正确的做法：Example e3=new Example(1,2,3);</span><br><span class="line">或者同时编写e3和e2，此时若是想用无参构造函数实例化对象，则需要在类中声明get和set方法。</span><br><span class="line">例如：</span><br><span class="line">Example e=new Example();</span><br><span class="line">e.setA(1);</span><br><span class="line">e.setB(2);</span><br><span class="line">e.setC(3);</span><br><span class="line"></span><br><span class="line">之后可以用get获得在具体的值</span><br><span class="line">```  </span><br><span class="line">注意：如果使用了有参构造方法，JVM就不会生成默认的构造方法，所以为了使用无参数的构造函数，就要显示的声明一个无参的构造函数。</span><br><span class="line"></span><br><span class="line">##### 注：10.Java显示调用与隐式调用</span><br><span class="line">关于继承的调用顺序：静态初始化块(先父后子)--&gt;父类非静态初始化块--&gt;父类构造方法--&gt;子类的非静态初始化块--&gt;子类构造器</span><br></pre></td></tr></table></figure>
 <p>//父类<br>public class Father{<br>static{<br>        System.out.println(“父类静态初始化块”);<br>      }<br>      {<br>        System.out.println(“父类非静态初始化块”);<br>      }<br>public Father(){</p>
 <pre><code>System.out.println(&quot;父类无参构造方法&quot;);
 </code></pre><p>}<br>public Father(int a){<br>      System.out.println(“父类有参构造方法： a=”+a);<br>}</p>
@@ -402,7 +402,7 @@ f.run();//错误，由于向上转型而失去了子类的run方法
 
  Eat(new Man());//传入的参数子类
  Eat(new Woman());
-</code></pre><p>}<br>public static void Eat(People p){//方法的参数是父类<br>   p.eat();<br>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">向上转型的好处：</span><br><span class="line"> 1.提高代码的可扩展性：即指调用父类和子类都有的子类的方法，要是想调用子类特有的方法就直接 Son s=new Son();  s.run();</span><br><span class="line"> 2.使代码更加简洁：以上面的Eat为例，方法里不用重复写很多调用代码。</span><br><span class="line"></span><br><span class="line">* 向下转型：子类引用指向父类对象，</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>}<br>public static void Eat(People p){//方法的参数是父类<br>   p.eat();<br>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">向上转型的好处：</span><br><span class="line"> 1.提高代码的可扩展性：即指调用父类和子类都有的子类的方法，要是想调用子类特有的方法就直接 Son s=new Son();  s.run();</span><br><span class="line"> 2.使代码更加简洁：以上面的Eat为例，方法里不用重复写很多调用代码。</span><br><span class="line"></span><br><span class="line">* 向下转型：子类引用指向父类对象</span><br></pre></td></tr></table></figure></p>
 <p>public class Father{</p>
 <p>  public void eat()<br>    {<br>        System.out.println(“父类的eat”);<br>    }<br>}</p>
 <p>public Son extends Father{<br>@Override<br>public void eat()<br>    {<br>        System.out.println(“子类的eat”);<br>    }<br>public void run()<br>    {<br>        System.out.println(“子类的run”);<br>    }<br>}</p>
@@ -420,7 +420,7 @@ Father f1=new Father();
 Son f2=(Son)f1;//编译没有错，但运行会出错，f1是父类对象，子类f2对象肯定不可以指向父类对象
 f2.eat();
 f2.run();
-</code></pre><p>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注：为了安全的类型转换，最好先用 if(A instanceof  B) 判断一下。</span><br><span class="line">向下转型的好处：以父类为基础，使得其他子类的方法更加清晰的实现。或者模糊的实现。</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">注：为了安全的类型转换，最好先用 if(A instanceof  B) 判断一下。</span><br><span class="line">向下转型的好处：以父类为基础，使得其他子类的方法更加清晰的实现。或者模糊的实现。</span><br></pre></td></tr></table></figure></p>
 <p>public void Eat(People p){<br>    if(p instanceof Man){  //如果p是Man的实例<br>        Man m = (Man)p;<br>        m.eat();<br>        m.run();//Man有一个跑的方法<br>    }<br>    if(p instanceof Woman){<br>        Woman w = (Woman)p;<br>        w.eat();<br>        System.out.println(“购物”); //女人都喜欢购物<br>    }<br>    p.eat();//老人，小孩什么的就只有吃这个动作<br>}</p>
 <p>Eat(new Man());//根据具体的子类参数来实现不同的动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">补充：如果不用转型则会使代码更加复杂</span><br></pre></td></tr></table></figure></p>
 <p>//实现男人的动作<br>public void man(Man m){<br>  m.eat();<br>}<br>//实现女人的动作<br>public void woman(Woman w){<br>  w.eat();<br>}<br>man(new Man());<br>woman(new Woman());</p>
@@ -706,6 +706,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -714,11 +718,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,10 +731,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,11 +778,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
