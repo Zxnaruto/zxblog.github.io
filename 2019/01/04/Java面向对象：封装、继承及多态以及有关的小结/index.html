@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/cxcz.png">
-<meta property="og:updated_time" content="2019-01-05T08:08:45.572Z">
+<meta property="og:updated_time" content="2019-01-05T14:03:52.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面向对象：封装、继承及多态以及有关的小结">
 <meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
@@ -383,16 +383,26 @@ var _hmt = _hmt || [];
 <p>//子类<br>public class Son extends Father{<br> static{<br>        System.out.println(“子类静态初始化块”);<br>      }<br>      {<br>        System.out.println(“子类非静态初始化块”);<br>      }<br> public Son(){<br>    this(2);//调用本类的有参构造方法<br>    System.out.println(“子类无参构造方法”);<br>  }<br> public Son(int a){<br>    super(a);//显示调用父类有参构造方法<br>    System.out.println(“子类有参构造方法： a=”+a);<br>  }<br>}</p>
 <p>public class Example{</p>
 <p>public staic void main(String[] args){<br>  Son s=new Son(1)//实例化有参的对象<br>  Son s1=new Son();//实例化无参的对象<br>}</p>
-<p>}<br>/////////////<br>输出结果：<br>父类静态初始化块<br>子类静态初始化块<br>父类非静态初始化块<br>父类含参构造方法：a=1<br>子类非静态初始化块<br>子类含参构造方法: a=1<br>父类非静态初始化块<br>父类含参构造方法：a=2<br>子类非静态初始化块<br>子类含参构造方法: a=2<br>子类无参构造方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">注：静态初始化块只调用一次。在子类的构造器中可以通过super来显式调用父类的构造器(参数形式调用不同的构造器)，可以通过this来调用该类重载的其他构造器，而具体调用哪个构造器决定于调用时的参数类型。如果一个构造器中没有super调用，则会隐式调用父类的无参构造器。super和this的调用只能在构造器中，而且都必须作为构造器中的第一行，因此super和this不会同时出现在同一个构造器中。</span><br><span class="line"></span><br><span class="line">##### 注：11.Java super与this关键字的用法</span><br><span class="line"> * this:</span><br><span class="line">   this只能用于方法方法体内。当一个对象创建后，Java虚拟机（JVM）就会给这个对象分配一个引用自身的指针，这个指针的名字就是this。因此，this只能在类中的非静态方法中使用，静态方法和静态的代码块中绝对不能出现this。并且this只和特定的对象关联，而不和类关联，同一个类的不同对象有不同的this。</span><br><span class="line">  1.通过this调用另一个构造方法，用发是this(参数列表)，这个仅仅在类的构造方法中，别的地方不能这么用。且用在方法的第一行。</span><br><span class="line">  2.函数参数或者函数中的局部变量和成员变量同名的情况下，成员变量被屏蔽，此时要访问成员变量则需要用“this.成员变量名”的方式来引用成员变量。当然，在没有同名的情况下，可以直接用成员变量的名字，而不用this。</span><br><span class="line">   3.在函数中，需要引用该函所属类的当前对象时候，直接用this。</span><br><span class="line"> * super：</span><br><span class="line"> 1.在子类构造方法中要调用父类的构造方法，用“super(参数列表)”的方式调用，参数不是必须的。同时还要注意的一点是：“super(参数列表)”这条语句只能用在子类构造方法体中的第一行。</span><br><span class="line"> 2.当子类方法中的局部变量或者子类的成员变量与父类成员变量同名时，也就是子类局部变量覆盖父类成员变量时，用“super.成员变量名”来引用父类成员变量。当然，如果父类的成员变量没有被覆盖，也可以用“super.成员变量名”来引用父类成员变量，不过这是不必要的。</span><br><span class="line"> 3.当子类的成员方法覆盖了父类的成员方法时，也就是子类和父类有完全相同的方法定义（但方法体可以不同），此时，用“super.方法名(参数列表)”的方式访问父类的方法。</span><br><span class="line">#### 3.多态</span><br><span class="line">多态是指一个程序中同名的多个不同方法共存的情况，即一个对外接口，多个内在实现方法，面向对象的程序中多态的情况有多种，可以通过子类对父类方法的覆盖实现多态，也可以利用重载在 同一个类中定义多个同名的不同方法来实现多态。多态的特点使得他们不需要了解对方的具体细节，就可以很好的共同工作，这个优点，对程序的设计、开发和维护都有很大的好处。</span><br><span class="line">* 多态的优点</span><br><span class="line">1. 消除类型之间的耦合关系</span><br><span class="line">2. 可替换性</span><br><span class="line">3. 可扩充性</span><br><span class="line">4. 接口性</span><br><span class="line">5. 灵活性</span><br><span class="line">6. 简化性</span><br><span class="line"></span><br><span class="line">* 多态存在的三个必要条件</span><br><span class="line">1. 继承</span><br><span class="line">2. 重写</span><br><span class="line">3. 父类引用指向子类的对象( Father f=new Son(); )</span><br><span class="line">##### 注12.向上转型与向下转型</span><br><span class="line">* 向上转型：父类引用指向子类对象。父类引用指向子类对象，将会丢失子类和父类中不一致的方法，并且父类引用调用的变量只能是父类中的。</span><br></pre></td></tr></table></figure></p>
+<p>}<br>/////////////<br>输出结果：<br>父类静态初始化块<br>子类静态初始化块<br>父类非静态初始化块<br>父类含参构造方法：a=1<br>子类非静态初始化块<br>子类含参构造方法: a=1<br>父类非静态初始化块<br>父类含参构造方法：a=2<br>子类非静态初始化块<br>子类含参构造方法: a=2<br>子类无参构造方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">注：静态初始化块只调用一次。在子类的构造器中可以通过super来显式调用父类的构造器(参数形式调用不同的构造器)，可以通过this来调用该类重载的其他构造器，而具体调用哪个构造器决定于调用时的参数类型。如果一个构造器中没有super调用，则会隐式调用父类的无参构造器。super和this的调用只能在构造器中，而且都必须作为构造器中的第一行，因此super和this不会同时出现在同一个构造器中。</span><br><span class="line"></span><br><span class="line">##### 注：11.Java super与this关键字的用法</span><br><span class="line"> * this:</span><br><span class="line">   this只能用于方法方法体内。当一个对象创建后，Java虚拟机（JVM）就会给这个对象分配一个引用自身的指针，这个指针的名字就是this。因此，this只能在类中的非静态方法中使用，静态方法和静态的代码块中绝对不能出现this。并且this只和特定的对象关联，而不和类关联，同一个类的不同对象有不同的this。</span><br><span class="line">  1.通过this调用另一个构造方法，用发是this(参数列表)，这个仅仅在类的构造方法中，别的地方不能这么用。且用在方法的第一行。</span><br><span class="line">  2.函数参数或者函数中的局部变量和成员变量同名的情况下，成员变量被屏蔽，此时要访问成员变量则需要用“this.成员变量名”的方式来引用成员变量。当然，在没有同名的情况下，可以直接用成员变量的名字，而不用this。</span><br><span class="line">   3.在方法中，需要引用该方法所属类的当前对象时候，直接用this。</span><br><span class="line"> * super：</span><br><span class="line"> 1.在子类构造方法中要调用父类的构造方法，用“super(参数列表)”的方式调用，参数不是必须的。同时还要注意的一点是：“super(参数列表)”这条语句只能用在子类构造方法体中的第一行。</span><br><span class="line"> 2.当子类方法中的局部变量或者子类的成员变量与父类成员变量同名时，也就是子类局部变量覆盖父类成员变量时，用“super.成员变量名”来引用父类成员变量。当然，如果父类的成员变量没有被覆盖，也可以用“super.成员变量名”来引用父类成员变量，不过这是不必要的。</span><br><span class="line"> 3.当子类的成员方法覆盖了父类的成员方法时，也就是子类和父类有完全相同的方法定义（但方法体可以不同），此时，用“super.方法名(参数列表)”的方式访问父类的方法。</span><br><span class="line">#### 3.多态</span><br><span class="line">多态是指一个程序中同名的多个不同方法共存的情况，即一个对外接口，多个内在实现方法，面向对象的程序中多态的情况有多种，可以通过子类对父类方法的覆盖实现多态，也可以利用重载在 同一个类中定义多个同名的不同方法来实现多态。多态的特点使得他们不需要了解对方的具体细节，就可以很好的共同工作，这个优点，对程序的设计、开发和维护都有很大的好处。</span><br><span class="line">* 多态的优点</span><br><span class="line">1. 消除类型之间的耦合关系</span><br><span class="line">2. 可替换性</span><br><span class="line">3. 可扩充性</span><br><span class="line">4. 接口性</span><br><span class="line">5. 灵活性</span><br><span class="line">6. 简化性</span><br><span class="line"></span><br><span class="line">* 多态存在的三个必要条件</span><br><span class="line">1. 继承</span><br><span class="line">2. 重写</span><br><span class="line">3. 父类引用指向子类的对象( Father f=new Son(); )</span><br><span class="line">##### 注12.向上转型与向下转型</span><br><span class="line">* 向上转型：父类引用指向子类对象。父类引用指向子类对象，将会丢失子类和父类中不一致的方法，并且父类引用调用的变量只能是父类中的。</span><br><span class="line"></span><br><span class="line">注：此时调用次序是调用子类和父类相同的(同名同参)的方法，不可以调用子类中父类没有的方法，如果子类没有所调用的方法，就会去父类中找(这是由于子类继承了父类的方法)。</span><br></pre></td></tr></table></figure></p>
+<p>class A {<br>    public void show(B b){<br>        System.out.println(“a and b”);<br>    }</p>
+<pre><code>public void show(){
+    System.out.println(&quot;only a&quot;);
+}
+</code></pre><p>}</p>
+<p>class B extends A {<br>    public void show(B b){<br>        System.out.println(“b and b”);<br>    }<br>    public void show(int a){</p>
+<pre><code>}
+</code></pre><p>}</p>
+<p>class Test{<br>    public static void main(String[] args) {<br>        A a = new B();<br>        a.show(new B());<br>        a.show();<br>    }<br>}</p>
+<p>//输出<br>b and b<br>only a<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;</span><br></pre></td></tr></table></figure></p>
 <p>public class Father{</p>
 <p>  public void eat()<br>    {<br>        System.out.println(“父类的eat”);<br>    }<br>}</p>
-<p>public Son extends Father{<br>@Override<br>public void eat()<br>    {<br>        System.out.println(“子类的eat”);<br>    }<br>public void run()<br>    {<br>        System.out.println(“子类的run”);<br>    }<br>}</p>
-<p>////////////<br>public class People{</p>
+<p>class Son extends Father{<br>@Override<br>public void eat()<br>    {<br>        System.out.println(“子类的eat”);<br>    }<br>public void run()<br>    {<br>        System.out.println(“子类的run”);<br>    }<br>}</p>
+<p>////////////<br> class People{</p>
 <p>public void eat(){<br>System.out.println(“父类的吃”);<br>}<br>}</p>
-<p>public class Man extends People{</p>
+<p> class Man extends People{</p>
 <p>@Override<br>public void eat()<br>    {<br>        System.out.println(“Man的eat”);<br>    }</p>
 <p>}</p>
-<p>public class Woman extends People{</p>
+<p>class Woman extends People{</p>
 <p>@Override<br>public void eat()<br>    {<br>        System.out.println(“Woman的eat”);<br>    }<br>}</p>
 <p>public class Test{</p>
 <p>public static void main(String[] args){</p>
@@ -424,8 +434,83 @@ f2.run();
 <p>public void Eat(People p){<br>    if(p instanceof Man){  //如果p是Man的实例<br>        Man m = (Man)p;<br>        m.eat();<br>        m.run();//Man有一个跑的方法<br>    }<br>    if(p instanceof Woman){<br>        Woman w = (Woman)p;<br>        w.eat();<br>        System.out.println(“购物”); //女人都喜欢购物<br>    }<br>    p.eat();//老人，小孩什么的就只有吃这个动作<br>}</p>
 <p>Eat(new Man());//根据具体的子类参数来实现不同的动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">补充：如果不用转型则会使代码更加复杂</span><br></pre></td></tr></table></figure></p>
 <p>//实现男人的动作<br>public void man(Man m){<br>  m.eat();<br>}<br>//实现女人的动作<br>public void woman(Woman w){<br>  w.eat();<br>}<br>man(new Man());<br>woman(new Woman());</p>
-<p>//使用转型后只写一个eat方法后直接调用<br>public  void people(People p){<br>  p.eat();<br>}<br>people(new Man());<br>……..<br><code>`</code></p>
-<h5 id="注12-泛型"><a href="#注12-泛型" class="headerlink" title="注12.泛型"></a>注12.泛型</h5>
+<p>//使用转型后只写一个eat方法后直接调用<br>public  void people(People p){<br>  p.eat();<br>}<br>people(new Man());</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### 注13.多态实例</span><br><span class="line">当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。如果子类中没有覆盖该方法，那么会去父类中寻找（这是由于子类继承了父类的方法）。结合上面的向上转型的注意来理解。</span><br></pre></td></tr></table></figure>
+<p>package pers.zx.test;</p>
+<p>public class Test{</p>
+<pre><code>public static void main(String[] args) {
+    A a1=new A();//实例化一个父类对象
+    A a2=new B();//向下转型，指向子类引用
+    B b=new B();//实例化子类对象
+    C c=new C();
+    D d=new D();
+
+    //a1去找的是A类，然后在具体判断参数是否符合
+    System.out.println(&quot;&quot;+a1.show(b));//A obj=new B();a1=new A()
+    System.out.println(&quot;&quot;+a1.show(c));//A obj=new C();向上到B的父类找
+    System.out.println(&quot;&quot;+a1.show(d));//D obj=new D();
+    //向上转型
+    /*
+     * 当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。
+     * 如果子类中没有覆盖该方法，那么会去父类中寻找（这是由于子类继承了父类的方法）。
+     * */
+    System.out.println(&quot;&quot;+a2.show(b));//由于向上转型，所以调用与父类相同的在子类中的方法
+    System.out.println(&quot;&quot;+a2.show(c));//由于向上转型，所以调用与父类相同的在子类中的方法
+    System.out.println(&quot;&quot;+b.show(b));//去B类找与参数b对应的，找到调用，没找到就去父类中找(继承了父类的方法)
+    System.out.println(&quot;&quot;+b.show(c));
+    System.out.println(&quot;&quot;+b.show(d));//调用继承父类中的方法
+}
+</code></pre><p>}</p>
+<p>class A {</p>
+<pre><code>public String show(D obj) {
+    return &quot;A and D&quot;;
+}
+//重载
+public String show(A obj) {
+    return &quot;A and A&quot;;
+}
+
+public void e() {
+    System.out.println(&quot;A类e&quot;);
+}
+</code></pre><p>}</p>
+<p>class B extends A{<br>    public String show(B obj) {<br>        return “B and B”;<br>    }</p>
+<pre><code>public String show(A obj) {
+    return &quot;B and A&quot;;
+}
+
+public void e() {
+    System.out.println(&quot;B类e&quot;);
+}
+public void d() {
+
+    System.out.println(&quot;B类d&quot;);
+}
+</code></pre><p>}<br>class C extends B{}</p>
+<p>class D extends B{}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">##### 注14.泛型</span><br><span class="line">* (1)概念：泛型技术可以通过一种类型或方法操作各种不同类型的对象，同时又提供编译时的类型安全保证。泛型的实质就是将数据的类型参数化，通过为类、接口及方法设置类型参数来定义泛型。泛型使一个类或一个方法可以在多种不同类型的对象上进行操作，运用泛型意味着编写的代码可以被很多类型不同的对象所重用，从而减少数据类型转换的潜在错误。</span><br><span class="line">* (2)目的：</span><br><span class="line">&amp;nbsp;&amp;nbsp;- 在不创建新的类型的情况下，通过泛型指定的不同类型来控制形参具体限制的类型。</span><br><span class="line">&amp;nbsp;&amp;nbsp;- 可以在编译时而不是运行时检查出错误。</span><br><span class="line">* (3)类型：泛型类、泛型接口、泛型方法</span><br><span class="line">* (4)声明：</span><br></pre></td></tr></table></figure>
+<p>1.泛型类的定义<br>[修饰符] class 类名<t><br>2.泛型接口的定义<br>[public] interface 接口名<t><br>3.泛型方法的定义<br>[public] [static]<t> 返回值类型 方法名（T 参数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* (5)举个例子</span><br></pre></td></tr></table></figure></t></t></t></p>
+<pre><code>/*
+ * 泛型实在编译时检查和处理类型转换的，不是在运行时，
+ * 由于下面ArrayList在不定义泛型时可以添加任何基本类型，在定义泛型后，就会
+ * 限制相应的类型，防止添加不符的类型。提高程序的安全性。
+ * 
+ * 同样体现了泛型的实质就是将数据的类型参数化，根据想要的数据类型来添加参数。
+ * 但我们通常再用泛型时会将它定义为任意的参数类型，然后具体地方具体调用。即具体传参
+ * */
+  List&lt;Integer&gt; IntegerData=new ArrayList&lt;Integer&gt;();
+  List IntegerData1=new ArrayList();
+
+  IntegerData1.add(1);
+  IntegerData1.add(&quot;1&quot;);
+
+  IntegerData.add(1);//成功
+  IntegerData.add(&quot;1&quot;);//编译时错误，与泛型类型不符，添加不成功
+</code></pre><p><code>`</code></p>
+<ul>
+<li>(6)分类详解<br> 1.泛型类：</li>
+</ul>
+
       
 
       
@@ -714,14 +799,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -730,7 +807,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -754,7 +839,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -766,7 +851,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,7 +863,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +871,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
