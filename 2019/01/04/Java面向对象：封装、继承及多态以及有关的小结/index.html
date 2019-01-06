@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/cxcz.png">
-<meta property="og:updated_time" content="2019-01-05T14:03:52.867Z">
+<meta property="og:updated_time" content="2019-01-06T13:29:10.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面向对象：封装、继承及多态以及有关的小结">
 <meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
@@ -489,7 +489,7 @@ public void d() {
 </code></pre><p>}<br>class C extends B{}</p>
 <p>class D extends B{}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">##### 注14.泛型</span><br><span class="line">* (1)概念：泛型技术可以通过一种类型或方法操作各种不同类型的对象，同时又提供编译时的类型安全保证。泛型的实质就是将数据的类型参数化，通过为类、接口及方法设置类型参数来定义泛型。泛型使一个类或一个方法可以在多种不同类型的对象上进行操作，运用泛型意味着编写的代码可以被很多类型不同的对象所重用，从而减少数据类型转换的潜在错误。</span><br><span class="line">* (2)目的：</span><br><span class="line">&amp;nbsp;&amp;nbsp;- 在不创建新的类型的情况下，通过泛型指定的不同类型来控制形参具体限制的类型。</span><br><span class="line">&amp;nbsp;&amp;nbsp;- 可以在编译时而不是运行时检查出错误。</span><br><span class="line">* (3)类型：泛型类、泛型接口、泛型方法</span><br><span class="line">* (4)声明：</span><br></pre></td></tr></table></figure>
-<p>1.泛型类的定义<br>[修饰符] class 类名<t><br>2.泛型接口的定义<br>[public] interface 接口名<t><br>3.泛型方法的定义<br>[public] [static]<t> 返回值类型 方法名（T 参数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* (5)举个例子</span><br></pre></td></tr></table></figure></t></t></t></p>
+<p>1.泛型类的定义<br>[修饰符] class 类名<t><br>2.泛型接口的定义<br>[public] interface 接口名<t><br>3.泛型方法的定义<br>[public] [static]<t> 返回值类型 方法名（T 参数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">定义泛型之后，就可以在代码中使用类型参数T来表示一种数据的类型而非数据的值，即T可以看作泛型类的一种“类型形式参数”。在定义类型参数后，就可以在类体或者接口体中定义的各个部分直接使用这些类型参数。而在应用这些具有泛型特性的类或接口时，需要指明实际的具体类型，即用“类型实际参数”来替换“类型形式参数”，也就是说，用泛型类创建的对象就是在类体内的每个类型参数T处分别用这个具体的实际类型替代。泛型的实际参数必须是类类型，利用泛型类创建的对象称之为泛型对象，这个过程也称为泛型实例化。所以说，泛型的概念实际上是基于“类型也可以像变量一样实现参数化”这一简单的设计理念实现的，因此泛型也称为参数多态。</span><br><span class="line">* (5)举个例子</span><br></pre></td></tr></table></figure></t></t></t></p>
 <pre><code>/*
  * 泛型实在编译时检查和处理类型转换的，不是在运行时，
  * 由于下面ArrayList在不定义泛型时可以添加任何基本类型，在定义泛型后，就会
@@ -506,10 +506,210 @@ public void d() {
 
   IntegerData.add(1);//成功
   IntegerData.add(&quot;1&quot;);//编译时错误，与泛型类型不符，添加不成功
-</code></pre><p><code>`</code></p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* (6)分类详解</span><br><span class="line">   1.泛型类：</span><br></pre></td></tr></table></figure>
+<p>//在实例化类型时必须指定T的具体类型<br>public class Generic<t> {</t></p>
+<pre><code>private T key;//key这个成员变量的类型为T,T的类型由外部指定
+public Generic(T key) {//泛型构造方法形参key的类型也是T,T的类型由外部指定
+    this.key=key;
+}
+
+public T getKey() {//泛型方法的返回类型为T,T由外部指定
+    return key;
+}
+
+
+public static void main(String[] args) {
+    /*
+     * 泛型的类型参数只能是类类型(包括自定义类)，不能是简单类型
+     * 传入的实参类型需与泛型的类型参数类型相同
+     * */
+    Generic&lt;Integer&gt; a=new Generic&lt;Integer&gt;(1);//以Integer类型为实际参数，实例化泛型类
+    Generic&lt;String&gt; s=new Generic&lt;String&gt;(&quot;zx&quot;);//以String类型为实际参数，实例化泛型类
+
+    //由于构造函数在实例化时会初始化参数，所以key已经有值
+    System.out.println(a.getKey());
+    System.out.println(s.getKey());
+
+
+    //在调用泛型类实例化对象时不一定要一定传入具体的类型实参，可以直接实例化
+    //此时，该泛型类属于任何类型，比如
+    Generic g1=new Generic(123);
+    Generic g2=new Generic(&quot;123&quot;);
+    Generic g3=new Generic(1.23);
+    //但这样就失去了泛型本来应有的作用
+
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意：1.泛型类的类型参数只能是类类型，不能是简单类型。</span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.不能对确切的泛型类型使用instanceof操作。如下面的操作是非法的，编译时会出错。</span><br></pre></td></tr></table></figure></p>
+<p>if(ex_num instanceof Generic<number>){<br>} //Generic<number>确切了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.泛型接口：与泛型类的声明方法类似，常被用于各种类的生产器中。</span><br></pre></td></tr></table></figure></number></number></p>
+<p>import java.util.Random;</p>
+<p>//泛型接口<br>public interface Generator<t> {</t></p>
+<pre><code>public T next();
+</code></pre><p>}</p>
+<p>//泛型接口实现，未传入实参<br>//实现泛型接口时，相应的类也要加类型参数<br>//具体实现类的时候，只要加上相应的实际参数就好了<br>//AnythingGenerator<integer> a=new AnythingGenerator<integer>();<br>//此时里面的next方法的返回值类型就是Integer<br>class AnythingGenerator<t> implements Generator<t>{</t></t></integer></integer></p>
+<pre><code>@Override
+public T next() {
+    // TODO Auto-generated method stub
+    return null;
+}
+</code></pre><p>}</p>
+<p>//泛型接口实现，传入实参<br>class AnythingGenerator1 implements Generator<string>{</string></p>
+<pre><code>private String[] something=new String[] {&quot;1&quot;,&quot;2&quot;,&quot;3&quot;};
+@Override
+public String next() {
+    // TODO Auto-generated method stub
+    Random rand=new Random();
+
+    return something[rand.nextInt(2)];
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.泛型方法：是在调用方法的时候指明泛型的具体类型 。</span><br></pre></td></tr></table></figure></p>
+<pre><code>public class GenericMethod {
+</code></pre><p>////////////////////////////////////////////////////////////////////////////////<br>    // 1.public 与返回值中间<t>非常重要，类似于说明这是泛型方法<br>    // 2.只有声明了<t>的方法才是泛型方法，泛型类型中的使用了泛型的成员方法并不是泛型方法<br>    // 3.<t>表明该方法将使用泛型类型T，此时才可以在方法中使用泛型类型T<br>    // 4.T可以替换为E、K、V<br>    public <t> T genericMethod() {</t></t></t></t></p>
+<pre><code>    return null;
+}
+</code></pre><p>////////////////////////////////////////////////////////////////////////////////</p>
+<pre><code>public class Generic&lt;T&gt;{
+    private T key;
+
+    //构造函数
+    public Generic(T key) {
+        this.key=key;
+    }
+    //这不是泛型方法，是泛型类中的一个成员方法，只不过
+    //返回的类型与泛型类声明的相同
+    public T getKey() {
+        return key;
+    }
+
+
+    /**
+     * 错误示范
+     * 由于在泛型类中并未声明泛型E,所以在使用E做类型参数和返回值时编译器无法识别
+     * public E getKey(E key){
+     * this.key=key
+     * }
+     */
+</code></pre><p>///////////////////////////////////////////////////////////////////////////////</p>
+<pre><code>    //泛型方法
+    /*在public与返回值类型之间有&lt;T&gt;,这表明这是一个泛型方法
+     * ，并声明了一个泛型类型参数T,这个T可以出现在这个泛型方法的任何位置
+     * 泛型的数量也可以为任意多个
+     * 
+     * 如： public &lt;T,K...&gt; K showKeyName(Generic&lt;T&gt; container){
+     * ......
+     *      }
+     * */
+
+    public &lt;T&gt; T showKeyName(Generic&lt;T&gt; container) {
+        System.out.println(&quot;container key:&quot;+container.getKey());
+        //说明泛型方法的特性
+        T test =container.getKey();
+        return test;
+    }
+    //普通方法，只是用了Number做泛型参数
+    public void showKeyValue1(Generic&lt;Number&gt; obj) {
+        System.out.println(&quot;key=&quot;+obj.getKey());
+    }
+    //这也不是一个泛型方法，只是用了泛型通配符？
+    //？是一种类型实参，可以看作Number等所有类的父类
+    public void showKeyValue2(Generic&lt;?&gt; obj) {
+        System.out.println(&quot;key=&quot;+obj.getKey());
+    }
+}
+/**
+ * 这个方法是有问题的，编译器会为我们提示错误信息：&quot;UnKnown class &apos;E&apos; &quot;
+ * 虽然我们声明了&lt;T&gt;,也表明了这是一个可以处理泛型的类型的泛型方法。
+ * 但是只声明了泛型类型T，并未声明泛型类型E，因此编译器并不知道该如何处理E这个类型。
+   public &lt;T&gt; T showKeyName(Generic&lt;E&gt; container){
+    ...
+   }  
+*/
+
+/**
+ * 这个方法也是有问题的，编译器会为我们提示错误信息：&quot;UnKnown class &apos;T&apos; &quot;
+ * 对于编译器来说T这个类型并未项目中声明过，因此编译也不知道该如何编译这个类。
+ * 所以这也不是一个正确的泛型方法声明。
+   public void showkey(T genericObj){
+
+   }
+*/
+</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4.泛型类中的泛型方法</span><br></pre></td></tr></table></figure>
+<p>/**</p>
 <ul>
-<li>(6)分类详解<br> 1.泛型类：</li>
+<li>@author zx</li>
+<li><p>泛型类中的泛型方法<br>*/<br>public class GenericMethodInClass {</p>
+<p>   public static void main(String[] args) {</p>
+<pre><code>Son s=new Son();
+Person p=new Person();
+
+GenerateTest&lt;Father&gt; generateTest=new GenerateTest&lt;Father&gt;();
+//Son 是Father的子类，所以这里可以
+generateTest.show1(s);
+//generateTest.show1(p);//会报错，由于泛型类实参指定的是Father,而传入的实参是Person
+
+//泛型方法，使用这两个方法都可以成功
+generateTest.show2(s);
+generateTest.show2(p);
+
+//同理也成功
+generateTest.show3(s);
+generateTest.show3(p);
+</code></pre><p>   }</p>
+</li>
 </ul>
+<p>}<br>class Father{</p>
+<pre><code>@Override
+public String toString() {
+    // TODO Auto-generated method stub
+    return &quot;father&quot;;
+}
+</code></pre><p>}<br>class Son extends Father{</p>
+<pre><code>@Override
+public String toString() {
+    // TODO Auto-generated method stub
+    return &quot;son&quot;;
+}
+</code></pre><p>}<br>class Person{</p>
+<pre><code>@Override
+public String toString() {
+    // TODO Auto-generated method stub
+    return &quot;Person&quot;;
+}
+</code></pre><p>}<br>//泛型类<br>class GenerateTest<t>{<br>    public void show1(T t) {<br>        System.out.println(t.toString());<br>    }</t></p>
+<pre><code>//声明泛型方法，使用泛型E,这种泛型E可以是任意类型。可以与T类型相同，也可以不同
+//由于泛型方法在声明时会声明&lt;E&gt;，因此即使在泛型类中未声明泛型，编译器也能够识别泛型方法中识别的泛型
+public &lt;E&gt; void show2(E t) {
+    System.out.println(t.toString());
+}
+//在泛型类中声明一个泛型方法，使用泛型T,注意这个T是一种全新的类型，可以与泛型类中声明的T不是同一种类型。
+public &lt;T&gt; void show3(T t) {
+    System.out.println(t.toString());
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5.泛型方法与可变参数</span><br></pre></td></tr></table></figure></p>
+<p>public class Test {</p>
+<pre><code>public &lt;T&gt; void display(T... args) {
+    for(T t:args) {
+        System.out.println(&quot;t=&quot;+t);
+    }
+}
+
+public static void main(String[] args) {
+    Test t=new Test();
+    t.display(&quot;1&quot;,2,3,&quot;dajfjl&quot;);
+}
+</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   6.静态方法与泛型</span><br><span class="line">静态方法无法访问类上定义的泛型；如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。即：如果静态方法要使用泛型的话，必须将静态方法也定义成泛型方法 。</span><br></pre></td></tr></table></figure>
+<p>public class StaticGenerator<t> {<br>    ….<br>    ….<br>    /**</t></p>
+<pre><code> * 如果在类中定义使用泛型的静态方法，需要添加额外的泛型声明（将这个方法定义成泛型方法）
+ * 即使静态方法要使用泛型类中已经声明过的泛型也不可以。
+ * 如：public static void show(T t){..},此时编译器会提示错误信息：
+      &quot;StaticGenerator cannot be refrenced from static context&quot;
+ */
+public static &lt;T&gt; void show(T t){
+
+}
+</code></pre><p>}<br><code>`</code></p>
+<p>7.泛型小结<br>泛型方法能使方法独立于类而产生变化，在编程时能使用泛型方法的地方要尽量使用泛型方法。以简化代码的开发，保证代码的质量。</p>
 
       
 
@@ -787,10 +987,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -799,11 +995,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,7 +1011,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -823,11 +1023,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,6 +1036,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,19 +1055,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,15 +1071,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
