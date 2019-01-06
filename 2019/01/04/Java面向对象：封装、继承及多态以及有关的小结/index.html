@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jc.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/cxcz.png">
-<meta property="og:updated_time" content="2019-01-06T13:29:10.164Z">
+<meta property="og:updated_time" content="2019-01-06T18:19:46.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面向对象：封装、继承及多态以及有关的小结">
 <meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java作为面向对象的语言自然支持封装、继承及多态这三个特性，下面就对这三种特性在Java中的表现，以及相关联的一些概念进行解释说明。 二、解释1、封装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)利用抽象数据类型将数据和基于数据的操作封装在一起，数据被保护在抽象数据类型的内部，系统的其他部分只有通">
@@ -708,8 +708,39 @@ public static void main(String[] args) {
 public static &lt;T&gt; void show(T t){
 
 }
-</code></pre><p>}<br><code>`</code></p>
-<p>7.泛型小结<br>泛型方法能使方法独立于类而产生变化，在编程时能使用泛型方法的地方要尽量使用泛型方法。以简化代码的开发，保证代码的质量。</p>
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">7.泛型的上下边界</span><br><span class="line">在使用泛型的时候，我们还可以为传入的泛型类型实参进行上下边界的限制，如：类型实参只传入某种类型的父类或某种类型的子类。</span><br><span class="line">注意：泛型的上下边界添加，必须与泛型的声明在一起 。</span><br></pre></td></tr></table></figure></p>
+<p>//1.方法参数限制<br>//为泛型添加上边界，即传入的类型实参必须是指定类型的子类型<br>//泛型边界测试<br>    public void display(Generic&lt;? extends Number&gt; obj) {<br>        System.out.println(“key=”+obj.getKey());<br>    }<br>    public static void main(String[] args){<br>        //边界测试<br>        Generic<string> e1=new Generic<string>(“zx”);<br>        Generic<integer> e2=new Generic<integer>(1);</integer></integer></string></string></p>
+<pre><code>    //e1.display(e1);//错误，由于String不属于Number
+    e2.display(e2);
+}
+</code></pre><p>//2.泛型方法<br>    //泛型方法中添加上下边界时，必须在权限声明与返回值之间的<t>上添加上下边界，即在<br>    //声明的时候添加<br>    // public <t>T display(Generic1<t extends="" number=""> container),此时编译器会报错，”Unexpected bound”<br>    public <t extends="" number="">T display(Generic1<t> container){</t></t></t></t></t></p>
+<pre><code>    T test=container.getKey();
+    return null;
+
+}
+</code></pre><p>//3.泛型类参数限制<br>public class Generic1<t extends="" number=""> {</t></p>
+<pre><code>private T key;//key这个成员变量的类型为T,T的类型由外部指定
+public Generic1(T key) {//泛型构造方法形参key的类型也是T,T的类型由外部指定
+    this.key=key;
+}
+
+public T getKey() {//泛型方法的返回类型为T,T由外部指定
+    return key;
+}
+
+
+public static void main(String[] args) {
+    Generic1&lt;Integer&gt; a=new Generic1&lt;Integer&gt;(1);
+    //Generic1&lt;String&gt; a1=new Generic1&lt;String&gt;(1);//错误，原因和上面相同
+}
+</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8.泛型数组</span><br><span class="line">在Java中不能创建一个确切的泛型类数组</span><br></pre></td></tr></table></figure>
+<p>1.List<string>[] l=new ArrayList<string>[10];//错误<br>2.使用通配符创建泛型数组是可以的<br>List&lt;?&gt;[] l=new ArrayList&lt;?&gt;[10];<br>或者<br>List<string>[] l=new ArrayList[10];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9.泛型通配符</span><br></pre></td></tr></table></figure></string></string></string></p>
+<p>(1)Generic<integer>不能被看作为`Generic<number>的子类。由此可以看出:同一种泛型可以对应多个版本（因为参数类型是不确定的），不同版本的泛型类实例是不兼容的。<br>(2)类型通配符一般是使用？代替具体的类型实参，此处’？’是类型实参，而不是类型形参 。再直白点的意思就是，此处的？和Number、String、Integer一样都是一种实际的类型，可以把？看成所有类型的父类。是一种真实的类型。<br>类型通配符可以解决当具体类型不确定的时候，这个通配符就是 ?  ；当操作类型时，不需要使用类型的具体功能时，只使用Object类中的功能。那么可以用 ? 通配符来表未知类型。</number></integer></p>
+<p>Generic&lt;?&gt; obj</p>
+<p><code>`</code></p>
+<p>10.泛型小结<br>泛型方法能使方法独立于类而产生变化，在编程时能使用泛型方法的地方要尽量使用泛型方法。以简化代码的开发，保证代码的质量。</p>
+<p>参考：<a href="https://blog.csdn.net/s10461/article/details/53941091" target="_blank" rel="noopener">https://blog.csdn.net/s10461/article/details/53941091</a> </p>
 
       
 
@@ -987,15 +1018,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1007,15 +1038,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,19 +1062,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,6 +1079,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,11 +1098,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
