@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="XiaoHuZiZx">
 <meta property="og:description" content="在学习Java的时候，一般会有这个疑问，可能会觉得接口没有用，为什么要定义接口？为什么不在类中直接实现相应的方法，而是要通过声明接口的形式来实现相应的方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-24T16:11:59.940Z">
+<meta property="og:updated_time" content="2019-01-25T06:56:52.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java接口的作用及一些总结">
 <meta name="twitter:description" content="在学习Java的时候，一般会有这个疑问，可能会觉得接口没有用，为什么要定义接口？为什么不在类中直接实现相应的方法，而是要通过声明接口的形式来实现相应的方法。">
@@ -227,14 +227,14 @@ var _hmt = _hmt || [];
 <ul>
 <li>1.接口的重要性：Java作为面向对象的语言，最重要的能力就是抽象能力，而接口(interface)和抽象类正是面向对象的抽象能力的体现。<br>(所谓抽象其实就是会改变的东西，就好比一个对象可能因为环境的改变有些特殊的行为要发生变化，这时这些不确定的行为我们就可以用抽象的方式来应对。提高代码扩展性)。</li>
 <li>2.简单、规范性：架构师理清楚业务逻辑后通过接口声明行为并限制命名规范，实现人员就具体的规范的行为声明来实现具体的行为。类似于通过接口来实现整体项目框架的搭建。</li>
-<li>3.维护、拓展性：不必像为定义接口时那样，如果一个类有变动就去修改这个类，这可能造成程序出现bug，比如其他地方在引用这个类，但当有接口后，就可以定义类实现这个接口，然后用接口去引用相应的实现类就好了。不同的类实现一样的接口，可能实现的行为内容不一样。在用的时候直接用接口名引用具体的实现类。</li>
+<li>3.维护、拓展性：不必像未定义接口时那样，如果一个类有变动就去修改这个类，这可能造成程序出现bug，比如其他地方在引用这个类，但当有接口后，就可以定义类实现这个接口，然后用接口去引用相应的实现类就好了。不同的类实现一样的接口，可能实现的行为内容不一样。在用的时候直接用接口名引用具体的实现类。</li>
 <li>4.安全性：接口是实现软件松耦合的重要手段，它描述了系统对外的服务，而不涉及具体的实现细节。</li>
 </ul>
 <p>注意：</p>
 <ul>
 <li>1.抽象类一般放共有的方法，子类继承它，子类也可以实现特有的方法。抽象类一般用于对一类事物抽取公共的行为，从而使代码更简洁。</li>
 <li>2.具有抽象方法的类一定是抽象类。抽象类不一定有抽象方法。</li>
-<li>3.接口和抽象类多不能实例化。接口和抽象类的声明<br>Interface a=new class();<br>abstractclass a=new class();<br>向上转型。</li>
+<li>3.接口和抽象类都不能实例化。接口和抽象类的声明<br>Interface a=new class();<br>abstractclass a=new class();<br>向上转型。</li>
 <li>4.重写后会调用子类中的方法。</li>
 <li>5.变量不能被重写或覆盖。</li>
 </ul>
@@ -520,11 +520,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,11 +540,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,10 +577,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,19 +592,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
