@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>jQuery Ajax应用：以用户登陆为例 | XiaoHuZiZx</title>
+  <title>Archives | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
-<meta name="keywords" content="java,Servlet,jQuery Ajax">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jQuery Ajax应用：以用户登陆为例">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="XiaoHuZiZx">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/archives/page/6/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png">
-<meta property="og:updated_time" content="2018-08-12T03:22:36.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery Ajax应用：以用户登陆为例">
-<meta name="twitter:description" content="一、简介jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。优点：响应速度更快下面就以用户登陆为例来说明一下Ajax的具体实现">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png">
+<meta name="twitter:title" content="XiaoHuZiZx">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -197,249 +190,87 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jQuery-Ajax应用：以用户登陆为例" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      jQuery Ajax应用：以用户登陆为例
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/zxblog.github.io/2018/05/03/启程/" class="archive-article-date">
+  	<time datetime="2018-05-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/zxblog.github.io/2018/05/03/启程/">启程</a>
     </h1>
   
 
-        
-        <a href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/" class="archive-article-date">
-  	<time datetime="2018-08-12T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        
-        
-
-		<span class="archive-article-date">
-			浏览次数: <span id="busuanzi_value_page_pv"></span>
-		</span>
-        
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。<br>优点：响应速度更快<br>下面就以用户登陆为例来说明一下Ajax的具体实现<br><a id="more"></a></p>
-<h4 id="二、详细说明"><a href="#二、详细说明" class="headerlink" title="二、详细说明"></a>二、详细说明</h4><p>首先来说一下整个项目具体的结构，这里采用三层架构实现，即表示层(web)、业务逻辑层(service)、数据访问层(dao)。<br>下面是具体的结构，如图<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/ajax01.png" alt=""><br>其中util为工具包，里面包含数据库链接类、以json结果返回类和输出类。bean里面为实体分装用户对象。<br>页面部分以jsp为载体，login.jsp、loginsuccess.jsp、index.jsp 其中index是为了在启动是跳转到login.jsp而存在的。index由web.xml配置。<br>login.js:具体的ajax方法。</p>
-<p>该程序就是通过单击事件调用js中的以ajax为主体的方法，然后调用servlet，再调用service，在调用dao，结果以逆向方式返回，最终servlet返回一个json字符串给ajax,由ajax在页面响应结果是否正确。</p>
-<h4 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h4><p>1.login.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//登录的方法</span><br><span class="line">function login()&#123;</span><br><span class="line">    var name=$(&quot;#name&quot;).val();//通过id获取数据</span><br><span class="line">    var password=$(&quot;#password&quot;).val();</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:contextPath+&quot;/Login&quot;,</span><br><span class="line">        method:&quot;post&quot;,</span><br><span class="line">        data:&#123;action:&quot;check&quot;,name:name,password:password&#125;,</span><br><span class="line">        success:function(jsonStr)&#123;</span><br><span class="line">        	 var result = eval(&quot;(&quot;+jsonStr+&quot;)&quot;);</span><br><span class="line">            if(result.status==1)&#123;</span><br><span class="line">            	alert(result.data);</span><br><span class="line">                window.location.href=contextPath+&quot;/pre/loginsuccess.jsp&quot;;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">            	alert(result.message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 其中 var name=$(“#name”).val();就是通过id从表单中获取name的值<br>(2) url:contextPath+”/Login”: 就是要访问的servlet的路径<br>contextPath是在login.jsp通过引入c标签，获取的当前根目录的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;</span><br><span class="line">&lt;c:set var=&quot;ctx&quot; value=&quot;$&#123;pageContext.request.contextPath&#125;&quot; /&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">var contextPath=&quot;$&#123;ctx&#125;&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>(3) method:以post方式请求，这里请求的就是servlet中的doPost方法。<br>(4) data：就是所要传输的数据以及在servlet中调用的相应的方法。<br>(5) success:就是当执行成功时，接收servlet返回的json串，通过json串判断具体执行哪个方法。</p>
-<p>2.Login.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(urlPatterns = &#123; &quot;/Login&quot; &#125;, name = &quot;Login&quot;)</span><br><span class="line">public class Login extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line">	public Class getServletClass()&#123;</span><br><span class="line">		return Login.class;</span><br><span class="line">	&#125;</span><br><span class="line">	 @Override</span><br><span class="line">	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		doPost(req,resp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	@Override</span><br><span class="line">	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		</span><br><span class="line">		 String actionIndicator = req.getParameter(&quot;action&quot;);//获取servlet返回的字符串特指action</span><br><span class="line">		 Method method = null;</span><br><span class="line">	      //  Object result = null;</span><br><span class="line">	      </span><br><span class="line">            try &#123;</span><br><span class="line">            	//获取该类所需求的方法,这里指获取check方法</span><br><span class="line">				method = getServletClass().getDeclaredMethod(actionIndicator, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">				//执行方法</span><br><span class="line">				method.invoke(this, req, resp);//方法实现	</span><br><span class="line">			&#125; catch (NoSuchMethodException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (SecurityException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (IllegalArgumentException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; catch (InvocationTargetException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">           </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">     * 登陆的方法</span><br><span class="line">     * @param request</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">public ReturnResult check(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">	    ReturnResult result=new ReturnResult();</span><br><span class="line">		boolean flag=false;</span><br><span class="line">		String name=request.getParameter(&quot;name&quot;);</span><br><span class="line">		 String password=request.getParameter(&quot;password&quot;);</span><br><span class="line">		PersonService per=new PersonService();</span><br><span class="line">		flag=per.check(name, password);</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		if(flag==true) &#123;</span><br><span class="line"></span><br><span class="line">			result.returnSuccess(&quot;登陆成功&quot;);</span><br><span class="line">			 PrintUtil.write(result, response);//向ajax传值</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			result.returnFail(&quot;登陆失败&quot;);</span><br><span class="line">			 PrintUtil.write(result, response);</span><br><span class="line">	</span><br><span class="line">		&#125;</span><br><span class="line">		  </span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 在该servlet中，重写了doPost和doGet方法，通过ajax请求的方式而调用相应的方法，这里都是调用doPost方法<br>注意：由于servlet只会调用它原本由的方法，即你重写的它的原方法，要想调用自己写的方法，就需要在那些原有方法中执行自己写的方法。当然，也不是简单的调用，为了在调用的方法中再次实现servlet，则需要用下面的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//getServletClass()</span><br><span class="line">public Class getServletClass()&#123;</span><br><span class="line">		return Login.class;</span><br><span class="line">	&#125;</span><br><span class="line">//在doPost中调用所要调用的方法</span><br><span class="line">String actionIndicator = req.getParameter(&quot;action&quot;);//获取servlet返回的字符串特指action</span><br><span class="line">		 Method method = null;</span><br><span class="line">//获取该类所需求的方法,这里指获取check方法</span><br><span class="line">method = getServletClass().getDeclaredMethod(actionIndicator, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">//执行方法</span><br><span class="line">method.invoke(this, req, resp);//方法实现</span><br></pre></td></tr></table></figure></p>
-<p>这时项目在运行时会通过doPost再次调用check方法，最终完成具体操作。</p>
-<p>3.如何返回json串<br>(1) ReturnResult.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private int status;</span><br><span class="line">private Object data;</span><br><span class="line"></span><br><span class="line">public ReturnResult returnSuccess(Object obj)&#123;</span><br><span class="line">       this.status=Constants.ReturnResult.SUCCESS;</span><br><span class="line">       this.data=obj;</span><br><span class="line">       return this;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>(2)Constants.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * json 格式返回数据的 status 标示说明</span><br><span class="line">  */</span><br><span class="line"> public static interface ReturnResult&#123;</span><br><span class="line">     public static int SUCCESS=1;</span><br><span class="line">     public static int FAIL=-1;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以有上面可以知道，它会返回一个ReturnResult，其中包含status和data<br>然后通过PrintUtil.java转化成json串，以响应的方式来返回个ajax<br><code>`</code><br>public class PrintUtil {</p>
-<pre><code>private static void print(String msg,HttpServletResponse response){
-    PrintWriter writer=null;
-    try {
-        if(null != response){
-            writer=response.getWriter();
-            writer.print(msg);
-            writer.flush();
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }finally {
-        writer.close();
-    }
-}
-public static void write(Object obj,HttpServletResponse response){
-    response.setContentType(&quot;text/html; charset=utf-8&quot;);
-    String json = JSONObject.toJSONString(obj);
-    print(json,response);
-}
-</code></pre><p>}<br><code>`</code><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>所做的分析都是笔者自己的见解，如有不正确还请见谅。</li>
-<li>另外，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery Ajax</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
         		</li>
       		
 		</ul>
 	</div>
 
-     
-      
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
 
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
+  
+  
+    </div></section>
+  
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/zxblog.github.io/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/archives/page/4/">4</a><a class="page-number" href="/zxblog.github.io/archives/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
   
-<nav id="article-nav">
-  
-    <a href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop HA(高可用)集群搭建
-        
-      </div>
-    </a>
-  
-  
-    <a href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于向hadoop集群上传文件以及下载文件</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
-  
-  
-  
-
-  
-  <div id="SOHUCS" sid="jQuery-Ajax应用：以用户登陆为例" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytAwfJDC",
-        conf: "69772892f08535443ed942691be63dc1"
-    });
-</script>
-</script>
-  
-
-  
-
-  
-
+<!--PC��WAP����Ӧ��-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cytAwfJDC'; 
+var conf = 'prod_269e22fa7b64cfca16d4b4115a58652c'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
           </div>
         </div>
@@ -474,8 +305,8 @@ public static void write(Object obj,HttpServletResponse response){
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
