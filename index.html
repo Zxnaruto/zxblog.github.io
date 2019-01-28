@@ -192,6 +192,92 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/01/28/Java线程/">Java线程</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/01/28/Java线程/" class="archive-article-date">
+  	<time datetime="2019-01-28T14:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。</p>
+<h4 id="二、线程"><a href="#二、线程" class="headerlink" title="二、线程"></a>二、线程</h4><p>1.说明<br>线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和局部变量。但进程和线程在相互之间的分隔程度上，线程要比进程小的多。各线程之间共享内存、文件句柄及每个线程所产生的状态。<br>一个进程中的多个线程看似同时执行，但相互之间并不同步。它们共享相同的内存地址空间，即可以访问相同的变量和对象，且从同一个堆中分配对象。<br>2.线程的优点</p>
+<ul>
+<li>使UI响应更快</li>
+<li>利用多处理器系统增加系统吞吐量和性能</li>
+<li>简化建模</li>
+<li>执行一部或后台处理<br>下面对这些优点进行简单的说明：<br>(1)使UI响应更快<br>通过对不同的事件分配与之相符合的线程，使之可以在处理其他事件时也可以处理UI事件，以防止界面停滞给用户带来的不舒适感。<br>(2)利用多处理器系统增加系统吞吐量和性能<br>将多个线程同时放在多个处理器上处理，增加系统的吞吐量和性能。<br>(3)简化建模</li>
+</ul>
+<h6 id="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"><a href="#注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。" class="headerlink" title="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"></a>注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。</h6><h5 id="2-1-程序、进程、多任务与线程"><a href="#2-1-程序、进程、多任务与线程" class="headerlink" title="2.1 程序、进程、多任务与线程"></a>2.1 程序、进程、多任务与线程</h5><h5 id="2-2-线程的状态与生命周期"><a href="#2-2-线程的状态与生命周期" class="headerlink" title="2.2 线程的状态与生命周期"></a>2.2 线程的状态与生命周期</h5><h5 id="2-3-线程的调度与优先级"><a href="#2-3-线程的调度与优先级" class="headerlink" title="2.3 线程的调度与优先级"></a>2.3 线程的调度与优先级</h5><h4 id="三、Thread线程类与Runnable接口"><a href="#三、Thread线程类与Runnable接口" class="headerlink" title="三、Thread线程类与Runnable接口"></a>三、Thread线程类与Runnable接口</h4><h5 id="3-1-利用Thread类的子类来创建线程"><a href="#3-1-利用Thread类的子类来创建线程" class="headerlink" title="3.1 利用Thread类的子类来创建线程"></a>3.1 利用Thread类的子类来创建线程</h5><h5 id="3-2-利用Runnable接口来创建线程"><a href="#3-2-利用Runnable接口来创建线程" class="headerlink" title="3.2 利用Runnable接口来创建线程"></a>3.2 利用Runnable接口来创建线程</h5><h5 id="3-3-线程间的数据共享"><a href="#3-3-线程间的数据共享" class="headerlink" title="3.3 线程间的数据共享"></a>3.3 线程间的数据共享</h5><h4 id="四、多线程的同步控制"><a href="#四、多线程的同步控制" class="headerlink" title="四、多线程的同步控制"></a>四、多线程的同步控制</h4><h4 id="五、线程间的通信"><a href="#五、线程间的通信" class="headerlink" title="五、线程间的通信"></a>五、线程间的通信</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/01/28/Java线程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java接口回调及与向上转型区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -963,103 +1049,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Servlet基础和原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/08/25/Servlet基础和原理/">Servlet基础和原理</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/08/25/Servlet基础和原理/" class="archive-article-date">
-  	<time datetime="2018-08-25T11:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、Servlet基础"><a href="#一、Servlet基础" class="headerlink" title="一、Servlet基础"></a>一、Servlet基础</h3><h4 id="1-1-Web应用的演变"><a href="#1-1-Web应用的演变" class="headerlink" title="1.1. Web应用的演变"></a>1.1. Web应用的演变</h4><ul>
-<li>1.1.1. 单机程序<br>软件从附着于电脑硬件之日起，就在不断的进行着自我完善和演变。从其使用模式的角度出发，可以简单分为单机程序和网络程序。发展到今时今日仍有大量的不依赖网络的单机程序被我们使用，如记事本、Excel、PPT、ZIP压缩等软件都是大家熟知的装机必备软件。
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/25/Servlet基础和原理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/25/Servlet基础和原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/6/">6</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1197,15 +1186,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,15 +1214,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,11 +1254,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">

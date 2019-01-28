@@ -6,27 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Word 操作在任意一页添加页码和页眉 | XiaoHuZiZx</title>
+  <title>Java线程 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
-<meta name="keywords" content="word">
+  <meta name="description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Word 操作在任意一页添加页码和页眉">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/index.html">
+<meta property="og:title" content="Java线程">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java线程/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
+<meta property="og:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word02.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word03.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word04.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word05.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word06.png">
-<meta property="og:updated_time" content="2018-05-17T16:06:53.672Z">
+<meta property="og:updated_time" content="2019-01-28T14:35:46.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Word 操作在任意一页添加页码和页眉">
-<meta name="twitter:description" content="一、说明&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。 二、步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.    把光标放到要添加第一页的地方的段首。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png">
+<meta name="twitter:title" content="Java线程">
+<meta name="twitter:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -202,20 +195,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Word 操作在任意一页添加页码和页眉" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Word 操作在任意一页添加页码和页眉
+      Java线程
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" class="archive-article-date">
-  	<time datetime="2018-05-17T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
+        <a href="/zxblog.github.io/2019/01/28/Java线程/" class="archive-article-date">
+  	<time datetime="2019-01-28T14:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
 </a>
         
         
@@ -230,9 +223,15 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。</p>
-<h4 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.    把光标放到要添加第一页的地方的段首。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.    选择页面布局–&gt;分隔符—&gt;下一页，此时会在你放光标的那一页的上面出现空白的一页<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png" alt=""><br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.    之后再在你放光标的位置(即光标位置不变)，再次执行一下上一步。产生第二个空白页。在光标之前有两个空白页<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.    选择插入–&gt;页码–&gt;设置页码格式<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word02.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.    选择页码格式，设置页码起点为1<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word03.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.    选择页码—&gt;选择放置页码的位置，这是在你光标的那一页就会变成第一页。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word04.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.    此时标题栏会自动跳到设计，你可以直接点击链接到前一页页眉，或者退出编辑模式后双击第一页(上面产生的第一页)的数字1，会自动跳转这个选项。然后点击链接到前一页页眉。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word05.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.    然后退出页眉页脚编辑模式，按delete删除前两个空白页，这时你会发现，首页和目录页还是会有1，2页，此时你可以双击页码把它删除(就像编辑文档时点击backspace)就可以了，由于它们与下面没有联系了，所以不会影响。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word06.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.    至于页眉你可以双击第一页的的1然后在页眉会有连接到上一页页眉，再点一次，然后再编辑第一页页眉，之后就会区别开了。到此也就完成了页脚和页眉与首页和目录的区分。</p>
-
+        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。</p>
+<h4 id="二、线程"><a href="#二、线程" class="headerlink" title="二、线程"></a>二、线程</h4><p>1.说明<br>线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和局部变量。但进程和线程在相互之间的分隔程度上，线程要比进程小的多。各线程之间共享内存、文件句柄及每个线程所产生的状态。<br>一个进程中的多个线程看似同时执行，但相互之间并不同步。它们共享相同的内存地址空间，即可以访问相同的变量和对象，且从同一个堆中分配对象。<br>2.线程的优点</p>
+<ul>
+<li>使UI响应更快</li>
+<li>利用多处理器系统增加系统吞吐量和性能</li>
+<li>简化建模</li>
+<li>执行一部或后台处理<br>下面对这些优点进行简单的说明：<br>(1)使UI响应更快<br>通过对不同的事件分配与之相符合的线程，使之可以在处理其他事件时也可以处理UI事件，以防止界面停滞给用户带来的不舒适感。<br>(2)利用多处理器系统增加系统吞吐量和性能<br>将多个线程同时放在多个处理器上处理，增加系统的吞吐量和性能。<br>(3)简化建模</li>
+</ul>
+<h6 id="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"><a href="#注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。" class="headerlink" title="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"></a>注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。</h6><h5 id="2-1-程序、进程、多任务与线程"><a href="#2-1-程序、进程、多任务与线程" class="headerlink" title="2.1 程序、进程、多任务与线程"></a>2.1 程序、进程、多任务与线程</h5><h5 id="2-2-线程的状态与生命周期"><a href="#2-2-线程的状态与生命周期" class="headerlink" title="2.2 线程的状态与生命周期"></a>2.2 线程的状态与生命周期</h5><h5 id="2-3-线程的调度与优先级"><a href="#2-3-线程的调度与优先级" class="headerlink" title="2.3 线程的调度与优先级"></a>2.3 线程的调度与优先级</h5><h4 id="三、Thread线程类与Runnable接口"><a href="#三、Thread线程类与Runnable接口" class="headerlink" title="三、Thread线程类与Runnable接口"></a>三、Thread线程类与Runnable接口</h4><h5 id="3-1-利用Thread类的子类来创建线程"><a href="#3-1-利用Thread类的子类来创建线程" class="headerlink" title="3.1 利用Thread类的子类来创建线程"></a>3.1 利用Thread类的子类来创建线程</h5><h5 id="3-2-利用Runnable接口来创建线程"><a href="#3-2-利用Runnable接口来创建线程" class="headerlink" title="3.2 利用Runnable接口来创建线程"></a>3.2 利用Runnable接口来创建线程</h5><h5 id="3-3-线程间的数据共享"><a href="#3-3-线程间的数据共享" class="headerlink" title="3.3 线程间的数据共享"></a>3.3 线程间的数据共享</h5><h4 id="四、多线程的同步控制"><a href="#四、多线程的同步控制" class="headerlink" title="四、多线程的同步控制"></a>四、多线程的同步控制</h4><h4 id="五、线程间的通信"><a href="#五、线程间的通信" class="headerlink" title="五、线程间的通信"></a>五、线程间的通信</h4>
       
 
       
@@ -276,7 +275,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -284,17 +283,6 @@ var _hmt = _hmt || [];
 
      
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -344,7 +332,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java线程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +346,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Struts2自定义拦截器
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">struts2传值方式与动态result</div>
+    <a href="/zxblog.github.io/2019/01/28/Java接口回调及与向上转型区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java接口回调</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -399,7 +378,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Word 操作在任意一页添加页码和页眉" ></div> 
+  <div id="SOHUCS" sid="Java线程" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
