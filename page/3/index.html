@@ -192,6 +192,92 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-gcc使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/07/21/gcc使用方法/">gcc使用方法</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/07/21/gcc使用方法/" class="archive-article-date">
+  	<time datetime="2018-07-21T12:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。</p>
+<h4 id="二、编译C程序"><a href="#二、编译C程序" class="headerlink" title="二、编译C程序"></a>二、编译C程序</h4><h5 id="1-c首先创建一个工作目录mycfile"><a href="#1-c首先创建一个工作目录mycfile" class="headerlink" title="1.c首先创建一个工作目录mycfile"></a>1.c首先创建一个工作目录mycfile</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc01.jpg" alt=""><br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/07/21/gcc使用方法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/07/21/gcc使用方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring-Boot-初识二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1031,102 +1117,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-关于线程中synchronized失效的一个小例子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/">关于线程中synchronized失效的一个小例子</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/" class="archive-article-date">
-  	<time datetime="2018-05-28T10:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-28</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-问题说明："><a href="#1-问题说明：" class="headerlink" title="1.问题说明："></a>1.问题说明：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是对线程的一个简单的测试，对于同步资源i,给它上互斥锁synchronized,创建两个线程在i&lt;20时随机的输出i,以下程序不会按照预想的在i不同时乱序输出1-20，它会让互斥锁失效。使得有的数可能重复输出，有的数可能没输出。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class SampleTestOfThread implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">	public static Integer i=new Integer(0);//声明一个Integer对象</span><br><span class="line">	 </span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		while(true) &#123;</span><br><span class="line">		synchronized(i) &#123;</span><br><span class="line">			if(i&lt;20) &#123;</span><br><span class="line">				i++;</span><br><span class="line">				System.out.println(&quot;i=&quot;+i);</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				break;//超出20跳出循环</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//入口方法</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot; 4dada&quot;+i);</span><br><span class="line">		Thread t1=new Thread(new SampleTestOfThread());</span><br><span class="line">		Thread t2=new Thread(new SampleTestOfThread());</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/zxblog.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><a class="page-number" href="/zxblog.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/zxblog.github.io/page/4/">4</a><a class="page-number" href="/zxblog.github.io/page/5/">5</a><a class="extend next" rel="next" href="/zxblog.github.io/page/4/">Next &raquo;</a>
@@ -1280,15 +1270,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,6 +1302,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1320,7 +1314,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1328,11 +1322,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1341,10 +1335,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
             
             <div class="clearfix"></div>

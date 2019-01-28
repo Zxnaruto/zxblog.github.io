@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Tag: Hibernate | XiaoHuZiZx</title>
+  <title>Java遍历方法  | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/tags/Hibernate/index.html">
+  <meta name="description" content="在Java中有四种常用的容器的遍历方法。下面我们就来说明一下这四种方法。说明：c(collection)代表容器，T(type)表参数类型c: List、array、set、map   T: int float String……  1.foreach123for(T i : c)&amp;#123;    ...... &amp;#125;">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java遍历方法 ">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java遍历方法/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="在Java中有四种常用的容器的遍历方法。下面我们就来说明一下这四种方法。说明：c(collection)代表容器，T(type)表参数类型c: List、array、set、map   T: int float String……  1.foreach123for(T i : c)&amp;#123;    ...... &amp;#125;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-28T06:31:45.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="Java遍历方法 ">
+<meta name="twitter:description" content="在Java中有四种常用的容器的遍历方法。下面我们就来说明一下这四种方法。说明：c(collection)代表容器，T(type)表参数类型c: List、array、set、map   T: int float String……  1.foreach123for(T i : c)&amp;#123;    ...... &amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,36 +195,89 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java遍历方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/05/MyEclipse逆向生成Hibernate对象关系/" class="archive-article-date">
-  	<time datetime="2018-07-05T04:58:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/05/MyEclipse逆向生成Hibernate对象关系/">MyEclipse逆向生成Hibernate对象关系</a>
+    <h1 class="article-title" itemprop="name">
+      Java遍历方法 
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/zxblog.github.io/2019/01/28/Java遍历方法/" class="archive-article-date">
+  	<time datetime="2019-01-28T06:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
+</a>
+        
+        
+
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Java中有四种常用的容器的遍历方法。下面我们就来说明一下这四种方法。<br>说明：c(collection)代表容器，T(type)表参数类型<br>c: List、array、set、map   T: int float String……</p>
+<ul>
+<li>1.foreach<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(T i : c)&#123;</span><br><span class="line">    ......</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>2.Collection接口中定义的toArray()方法<br>利用toArray()方法将容器对象转换成数组，然后再利用循环语句对数组中的每个元素进行访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T[] e=c.toArray(); //c是重写了toArray()方法的容器所实现的类的对象</span><br><span class="line">for(int i=0;i&lt;e.length;i++)&#123;</span><br><span class="line">  T o=e[i];        //取得数组中的每个元素</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.利用size()和get()方法进行遍历<br>获取容器内元素的总个数，然后依次取出每个位置上的元素进行访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;c.size();i++)&#123;  //c是重写了size()方法的容器所实现的类的对象</span><br><span class="line">  T o=c.get(i);</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.迭代器Iterator<br>迭代器是一种允许对容器中元素进行遍历并有选择的删除元素对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator it=c.iterator();  //c是重写了iterator()方法的容器所实现的类的对象</span><br><span class="line">while(it.hasNext())&#123;       //判断是否还有元素没有被迭代</span><br><span class="line">T o=it.next();             //取得下一个未被迭代的元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -227,91 +285,121 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+     
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java遍历方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Hibernate框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-04T13:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2019/01/26/Java容器类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java容器类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Hibernate框架结构/">Hibernate框架结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="Java遍历方法" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -347,9 +435,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
