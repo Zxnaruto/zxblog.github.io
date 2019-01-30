@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Java线程 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+  <meta name="description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java线程">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java线程/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+<meta property="og:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-28T14:35:46.112Z">
+<meta property="og:updated_time" content="2019-01-30T09:36:42.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java线程">
-<meta name="twitter:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+<meta name="twitter:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -223,15 +223,24 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。</p>
+        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。<br><a id="more"></a></p>
 <h4 id="二、线程"><a href="#二、线程" class="headerlink" title="二、线程"></a>二、线程</h4><p>1.说明<br>线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和局部变量。但进程和线程在相互之间的分隔程度上，线程要比进程小的多。各线程之间共享内存、文件句柄及每个线程所产生的状态。<br>一个进程中的多个线程看似同时执行，但相互之间并不同步。它们共享相同的内存地址空间，即可以访问相同的变量和对象，且从同一个堆中分配对象。<br>2.线程的优点</p>
 <ul>
 <li>使UI响应更快</li>
 <li>利用多处理器系统增加系统吞吐量和性能</li>
 <li>简化建模</li>
-<li>执行一部或后台处理<br>下面对这些优点进行简单的说明：<br>(1)使UI响应更快<br>通过对不同的事件分配与之相符合的线程，使之可以在处理其他事件时也可以处理UI事件，以防止界面停滞给用户带来的不舒适感。<br>(2)利用多处理器系统增加系统吞吐量和性能<br>将多个线程同时放在多个处理器上处理，增加系统的吞吐量和性能。<br>(3)简化建模</li>
+<li>执行异步或后台处理<br>下面对这些优点进行简单的说明：<br>(1)使UI响应更快<br>通过对不同的事件分配与之相符合的线程，使之可以在处理其他事件时也可以处理UI事件，以防止界面停滞给用户带来的不舒适感。<br>(2)利用多处理器系统增加系统吞吐量和性能<br>将多个线程同时放在多个处理器上处理，增加系统的吞吐量和性能。<br>(3)简化建模<br>在某些情况下(当程序有多个独立的实体)，使用线程可以使程序编写和维护起来更加方便。比如一个需要多个部分一起工作的程序，则就可以把每个部分都分配一个线程，在一段时间内共同工作。<br>(4)异步或后台处理<br>一个程序往往需要进行异步或者在运行时做一些后台处理，这时候就可以单独提出一个线程来完成这些工作，也不影响程序的正常运行。<h6 id="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"><a href="#注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。" class="headerlink" title="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"></a>注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。</h6></li>
 </ul>
-<h6 id="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"><a href="#注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。" class="headerlink" title="注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。"></a>注：由于多个线程共享相同的变量，所以在编程时注意线程间的相互影响。</h6><h5 id="2-1-程序、进程、多任务与线程"><a href="#2-1-程序、进程、多任务与线程" class="headerlink" title="2.1 程序、进程、多任务与线程"></a>2.1 程序、进程、多任务与线程</h5><h5 id="2-2-线程的状态与生命周期"><a href="#2-2-线程的状态与生命周期" class="headerlink" title="2.2 线程的状态与生命周期"></a>2.2 线程的状态与生命周期</h5><h5 id="2-3-线程的调度与优先级"><a href="#2-3-线程的调度与优先级" class="headerlink" title="2.3 线程的调度与优先级"></a>2.3 线程的调度与优先级</h5><h4 id="三、Thread线程类与Runnable接口"><a href="#三、Thread线程类与Runnable接口" class="headerlink" title="三、Thread线程类与Runnable接口"></a>三、Thread线程类与Runnable接口</h4><h5 id="3-1-利用Thread类的子类来创建线程"><a href="#3-1-利用Thread类的子类来创建线程" class="headerlink" title="3.1 利用Thread类的子类来创建线程"></a>3.1 利用Thread类的子类来创建线程</h5><h5 id="3-2-利用Runnable接口来创建线程"><a href="#3-2-利用Runnable接口来创建线程" class="headerlink" title="3.2 利用Runnable接口来创建线程"></a>3.2 利用Runnable接口来创建线程</h5><h5 id="3-3-线程间的数据共享"><a href="#3-3-线程间的数据共享" class="headerlink" title="3.3 线程间的数据共享"></a>3.3 线程间的数据共享</h5><h4 id="四、多线程的同步控制"><a href="#四、多线程的同步控制" class="headerlink" title="四、多线程的同步控制"></a>四、多线程的同步控制</h4><h4 id="五、线程间的通信"><a href="#五、线程间的通信" class="headerlink" title="五、线程间的通信"></a>五、线程间的通信</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// 一个线程执行，一个线程检测，当到达监测点则停止主线程</span><br><span class="line"></span><br><span class="line">public class TestOfThread extends Thread &#123;</span><br><span class="line"></span><br><span class="line">	public static final int MAX_PRIMES=1000000;</span><br><span class="line">	public static final int TEN_SECONDS=10000;</span><br><span class="line">	// volatile是共享标志，线程1，2共享</span><br><span class="line">	public volatile boolean finished=false;</span><br><span class="line">	//run方法</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		</span><br><span class="line">		int[] primes =new int[MAX_PRIMES];</span><br><span class="line">		int count=0;</span><br><span class="line">		</span><br><span class="line">		for(int i=2;count&lt;MAX_PRIMES;i++) &#123;</span><br><span class="line">			</span><br><span class="line">			//检测时间是否过期</span><br><span class="line">			if(finished) &#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			boolean prime=true;</span><br><span class="line">			for(int j=0;j&lt;count;j++) &#123;</span><br><span class="line">				if(i%primes[j]==0) &#123;</span><br><span class="line">					prime=false;</span><br><span class="line">					break;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			if(prime) &#123;</span><br><span class="line">				System.out.println(prime);</span><br><span class="line">				primes[count++]=i;</span><br><span class="line">				System.out.println(&quot;Found prime:&quot;+i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//入口方法</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		TestOfThread t=new TestOfThread();</span><br><span class="line">		t.start();//线程1开始跑</span><br><span class="line">		try &#123;</span><br><span class="line">			Thread.sleep(TEN_SECONDS);//线程2睡眠10秒，然后开始执行线程2，执行下面的代码，终止主线程</span><br><span class="line">		&#125; catch (InterruptedException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		t.finished=true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-1-程序、进程、多任务与线程"><a href="#2-1-程序、进程、多任务与线程" class="headerlink" title="2.1 程序、进程、多任务与线程"></a>2.1 程序、进程、多任务与线程</h5><ul>
+<li>1.程序(Program)<br>程序是含有指令和数据的文件，被存储在磁盘或其他的数据存储设备中，也就是说程序是静态代码。</li>
+<li>2.进程(Process)<br>进程是程序的一次执行过程，是系统运行程序的基本单位。<br>进程的特点：<br>(1)进程是动态的。<br>(2)进程是独立的。</li>
+<li><p>3.多任务(Multi task)<br>多任务是指在一个系统中可以同时运行多个进程，即有多个独立运行的任务，每一个任务对应一个进程。每个进程都有一段专用的内存区域，即使是多次启动同一段程序产生不同的进程也是一样。所谓同时运行的进程，其实是指由操作系统将系统资源分配给各个进程，每个进程在CPU上交替运行。每个进程占有不同的内存空间，内存消耗很大，这使系统在不同的程序之间切换时开销很大，进程之间的通信速度很慢。</p>
+</li>
+<li><p>4.线程(Thread)<br>(1)线程产生的目的<br>由于在进程之间协同工作进行信息交互会对系统产生很大的负担，为了减少不必要的系统负担，所以才产生了线程的概念。<br>运行一个进程时，程序内部的代码是按照先后执行的，由于线程是比进程更小的单位，所以线程的存在使得进程间的代码块更加细分，同时可以相互协调工作，使得提高进程的运行效率。</p>
+</li>
+</ul>
+<h5 id="2-2-线程的状态与生命周期"><a href="#2-2-线程的状态与生命周期" class="headerlink" title="2.2 线程的状态与生命周期"></a>2.2 线程的状态与生命周期</h5><h5 id="2-3-线程的调度与优先级"><a href="#2-3-线程的调度与优先级" class="headerlink" title="2.3 线程的调度与优先级"></a>2.3 线程的调度与优先级</h5><h4 id="三、Thread线程类与Runnable接口"><a href="#三、Thread线程类与Runnable接口" class="headerlink" title="三、Thread线程类与Runnable接口"></a>三、Thread线程类与Runnable接口</h4><h5 id="3-1-利用Thread类的子类来创建线程"><a href="#3-1-利用Thread类的子类来创建线程" class="headerlink" title="3.1 利用Thread类的子类来创建线程"></a>3.1 利用Thread类的子类来创建线程</h5><h5 id="3-2-利用Runnable接口来创建线程"><a href="#3-2-利用Runnable接口来创建线程" class="headerlink" title="3.2 利用Runnable接口来创建线程"></a>3.2 利用Runnable接口来创建线程</h5><h5 id="3-3-线程间的数据共享"><a href="#3-3-线程间的数据共享" class="headerlink" title="3.3 线程间的数据共享"></a>3.3 线程间的数据共享</h5><h4 id="四、多线程的同步控制"><a href="#四、多线程的同步控制" class="headerlink" title="四、多线程的同步控制"></a>四、多线程的同步控制</h4><h4 id="五、线程间的通信"><a href="#五、线程间的通信" class="headerlink" title="五、线程间的通信"></a>五、线程间的通信</h4>
       
 
       
@@ -524,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -540,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,15 +557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,7 +593,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,19 +601,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
             <div class="clearfix"></div>
