@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Java线程 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+  <meta name="description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java线程">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/01/28/Java线程/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+<meta property="og:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread1.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread2.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread04.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread05.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread03.png">
-<meta property="og:updated_time" content="2019-02-14T08:36:41.952Z">
+<meta property="og:updated_time" content="2019-02-15T09:26:06.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java线程">
-<meta name="twitter:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。 二、线程1.说明线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和">
+<meta name="twitter:description" content="一、并发与并行1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。在Java中各个代码段并发执行，即各个线程之间并发执行。">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Thread1.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -229,7 +229,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。</p>
+        <h4 id="一、并发与并行"><a href="#一、并发与并行" class="headerlink" title="一、并发与并行"></a>一、并发与并行</h4><p>1.并行通常指在同一时刻有多个代码在处理器上执行，这往往需要很多个处理器。<br>2.并发通常是指在单个处理器上，同一时刻只能执行一个代码，但在同一段时间内，多个代码交替执行。<br>在Java中各个代码段并发执行，即各个线程之间并发执行。<br><a id="more"></a></p>
 <h4 id="二、线程"><a href="#二、线程" class="headerlink" title="二、线程"></a>二、线程</h4><p>1.说明<br>线程化是让多个活动共存于一个进程的方式。线程也称作轻量级进程，就像进程一样线程在程序中是独立、并发的执行的。每个线程都有自己的堆栈、程序计数器和局部变量。但进程和线程在相互之间的分隔程度上，线程要比进程小的多。各线程之间共享内存、文件句柄及每个线程所产生的状态。<br>一个进程中的多个线程看似同时执行，但相互之间并不同步。它们共享相同的内存地址空间，即可以访问相同的变量和对象，且从同一个堆中分配对象。<br>2.线程的优点</p>
 <ul>
 <li>使UI响应更快</li>
@@ -617,11 +617,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,7 +637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,10 +650,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,15 +673,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,15 +701,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
