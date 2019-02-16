@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、说明(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Exception.jpg">
-<meta property="og:updated_time" content="2019-02-16T13:32:48.675Z">
+<meta property="og:updated_time" content="2019-02-16T13:59:52.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java异常处理">
 <meta name="twitter:description" content="一、说明(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。">
@@ -266,6 +266,7 @@ var _hmt = _hmt || [];
 <li>7.抛出异常有下列两种方式：<br>(1)系统自动抛出异常<br>(2)指定方法抛出异常</li>
 <li>8.方法中没有使用try-catch语句来处理异常，可在方法声明的头部使用throws语句或在方法内部使用throw语句将它送往上一层调用机构去处理。(去找相应的类或者自定义的返回语句)</li>
 </ul>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><h5 id="1-运行时异常：即RuntimeException及其之类的异常。这类异常在代码编写的时候不会被编译器所检测出来，是可以不需要被捕获，但是程序员也可以根据需要进行捕获抛出。常见的RuntimeException有：NullpointException（空指针异常），ClassCastException（类型转换异常），IndexOutOfBoundsException（数组越界异常）等。"><a href="#1-运行时异常：即RuntimeException及其之类的异常。这类异常在代码编写的时候不会被编译器所检测出来，是可以不需要被捕获，但是程序员也可以根据需要进行捕获抛出。常见的RuntimeException有：NullpointException（空指针异常），ClassCastException（类型转换异常），IndexOutOfBoundsException（数组越界异常）等。" class="headerlink" title="1.运行时异常：即RuntimeException及其之类的异常。这类异常在代码编写的时候不会被编译器所检测出来，是可以不需要被捕获，但是程序员也可以根据需要进行捕获抛出。常见的RuntimeException有：NullpointException（空指针异常），ClassCastException（类型转换异常），IndexOutOfBoundsException（数组越界异常）等。"></a>1.运行时异常：即RuntimeException及其之类的异常。这类异常在代码编写的时候不会被编译器所检测出来，是可以不需要被捕获，但是程序员也可以根据需要进行捕获抛出。常见的RuntimeException有：NullpointException（空指针异常），ClassCastException（类型转换异常），IndexOutOfBoundsException（数组越界异常）等。</h5><h5 id="2-编译时异常：RuntimeException以外的异常。这类异常在编译时编译器会提示需要捕获，如果不进行捕获则编译错误。常见编译异常有：IOException（流传输异常），SQLException（数据库操作异常）等。"><a href="#2-编译时异常：RuntimeException以外的异常。这类异常在编译时编译器会提示需要捕获，如果不进行捕获则编译错误。常见编译异常有：IOException（流传输异常），SQLException（数据库操作异常）等。" class="headerlink" title="2.编译时异常：RuntimeException以外的异常。这类异常在编译时编译器会提示需要捕获，如果不进行捕获则编译错误。常见编译异常有：IOException（流传输异常），SQLException（数据库操作异常）等。"></a>2.编译时异常：RuntimeException以外的异常。这类异常在编译时编译器会提示需要捕获，如果不进行捕获则编译错误。常见编译异常有：IOException（流传输异常），SQLException（数据库操作异常）等。</h5><p>添加点名词解释：<br>1、检查性异常: 不处理编译不能通过<br>2、非检查性异常:不处理编译可以通过，如果有抛出直接抛到控制台<br>3、运行时异常: 就是非检查性异常<br>4、非运行时异常: 就是检查性异常</p>
 
       
 
