@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>XiaoHuZiZx</title>
+  <title>Java异常处理 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/page/3/index.html">
+  <meta name="description" content="一、说明(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java异常处理">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/02/16/Java异常处理/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、说明(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Expection.jpg">
+<meta property="og:updated_time" content="2019-02-16T13:23:27.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="Java异常处理">
+<meta name="twitter:description" content="一、说明(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Expection.jpg">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,38 +197,106 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-jQuery-Ajax应用：以用户登陆为例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java异常处理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/">jQuery Ajax应用：以用户登陆为例</a>
+    <h1 class="article-title" itemprop="name">
+      Java异常处理
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/" class="archive-article-date">
-  	<time datetime="2018-08-12T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+        <a href="/zxblog.github.io/2019/02/16/Java异常处理/" class="archive-article-date">
+  	<time datetime="2019-02-16T13:22:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
 </a>
         
         
 
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
       
       </header>
  
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>jQuery Ajax 是一种与服务器交换数据的技术，可以在不重新载入整个页面的情况下更新网页的一部分。<br>优点：响应速度更快<br>下面就以用户登陆为例来说明一下Ajax的具体实现<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/#more">more >></a>
-        
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>(1)异常是指程序在运行过程中发生由于算法考虑不周或软件设计错误等导致的程序异常事件。Java提供的异常处理机制是通过面向对象的方法来处理异常的。所以在Java中所有异常都是以类的形式存在的。<br><a id="more"></a><br>(2)Java有内置异常类和用户自定义异常类。</p>
+<ul>
+<li>内置异常类<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Expection.jpg" alt=""><br>Java是以面向对象的方式来处理异常的，所有的异常类都继承自Throwable类。该类又派生出了两个子类java.lang.Error和java.lang.Exception。</li>
+<li>Error：由系统保留，因为该类定义了那些应用程序通常无法捕捉到的错误。即Java系统内部的错误，即Error类及子类的对象是由Java虚拟机生成并抛出给系统的。一般为内存溢出错、栈溢出错、动态链接错。</li>
+<li>Exception：提供应用程序使用，是用户程序可以捕捉到的情况。</li>
+</ul>
+<h4 id="二、Java异常处理方式"><a href="#二、Java异常处理方式" class="headerlink" title="二、Java异常处理方式"></a>二、Java异常处理方式</h4><p>Java处理异常通过try、catch、finally、throw、throws五个关键字实现。</p>
+<ul>
+<li>1.try-catch-finally语句捕获异常<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">   要检查的语句序列</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名 形参对象名)</span><br><span class="line">&#123;</span><br><span class="line">   异常发生时处理的语句，一般为输出异常的相关信息</span><br><span class="line">&#125;</span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line">   一定会运行的语句序列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>先检查异常、有异常的话捕获异常对象抛出，最后运行finally语句。一般finally语句中放关闭数据库或输入输出的语句。</p>
+<ul>
+<li>2.try-catch-catch-…….-funally语句，多异常处理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">   要检查的语句序列</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名 形参对象名)</span><br><span class="line">&#123;</span><br><span class="line">   异常发生时处理的语句</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名 形参对象名)</span><br><span class="line">&#123;</span><br><span class="line">   异常发生时处理的语句</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名 形参对象名)</span><br><span class="line">&#123;</span><br><span class="line">   异常发生时处理的语句</span><br><span class="line">&#125;</span><br><span class="line">..........</span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line"> 一定会运行的语句序列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中异常捕获的次序是按照catch从上向下，所以对于设计该类异常处理时要注意，将处理较具体、较常见的catch放前面，而可以与多种异常类型相匹配的catch块放在较后的位置。若将子类异常的catch语句块放在父类异常catch语句块的后面则编译不通过。<br>还有就是只要抛出一个异常，就不会继续找下去。</p>
+<h5 id="注意：当catch中含有System-exit-0-时，则不执行finally块中的语句，程序直接终止，当catch块中含有return语句时则执行完finally块中的语句后再终止程序。"><a href="#注意：当catch中含有System-exit-0-时，则不执行finally块中的语句，程序直接终止，当catch块中含有return语句时则执行完finally块中的语句后再终止程序。" class="headerlink" title="注意：当catch中含有System.exit(0)时，则不执行finally块中的语句，程序直接终止，当catch块中含有return语句时则执行完finally块中的语句后再终止程序。"></a>注意：当catch中含有System.exit(0)时，则不执行finally块中的语句，程序直接终止，当catch块中含有return语句时则执行完finally块中的语句后再终止程序。</h5><ul>
+<li>3.异常的抛出throw与throws<br>(1)throw<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">throw 由异常类所产生的对象</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中“由异常类所产生的对象”是一个从Throwable派生的异常类对象。<br>(2)throws<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符]返回值类型 方法名([参数列表]) throws 异常类列表</span><br></pre></td></tr></table></figure></p>
+<p>其中，throws是关键字，“异常类列表”是方法中要抛出的异常类，当异常类多于一个时用“，”隔开。</p>
+<h5 id="注意：使用这两种方式，在方法中就不用写try-catch-finally语句，当然一般会用，比如throw一个异常时，可以用catch捕获。"><a href="#注意：使用这两种方式，在方法中就不用写try-catch-finally语句，当然一般会用，比如throw一个异常时，可以用catch捕获。" class="headerlink" title="注意：使用这两种方式，在方法中就不用写try-catch-finally语句，当然一般会用，比如throw一个异常时，可以用catch捕获。"></a>注意：使用这两种方式，在方法中就不用写try-catch-finally语句，当然一般会用，比如throw一个异常时，可以用catch捕获。</h5><ul>
+<li>4.自定义异常类<br>(1)声明一个新的异常类，用户自定义的异常类必须是Throwable类的直接或间接子类，Java推荐以Exception类为直接父类。当然也可以用自己定义的异常类做父类。<br>(2)为用户自定义的异常类定义属性和方法，或覆盖父类的属性和方法，使这些属性和方法能够体现该类所对应的错误信息。习惯上是加两个构造方法，一个有参一个无参，有参是含有字符串型参数的构造方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class ExampleException extends Exception&#123;</span><br><span class="line"></span><br><span class="line">ExampleException()&#123;&#125;</span><br><span class="line"></span><br><span class="line">public String toString()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>自定义异常类的作用：应对特有的异常，使系统具有更好的容错性，使系统更加稳定。</p>
+<h4 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h4><ul>
+<li>1.异常类可以分为两大类：java.lang.Exception和java.lang.Error</li>
+<li>2.程序代码没有编写异常处理时，Java语言的默认异常处理机制是：<br>(1)抛出异常<br>(2)停止程序的执行</li>
+<li>3.当异常发生时，有两种处理方式：<br>(1)交由Java语言默认的异常处理机制来处理<br>(2)自行编写try-catch-finally语句来捕获异常</li>
+<li>4.try语句块若有异常发生时，程序便会中断执行，抛出“由异常类所产生的对象”，并按下列步骤来运行：<br>(1)抛出的对象如果属于catch()括号内所欲捕获的异常类，catch会捕获此异常，然后进入catch语句块中执行。<br>(2)无论try语句块是否捕获异常，或异常是否与catch()括号中的异常相匹配，最后一定执行finally块中的语句。<br>(3)finally块运行结束后，程序转到try-catch-finally语句块之后的语句继续执行。</li>
+<li>5.RunException可以不编写异常处理代码，仍然可以编译成功，它是程序运行时才又可能发生的；而IOException一定要进行异常捕获处理才行，它通常用来处理与输入输出有关的操作。</li>
+<li>6.catch()括号内只接收由Throwable类的子类所产生的对象，其他都不接受。</li>
+<li>7.抛出异常有下列两种方式：<br>(1)系统自动抛出异常<br>(2)指定方法抛出异常</li>
+<li>8.方法中没有使用try-catch语句来处理异常，可在方法声明的头部使用throws语句或在方法内部使用throw语句将它送往上一层调用机构去处理。(去找相应的类或者自定义的返回语句)</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -234,14 +309,6 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery Ajax</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -250,16 +317,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/12/jQuery-Ajax应用：以用户登陆为例/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/02/16/Java异常处理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2019/02/01/DOS常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOS常用命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -279,812 +405,24 @@ var _hmt = _hmt || [];
 
 
 
-
-  
-    <article id="post-关于向hadoop集群上传文件以及下载文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/">关于向hadoop集群上传文件以及下载文件</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/" class="archive-article-date">
-  	<time datetime="2018-08-11T01:42:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-11</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、org-apache-hadoop-security-AccessControlException异常处理办法"><a href="#一、org-apache-hadoop-security-AccessControlException异常处理办法" class="headerlink" title="一、org.apache.hadoop.security.AccessControlException异常处理办法"></a>一、org.apache.hadoop.security.AccessControlException异常处理办法</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该异常所产生的原因是由于系统的用户名不同，而导致的权限的缺失。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决办法去集群的每台机器上的hdfs-site.xml中添加配置,如果有的话将value的true改为false<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后重启集群。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.permissions.enabled&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：这只是测试阶段可用的方法，如果实际使用时最好还是设为true<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CentOS7配置静态IP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/">CentOS7配置静态IP</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/" class="archive-article-date">
-  	<time datetime="2018-08-09T15:51:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说来也是一件很难受的事情，本来搭建好好的集群，由于IP突然的自动变换而导致集群不能正常启动，说来也是运气不好，按理来说，如果不发生变化的话各机器的IP不会发生变化，但偏偏让我遇上了，所以说有点难受。最后，为了保险起见，还是配置了静态IP以放万一。下面就来说一下如何在CentOS7中配置静态IP。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hadoop集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/08/08/hadoop集群搭建/">hadoop集群搭建</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/08/08/hadoop集群搭建/" class="archive-article-date">
-  	<time datetime="2018-08-08T13:40:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;笔者由于某种机缘接触了一下hadoop，觉得hadoop还是有所说道的，今天也算是经过不小的折腾才算是搭建好了一个三个节点的hadoop集群。也算是自己走过的坑的总结吧，下面就说说如何搭建hadoop集群。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/08/hadoop集群搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/08/08/hadoop集群搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gcc使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/21/gcc使用方法/">gcc使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/21/gcc使用方法/" class="archive-article-date">
-  	<time datetime="2018-07-21T12:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gcc是一款编译软件，是Linux系统自由软件的代表作品，最初只是C语言的编译器，后来支持C++、Java等多种语言。gcc通过文件扩展名来区分源文件的语言类型。</p>
-<h4 id="二、编译C程序"><a href="#二、编译C程序" class="headerlink" title="二、编译C程序"></a>二、编译C程序</h4><h5 id="1-c首先创建一个工作目录mycfile"><a href="#1-c首先创建一个工作目录mycfile" class="headerlink" title="1.c首先创建一个工作目录mycfile"></a>1.c首先创建一个工作目录mycfile</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/gcc01.jpg" alt=""><br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/21/gcc使用方法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/21/gcc使用方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-Boot-初识二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/">Spring Boot 初识二</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:34:29.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-Spring-Boot-特点"><a href="#1-Spring-Boot-特点" class="headerlink" title="1.Spring Boot 特点"></a>1.Spring Boot 特点</h4><ul>
-<li>敏捷开发：通过依赖注入的方式自动配置各种框架的底层，进行框架的整合。</li>
-<li>无需外置tomcat：Spring Boot jar 包中自带一个内置的tomcat。</li>
-<li>减少xml配置，使用配置文件使得配置更加容易。
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-初识Spring-Boot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/19/初识Spring-Boot/">初识Spring Boot</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/19/初识Spring-Boot/" class="archive-article-date">
-  	<time datetime="2018-07-19T09:11:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring boot 是对Spring的改进，目的是用更少的配置实现更强大的功能。就Spring而言，往往在建立项目或在对项目的后期改进时会使用很多的配置文件进行大量的配置，最终使得软件项目变得可读性不高，不好维护等等。为了 改进这些，让程序员更好、更容易的开发软件项目，Spring boot也就随之出现了。它就是尽量减少配置，使得软件更容易、方便的开发。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面我们就来建一个项目HelloWorld,来感受一下Spring boot:<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/19/初识Spring-Boot/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/19/初识Spring-Boot/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSH应用之成绩管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/">SSH应用之成绩管理</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/" class="archive-article-date">
-  	<time datetime="2018-07-09T07:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、总体设计"><a href="#一、总体设计" class="headerlink" title="一、总体设计"></a>一、总体设计</h3><h4 id="1-1-数据库设计"><a href="#1-1-数据库设计" class="headerlink" title="1.1 数据库设计"></a>1.1 数据库设计</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(clsNo)。其中学号为主键，班级编号为外键。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-框架结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/08/Spring-框架结构/">Spring 框架结构</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/08/Spring-框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-08T14:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>Spring核心是轻量级容器，它实现了IoC(Inversion of Control 控制反转)容器、非入侵性(No intrusive)的框架。并提供AOP(Aspect-Oriented Programming 面向层面的编程)概念的实现方式，提供持久化(Persistence)、事务(Transcation)的支持，提供MVC Web框架的实现，并对一些常用的企业服务API(Application Interface)提供一致的模型封装，是一个全方位的应用程序框架(Application framework)。另外，它也提供了对现有框架(Struts、JSF、Hibernate等)的整合方案。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/08/Spring-框架结构/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/08/Spring-框架结构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="new-数据库表与表之间的关系" class="article article-type-new  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">数据库表与表之间的关系</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/" class="archive-article-date">
-  	<time datetime="2018-07-05T06:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-一对一关系"><a href="#1-一对一关系" class="headerlink" title="1.一对一关系"></a>1.一对一关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。</p>
-<h4 id="2-一对多关系"><a href="#2-一对多关系" class="headerlink" title="2.一对多关系"></a>2.一对多关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约束。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zxblog.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><a class="page-number" href="/zxblog.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/zxblog.github.io/page/4/">4</a><a class="page-number" href="/zxblog.github.io/page/5/">5</a><a class="page-number" href="/zxblog.github.io/page/6/">6</a><a class="extend next" rel="next" href="/zxblog.github.io/page/4/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="Java异常处理" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
+
+  
+
   
 
 
@@ -1120,8 +458,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
