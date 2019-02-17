@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Tag: hadoop | XiaoHuZiZx</title>
+  <title>Java语言输入输出与文件处理 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/tags/hadoop/index.html">
+  <meta name="description" content="Java语言输入输出与文件处理一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java语言输入输出与文件处理">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/02/17/Java语言输入输出与文件处理/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="Java语言输入输出与文件处理一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-17T11:32:27.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="Java语言输入输出与文件处理">
+<meta name="twitter:description" content="Java语言输入输出与文件处理一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,194 +195,228 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java语言输入输出与文件处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java语言输入输出与文件处理
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/02/17/Java语言输入输出与文件处理/" class="archive-article-date">
+  	<time datetime="2019-02-17T11:31:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-17</time>
+</a>
+        
+        
+
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java语言输入输出与文件处理"><a href="#Java语言输入输出与文件处理" class="headerlink" title="Java语言输入输出与文件处理"></a>Java语言输入输出与文件处理</h1><h4 id="一、流的概念"><a href="#一、流的概念" class="headerlink" title="一、流的概念"></a>一、流的概念</h4><p>1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。<br>2.流的划分：字节流和字符流</p>
+<ul>
+<li>字节流：处理字节数据(基本类型InputStream、OutputStream)<br>每次读取8位二进制数。</li>
+<li>字符流：处理字符数据(基本类型Reader、Writer)<br>每次读写16位二进制数。<a id="more"></a>
+3.输入输出流：</li>
+<li>输入流(Input Stream)：将数据从外设或外存传递到应用程序的流。</li>
+<li>输出流(Output Stream)：将数据从应用程序传递到外设或外存的流。<br>
+
+</li>
+</ul>
+<h5 id="注意对于输入流只能读取数据而不能写入数据，对于输出流只能写入数据而不能读取数据。"><a href="#注意对于输入流只能读取数据而不能写入数据，对于输出流只能写入数据而不能读取数据。" class="headerlink" title="注意对于输入流只能读取数据而不能写入数据，对于输出流只能写入数据而不能读取数据。"></a>注意对于输入流只能读取数据而不能写入数据，对于输出流只能写入数据而不能读取数据。</h5><p>理解：输入流是从外设传递到应用程序的，所以在应用程序上你只可以读，输出流是从应用程序传递到外存或外设所以你只可以写，写到外设或外存上。</p>
+<p>4.采用数据流输入输出的目的：使得程序的输入输出操作独立于相关设备。增强程序的可移植性。</p>
+<p>5.流是输入输出的特点：数据的获取和发送是沿着数据序列顺序进行的。</p>
+<p>6.缓冲流：为一个流配有一个缓冲区(Buffer)，当一个流发送或接受数据时不是直接接受或发送的，是会有个缓冲区来临时存放数据，当数据满了再一起传递，目的是比边接收边传递效率高很多。</p>
+<h4 id="二、输入输出类库"><a href="#二、输入输出类库" class="headerlink" title="二、输入输出类库"></a>二、输入输出类库</h4><p>InputStream、OutputStream、Reader、Writer是抽象类。所以只能实例化使用。其中InuputStream和OutputStream是处理位流的，这种流通常处理图片、音频之类的二进制数据，即二进制文件。<br>Reader和Writer用来处理字符流，即文本文件。</p>
+<p>1.InputStream与OutputStream</p>
+<ul>
+<li>InputStream：从输入流读数据(键盘的输入等读入数据)</li>
+<li>OutputStream：向输出流写入数据(向外设如屏幕、或者磁盘文件等输出数据)</li>
+</ul>
+<p>补充：Java键盘读入的两种常用方式(java是以字符串的方式输入的)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//方式一</span><br><span class="line">String str;</span><br><span class="line">BufferedReader buf;</span><br><span class="line">buf=new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line"></span><br><span class="line">str=buf.readLine();//读取字符串</span><br><span class="line">str=buf.read();//读取单个字符</span><br><span class="line"></span><br><span class="line">..........</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//方式二</span><br><span class="line">Scanner reader=new Scanner(System.in);</span><br><span class="line"></span><br><span class="line">参数类型 参数名;</span><br><span class="line">参数名 = reader.next参数类型();</span><br><span class="line"></span><br><span class="line">举个例子</span><br><span class="line">double num;</span><br><span class="line">num=reader.nextDouble();//输入一个double型的数据</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">String str;</span><br><span class="line">str=reader.next();</span><br><span class="line">str=reader.nextLine();</span><br><span class="line">都是读取字符串</span><br></pre></td></tr></table></figure></p>
+<p><br><br>(1)文件输入输出流：FileInputStream和FileOutputStream</p>
+<ul>
+<li>FileInputStream：表示一个文件字节输入流，从中可以读取一个字节或一批字节</li>
+<li>FileOutputStream：表示一个文件字节输出流，可向流中写入一个字节或一批字节</li>
+</ul>
+<p>说明以下File是java.io包中定义的一个类，其每个对象表示一个磁盘文件或文件夹。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//创建一个文本文件，写入字符串后，读取其中的字符串</span><br><span class="line"></span><br><span class="line">FileInputStream fin;  //声明文件输入流对象，读写进文件的数据</span><br><span class="line">FileOutputStream fout;//声明文件输出流对象，写从文件输出的数据</span><br><span class="line"></span><br><span class="line">String str;</span><br><span class="line">fin=new FileInputStream(FileInputStream.in);//创建文件字节输入流对象,读键盘输入</span><br><span class="line">fout=new FileOutputStream(&quot;F:\\zx.txt&quot;);//创建文件输出流对象，向磁盘写</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;请向文件输入数据以#号结束：);</span><br><span class="line">while((str=fin.read())!=&apos;#&apos;)//从键盘读</span><br><span class="line">fout.write(str);   //向文件写</span><br><span class="line"></span><br><span class="line">fin.close();//关闭输入流</span><br><span class="line">fout.close();//关闭输出流</span><br><span class="line"></span><br><span class="line">//读文件中数据</span><br><span class="line">fin=new FileInputStream(&quot;F:\\zx.txt&quot;);</span><br><span class="line">fout=new FileOutputStream(FileDescriptor.out);</span><br><span class="line"></span><br><span class="line">while(fin.available()&gt;0)//文件有数据</span><br><span class="line">&#123;</span><br><span class="line"> data=fin.read();//读取文件中数据</span><br><span class="line"> fout=write(data);//写到屏幕</span><br><span class="line"> &#125;</span><br><span class="line">fin.close();</span><br><span class="line">fout.close();</span><br></pre></td></tr></table></figure>
+<h5 id="注意：上面都要进行异常捕获，否则不能编译"><a href="#注意：上面都要进行异常捕获，否则不能编译" class="headerlink" title="注意：上面都要进行异常捕获，否则不能编译"></a>注意：上面都要进行异常捕获，否则不能编译</h5><br>
+
+<p>再来看个例子，用FileInputStream和FileOutputStream实现对二进制图像文件复制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fin=new FileInputStream(&quot;F:\\zx\\1.jpg&quot;);</span><br><span class="line">FileOutputStream fout=new FileOutputStream(&quot;F:\\zx\\12.jpg&quot;);</span><br><span class="line"></span><br><span class="line">byte[] b=new byte[fin.available()];//创建数组来存放图片数据</span><br><span class="line"></span><br><span class="line">fin.read(b);//读</span><br><span class="line">fout.write(b);//写</span><br><span class="line"></span><br><span class="line">fin.close();</span><br><span class="line">fout.close();</span><br></pre></td></tr></table></figure></p>
+<p>同理，也可以复制文件，但不推荐这么做。</p>
+<p><br><br>(2)顺序输入流<br>SequenceInputStream是InputStream类的直接子类，其功能是将多个输入流顺序接在一起。<br>(3)管道输入输出流<br>管道字节输入流PipedInputStream和管道字节输出流PipedOutputStream类提供了利用管道方式进行数据输入输出管理的类。其中输入流作为管道的接收端，输出流作为管道的发送端。其可以用来将一个程序或线程的输出连接到另外一个程序或线程作为输入，来实现数据交换或不同线程间的通信。<br>(4)过滤输入输出流<br>FilterOutputStream与FilterInputStream，它们又分别派生出DataInputStream和DataOutputStream类，它的主要功能是可以进行不同数据格式间的转换。<br>(5)标准输入输出流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.in 标准输入流</span><br><span class="line">System.in.read();</span><br><span class="line"></span><br><span class="line">System.out 标准输出流</span><br><span class="line">System.out.print();</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/" class="archive-article-date">
-  	<time datetime="2018-08-19T03:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/">Hadoop HA(高可用)集群搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+     
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/02/17/Java语言输入输出与文件处理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/" class="archive-article-date">
-  	<time datetime="2018-08-11T01:42:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2019/02/16/Java异常处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java异常处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/08/11/关于向hadoop集群上传文件以及下载文件/">关于向hadoop集群上传文件以及下载文件</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/" class="archive-article-date">
-  	<time datetime="2018-08-09T15:51:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/08/09/CentOS7配置静态IP/">CentOS7配置静态IP</a>
-    </h1>
+  <div id="SOHUCS" sid="Java语言输入输出与文件处理" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/08/08/hadoop集群搭建/" class="archive-article-date">
-  	<time datetime="2018-08-08T13:40:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/08/08/hadoop集群搭建/">hadoop集群搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -413,9 +452,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
