@@ -255,7 +255,8 @@ var _hmt = _hmt || [];
 <p>(2)使用FileWriter类写入文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileWriter fw=new FileWriter(&quot;F:\\zx\\1.txt&quot;);</span><br><span class="line">String str=&quot;1235464646464&quot;;</span><br><span class="line"></span><br><span class="line">fw.writer(str);</span><br><span class="line">fw.close();</span><br></pre></td></tr></table></figure></p>
 <p>(3)使用BufferedReader类读取文件<br>BufferedReader类是将数据读到到缓冲区的<br>使用BufferedReader之前，必须创建FileReader对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String str;</span><br><span class="line">FileReader fr=new FileReader(&quot;F:\\zx\\1.txt&quot;);</span><br><span class="line">BufferedReader bfr=new BufferedReader(fr);</span><br><span class="line"></span><br><span class="line">while((str==bfr.readLine())!=null)//每次读取一行，直到文件结束</span><br><span class="line">&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line">bfr.close();</span><br></pre></td></tr></table></figure></p>
 <p>(4)使用BufferedWriter类写入文件<br>使用BufferedWriter之前，必须创建FileWriter对象。<br>由于BufferedWriter类是将数据写入到缓冲区的，所以需要用flush()清空缓冲区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//利用缓冲区输入输出流进行文件复制</span><br><span class="line"></span><br><span class="line">String str=new String();</span><br><span class="line">BufferedReader in=new BufferedReader(new FileReader(&quot;F:\\zx\\1.txt&quot;));//读文件</span><br><span class="line">BufferedWriter out=new BufferedWriter(new FileWriter(&quot;F:\\zx\\12.txt&quot;));//写文件</span><br><span class="line"></span><br><span class="line">while((str=in.readLine())!==null)&#123;</span><br><span class="line"></span><br><span class="line">out.write(str);</span><br><span class="line">out.newLine();//写入换行符</span><br><span class="line">&#125;</span><br><span class="line">out.flush();</span><br><span class="line">in.close();</span><br><span class="line">out.close();</span><br></pre></td></tr></table></figure></p>
-<h5 id="注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"><a href="#注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader" class="headerlink" title="注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"></a>注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader</h5>
+<h5 id="注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"><a href="#注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader" class="headerlink" title="注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"></a>注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader</h5><p>BufferedReader比Scanner的效率要高，由于Scanner要进行正则解析，BufferedReader则是读取字符序列。</p>
+
       
 
       
@@ -1173,7 +1174,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,15 +1190,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1209,10 +1210,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
@@ -1221,11 +1218,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1241,10 +1246,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1257,15 +1258,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
