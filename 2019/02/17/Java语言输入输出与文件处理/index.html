@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Java语言输入输出与文件处理 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
+  <meta name="description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。  3.输入输出流：  输入流(Input Stream)：将数据从外设">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java语言输入输出与文件处理">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/02/17/Java语言输入输出与文件处理/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
+<meta property="og:description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。  3.输入输出流：  输入流(Input Stream)：将数据从外设">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-17T11:37:19.222Z">
+<meta property="og:updated_time" content="2019-02-18T08:29:01.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java语言输入输出与文件处理">
-<meta name="twitter:description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。">
+<meta name="twitter:description" content="一、流的概念1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。2.流的划分：字节流和字符流  字节流：处理字节数据(基本类型InputStream、OutputStream)每次读取8位二进制数。 字符流：处理字符数据(基本类型Reader、Writer)每次读写16位二进制数。  3.输入输出流：  输入流(Input Stream)：将数据从外设">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -226,8 +226,10 @@ var _hmt = _hmt || [];
         <h4 id="一、流的概念"><a href="#一、流的概念" class="headerlink" title="一、流的概念"></a>一、流的概念</h4><p>1.流：指计算机各部件之间的数据流动。是由位(Bit)组合或字符(Character)构成的序列。<br>2.流的划分：字节流和字符流</p>
 <ul>
 <li>字节流：处理字节数据(基本类型InputStream、OutputStream)<br>每次读取8位二进制数。</li>
-<li>字符流：处理字符数据(基本类型Reader、Writer)<br>每次读写16位二进制数。<a id="more"></a>
-3.输入输出流：</li>
+<li>字符流：处理字符数据(基本类型Reader、Writer)<br>每次读写16位二进制数。</li>
+</ul>
+<p>3.输入输出流：</p>
+<ul>
 <li>输入流(Input Stream)：将数据从外设或外存传递到应用程序的流。</li>
 <li>输出流(Output Stream)：将数据从应用程序传递到外设或外存的流。<br>
 
@@ -256,7 +258,11 @@ var _hmt = _hmt || [];
 <p>再来看个例子，用FileInputStream和FileOutputStream实现对二进制图像文件复制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fin=new FileInputStream(&quot;F:\\zx\\1.jpg&quot;);</span><br><span class="line">FileOutputStream fout=new FileOutputStream(&quot;F:\\zx\\12.jpg&quot;);</span><br><span class="line"></span><br><span class="line">byte[] b=new byte[fin.available()];//创建数组来存放图片数据</span><br><span class="line"></span><br><span class="line">fin.read(b);//读</span><br><span class="line">fout.write(b);//写</span><br><span class="line"></span><br><span class="line">fin.close();</span><br><span class="line">fout.close();</span><br></pre></td></tr></table></figure></p>
 <p>同理，也可以复制文件，但不推荐这么做。</p>
 <p><br><br>(2)顺序输入流<br>SequenceInputStream是InputStream类的直接子类，其功能是将多个输入流顺序接在一起。<br>(3)管道输入输出流<br>管道字节输入流PipedInputStream和管道字节输出流PipedOutputStream类提供了利用管道方式进行数据输入输出管理的类。其中输入流作为管道的接收端，输出流作为管道的发送端。其可以用来将一个程序或线程的输出连接到另外一个程序或线程作为输入，来实现数据交换或不同线程间的通信。<br>(4)过滤输入输出流<br>FilterOutputStream与FilterInputStream，它们又分别派生出DataInputStream和DataOutputStream类，它的主要功能是可以进行不同数据格式间的转换。<br>(5)标准输入输出流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.in 标准输入流</span><br><span class="line">System.in.read();</span><br><span class="line"></span><br><span class="line">System.out 标准输出流</span><br><span class="line">System.out.print();</span><br></pre></td></tr></table></figure></p>
-
+<p><br><br>2.Reader和Writer流类<br>Reader流和Writer流是用来处理字符流的，也就是文本文件。<br>(1)使用FileReader类读取文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">char c[]=new char[500];</span><br><span class="line">FileReader fr=new FileReader(&quot;F:\\zx\\1.txt&quot;);</span><br><span class="line">int num=fr.read(c);//读入数据到数组c内，并返回读取的字符数</span><br><span class="line">String str=new String(c,0,num);//将数组转化为字符串,从下标0开始读</span><br><span class="line"></span><br><span class="line">fr.close();</span><br></pre></td></tr></table></figure></p>
+<p>(2)使用FileWriter类写入文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileWriter fw=new FileWriter(&quot;F:\\zx\\1.txt&quot;);</span><br><span class="line">String str=&quot;1235464646464&quot;;</span><br><span class="line"></span><br><span class="line">fw.writer(str);</span><br><span class="line">fw.close();</span><br></pre></td></tr></table></figure></p>
+<p>(3)使用BufferedReader类读取文件<br>BufferedReader类是将数据读到到缓冲区的<br>使用BufferedReader之前，必须创建FileReader对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String str;</span><br><span class="line">FileReader fr=new FileReader(&quot;F:\\zx\\1.txt&quot;);</span><br><span class="line">BufferedReader bfr=new BufferedReader(fr);</span><br><span class="line"></span><br><span class="line">while((str==bfr.readLine())!=null)//每次读取一行，直到文件结束</span><br><span class="line">&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line">bfr.close();</span><br></pre></td></tr></table></figure></p>
+<p>(4)使用BufferedWriter类写入文件<br>使用BufferedWriter之前，必须创建FileWriter对象。<br>由于BufferedWriter类是将数据写入到缓冲区的，所以需要用flush()清空缓冲区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//利用缓冲区输入输出流进行文件复制</span><br><span class="line"></span><br><span class="line">String str=new String();</span><br><span class="line">BufferedReader in=new BufferedReader(new FileReader(&quot;F:\\zx\\1.txt&quot;));//读文件</span><br><span class="line">BufferedWriter out=new BufferedWriter(new FileWriter(&quot;F:\\zx\\12.txt&quot;));//写文件</span><br><span class="line"></span><br><span class="line">while((str=in.readLine())!==null)&#123;</span><br><span class="line"></span><br><span class="line">out.write(str);</span><br><span class="line">out.newLine();//写入换行符</span><br><span class="line">&#125;</span><br><span class="line">out.flush();</span><br><span class="line">in.close();</span><br><span class="line">out.close();</span><br></pre></td></tr></table></figure></p>
+<h5 id="注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"><a href="#注意：用Scanner获得用户的输入非常的方便-但是Scanner取得输入的依据是空格符-包括空格键-Tab键和Enter键-当按下这其中的任一键-时-Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader" class="headerlink" title="注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader"></a>注意：用Scanner获得用户的输入非常的方便,但是Scanner取得输入的依据是空格符,包括空格键,Tab键和Enter键.当按下这其中的任一键 时,Scanner就会返回下一个输入。所以为了使用空格时我们最好用BufferedReader</h5>
       
 
       
@@ -533,7 +539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,6 +575,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
@@ -577,19 +587,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,7 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,15 +619,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
