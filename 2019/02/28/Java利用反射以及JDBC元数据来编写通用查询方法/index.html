@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Archives: 2018/7 | XiaoHuZiZx</title>
+  <title>Java利用反射以及JDBC元数据来编写通用查询方法 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/archives/2018/07/index.html">
+  <meta name="description" content="一、说明这是一个执行数据库查询操作的通用方法，不管对象是谁，查询的SQL语句是什么样的，都可以使用。其中，Object … args表示一个通用对象数组，它用来标识SQL语句中的占位符？。下面还会用到泛型类，由于通用所以肯定会用到泛型。1.Java反射：见有关反射的文章2.JDBC元数据：通过。。方法来获取结果集中的列的名称，或者数据表的性质">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java利用反射以及JDBC元数据来编写通用查询方法">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/02/28/Java利用反射以及JDBC元数据来编写通用查询方法/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、说明这是一个执行数据库查询操作的通用方法，不管对象是谁，查询的SQL语句是什么样的，都可以使用。其中，Object … args表示一个通用对象数组，它用来标识SQL语句中的占位符？。下面还会用到泛型类，由于通用所以肯定会用到泛型。1.Java反射：见有关反射的文章2.JDBC元数据：通过。。方法来获取结果集中的列的名称，或者数据表的性质">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-28T04:26:50.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="Java利用反射以及JDBC元数据来编写通用查询方法">
+<meta name="twitter:description" content="一、说明这是一个执行数据库查询操作的通用方法，不管对象是谁，查询的SQL语句是什么样的，都可以使用。其中，Object … args表示一个通用对象数组，它用来标识SQL语句中的占位符？。下面还会用到泛型类，由于通用所以肯定会用到泛型。1.Java反射：见有关反射的文章2.JDBC元数据：通过。。方法来获取结果集中的列的名称，或者数据表的性质">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,116 +195,77 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java利用反射以及JDBC元数据来编写通用查询方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java利用反射以及JDBC元数据来编写通用查询方法
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/02/28/Java利用反射以及JDBC元数据来编写通用查询方法/" class="archive-article-date">
+  	<time datetime="2019-02-28T04:25:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
+</a>
+        
+        
+
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>这是一个执行数据库查询操作的通用方法，不管对象是谁，查询的SQL语句是什么样的，都可以使用。<br>其中，Object … args表示一个通用对象数组，它用来标识SQL语句中的占位符？。下面还会用到泛型类，由于通用所以肯定会用到泛型。<br>1.Java反射：见有关反射的文章<br>2.JDBC元数据：通过。。方法来获取结果集中的列的名称，或者数据表的性质<br><a id="more"></a></p>
+<h4 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">public T &lt;T&gt; Select(Class&lt;T&gt; c,String sql,Object ... args)&#123;</span><br><span class="line"></span><br><span class="line">T entity=null;//对象实体</span><br><span class="line">//链接数据库所需</span><br><span class="line">Connection conn=null;</span><br><span class="line">PreparedStatement pst=null;</span><br><span class="line">ResultSet rs=null;</span><br><span class="line"></span><br><span class="line">try&#123;</span><br><span class="line">//1.获取结果集</span><br><span class="line">conn=ToolOfDB.getConnection();//获取连接</span><br><span class="line">pst=conn.prepareStatement(sql);//创建PreparedStatement对象</span><br><span class="line"></span><br><span class="line">//赋值</span><br><span class="line">for(int i=0;i&lt;args.length;i++)&#123;</span><br><span class="line">pst.setObject(i+1,args[i]);//为占位符赋值</span><br><span class="line">&#125;</span><br><span class="line">rs=pst.executeQuery();//获取结果集</span><br><span class="line"></span><br><span class="line">//2.得到ResultSetMetaData对象</span><br><span class="line">ResultSetMetaData rsmd=rs.getMetaData();</span><br><span class="line">//3.创建一个Map&lt;String,Object&gt;对象,键：SQL查询的列的别名，值：列的值</span><br><span class="line">Map&lt;String,Object&gt;values=new HashMap&lt;&gt;();</span><br><span class="line">//4.处理结果集，利用ResultSetMetaData填充3对应的Map对象</span><br><span class="line">while(rs.next())&#123;</span><br><span class="line">for(int i=0;i&lt;rsmd.getColumnCount(i+1);i++)&#123;//以列值数循环</span><br><span class="line">String columnLabel=rsmd.getColumnLabel(i+1);//获取列名</span><br><span class="line">Object columnValue=rs.getObject(i+1);//获取列值</span><br><span class="line"></span><br><span class="line">values.put(columnLabel,columnValue);//添加到map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//5.若Map不为空集，利用反射创建c对应的对象</span><br><span class="line">if(values.size()&gt;0)&#123;</span><br><span class="line">//利用反射来创建对象，把方法调用的对象反射给方法内的实体对象</span><br><span class="line">entity=c.newInstance();</span><br><span class="line"></span><br><span class="line">//5.遍历Map对象，利用反射为Class对象对应的属性赋值</span><br><span class="line">for(Map.Entry&lt;String,Object&gt; entry:values.entrySet())&#123;</span><br><span class="line">String fieldName=entry.getKey();</span><br><span class="line">Object value=entry.getValue();</span><br><span class="line">ReflectionUtils.setFieldValue(entity,fieldName,value);//反射赋值</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;catch(Exception e)&#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">ToolOfDB.releaseResource(rs,pst,conn);//关闭数据库连接</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="注意：SQL语句所选择的列名只与数据库中的列名有关，与对象所封装属性无关，下面来建立它们之间的关系，通过列名得到值赋给对象的属性。"><a href="#注意：SQL语句所选择的列名只与数据库中的列名有关，与对象所封装属性无关，下面来建立它们之间的关系，通过列名得到值赋给对象的属性。" class="headerlink" title="注意：SQL语句所选择的列名只与数据库中的列名有关，与对象所封装属性无关，下面来建立它们之间的关系，通过列名得到值赋给对象的属性。"></a>注意：SQL语句所选择的列名只与数据库中的列名有关，与对象所封装属性无关，下面来建立它们之间的关系，通过列名得到值赋给对象的属性。</h5><p>通过解析SQL语句来判断到底选择了那些列，以及需要为entity对象的那些属性赋值。不直接用entity是由于不知道语句所选的具体列的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;SELECT name&quot;;</span><br><span class="line">与</span><br><span class="line">private String Name;</span><br><span class="line">无关</span><br></pre></td></tr></table></figure></p>
+<p>解决方案1：在SQL语句中协商写上所要查询列的别名，这个别名就是对象封装的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;SELECT name Name,age Age ......&quot;;</span><br><span class="line"></span><br><span class="line">name是数据库表的列名</span><br><span class="line">Name是name的别名，它是对象的属性</span><br></pre></td></tr></table></figure></p>
+<h5 id="1-先利用SQL语句-含有别名-查询，得到结果集。"><a href="#1-先利用SQL语句-含有别名-查询，得到结果集。" class="headerlink" title="1.先利用SQL语句(含有别名)查询，得到结果集。"></a>1.先利用SQL语句(含有别名)查询，得到结果集。</h5><h5 id="2-利用反射创建实体类的对象，创建st的对象"><a href="#2-利用反射创建实体类的对象，创建st的对象" class="headerlink" title="2.利用反射创建实体类的对象，创建st的对象"></a>2.利用反射创建实体类的对象，创建st的对象</h5><h5 id="entity-c-newInstance"><a href="#entity-c-newInstance" class="headerlink" title="entity=c.newInstance();"></a>entity=c.newInstance();</h5><h5 id="3-获取结果集列的别名：Name-Age……-（通过JDBC的元数据获取-ResultSetMetaData类-）"><a href="#3-获取结果集列的别名：Name-Age……-（通过JDBC的元数据获取-ResultSetMetaData类-）" class="headerlink" title="3.获取结果集列的别名：Name,Age…….（通过JDBC的元数据获取 ResultSetMetaData类 ）"></a>3.获取结果集列的别名：Name,Age…….（通过JDBC的元数据获取 ResultSetMetaData类 ）</h5><h5 id="4-再获取结果集的每一列的值，结合3得到一个Map，键：列的别名-值：列的值-Name：zx-Age-20…"><a href="#4-再获取结果集的每一列的值，结合3得到一个Map，键：列的别名-值：列的值-Name：zx-Age-20…" class="headerlink" title="4.再获取结果集的每一列的值，结合3得到一个Map，键：列的别名   值：列的值   {Name：zx,Age:20…..}"></a>4.再获取结果集的每一列的值，结合3得到一个Map，键：列的别名   值：列的值   {Name：zx,Age:20…..}</h5><h5 id="5-再利用反射为2的对应的属性赋值，属性即为Map的键，值即为Map的值。"><a href="#5-再利用反射为2的对应的属性赋值，属性即为Map的键，值即为Map的值。" class="headerlink" title="5.再利用反射为2的对应的属性赋值，属性即为Map的键，值即为Map的值。"></a>5.再利用反射为2的对应的属性赋值，属性即为Map的键，值即为Map的值。</h5>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/21/gcc使用方法/" class="archive-article-date">
-  	<time datetime="2018-07-21T12:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/21/gcc使用方法/">gcc使用方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:34:29.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/20/Spring-Boot-初识二/">Spring Boot 初识二</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/19/初识Spring-Boot/" class="archive-article-date">
-  	<time datetime="2018-07-19T09:11:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/19/初识Spring-Boot/">初识Spring Boot</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -307,406 +273,131 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+     
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/02/28/Java利用反射以及JDBC元数据来编写通用查询方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/" class="archive-article-date">
-  	<time datetime="2018-07-09T07:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/zxblog.github.io/2019/02/28/Java反射机制概述/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java反射机制概述 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/zxblog.github.io/2019/02/28/Java-JDBC使用PreparedStatement链接数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java JDBC使用PreparedStatement链接数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/">SSH应用之成绩管理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/08/Spring-框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-08T14:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/08/Spring-框架结构/">Spring 框架结构</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-new">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/" class="archive-article-date">
-  	<time datetime="2018-07-05T06:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">数据库表与表之间的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/05/MyEclipse逆向生成Hibernate对象关系/" class="archive-article-date">
-  	<time datetime="2018-07-05T04:58:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/05/MyEclipse逆向生成Hibernate对象关系/">MyEclipse逆向生成Hibernate对象关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Hibernate框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-04T13:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Hibernate框架结构/">Hibernate框架结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Struts2综合应用之NinjaManagementSystem-忍者信息管理系统/" class="archive-article-date">
-  	<time datetime="2018-07-04T09:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Struts2综合应用之NinjaManagementSystem-忍者信息管理系统/">Struts2综合应用之NinjaManagementSystem(忍者信息管理系统)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Struts2框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:36:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Struts2框架结构/">Struts2框架结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="Java利用反射以及JDBC元数据来编写通用查询方法" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
 
+  
 
+  
 
-<!--PC��WAP����Ӧ��-->
-<div id="SOHUCS" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = 'cytAwfJDC'; 
-var conf = 'prod_269e22fa7b64cfca16d4b4115a58652c'; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
           </div>
         </div>
@@ -741,8 +432,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
