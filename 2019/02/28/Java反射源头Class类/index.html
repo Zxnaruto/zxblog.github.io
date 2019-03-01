@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="XiaoHuZiZx">
 <meta property="og:description" content="一、说明在Object类中定义了以下方法，此方法将被所有子类继承：public final Class getClass()以上的方法返回值的类型是一个Class类。反射从运行结果来看就是通过反射求出类的名称。 1.正常方式：引入需要的”包类“名称—》通过new实例化—》取得实例化对象2.反射方式：实例化对象—》getClass()方法—》得到完整的”包类“名称。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T08:48:16.059Z">
+<meta property="og:updated_time" content="2019-03-01T15:49:49.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java反射源头Class类">
 <meta name="twitter:description" content="一、说明在Object类中定义了以下方法，此方法将被所有子类继承：public final Class getClass()以上的方法返回值的类型是一个Class类。反射从运行结果来看就是通过反射求出类的名称。 1.正常方式：引入需要的”包类“名称—》通过new实例化—》取得实例化对象2.反射方式：实例化对象—》getClass()方法—》得到完整的”包类“名称。">
@@ -225,7 +225,16 @@ var _hmt = _hmt || [];
       
         <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>在Object类中定义了以下方法，此方法将被所有子类继承：<br>public final Class getClass()<br>以上的方法返回值的类型是一个Class类。反射从运行结果来看就是通过反射求出类的名称。</p>
 <p>1.正常方式：引入需要的”包类“名称—》通过new实例化—》取得实例化对象<br>2.反射方式：实例化对象—》getClass()方法—》得到完整的”包类“名称。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line"></span><br><span class="line">Student s=new Student();</span><br><span class="line">Class clazz=s.getClass();//通过运行时类(Class)的对象，调用其getClass()，返回其运行时类。即student类的所有。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h5 id="通过Class获取类的信息-即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取这些类的信息。"><a href="#通过Class获取类的信息-即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取这些类的信息。" class="headerlink" title="通过Class获取类的信息,即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取这些类的信息。"></a>通过Class获取类的信息,即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取这些类的信息。</h5>
+<h5 id="通过Class获取类的信息-即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取想要获取的类的信息。"><a href="#通过Class获取类的信息-即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取想要获取的类的信息。" class="headerlink" title="通过Class获取类的信息,即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取想要获取的类的信息。"></a>通过Class获取类的信息,即为反射，正常方式是倒过来的，而它是反着来的，已有创建好的类了，就通过Class获取想要获取的类的信息。</h5><h4 id="二、获取Class的类的实例的四种方式"><a href="#二、获取Class的类的实例的四种方式" class="headerlink" title="二、获取Class的类的实例的四种方式"></a>二、获取Class的类的实例的四种方式</h4><p>首先，说明以下有了Class的实例以后，我们才可以进行如下的操作：</p>
+<ul>
+<li>1.创建对应的运行时类的对象</li>
+<li>2.获取对应运行时类的完整结构(属性、方法、构造器……)</li>
+<li>3.调用对应的运行是类的指定结构(属性，方法，构造器)</li>
+<li>4.反射的应用：动态代理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">//1.调用运行时类(Student)身的.class属性</span><br><span class="line">Class clazz1=Student.class;</span><br><span class="line">Class clazz11=String.class;</span><br><span class="line">....实例化后，clazz.newInstance()就可以获取对应运行时类的各种属性方法</span><br><span class="line">//2.通过运行时类的对象获取</span><br><span class="line">Student s=new Student();</span><br><span class="line">Class clazz2=s.getClass();</span><br><span class="line">....</span><br><span class="line">//3.通过Class的静态方法获取</span><br><span class="line">String className=&quot;pers.zx.test.Student&quot;;</span><br><span class="line">Class clazz3=Class.forName(className);</span><br><span class="line">clazz3.newInstance();</span><br><span class="line">....</span><br><span class="line">//4.通过类加载器,类加载器不仅可以加载类，也可以加载文件。</span><br><span class="line">ClassLoader c=this.getClass().getClassLoader();</span><br><span class="line">Class clazz4=c.loadClass(className);</span><br><span class="line">....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三、类加载器ClassLoader"><a href="#三、类加载器ClassLoader" class="headerlink" title="三、类加载器ClassLoader"></a>三、类加载器ClassLoader</h4><p>加载文件的两种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//1</span><br><span class="line">ClassLoader loader=this.getClass().getClassLoader();</span><br><span class="line">InputStream in=Loader.gerResourceAsStream(&quot;文件路径&quot;);</span><br><span class="line">Properties p=new Properties();</span><br><span class="line">p.load(in);//加载文件</span><br><span class="line">获取文件内容</span><br><span class="line">//2</span><br><span class="line">FileInputStream fis=new FileInputStream(new File(jdbc.prorerties));</span><br><span class="line">Properties p=new Properties();</span><br><span class="line">p.load(fis);//加载文件</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -502,11 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,19 +567,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">md5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">md5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sha</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,15 +595,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
