@@ -192,6 +192,384 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法原理总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/05/21/算法原理总结/">算法原理总结</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/05/21/算法原理总结/" class="archive-article-date">
+  	<time datetime="2018-05-21T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、递归"><a href="#一、递归" class="headerlink" title="一、递归"></a>一、递归</h4><p>1.概念：直接或间接的调用自身。<br>2.递归实现原理(个人理解)：类似于栈，先进后出，递归先把一个问题分成n个规模，先将这n个问题按n,n-1,…….1,放入栈中，然后从1开始解，这是得到一个结果，返回给返回给2(第二层)，第二层在此基础上计算，再返回一个值，最终到n，结果也就出来了。<br>3.说明：<br>(1)递归每一次调用自身，都会进一步得到最终结果，适用于具有一定规律，且可以将问题划分为多个与元问题相同的子问题。<br>(2)这类问题往往用递推可以解，但是你会发现在n不确定时无法入手，即便在n确定的情况下，如果n过大，则会导致递推的代码量十分臃肿。所以之所以用递归而非递推是由于一般递推的步骤过于繁琐。运用递归可以简化代码，但同样有缺点，就是问题规模很大时，问题计算的时间复杂度就会越高，总之就是效率不高，不适合处理子问题数量十分大的问题。<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/21/算法原理总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/21/算法原理总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Struts2拦截器实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/">Struts2拦截器实例</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/" class="archive-article-date">
+  	<time datetime="2018-05-19T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个简单的拦截器的实例，通过拦截器实现用户权限的限制，只有用户名为zx的用户在登陆后可以访问note.jsp，其他用户如果访问这个界面就会跳回到登陆界面。下面我们来实现这个实例：</p>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-1-编写拦截器代码："><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-1-编写拦截器代码：" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.编写拦截器代码："></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.编写拦截器代码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class LoginInterceptor extends AbstractInterceptor &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String intercept(ActionInvocation invocation) throws Exception &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		@SuppressWarnings(&quot;rawtypes&quot;)</span><br><span class="line">		Map session=invocation.getInvocationContext().getSession();//接收LoginAction传来的值</span><br><span class="line">		//session=ActionContext.getContext().getSession();</span><br><span class="line">		if(session.get(&quot;loginSign&quot;)==null)&#123;//没传来</span><br><span class="line">			return &quot;login&quot;;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			String result=invocation.invoke();//invocation调用，相当于success</span><br><span class="line">			return result;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Struts2自定义拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">Struts2自定义拦截器</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" class="archive-article-date">
+  	<time datetime="2018-05-18T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Struts2中我们可以自定义一个拦截器来拦截特定的方法，下面我们来实现一个基本的拦截器，并调用它，并调用未拦截的方法进行对比。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.创建拦截器类：新建包indi.zx.Interceptor,在该包中创建LoggerInterceptor类，该类继承自MethodFilterInterceptor，用来显示的显示拦截器调用了该方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author XiaoHuZiXianShengZx</span><br><span class="line"> * 自定义拦截器用于拦截特定的方法</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">@SuppressWarnings(&quot;serial&quot;)</span><br><span class="line">public class LoggerInterceptor extends MethodFilterInterceptor&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	protected String doIntercept(ActionInvocation chain) throws Exception &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;------前置拦截操作------&quot;);</span><br><span class="line">		String result=chain.invoke();//执行下一个操作，如：调用其他action或执行其他拦截器</span><br><span class="line">		System.out.println(&quot;------后置拦截操作------&quot;);</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Word 操作在任意一页添加页码和页眉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/">Word 操作在任意一页添加页码和页眉</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/" class="archive-article-date">
+  	<time datetime="2018-05-17T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在我们编辑word文档时会遇到编辑页眉和页码，此时你会发现，如果是一般方法，只会首页不同，目录页还是会出现页码和页眉，为了避免这种情况，下面我们来看一下在任意页设置页码和页眉。</p>
+<h4 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.    把光标放到要添加第一页的地方的段首。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.    选择页面布局–&gt;分隔符—&gt;下一页，此时会在你放光标的那一页的上面出现空白的一页<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/word01.png" alt=""><br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/杂谈//" class="article-tag-list-link color3">杂谈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/05/18/Word 操作在任意一页添加页码和页眉/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-struts2传值方式与动态result" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -767,395 +1145,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-LinkedList类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/06/LinkedList类/">Java LinkedList类实现与调用</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/06/LinkedList类/" class="archive-article-date">
-  	<time datetime="2018-05-05T19:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-06</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-问题描述："><a href="#1-问题描述：" class="headerlink" title="1.问题描述："></a>1.问题描述：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用双向链表实现LinkedList类:</p>
-<ul>
-<li>1.包含链表的两端，表的大小及一些方法</li>
-<li>2.包含节点Node类，它包含数据及到下一个节点的链和到前一个节点的链，以及一些构造方法。</li>
-<li>3.实现一些方法如：clear(),remove(),add()等。</li>
-<li>4.包含迭代器LinkedListIterator类(私有类)，实现Iterator接口，提供next,hasNext,remove方法。
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/06/LinkedList类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/06/LinkedList类/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《复仇者联盟3：无限战争》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/">《复仇者联盟3：无限战争》</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;再过两天5月11号《复仇者联盟3：无限战争》就上映了，本人也要在5月12号去看了，满心期待啊。虽说，这个电影在美国是4月27号上映了，但是我到现在也一直忍者没有看网上流传的剧透(除了不可抗力，尴尬，哈哈)。先来一张钢铁侠的帅图……<br><img src="https://zxnaruto.github.io/zxblog.github.io/lifeimages/钢铁侠.png" alt=""><br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/日常//" class="article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/05/《复仇者联盟3：无限战争》/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ArrayList类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/05/ArrayList类/">Java ArrayList类实现与调用</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/05/ArrayList类/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h4><p> &nbsp;&nbsp;&nbsp;&nbsp;这是一个关于数组链表类的实现。包含对数组链表的一般操作。</p>
-<ul>
-<li>1.保持基础数组和其容量，以及当前项数。</li>
-<li>2.可以扩增数组的容量。</li>
-<li>3.提供get和set的实现。</li>
-<li>4.提供size(),isEmpty(),clear(),remove(),add(),trimToSize()。</li>
-<li>5.提供一个实现迭代器(Iterator)接口的类，可以完成对数组元素的操作，即next,hasNext,remove。
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/05/ArrayList类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/05/ArrayList类/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-0-1背包问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/05/04/0-1背包问题/">0-1背包问题</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/05/04/0-1背包问题/" class="archive-article-date">
-  	<time datetime="2018-05-03T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给定一个固定容量capacity的包，有数目(number)不定的物品，其中物品包括价值和重量，在给定容量的前提下，使得装入物品的价值最大。求出所装入物品的最大价值以及所装入物品的序号。</p>
-<h4 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用动态规划法和回溯法来求此问题，其中回溯法是来求包的序号。动态规划法的核心思想是通过把大的问题分为很多的小问题，通过用大问题和小问题的递推关系把小问题解决了，最终得到大问题的解。当然，动态规划法是由记忆性的，它会把每次计算的结果保存下来，等到用到的时候直接调用，这样避免了很多重复计算。这也是动态规划法与分治法的区别。</p>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 由上可知，我们可以把背包问题的每一次的解，用一个二维表格来保存，然后最后的那个结果即为所求的解。<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，建立一个二维数组wv[number][2],来存放物品的重量和价值。之所以这样做数组是为了方便单独取重量或价值，为后面所用
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/04/0-1背包问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/算法和数据结构//" class="article-tag-list-link color3">算法和数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/05/04/0-1背包问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/zxblog.github.io/page/5/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/4/">4</a><a class="page-number" href="/zxblog.github.io/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/zxblog.github.io/page/7/">7</a><a class="extend next" rel="next" href="/zxblog.github.io/page/7/">Next &raquo;</a>
@@ -1277,15 +1266,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,6 +1275,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,19 +1314,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1346,6 +1331,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,11 +1350,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
