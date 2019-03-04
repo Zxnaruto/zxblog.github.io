@@ -192,87 +192,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Java接口回调及与向上转型区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/01/28/Java接口回调及与向上转型区别/">Java接口回调</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/01/28/Java接口回调及与向上转型区别/" class="archive-article-date">
-  	<time datetime="2019-01-28T07:54:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>所谓接口回调就是指通过接口变量来调用实现该接口的类的该接口所含的方法。这个说法可能有点绕，下面通过例子来说明就会更清晰了。同时也能理解一下接口的优点。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/01/28/Java接口回调及与向上转型区别/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/01/28/Java接口回调及与向上转型区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Java遍历方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1060,9 +979,109 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-JavaWeb发送请求的三种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/">JavaWeb发送请求的三种方式</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/" class="archive-article-date">
+  	<time datetime="2018-08-25T09:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-后台写入发送请求的代码"><a href="#1-后台写入发送请求的代码" class="headerlink" title="1.后台写入发送请求的代码"></a>1.后台写入发送请求的代码</h4><ul>
+<li>(1)所需jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/javaweb01.png" alt=""></li>
+<li>(2)代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   HttpClient client=new DefaultHttpClient();//初始化httpclient</span><br><span class="line">String url=&quot;http://192.168.122.139&quot;;</span><br><span class="line">HttpPost postMethod=new HttpPost(url);//post方法请求url</span><br><span class="line">//HttpGet getMethod=new HttpGet(url);//get方式</span><br><span class="line">client.execute(postMethod);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/08/25/JavaWeb发送请求的三种方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zxblog.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><a class="page-number" href="/zxblog.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/zxblog.github.io/page/4/">4</a><a class="page-number" href="/zxblog.github.io/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/8/">8</a><a class="extend next" rel="next" href="/zxblog.github.io/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/zxblog.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><a class="page-number" href="/zxblog.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/zxblog.github.io/page/4/">4</a><a class="page-number" href="/zxblog.github.io/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/7/">7</a><a class="extend next" rel="next" href="/zxblog.github.io/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1185,10 +1204,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
@@ -1198,6 +1213,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,11 +1240,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,15 +1284,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
