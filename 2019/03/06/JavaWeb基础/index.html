@@ -26,7 +26,9 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP06.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP08.png">
-<meta property="og:updated_time" content="2019-03-07T11:04:48.236Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC02.png">
+<meta property="og:updated_time" content="2019-03-07T18:25:39.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础 ">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -420,6 +422,26 @@ var _hmt = _hmt || [];
 <connector connectiontimeout="20000" port="8989" protocol="HTTP/1.1" redirectport="8443" usebodyencodingforuri="true">
 
 <p>//补充：在java类的service代码中<br> //防止中文乱码<br>request.setCharacterEncoding(“utf-8”);<br>response.setContentType(“text/html;charset=utf-8”);<br><code>`</code></p>
+<h4 id="三、MVC设计模式"><a href="#三、MVC设计模式" class="headerlink" title="三、MVC设计模式"></a>三、MVC设计模式</h4><h5 id="1-概念："><a href="#1-概念：" class="headerlink" title="1.概念："></a>1.概念：</h5><p>MVC(Model-View-Controller)的简称，即模型-视图-控制器。<br>MVC是一种设计模式，它把应用程序分成三个核心模块：模型、视图、控制器，它们各自处理自己的任务。</p>
+<ul>
+<li>①.Model:<br>(1)模型是应用程序的主体部分，模型表示业务数据(dao)和业务逻辑(service)<br>(2)一个模型可以为多个视图提供数据<br>(3)由于应用于模型的代码只需写一次就可以被多个视图重用，所以提高了代码的可重用性</li>
+<li>②.View<br>视图是用户看到并与之交互的界面，作用如下：<br>(1)视图向用户显示相关数据<br>(2)接收用户输入<br>(3)不进行任何实际的业务处理</li>
+<li>③.Controller<br>(1)控制器接收用户的输入并调用模型和视图去完成用户的需求<br>(2)控制器接收请求并决定调用那个模型组件去处理请求，然后决定调用那个视图来显示模型处理返回的数据</li>
+</ul>
+<h5 id="2-MVC处理过程"><a href="#2-MVC处理过程" class="headerlink" title="2.MVC处理过程"></a>2.MVC处理过程</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC01.png" alt=""><br>说明：首先，客户端发送请求给服务器，服务器收到请求后，根据相应的请求调用Servlet，Servlet根据请求信息调用POJO(简单java对象)来访问数据库并返回相应的结果，根据结果Servlet会转向相应的Jsp页面来显示用户的请求结果，然后响应给客户端。</p>
+<h5 id="注意：POJO与JavaBean"><a href="#注意：POJO与JavaBean" class="headerlink" title="注意：POJO与JavaBean"></a>注意：POJO与JavaBean</h5><p>(1)POJO：Plain Ordinary Java Object(简单普通的java对象)主要用来指代那些没有遵循特定java对象模型，约定或者框架的对象。<br>POJO定义一些private属性，并设置相应的get/set方法。没有任何继承也没有任何接口实现，更没有被其他框架侵入的java对象。<br>(2)JavaBean： 在是Java开发中一种可重用组件。是一种编写代码的规范。</p>
+<ul>
+<li>1.所有属性为private。</li>
+<li>2.这个类必须有一个公共的缺省构造函数。即是提供无参数的构造器。</li>
+<li>3.这个类的属性使用getter和setter来访问，其他方法遵从标准命名规范。</li>
+<li>4.这个类应是可序列化的。实现serializable接口。</li>
+</ul>
+<p>其实JavaBean就是特殊的POJO。<br>(3)POJO与JavaBean的区别</p>
+<ul>
+<li>①.POJO其实是比JavaBean更纯净的简单类或接口。POJO严格地遵守简单对象的概念，而一些JavaBean中往往会封装一些简单逻辑。</li>
+<li>②.POJO主要用于数据的临时传递，它只能装载数据， 作为数据存储的载体，而不具有业务逻辑处理的能力。</li>
+<li>③.JavaBean虽然数据的获取与POJO一样，但是JavaBean当中可以有其它的方法。<h5 id="3-MVC小总结"><a href="#3-MVC小总结" class="headerlink" title="3.MVC小总结"></a>3.MVC小总结</h5><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC02.png" alt=""></li>
+</ul>
 </connector>
       
 
@@ -701,6 +723,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -714,10 +740,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,23 +767,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,6 +784,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -785,11 +807,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,11 +823,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
