@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>关于线程中synchronized失效的一个小例子 | XiaoHuZiZx</title>
+  <title>Java面试题总结 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.问题说明：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是对线程的一个简单的测试，对于同步资源i,给它上互斥锁synchronized,创建两个线程在i&amp;lt;20时随机的输出i,以下程序不会按照预想的在i不同时乱序输出1-20，它会让互斥锁失效。使得有的数可能重复输出，有的数可能没输出。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;代码：123456789101">
-<meta name="keywords" content="java,Thread">
+  <meta name="description" content="一、第一天1.JDK与JRE的区别 (1)JDK即Java Devellopment Kit(java开发工具)，包含三个部分：①.java开发工具(javac.exe/java/javah等)②.java基础类库(rt.jar)③.java运行环境(jre)其中jre包含jvm和lib类库，即JDK包含开发工具和运行环境，可以独立执行。注意：jdk中有bin、lib目录，jre中也有bin、li">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于线程中synchronized失效的一个小例子">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/index.html">
+<meta property="og:title" content="Java面试题总结">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/08/Java面试题总结/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="1.问题说明：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是对线程的一个简单的测试，对于同步资源i,给它上互斥锁synchronized,创建两个线程在i&amp;lt;20时随机的输出i,以下程序不会按照预想的在i不同时乱序输出1-20，它会让互斥锁失效。使得有的数可能重复输出，有的数可能没输出。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;代码：123456789101">
+<meta property="og:description" content="一、第一天1.JDK与JRE的区别 (1)JDK即Java Devellopment Kit(java开发工具)，包含三个部分：①.java开发工具(javac.exe/java/javah等)②.java基础类库(rt.jar)③.java运行环境(jre)其中jre包含jvm和lib类库，即JDK包含开发工具和运行环境，可以独立执行。注意：jdk中有bin、lib目录，jre中也有bin、li">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/thread01.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/thread02.png">
-<meta property="og:updated_time" content="2018-05-28T10:33:57.677Z">
+<meta property="og:updated_time" content="2019-03-07T19:16:40.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于线程中synchronized失效的一个小例子">
-<meta name="twitter:description" content="1.问题说明：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是对线程的一个简单的测试，对于同步资源i,给它上互斥锁synchronized,创建两个线程在i&amp;lt;20时随机的输出i,以下程序不会按照预想的在i不同时乱序输出1-20，它会让互斥锁失效。使得有的数可能重复输出，有的数可能没输出。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;代码：123456789101">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/thread01.png">
+<meta name="twitter:title" content="Java面试题总结">
+<meta name="twitter:description" content="一、第一天1.JDK与JRE的区别 (1)JDK即Java Devellopment Kit(java开发工具)，包含三个部分：①.java开发工具(javac.exe/java/javah等)②.java基础类库(rt.jar)③.java运行环境(jre)其中jre包含jvm和lib类库，即JDK包含开发工具和运行环境，可以独立执行。注意：jdk中有bin、lib目录，jre中也有bin、li">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -198,20 +195,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于线程中synchronized失效的一个小例子" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java面试题总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于线程中synchronized失效的一个小例子
+      Java面试题总结
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/" class="archive-article-date">
-  	<time datetime="2018-05-28T10:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-28</time>
+        <a href="/zxblog.github.io/2019/03/08/Java面试题总结/" class="archive-article-date">
+  	<time datetime="2019-03-07T19:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
 </a>
         
         
@@ -226,12 +223,18 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-问题说明："><a href="#1-问题说明：" class="headerlink" title="1.问题说明："></a>1.问题说明：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是对线程的一个简单的测试，对于同步资源i,给它上互斥锁synchronized,创建两个线程在i&lt;20时随机的输出i,以下程序不会按照预想的在i不同时乱序输出1-20，它会让互斥锁失效。使得有的数可能重复输出，有的数可能没输出。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class SampleTestOfThread implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">	public static Integer i=new Integer(0);//声明一个Integer对象</span><br><span class="line">	 </span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		while(true) &#123;</span><br><span class="line">		synchronized(i) &#123;</span><br><span class="line">			if(i&lt;20) &#123;</span><br><span class="line">				i++;</span><br><span class="line">				System.out.println(&quot;i=&quot;+i);</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				break;//超出20跳出循环</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//入口方法</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot; 4dada&quot;+i);</span><br><span class="line">		Thread t1=new Thread(new SampleTestOfThread());</span><br><span class="line">		Thread t2=new Thread(new SampleTestOfThread());</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h4 id="一、第一天"><a href="#一、第一天" class="headerlink" title="一、第一天"></a>一、第一天</h4><h5 id="1-JDK与JRE的区别"><a href="#1-JDK与JRE的区别" class="headerlink" title="1.JDK与JRE的区别"></a>1.JDK与JRE的区别</h5><ul>
+<li>(1)JDK<br>即Java Devellopment Kit(java开发工具)，包含三个部分：<br>①.java开发工具(javac.exe/java/javah等)<br>②.java基础类库(rt.jar)<br>③.java运行环境(jre)<br>其中jre包含jvm和lib类库，即JDK包含开发工具和运行环境，可以独立执行。<br>注意：jdk中有bin、lib目录，jre中也有bin、lib，它们是不同的。jre的bin中包含jvm.dll即java虚拟机，而其lib为解释.class文件所需要的类库。</li>
+</ul>
 <a id="more"></a>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;运行结果的一个例子：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/thread01.png" alt=""></p>
-<h4 id="2-原因："><a href="#2-原因：" class="headerlink" title="2.原因："></a>2.原因：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个程序中，i一直都在变化，对这个程序来说i不是同一个对象，所以synchronized(对多个线程共享同一个对象起作用)失效。</p>
-<h4 id="3-底层原因分析："><a href="#3-底层原因分析：" class="headerlink" title="3.底层原因分析："></a>3.底层原因分析：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.通过jdk自带的javap命令工具对该类进行分析，到磁盘的相应位置输入 javap -v SampleTestOfThread.class<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会得到如图：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/thread02.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从图中红框可以得到i++的原理：i=Integer.valueOf(i.intValue()+1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此时我们看下Integer的源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static Integer valueOf(int i)&#123;</span><br><span class="line">   if(i&gt;=IntegerCache.low&amp;&amp;i&lt;=IntergerCache.high)</span><br><span class="line">   return IntegerCache.cache[i+(-IntegerCache.low)];</span><br><span class="line">   </span><br><span class="line">   return new Integer(i);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以知道每次Integer.valueOf返回的都是一个新的i对象。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自然而然synchronized锁失去效果。</p>
+<ul>
+<li>(2)JRE<br>即Java Running Environment(Java运行环境)。包含JVM标准实现及Java核心类库。<br>注意：解释.class文件不光需要JVM还要lib类库，而且jre中有运行.class的java.exe。</li>
+<li>(3)jdk与jre的区别：<br>首先，我们要知道jre与jdk的一个显著的区别在于jdk包含javac，它可以将后缀名为.java的源文件编译为后缀名为.class的可以运行于Java虚拟机的字节码。而JVM则将字节码解释成机器指令，所以由于有了jvm，java语言的平台移植性就很好。<br>其次、jdk是开发环境，jre时运行环境。</li>
+</ul>
+<p>jre=jvm+lib<br>jdk=jre+javac+rt.jar</p>
+<h5 id="补充：JVM：Java-Virtual-Machine-java虚拟机-，它是一种用于计算设备的规范，是一个虚构出来的计算机。其主要目的是将java的字节码文件-class-解释成机器可以识别的指令。"><a href="#补充：JVM：Java-Virtual-Machine-java虚拟机-，它是一种用于计算设备的规范，是一个虚构出来的计算机。其主要目的是将java的字节码文件-class-解释成机器可以识别的指令。" class="headerlink" title="补充：JVM：Java Virtual Machine(java虚拟机)，它是一种用于计算设备的规范，是一个虚构出来的计算机。其主要目的是将java的字节码文件(.class)解释成机器可以识别的指令。"></a>补充：JVM：Java Virtual Machine(java虚拟机)，它是一种用于计算设备的规范，是一个虚构出来的计算机。其主要目的是将java的字节码文件(.class)解释成机器可以识别的指令。</h5><h5 id="2-和equals的区别是什么？"><a href="#2-和equals的区别是什么？" class="headerlink" title="2.==和equals的区别是什么？"></a>2.==和equals的区别是什么？</h5><p>答：==是判断地址是否相等，equals是判断值是否相等。</p>
+<h5 id="3-两个对象的hashCode-相同，则equals-一定为true，对吗？"><a href="#3-两个对象的hashCode-相同，则equals-一定为true，对吗？" class="headerlink" title="3.两个对象的hashCode()相同，则equals()一定为true，对吗？"></a>3.两个对象的hashCode()相同，则equals()一定为true，对吗？</h5><p>答：不对，我们在判断哈希集合中的数据是否相等时，首先判断hashcode是否相同，其次对应的值是否相同。两个都一样才为true。这是因为，不同的值计算出的hashcode编码值可能一样。</p>
+<h5 id="4-final在java中有什么作用？"><a href="#4-final在java中有什么作用？" class="headerlink" title="4.final在java中有什么作用？"></a>4.final在java中有什么作用？</h5><p>答：final定义最终变量，即被final声明的变量即为常量。且要初始化。</p>
 
       
 
@@ -278,27 +281,12 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
-        		</li>
       		
 		</ul>
 	</div>
 
      
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -348,7 +336,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/05/28/关于线程中synchronized失效的一个小例子/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/03/08/Java面试题总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +350,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/07/04/Struts2框架结构/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Struts2框架结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/05/21/算法原理总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法原理总结</div>
+    <a href="/zxblog.github.io/2019/03/06/JavaWeb基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb基础 </div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -403,7 +382,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="关于线程中synchronized失效的一个小例子" ></div> 
+  <div id="SOHUCS" sid="Java面试题总结" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
