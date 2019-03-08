@@ -27,7 +27,12 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP08.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/XDLJ.png">
-<meta property="og:updated_time" content="2019-03-08T09:24:08.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png">
+<meta property="og:updated_time" content="2019-03-08T12:35:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -517,7 +522,122 @@ var _hmt = _hmt || [];
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过存取cookie里的信息来操作。</span><br><span class="line">##### 3.Cooike的作用路径</span><br><span class="line">如何访问当前项目其他目录的cookie信息，可以通过	cookie.setPath(request.getContextPath());  来设置cookie的作用范围。</span><br></pre></td></tr></table></figure>
 <p>//设置 Cookie 的作用范围：        cookie.setPath(request.getContextPath());<br>//Cookie 的 作用范围: 可以作用当前目录和当前目录的子目录. 但不能作用于当前目录的上一级目录. 可以通过 setPath 方法来设置 Cookie 的作用范围, 其中 / 代表站点的根目录.<br>//访问上一级目录的cookie<br><a href="../cookie2.jsp">To Read Cookie</a><br><code>`</code></p>
 <h5 id="4-Cooike小结"><a href="#4-Cooike小结" class="headerlink" title="4.Cooike小结"></a>4.Cooike小结</h5><p>cookie可以用于自动登陆，也可以用来记录用户在web界面的访问行为。并获取这些访问行为。<br>以自动登陆为例，在用户第一次登录的时候，记录用户的信息放在cookie中，下次再次访问时读取cookie中的信息，自动登陆。</p>
-<h4 id="五、HttpSession"><a href="#五、HttpSession" class="headerlink" title="五、HttpSession"></a>五、HttpSession</h4><h5 id="1-HttpSession概述"><a href="#1-HttpSession概述" class="headerlink" title="1.HttpSession概述"></a>1.HttpSession概述</h5><h5 id="2-HttpSession生命周期"><a href="#2-HttpSession生命周期" class="headerlink" title="2.HttpSession生命周期"></a>2.HttpSession生命周期</h5><h5 id="3-HttpSession常用方法"><a href="#3-HttpSession常用方法" class="headerlink" title="3.HttpSession常用方法"></a>3.HttpSession常用方法</h5><h5 id="4-HttpSession-URL重写"><a href="#4-HttpSession-URL重写" class="headerlink" title="4.HttpSession URL重写"></a>4.HttpSession URL重写</h5></connector>
+<h4 id="五、HttpSession"><a href="#五、HttpSession" class="headerlink" title="五、HttpSession"></a>五、HttpSession</h4><h5 id="1-HttpSession概述"><a href="#1-HttpSession概述" class="headerlink" title="1.HttpSession概述"></a>1.HttpSession概述</h5><p>一类用来在客户端与服务器之间保持状态的解决方案，有时候Session也用来指这种解决方案的存储结构。<br>(1)Session机制<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session01.png" alt=""><br>如果客户端请求时没有设置session，服务器在响应客户端时会生成一个cookie返回给客户端，客户端下次再访问服务器时会带着这个cookie一起访问，找到相应的HttpSession对象。</p>
+<pre><code>&lt;%
+  String str=session.getId();
+  out.print(str);
+%&gt;
+</code></pre><p>(2)保存Session id的几种方式<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session02.png" alt=""><br>(3)Session cookie<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session03.png" alt=""></p>
+<pre><code>// 持久化session的cookie
+&lt;%
+ String str=session.getId();
+  out.print(str);
+  Cookie cookie=new Cookie(&quot;JSESSIONID&quot;,session.getId());
+  cookie.setMaxAge(20);
+  response.addCookie(cookie);
+%&gt;
+</code></pre><h5 id="2-HttpSession生命周期"><a href="#2-HttpSession生命周期" class="headerlink" title="2.HttpSession生命周期"></a>2.HttpSession生命周期</h5><p>(1)什么时候创建session对象<br>①. 对于 JSP: 是否浏览器访问服务端的任何一个 JSP, 服务器都会立即创建一个 HttpSession 对象呢？不一定。</p>
+<ul>
+<li>若当前的 JSP 是客户端访问的当前 WEB 应用的第一个资源，且 JSP 的 page 指定的 session 属性值为 false,则服务器就不会为 JSP 创建一个 HttpSession 对象;</li>
+<li>若当前 JSP 不是客户端访问的当前 WEB 应用的第一个资源，且其他页面已经创建一个 HttpSession 对象，则服务器也不会为当前 JSP 页面创建一个HttpSession 对象，而会把和当前会话关联的那个HttpSession 对象返回给当前的 JSP 页面。</li>
+</ul>
+<p>②. 对于 Serlvet: 若 Serlvet 是客户端访问的第一个 WEB 应用的资源，则只有调用了request.getSession() 或 request.getSession(true) 才会创建 HttpSession 对象。</p>
+<p>(2)page 指令的 session=“false“  到底表示什么意思？<br>当前 JSP 页面禁用 session 隐含变量，但可以使用其他的显式的 HttpSession 对象。</p>
+<p>(3) 在 Serlvet 中如何获取 HttpSession 对象？</p>
+<blockquote>
+<p>request.getSession(boolean create):<br>create 为 false, 若没有和当前 JSP 页面关联的 HttpSession 对象, 则返回 null; 若有, 则返回 true<br>create 为 true, 一定返回一个 HttpSession 对象. 若没有和当前 JSP 页面关联的 HttpSession 对象, 则服务器创建一个新的HttpSession 对象返回, 若有, 直接返回关联的。<br>request.getSession(): 等同于request.getSession(true)</p>
+</blockquote>
+<p>(4)什么时候销毁 HttpSession 对象</p>
+<p>①. 直接调用 HttpSession 的 invalidate() 方法: 该方法使 HttpSession 失效</p>
+<p>②. 服务器卸载了当前 WEB 应用. </p>
+<p>③. 超出 HttpSession 的过期时间.</p>
+<blockquote>
+<p>设置 HttpSession 的过期时间: session.setMaxInactiveInterval(5); 单位为秒</p>
+</blockquote>
+<blockquote>
+<p>在 web.xml 文件中设置 HttpSession 的过期时间: 单位为 分钟. </p>
+</blockquote>
+<pre><code>&lt;session-config&gt;
+&lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre><p>④. 并不是关闭了浏览器就销毁了 HttpSession. </p>
+<pre><code>&lt;% 
+//可以获得session
+HttpSession session = request.getSession(true); 
+    out.print(session.getId());
+    //设置过期时间
+    session.setMaxInactiveInterval(60);
+    out.print(session.getMaxInactiveInterval());
+
+    //使当前的 HttpSession 对象失效. 
+    session.invalidate();
+%&gt; 
+</code></pre><h5 id="3-HttpSession常用方法"><a href="#3-HttpSession常用方法" class="headerlink" title="3.HttpSession常用方法"></a>3.HttpSession常用方法</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session04.png" alt=""><br>hello.jsp</p>
+<pre><code>//隐式session调用方法
+SessionID: &lt;%= session.getId() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+IsNew: &lt;%= session.isNew() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+MaxInactiveInterval: &lt;%= session.getMaxInactiveInterval() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+CreateTime: &lt;%= session.getCreationTime() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+LastAccessTime: &lt;%= session.getLastAccessedTime() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+Hello: &lt;%= request.getParameter(&quot;username&quot;) %&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;%
+    //通过session储存用户名，然后在后面使用，由于返回login界面时会用它，所以就用session 
+    session.setAttribute(&quot;username&quot;, request.getParameter(&quot;username&quot;)); 
+%&gt;
+
+&lt;a href=&quot;login.jsp&quot;&gt;重新登录&lt;/a&gt;    
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;a href=&quot;logout.jsp&quot;&gt;注销&lt;/a&gt;    
+</code></pre><p>login.jsp</p>
+<pre><code>SessionID: &lt;%= session.getId() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+IsNew: &lt;%= session.isNew() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+MaxInactiveInterval: &lt;%= session.getMaxInactiveInterval() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+CreateTime: &lt;%= session.getCreationTime() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+LastAccessTime: &lt;%= session.getLastAccessedTime() %&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;% 
+//根据session获取name
+    Object username = session.getAttribute(&quot;username&quot;);
+    if(username == null){
+        username = &quot;&quot;;
+    }
+%&gt;
+
+&lt;form action=&quot;hello.jsp&quot; method=&quot;post&quot;&gt;
+
+    username: &lt;input type=&quot;text&quot; name=&quot;username&quot; 
+        value=&quot;&lt;%= username %&gt;&quot;/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
+
+&lt;/form&gt;
+</code></pre><h5 id="注意：之所以在hello-jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用"><a href="#注意：之所以在hello-jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用" class="headerlink" title="注意：之所以在hello.jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用"></a>注意：之所以在hello.jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用</h5><pre><code>//不用session也可以获得用户名,用request
+request.getParameter(&quot;username&quot;);
+</code></pre><p><br></p>
+<h5 id="4-HttpSession-URL重写"><a href="#4-HttpSession-URL重写" class="headerlink" title="4.HttpSession URL重写"></a>4.HttpSession URL重写</h5><p>(1)利用URL重写实现Session跟踪<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png" alt=""></p>
+<pre><code>&lt;form action=&quot;&lt;%= response.encodeURL(&quot;hello.jsp&quot;) %&gt;&quot; method=&quot;post&quot;&gt;
+//此时可以在禁用cookie的浏览器中，找到相同的session对象。就是在url后面加了hello.jsp:jsession:id值
+</code></pre></connector>
       
 
       
@@ -811,6 +931,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -819,15 +943,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,10 +963,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
@@ -859,11 +975,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,10 +992,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,11 +1011,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,6 +1028,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
             
             <div class="clearfix"></div>
