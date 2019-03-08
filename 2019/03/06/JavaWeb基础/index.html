@@ -26,7 +26,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP06.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP08.png">
-<meta property="og:updated_time" content="2019-03-08T09:08:38.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/XDLJ.png">
+<meta property="og:updated_time" content="2019-03-08T09:21:19.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -406,10 +407,13 @@ var _hmt = _hmt || [];
 <h5 id="6-JSP指令"><a href="#6-JSP指令" class="headerlink" title="6.JSP指令"></a>6.JSP指令</h5><p>JSP指令（directive）是为JSP引擎而设计的, 它们并不直接产生任何可见输出, 而只是告诉引擎如何处理JSP页面中的其余部分。<br>(1) 在目前的JSP 2.0中，定义了page、include 和 taglib这三种指令。<br>(2) page 指令：page指令用于定义JSP页面的各种属性, 无论page指令出现在JSP页面中的什么地方, 它作用的都是整个JSP页面, 为了保持程序的可读性和遵循良好的编程习惯, page指令最好是放在整个JSP页面的起始位置。<br>(3)page 指令常用的属性：<br>①. import 属性: 指定当前 JSP 页面对应的 Servlet 需要导入的类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.text.DateFormat&quot;%&gt;</span><br></pre></td></tr></table></figure></p>
 <p>②. session 属性: 取值为 true 或 false, 指定当前页面的 session 隐藏变量是否可用, 也可以说访问当前页面时是否一定要生成 HttpSession对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page session=&quot;false&quot; %&gt;</span><br></pre></td></tr></table></figure></p>
 <p>③. errorPage 和 isErrorPage:<br>    (1) errorPage 指定若当前页面出现错误的实际响应页面时什么. 其中 / 表示的是当前 WEB 应用的根目录.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page errorPage=&quot;/error.jsp&quot; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>(2)在响应 error.jsp 时, JSP 引擎使用的请求转发的方式.<br>(3)isErrorPage 指定当前页面是否为错误处理页面, 可以说明当前页面是否可以使用 exception 隐藏变量. 需要注意的是: 若指定 isErrorPage=”true”, 就可以使用 exception 的方法了, 一般不建议能够直接访问该页面.<br>(4)如何使客户不能直接访问某一个页面呢 ? 对于 Tomcat 服务器而言, WEB-INF 下的文件是不能通过在浏览器中直接输入地址的方式来访问的. 但通过请求的转发是可以的!<br>(5)还可以在 web.xml 文件中配置错误页面:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	&lt;error-page&gt;</span><br><span class="line">  	&lt;!-- 指定出错的代码: 404 没有指定的资源, 500 内部错误. --&gt;</span><br><span class="line">	  	&lt;error-code&gt;404&lt;/error-code&gt;</span><br><span class="line">	  	&lt;!-- 指定响应页面的位置 --&gt;</span><br><span class="line">	  	&lt;location&gt;/WEB-INF/error.jsp&lt;/location&gt;</span><br><span class="line">	&lt;/error-page&gt;</span><br><span class="line">	  </span><br><span class="line">	&lt;error-page&gt;</span><br><span class="line">	  	&lt;!-- 指定异常的类型 --&gt;</span><br><span class="line">	  	&lt;exception-type&gt;java.lang.ArithmeticException&lt;/exception-type&gt;</span><br><span class="line">	  	&lt;location&gt;/WEB-INF/error.jsp&lt;/location&gt;</span><br><span class="line">	&lt;/error-page&gt;</span><br><span class="line">	</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">④. contentType: 指定当前 JSP 页面的响应类型. 实际调用的是 response.setContentType(&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">通常情况下, 对于 JSP 页面而言其取值均为 text/html; charset=UTF-8. charset 指定返回的页面的字符编码是什么. 通常取值为 UTF-8</span><br><span class="line"></span><br><span class="line">⑤. pageEncoding: 指定当前 JSP 页面的字符编码. 通常情况下该值和 contentType 中的 charset 一致. </span><br><span class="line"></span><br><span class="line">⑥. isELIgnored: 指定当前 JSP 页面是否可以使用 EL 表达式. 通常取值为 false. </span><br><span class="line"></span><br><span class="line">⑦.include指令：&lt;%@ include file=&quot;.jsp&quot; %&gt;</span><br><span class="line">(1)include 指令用于通知 JSP 引擎在翻译当前 JSP 页面时将其他文件中的内容合并进当前 JSP 页面转换成的 Servlet 源文件中,这种在源文件级别进行引入的方式称之为静态引入, 当前JSP页面与静态引入的页面紧密结合为一个Servlet。</span><br><span class="line">(2)file属性的设置值必须使用相对路径, 如果以 / 开头，表示相对于当前WEB应用程序的根目录（注意不是站点根目录），否则，表示相对于当前文件。</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/XDLJ.png)</span><br><span class="line"></span><br><span class="line">##### 7.JSP标签</span><br><span class="line">(1)jsp:incluce 标签：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;jsp:include page=”b.jsp”&gt;&lt;/jsp:include&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">动态引入: 并不是像 include 指令生成一个 Servlet 源文件, 而是生成两个 Servlet 源文件, 然后通过一个方法的方式把目标页面包含进来。</span><br><span class="line">包含的Servlet源文件会引入</span><br></pre></td></tr></table></figure></p>
-<p>org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, “b.jsp”, out, false);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(2)jsp:forward:转发页面</span><br></pre></td></tr></table></figure>
+<p>(2)在响应 error.jsp 时, JSP 引擎使用的请求转发的方式.<br>(3)isErrorPage 指定当前页面是否为错误处理页面, 可以说明当前页面是否可以使用 exception 隐藏变量. 需要注意的是: 若指定 isErrorPage=”true”, 就可以使用 exception 的方法了, 一般不建议能够直接访问该页面.<br>(4)如何使客户不能直接访问某一个页面呢 ? 对于 Tomcat 服务器而言, WEB-INF 下的文件是不能通过在浏览器中直接输入地址的方式来访问的. 但通过请求的转发是可以的!<br>(5)还可以在 web.xml 文件中配置错误页面:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;error-page&gt;</span><br><span class="line"> 	&lt;!-- 指定出错的代码: 404 没有指定的资源, 500 内部错误. --&gt;</span><br><span class="line">  	&lt;error-code&gt;404&lt;/error-code&gt;</span><br><span class="line">  	&lt;!-- 指定响应页面的位置 --&gt;</span><br><span class="line">  	&lt;location&gt;/WEB-INF/error.jsp&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line">  </span><br><span class="line">&lt;error-page&gt;</span><br><span class="line">  	&lt;!-- 指定异常的类型 --&gt;</span><br><span class="line">  	&lt;exception-type&gt;java.lang.ArithmeticException&lt;/exception-type&gt;</span><br><span class="line">  	&lt;location&gt;/WEB-INF/error.jsp&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br></pre></td></tr></table></figure></p>
+<p>④. contentType: 指定当前 JSP 页面的响应类型. 实际调用的是 response.setContentType(“text/html;charset=UTF-8”);<br>通常情况下, 对于 JSP 页面而言其取值均为 text/html; charset=UTF-8. charset 指定返回的页面的字符编码是什么. 通常取值为 UTF-8</p>
+<p>⑤. pageEncoding: 指定当前 JSP 页面的字符编码. 通常情况下该值和 contentType 中的 charset 一致. </p>
+<p>⑥. isELIgnored: 指定当前 JSP 页面是否可以使用 EL 表达式. 通常取值为 false. </p>
+<p>⑦.include指令：&lt;%@ include file=”.jsp” %&gt;<br>(1)include 指令用于通知 JSP 引擎在翻译当前 JSP 页面时将其他文件中的内容合并进当前 JSP 页面转换成的 Servlet 源文件中,这种在源文件级别进行引入的方式称之为静态引入, 当前JSP页面与静态引入的页面紧密结合为一个Servlet。<br>(2)file属性的设置值必须使用相对路径, 如果以 / 开头，表示相对于当前WEB应用程序的根目录（注意不是站点根目录），否则，表示相对于当前文件。<br><img src="https://zxnaruto.github.io/zxblog.github.io/XDLJ.png" alt=""></p>
+<h5 id="7-JSP标签"><a href="#7-JSP标签" class="headerlink" title="7.JSP标签"></a>7.JSP标签</h5><p>(1)jsp:incluce 标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=&quot;b.jsp&quot;&gt;&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure></p>
+<p>动态引入: 并不是像 include 指令生成一个 Servlet 源文件, 而是生成两个 Servlet 源文件, 然后通过一个方法的方式把目标页面包含进来。<br>包含的Servlet源文件会引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, &quot;b.jsp&quot;, out, false);</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">(2)jsp:forward:转发页面</span><br></pre></td></tr></table></figure></p>
 <!--/是根目录，include是文件夹-->
 <p>&lt;jsp:forward page=”/include/b.jsp”&gt;&lt;/jsp:forward&gt;       </p>
 <p>相当于. </p>
@@ -811,15 +815,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,6 +840,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -859,15 +867,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,15 +899,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,7 +911,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
