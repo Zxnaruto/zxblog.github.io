@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>JavaWeb基础  | XiaoHuZiZx</title>
+  <title>JavaWeb基础 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
 <meta name="keywords" content="java,javaweb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb基础 ">
+<meta property="og:title" content="JavaWeb基础">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/06/JavaWeb基础/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
 <meta property="og:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -26,9 +26,9 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP06.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP08.png">
-<meta property="og:updated_time" content="2019-03-08T08:52:09.384Z">
+<meta property="og:updated_time" content="2019-03-08T09:08:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaWeb基础 ">
+<meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/ServletF01.png">
   
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      JavaWeb基础 
+      JavaWeb基础
     </h1>
   
 
@@ -396,9 +396,9 @@ var _hmt = _hmt || [];
 <p>(1)pageContext: 属性的作用范围仅限于当前 JSP 页面，同一个页面。<br>(2)request:  属性的作用范围仅限于同一个请求，不同页面有不同请求。<br>(3)session: 属性的作用范围限于一次会话: 浏览器打开直到关闭称之为一次会话(在此期间会话不失效)<br>(4)application: 属性的作用范围限于当前 WEB 应用。是范围最大的属性作用范围, 只要在一处设置属性, 在其他各处的 JSP 或 Servlet 中都可以获取到。</p>
 <ul>
 <li>Enumeration getAttributeNames(): 获取所有的属性的名字组成的 Enumeration 对象</li>
-<li>removeAttribute(String name): 移除指定的属性<br><br><h5 id="5-请求的重定向与请求的转发"><a href="#5-请求的重定向与请求的转发" class="headerlink" title="5.请求的重定向与请求的转发"></a>5.请求的重定向与请求的转发</h5>请求转发与请求重定向都是对页面进行跳转。<br>(1)本质区别：请求的转发只发出了一次请求, 而重定向则发出了两次请求。<br>(所以对于request域属性，可以继续利用转发获取先前的值)<br>(2)具体：<br>①. 请求的转发: 地址栏是初次发出请求的地址。<pre><code>请求的重定向: 地址栏不再是初次发出的请求地址. 地址栏为最后响应的那个地址 。
-</code></pre></li>
+<li>removeAttribute(String name): 移除指定的属性<br><br><h5 id="5-请求的重定向与请求的转发"><a href="#5-请求的重定向与请求的转发" class="headerlink" title="5.请求的重定向与请求的转发"></a>5.请求的重定向与请求的转发</h5></li>
 </ul>
+<p>请求转发与请求重定向都是对页面进行跳转。<br>(1)本质区别：请求的转发只发出了一次请求, 而重定向则发出了两次请求。<br>(所以对于request域属性，可以继续利用转发获取先前的值)<br>(2)具体：<br>①. 请求的转发: 地址栏是初次发出请求的地址。<br>      请求的重定向: 地址栏不再是初次发出的请求地址. 地址栏为最后响应的那个地址 。</p>
 <p>②. 请求转发: 在最终的 Servlet 中, request 对象和中转的那个 request 是同一个对象.。<br>     请求的重定向: 在最终的 Servlet 中, request 对象和中转的那个 request 不是同一个对象.       </p>
 <p>③. 请求的转发: 只能转发给当前 WEB 应用的的资源<br>      请求的重定向: 可以重定向到任何资源. </p>
 <p>④. 请求的转发: / 代表的是当前 WEB 应用的根目录(<a href="http://localhost:8080/test/" target="_blank" rel="noopener">http://localhost:8080/test/</a>)<br>       请求的重定向: / 代表的是当前 WEB 站点的根目录。(<a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">//1.请求转发的代码</span><br><span class="line">request.getRequestDispatcher(&quot;.jsp&quot;).forward(request,response);</span><br><span class="line">//2.请求的重定向</span><br><span class="line">response.sendRedirect(.jsp);</span><br><span class="line">//可以任意地址</span><br><span class="line">response.sendRedirect(&quot;http://www.baidu.com&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">class中</span><br><span class="line">//1.调用HttpServletRequest的getRequestDispatcher()方法获取RequestDispatcher对象，然后调用getRequestDispatcher()传入需要转发的地址</span><br><span class="line"></span><br><span class="line">RequestDispatcher requestDispatcher=request.getRequestDispatcher(/+path);</span><br><span class="line"></span><br><span class="line">//2.调用HttpServletRequest的forword(request,response)进行转发</span><br><span class="line">requestDispatcher.forward(request,response);</span><br><span class="line">//3.执行请求的重定向，直接调用response.sendRedirect(path)方法，path为要重定向的地址。</span><br><span class="line">response.senRedirect(path);//不用加 /</span><br></pre></td></tr></table></figure></p>
@@ -421,7 +421,7 @@ var _hmt = _hmt || [];
 
 <p>//补充：在java类的service代码中<br> //防止中文乱码<br>request.setCharacterEncoding(“utf-8”);<br>response.setContentType(“text/html;charset=utf-8”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 三、MVC设计模式</span><br><span class="line">##### 1.概念：</span><br><span class="line">MVC(Model-View-Controller)的简称，即模型-视图-控制器。</span><br><span class="line">MVC是一种设计模式，它把应用程序分成三个核心模块：模型、视图、控制器，它们各自处理自己的任务。</span><br><span class="line">* ①.Model:</span><br><span class="line">(1)模型是应用程序的主体部分，模型表示业务数据(dao)和业务逻辑(service)</span><br><span class="line">(2)一个模型可以为多个视图提供数据</span><br><span class="line">(3)由于应用于模型的代码只需写一次就可以被多个视图重用，所以提高了代码的可重用性</span><br><span class="line">* ②.View</span><br><span class="line">视图是用户看到并与之交互的界面，作用如下：</span><br><span class="line">(1)视图向用户显示相关数据</span><br><span class="line">(2)接收用户输入</span><br><span class="line">(3)不进行任何实际的业务处理</span><br><span class="line">* ③.Controller</span><br><span class="line">(1)控制器接收用户的输入并调用模型和视图去完成用户的需求</span><br><span class="line">(2)控制器接收请求并决定调用那个模型组件去处理请求，然后决定调用那个视图来显示模型处理返回的数据</span><br><span class="line"></span><br><span class="line">##### 2.MVC处理过程</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC01.png)</span><br><span class="line">说明：首先，客户端发送请求给服务器，服务器收到请求后，根据相应的请求调用Servlet，Servlet根据请求信息调用POJO(简单java对象)来访问数据库并返回相应的结果，根据结果Servlet会转向相应的Jsp页面来显示用户的请求结果，然后响应给客户端。</span><br><span class="line"></span><br><span class="line">##### 注意：POJO与JavaBean</span><br><span class="line">(1)POJO：Plain Ordinary Java Object(简单普通的java对象)主要用来指代那些没有遵循特定java对象模型，约定或者框架的对象。</span><br><span class="line">POJO定义一些private属性，并设置相应的get/set方法。没有任何继承也没有任何接口实现，更没有被其他框架侵入的java对象。</span><br><span class="line">(2)JavaBean： 在是Java开发中一种可重用组件。是一种编写代码的规范。</span><br><span class="line">* 1.所有属性为private。</span><br><span class="line">* 2.这个类必须有一个公共的缺省构造函数。即是提供无参数的构造器。</span><br><span class="line">* 3.这个类的属性使用getter和setter来访问，其他方法遵从标准命名规范。</span><br><span class="line">* 4.这个类应是可序列化的。实现serializable接口。</span><br><span class="line"></span><br><span class="line">其实JavaBean就是特殊的POJO。</span><br><span class="line">(3)POJO与JavaBean的区别</span><br><span class="line">* ①.POJO其实是比JavaBean更纯净的简单类或接口。POJO严格地遵守简单对象的概念，而一些JavaBean中往往会封装一些简单逻辑。</span><br><span class="line">* ②.POJO主要用于数据的临时传递，它只能装载数据， 作为数据存储的载体，而不具有业务逻辑处理的能力。</span><br><span class="line">* ③.Javabean虽然数据的获取与POJO一样，但是Javabean当中可以有其它的方法。</span><br><span class="line">##### 3.MVC小总结</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC02.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 四、Cookie</span><br><span class="line">由于HTTP协议是一种无状态的协议，不能够识别每一个请求是否一样。所以作为web服务器，必须能够采用一种机制来唯一地标识一个用户，同时记录该用户的状态。所以提出了会话跟踪的概念。</span><br><span class="line">在Servlet中，常用以下两种机制完成会话跟踪。</span><br><span class="line">* Cookie</span><br><span class="line">* Session</span><br><span class="line"></span><br><span class="line">(1)Cookie机制</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie01.png)</span><br><span class="line">(2)Cookie传送过程</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie02.png)</span><br><span class="line">(3)在Servlet程序中使用Cookie</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie03.png)</span><br></pre></td></tr></table></figure></p>
 <p>&lt;%<br>//在JavaWeb规范中，使用Cookie类代表cookie<br>//1.创建一个Cookie对象<br>Cookie cookie=new Cookie(“name”,”zx”);<br>//2.调用response的一个方法把cookie传个客户端<br>response.addCookie(cookie);<br>%&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取Cooike</span><br></pre></td></tr></table></figure></p>
-<p>&lt;%<br>Cookie [] cookies=request.getCookies();<br>if(cookies !=null&amp;&amp;cookies.length&gt;0){<br>for(Cookie cookie:cookies){<br>out.print(cookie.getName()+”:”+cookie.getValue());<br>}else{<br>out.print(“没有Cookie，正在创建并返回”);<br>//1.创建一个Cookie对象<br>Cookie cookie=new Cookie(“name”,”zx”);<br>//2.调用response的一个方法把cookie传个客户端<br>response.addCookie(cookie);<br>}<br>}<br>%&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(4)Cookie发送</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie04.png)</span><br><span class="line">(5)Cookie读取</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie06.png)</span><br><span class="line">(6)会话cookie与持久化cookie的区别</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie05.png)</span><br><span class="line">设置cookie存在时间</span><br></pre></td></tr></table></figure></p>
+<p>&lt;%<br>Cookie [] cookies=request.getCookies();<br>if(cookies !=null&amp;&amp;cookies.length&gt;0){<br>for(Cookie cookie:cookies){<br>out.print(cookie.getName()+”:”+cookie.getValue());<br>}else{<br>out.print(“没有Cookie，正在创建并返回”);<br>//1.创建一个Cookie对象<br>Cookie cookie=new Cookie(“name”,”zx”);<br>//2.调用response的一个方法把cookie传个客户端<br>response.addCookie(cookie);<br>}<br>}<br>%&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(4)Cookie发送</span><br><span class="line"></span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie04.png)</span><br><span class="line">(5)Cookie读取</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie06.png)</span><br><span class="line">(6)会话cookie与持久化cookie的区别</span><br><span class="line">![](https://zxnaruto.github.io/zxblog.github.io/codeimages/Cookie05.png)</span><br><span class="line">设置cookie存在时间</span><br></pre></td></tr></table></figure></p>
 <p>/<em>setMaxAge：设置Cookie的最大时效，以秒为单位，若为0，表示立即删除该Cookie，若为负数，表示不储存该Cookie,若为正数，则表示Cookie的存储时间</em>/<br>int time;<br>cookie.steMaxAge(time);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### 1.Cooike自动登陆</span><br><span class="line">就是设置Cookie的过期时间，若在过期时间内就可以通过存储在Cookie中的信息自动登陆。登陆时读取登陆信息。</span><br></pre></td></tr></table></figure></p>
 <p>//1.第一次登陆时，若name存在获取请求参数的name信息储存在Cookie中，并设置最大时效30s<br>String name=request.getParameter(“name”);<br>if(name!=null&amp;&amp; !name.trim().equals(“”)){<br>out.print(“Hello: “+name);<br>Cookie cookie=new Cookie(“name”,name);<br>cookie.setMaxAge(30);<br>response.addCookie(cookie);<br>}else{<br>//2.下次访问页面时从cookie中读取用户信息<br>Cookie[] cookies=request.getCookies();<br>if(coolies!=null&amp;&amp; cookies.length&gt;0)<br>for(Cookie cookie: cookies){<br>String coookieName=cookie.getName();<br>//“name”为cookie名<br>if(“name”.equals(cookieName)){<br>String val=cookie.getValue90;<br>name=val;<br>}<br>}<br>}<br>if(name!=null&amp;&amp; !name.trim().equals(“”)){<br>out.print(“Hello: “+name);<br>}else{<br>//若没有请求参数，也没有Cookie，则重定向到login.jsp<br>response.sendRedirect(“login.jsp”);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### 2.Cooike显示最近浏览商品</span><br><span class="line">book.jsp</span><br></pre></td></tr></table></figure></p>
 <h4>Book Detail Page</h4>
@@ -513,7 +513,7 @@ var _hmt = _hmt || [];
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过存取cookie里的信息来操作。</span><br><span class="line">##### 3.Cooike的作用路径</span><br><span class="line">如何访问当前项目其他目录的cookie信息，可以通过	cookie.setPath(request.getContextPath());  来设置cookie的作用范围。</span><br></pre></td></tr></table></figure>
 <p>//设置 Cookie 的作用范围：        cookie.setPath(request.getContextPath());<br>//Cookie 的 作用范围: 可以作用当前目录和当前目录的子目录. 但不能作用于当前目录的上一级目录. 可以通过 setPath 方法来设置 Cookie 的作用范围, 其中 / 代表站点的根目录.<br>//访问上一级目录的cookie<br><a href="../cookie2.jsp">To Read Cookie</a><br><code>`</code></p>
 <h5 id="4-Cooike小结"><a href="#4-Cooike小结" class="headerlink" title="4.Cooike小结"></a>4.Cooike小结</h5><p>cookie可以用于自动登陆，也可以用来记录用户在web界面的访问行为。并获取这些访问行为。<br>以自动登陆为例，在用户第一次登录的时候，记录用户的信息放在cookie中，下次再次访问时读取cookie中的信息，自动登陆。</p>
-<h4 id="五、HttpSession"><a href="#五、HttpSession" class="headerlink" title="五、HttpSession"></a>五、HttpSession</h4></connector>
+<h4 id="五、HttpSession"><a href="#五、HttpSession" class="headerlink" title="五、HttpSession"></a>五、HttpSession</h4><h5 id="1-HttpSession概述"><a href="#1-HttpSession概述" class="headerlink" title="1.HttpSession概述"></a>1.HttpSession概述</h5><h5 id="2-HttpSession生命周期"><a href="#2-HttpSession生命周期" class="headerlink" title="2.HttpSession生命周期"></a>2.HttpSession生命周期</h5><h5 id="3-HttpSession常用方法"><a href="#3-HttpSession常用方法" class="headerlink" title="3.HttpSession常用方法"></a>3.HttpSession常用方法</h5><h5 id="4-HttpSession-URL重写"><a href="#4-HttpSession-URL重写" class="headerlink" title="4.HttpSession URL重写"></a>4.HttpSession URL重写</h5></connector>
       
 
       
@@ -803,11 +803,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,7 +819,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,10 +836,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,15 +859,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,10 +887,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -903,11 +895,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
             
             <div class="clearfix"></div>
