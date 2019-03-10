@@ -52,7 +52,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png">
-<meta property="og:updated_time" content="2019-03-10T12:40:13.303Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL10.png">
+<meta property="og:updated_time" content="2019-03-10T13:43:02.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -983,7 +984,7 @@ protected JspFragment getJspBody() {
     return this.jspBody;
 }   
 }
-</code></pre><p>(2)带标签体的自定义标签<br>①.若一个标签有标签体：</p>
+</code></pre><p>(2)带标签体的自定义标签SetJspBody<br>①.若一个标签有标签体：</p>
 <blockquote>
 <p>&lt; zx:testJspFragment&gt;abcdefg&lt; /zx:testJspFragment&gt;<br>在自定义标签的标签处理器中使用 JspFragment 对象封装标签体信息</p>
 </blockquote>
@@ -1076,6 +1077,78 @@ public void doTag() throws JspException, IOException {
 </code></pre><p>调用代码</p>
 <pre><code>//其中value是属性值，xiaohuzixiansheng是标签体内容
 &lt;zx:printUpper value=&quot;10&quot;&gt;xiaohuzixiansheng&lt;/zx:printUpper&gt;
+</code></pre><p>(3)SetParent带父标签的自定义标签<br>①. 父标签无法获取子标签的引用, 父标签仅把子标签作为标签体来使用. </p>
+<p>②. 子标签可以通过 getParent() 方法来获取父标签的引用(需继承 SimpleTagSupport 或自实现 SimpleTag 接口的该方法):若子标签的确有父标签, JSP 引擎会把代表父标签的引用通过  setParent(JspTag parent)  赋给标签处理器</p>
+<p>③. 注意: 父标签的类型是 JspTag 类型. 该接口是一个空接口, 但是来统一 SimpleTag 和 Tag 的. 实际使用需要进行类型的强制转换.</p>
+<p>④. 在 tld 配置文件中, 无需为父标签有额外的配置. 但, 子标签是是以标签体的形式存在的, 所以父标签的 &lt; body-content&gt;&lt; /body-content&gt;需设置为 scriptless</p>
+<p>tld</p>
+<pre><code>&lt;tag&gt;
+    &lt;name&gt;parentdoTag&lt;/name&gt;
+    &lt;tag-class&gt;com.zx.javaweb.ParentdoTag&lt;/tag-class&gt;
+    &lt;body-content&gt;scriptless&lt;/body-content&gt;
+    &lt;attribute&gt;
+        &lt;name&gt;name&lt;/name&gt;
+        &lt;required&gt;true&lt;/required&gt;
+        &lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;
+    &lt;/attribute&gt;
+&lt;/tag&gt;
+
+&lt;tag&gt;
+    &lt;name&gt;sondoTag&lt;/name&gt;
+    &lt;tag-class&gt;com.zx.javaweb.SondoTag&lt;/tag-class&gt;
+    &lt;body-content&gt;empty&lt;/body-content&gt;
+&lt;/tag&gt;
+</code></pre><p>ParentdoTag</p>
+<pre><code>public class ParentdoTag extends SimpleTagSupport {
+
+private String name;
+
+public void setName(String name) {
+    this.name=name;
+}
+
+@Override
+public void doTag() throws JspException, IOException {
+    System.out.println(&quot;父标签的标签处理器类 name: &quot; + name);
+    getJspBody().invoke(null);
+}
+
+}
+</code></pre><p>SondoTag</p>
+<pre><code>public class SondoTag extends SimpleTagSupport {
+
+@Override
+public void doTag() throws JspException, IOException {
+    //1. 得到父标签的引用
+    JspTag parent = getParent();
+
+    //2. 获取父标签的 name 属性
+    ParentdoTag parentTag = (ParentdoTag) parent;
+    String name = parentTag.setName();
+
+    //3. 把 name 值打印到 JSP 页面上.
+    getJspContext().getOut().print(&quot;子标签输出name: &quot; + name);
+}
+
+}
+</code></pre><p>jsp调用</p>
+<pre><code>&lt;zx:parentdoTag value=&quot;zx&quot;&gt;
+</code></pre><p>&lt;zx:sondoTag /&gt;<br>&lt;/zx:parentdoTag&gt;</p>
+<p>(4)自定义EL函数<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL10.png" alt=""><br>三步：<br>1.定义静态方法</p>
+<pre><code>public static String concat(String str1, String str2){
+    return str1 + str2;
+}
+</code></pre><p>2.编写tld</p>
+<pre><code>&lt;!-- 描述 EL 的自定义函数 --&gt;
+&lt;function&gt;    
+    &lt;name&gt;concat&lt;/name&gt;
+    &lt;function-class&gt;com.zx.javaweb.MyELFunction&lt;/function-class&gt;
+    &lt;function-signature&gt;java.lang.String concat(java.lang.String, java.lang.String)&lt;/function-signature&gt;
+&lt;/function&gt;
+</code></pre><p>3.jsp页面导入和使用</p>
+<pre><code>&lt;%@ taglib prefix=&quot;zx&quot; uri=&quot;http://zx.com/myTag/core&quot; %&gt;
+&lt;!-- 测试自定义的 EL 函数 --&gt;
+${zx:concat(param.name1, param.name2)}
 </code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法"><a href="#1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)"></a>1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
 <h5 id="4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt"><a href="#4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt" class="headerlink" title="4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;"></a>4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;</h5><h5 id="5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt"><a href="#5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt" class="headerlink" title="5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;"></a>5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;</h5><p><strong>所谓自定义标签就是自定义内容(body)和属性(value)把它放到doTag中去运行，然后返回一个运行结果给jsp页面。</strong></p>
 
@@ -1372,10 +1445,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
@@ -1385,6 +1454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1404,7 +1477,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1412,15 +1485,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1428,7 +1493,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,6 +1502,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1452,19 +1521,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1473,6 +1542,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
             
             <div class="clearfix"></div>
