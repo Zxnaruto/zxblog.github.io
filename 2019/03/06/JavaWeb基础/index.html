@@ -41,7 +41,17 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session04.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session06.png">
-<meta property="og:updated_time" content="2019-03-09T16:41:35.368Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JavaBean.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL06.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL07.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png">
+<meta property="og:updated_time" content="2019-03-10T10:02:13.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -807,7 +817,173 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
 &lt;/form&gt;
 &lt;/body&gt;
-</code></pre><h5 id="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"><a href="#注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。" class="headerlink" title="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"></a>注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。</h5>
+</code></pre><h5 id="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"><a href="#注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。" class="headerlink" title="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"></a>注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。</h5><h5 id="8-验证码原理"><a href="#8-验证码原理" class="headerlink" title="8.验证码原理"></a>8.验证码原理</h5><blockquote>
+<p>1.在原表单页面, 生成一个验证码的图片, 生成图片的同时, 需要把该图片中的字符串放入到 session 中.<br>2.在原表单页面, 定义一个文本域, 用于输入验证码.<br>3.在目标的 Servlet 中: 获取 session 和 表单域 中的 验证码的 值<br>4.比较两个值是否一致: 若一致, 受理请求, 且把 session 域中的 验证码 属性清除<br>5.若不一致, 则直接通过重定向的方式返回原表单页面, 并提示用户 “验证码错误”</p>
+</blockquote>
+<h5 id="9-JavaBean"><a href="#9-JavaBean" class="headerlink" title="9.JavaBean"></a>9.JavaBean</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JavaBean.png" alt=""></p>
+<h5 id="10-EL表达式"><a href="#10-EL表达式" class="headerlink" title="10.EL表达式"></a>10.EL表达式</h5><pre><code>${}都是以这种形式展现的
+//以前的写法
+User user=(User)session.getAttribute(&quot;user&quot;);
+String sex=user.getSex();
+//EL写法
+${sessionScope.user.sex}
+</code></pre><p>都是取sex，可以看出EL表达式更简洁。</p>
+<p>(1)EL表达式的两种使用方式<br>EL有两种储存数据的方式：. 和 [ ]都用在${ }中</p>
+<pre><code>${sessionScope.user.sex}
+等同于
+${sessionScope.user[&quot;user&quot;]}
+</code></pre><p>[ ]这种方式都是用于有属性名为：com.zx.user(举个例子)，这时用  .  取不到值。</p>
+<pre><code>User user=new User();
+user.setSex(&quot;M&quot;);
+session.setAttribute(&quot;com.zx.uesr&quot;,user);
+sex:${sessionScope[&quot;com.zx.user&quot;].sex}
+</code></pre><p>而用sessionScope[“com.zx.user”].sex</p>
+<p>(2)EL变量<br>EL存取变量数据的方法很简单，打个比方：${ username}就是取出某一范围中名称为username变量。由于没有指定是哪一个范围的username，所以它的默认值会先从Page范围找，如果找不到，在依次到Request、Session、Application中找。如果中途找到它就直接传回，停止寻找。如果所有地方都没找到，就返回null。</p>
+<ul>
+<li>自动搜索的范围<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL01.png" alt=""></li>
+<li>也可以直接指出范围内的值<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL02.png" alt=""></li>
+<li>EL自动类型转换<blockquote>
+<p>age: ${ param.age+10} //输出结果和<br>要是不自动转换就会输出一个字符串<br>比如：age: &lt;%=request.getParameter(“age”)+10%&gt;</p>
+</blockquote>
+</li>
+</ul>
+<p>(3)EL隐含对象<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL03.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL05.png" alt=""><br>①.与范围有关的</p>
+<ul>
+<li>applicationScope<blockquote>
+<p>范围和JSP Scope中的application相同，它的属性范围是从服务器一开始执行到服务器关闭为止。</p>
+</blockquote>
+</li>
+<li>sessionScope<blockquote>
+<p>范围和JSP Scope中的session相同，它的属性范围就是用户持续在服务器连接的时间。</p>
+</blockquote>
+</li>
+<li>requestScope<blockquote>
+<p>范围和JSP的Request相同，requestScope的范围是指从一个JSP网页请求到另一个JSP网页请求之间，随后此属性就会失效</p>
+</blockquote>
+</li>
+<li>pageScope<blockquote>
+<p>范围和JSP的Page相同，也就是单单一页JSP Page的范围</p>
+</blockquote>
+</li>
+</ul>
+<p>②.与输入有关的隐含对象<br>param：一个元素<br>paramValues：一组元素</p>
+<blockquote>
+<p>param与request.getParamer(String)类似<br>paramValues与request.getParamerValues(String)类似<br>举个例子：<br>${param.name}<br>request.getParamer(“name”);</p>
+</blockquote>
+<p>③.其他隐含对象<br>cookie<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL06.png" alt=""></p>
+<pre><code>JSESSIONID: ${cookie.JSESSIONID}
+JSESSIONID: ${cookie.JSESSIONID.value}
+</code></pre><p>header<br>headerValues<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL07.png" alt=""><br>initParam</p>
+<blockquote>
+<p>获取当前web应用的构造参数</p>
+</blockquote>
+<p>pageContext</p>
+<blockquote>
+<p>使用${pageContext}来获取有关用户或页面的详细信息。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png" alt=""></p>
+</blockquote>
+<h5 id="9-自定义标签"><a href="#9-自定义标签" class="headerlink" title="9.自定义标签"></a>9.自定义标签</h5><p>用户自定义的一种jsp标记。当一个含有自定义标签的jsp页面被jsp引擎编译成servlet时，tag标签被转化成了对一个称为标签处理类的对象的操作。于是，当jsp页面被jsp引擎转化为servle后，实际上tag标签被转化为了对tag处理类的操作。</p>
+<p>自定义标签可以降低jsp开发的复杂度和维护量。<br>(1)自定义标签例子：<br>①. 创建一个标签处理器类: 实现 SimpleTag 接口.<br>②. 在 WEB-INF 文件夹下新建一个 .tld(标签库描述文件) 为扩展名的 xml 文件. 并拷入固定的部分: 并对<br>description, display-name, tlib-version, short-name, uri 做出修改。</p>
+<pre><code>//固定的部分
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;
+version=&quot;2.0&quot;&gt;
+
+ &lt;description&gt;JSTL 1.1 core library&lt;/description&gt;
+&lt;display-name&gt;JSTL core&lt;/display-name&gt;
+&lt;tlib-version&gt;1.1&lt;/tlib-version&gt;
+&lt;short-name&gt;zx&lt;/short-name&gt;
+&lt;uri&gt;http://java.sun.com/jsp/jstl/core&lt;/uri&gt;
+
+&lt;/taglib&gt;
+</code></pre><p>③. 在 tld 文件中描述自定义的标签:</p>
+<pre><code>&lt;!-- 描述自定义的 HelloSimpleTag 标签 --&gt;
+
+   &lt;tag&gt;
+
+  &lt;!-- 标签的名字: 在 JSP 页面上使用标签时的名字 --&gt;
+  &lt;name&gt;hello&lt;/name&gt;
+
+  &lt;!-- 标签所在的全类名 --&gt;
+  &lt;tag-class&gt;pers.zx.javaweb.tag.HelloSimpleTag&lt;/tag-class&gt;
+  &lt;!-- 标签体的类型 --&gt;
+  &lt;body-content&gt;empty&lt;/body-content&gt;
+   &lt;/tag&gt;
+</code></pre><p>④. 在 JSP 页面上使用自定义标签: </p>
+<blockquote>
+<p>使用 taglib 指令导入标签库描述文件: &lt;%@taglib uri=” &lt; url&gt;” prefix=”&lt; short-name&gt;” %&gt;<br>使用自定义的标签: &lt; zx:hello/&gt;</p>
+</blockquote>
+<p>(2)通过自定义标签为其设置属性，并输出在页面上<br>接续上面，我们主要用到实现 SimpleTag 接口中的doTag方法。<br>①.setJspContext: 一定会被 JSP 引擎所调用, 先于 doTag, 把代表 JSP 引擎的 pageContext 传给标签处理器类.<br>这里我们在类里定义一个PageContext的成员变量<br>private PageContext pageContext;<br>用在该类中</p>
+<h5 id="注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。"><a href="#注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。" class="headerlink" title="注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。"></a>注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。</h5><pre><code>private PageContext pageContext;
+
+    @Override
+    public void setJspContext(JspContext arg0) {
+
+this.pageContext = (PageContext) arg0;
+    }    
+</code></pre><p>②.定义属性<br>先在标签处理器类中定义 setter 方法. 建议把所有的属性类型都设置为 String 类型. </p>
+<pre><code>private String value;
+private String count;
+
+public void setValue(String value) {
+this.value = value;
+}
+
+public void setCount(String count) {
+this.count = count;
+}
+</code></pre><p>③.在 tld(标签描述文件) 描述文件中来描述属性:</p>
+<pre><code>&lt;!-- 描述当前标签的属性 --&gt;
+&lt;attribute&gt;
+&lt;!-- 属性名, 需和标签处理器类的 setter 方法定义的属性相同 --&gt;
+&lt;name&gt;value&lt;/name&gt;
+&lt;!-- 该属性是否被必须 --&gt;
+&lt;required&gt;true&lt;/required&gt;
+&lt;!-- rtexprvalue: runtime expression value 
+    当前属性是否可以接受运行时表达式的动态值 --&gt;
+&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;
+&lt;/attribute&gt;
+</code></pre><p>④.在页面中使用属性, 属性名同 tld 文件中定义的名字.</p>
+<pre><code>//name是传的值，一般是表单提交的
+&lt;zx:hello value=&quot;${param.name }&quot; count=&quot;10&quot;/&gt;
+</code></pre><p>⑤.通常情况下开发简单标签直接继承SimpleTagSupport 就可以了. 可以直接调用其对应的 getter 方法得到对应的 API </p>
+<pre><code>public class SimpleTagSupport implements SimpleTag{
+
+public void doTag() 
+    throws JspException, IOException{}
+
+private JspTag parentTag;
+
+public void setParent( JspTag parent ) {
+    this.parentTag = parent;
+}
+
+public JspTag getParent() {
+    return this.parentTag;
+}
+
+private JspContext jspContext;
+
+public void setJspContext( JspContext pc ) {
+    this.jspContext = pc;
+}
+
+protected JspContext getJspContext() {
+    return this.jspContext;
+}
+
+private JspFragment jspBody;
+
+public void setJspBody( JspFragment jspBody ) {
+    this.jspBody = jspBody;
+}
+
+protected JspFragment getJspBody() {
+    return this.jspBody;
+}   
+}
+</code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag"><a href="#1-创建自定义标签类实现接口SimpleTag" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag"></a>1.创建自定义标签类实现接口SimpleTag</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
+<h5 id="4-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。"><a href="#4-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。" class="headerlink" title="4.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。"></a>4.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。</h5>
       
 
       
@@ -1097,7 +1273,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,18 +1293,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -1129,11 +1301,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,15 +1313,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1181,6 +1357,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1189,19 +1369,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
             <div class="clearfix"></div>
