@@ -40,7 +40,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session03.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session04.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png">
-<meta property="og:updated_time" content="2019-03-08T12:54:36.603Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session06.png">
+<meta property="og:updated_time" content="2019-03-09T16:41:35.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -747,7 +748,66 @@ request.getParameter(&quot;username&quot;);
 <h5 id="4-HttpSession-URL重写"><a href="#4-HttpSession-URL重写" class="headerlink" title="4.HttpSession URL重写"></a>4.HttpSession URL重写</h5><p>(1)利用URL重写实现Session跟踪<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png" alt=""></p>
 <pre><code>&lt;form action=&quot;&lt;%= response.encodeURL(&quot;hello.jsp&quot;) %&gt;&quot; method=&quot;post&quot;&gt;
 //此时可以在禁用cookie的浏览器中，找到相同的session对象。就是在url后面加了hello.jsp:jsession:id值
-</code></pre>
+</code></pre><h5 id="5-HttpSession-小结"><a href="#5-HttpSession-小结" class="headerlink" title="5.HttpSession 小结"></a>5.HttpSession 小结</h5><p>HttpSession相关的API<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session06.png" alt=""></p>
+<h5 id="6-Javaweb中的绝对路径与相对路径"><a href="#6-Javaweb中的绝对路径与相对路径" class="headerlink" title="6.Javaweb中的绝对路径与相对路径"></a>6.Javaweb中的绝对路径与相对路径</h5><p>(1)相对路径：即指相对于当前调用该路径的方法的路径。<br>举个例子：一个文件夹下有个a.jsp，和b.jsp，当在a.jsp中调用b.jsp时，这时相对路径就是在a.jsp的路径的基础上的路径。<br>比方说：访问a的路径localhost/test/a.jsp，此时在a中访问b，则路劲就是&lt;href=”b.jsp”&gt;&lt; /href&gt;这里隐含了相对路径localhost/test/</p>
+<p><br><br>(2)绝对路径：要访问文件的具体位置，在web程序中一般用</p>
+<pre><code>request.contextPath()+具体路径(/test/a.jsp)
+// request.contextPath()就是项目的上下文路径
+</code></pre><h5 id="7-防止表单重复提交"><a href="#7-防止表单重复提交" class="headerlink" title="7.防止表单重复提交"></a>7.防止表单重复提交</h5><p>(1)说明一下表单重复提交的情况<br>①. 在表单提交到一个 Servlet, 此时地址栏还保留着 Serlvet 的那个路径, 在响应页面点击 “刷新”  Servlet 又通过请求转发的方式响应一个 JSP(HTML) 页面。<br>②. 在响应页面没有到达时重复点击 “提交按钮”.<br>③. 点击 “返回”, 再点击 “提交”。<br>(2)不是重复提交的情况<br>点击返回，然后刷新原先的登陆页面，再提交。<br>(3)如何避免重复提交<br>①. 仅提供一个隐藏域: &lt; input type=”hidden” name=”token” value=”123”/&gt;. 行不通: 没有方法清除固定的请求参数.<br>②. 把标记放在 request 中. 行不通, 因为表单页面刷新后, request 已经被销毁, 再提交表单是一个新的 request.<br>③. 把标记放在 session 中. 可以。</p>
+<p>在表单中做一个标记, 提交到 Servlet 时, 检查标记是否存在且是否和预定义的标记一致, 若一致, 则受理请求,并销毁标记, 若不一致或没有标记, 则直接响应提示信息: “重复提交” 。</p>
+<blockquote>
+<p>1.在原表单页面, 生成一个随机值 token<br>2.在原表单页面, 把 token 值放入 session 属性中<br>3.在原表单页面, 把 token 值放入到 隐藏域 中.<br>4.在目标的 Servlet 中: 获取 session 和 隐藏域 中的 token 值<br>5.比较两个值是否一致: 若一致, 受理请求, 且把 session 域中的 token 属性清除<br>6.若不一致, 则直接响应提示页面: “重复提交”</p>
+</blockquote>
+<p>代码示例：</p>
+<pre><code>//TokenServlet:处理响应信息，并获取页面的session和隐藏域中的值来进行比较
+public class TokenServlet extends HttpServlet {
+
+private static final long serialVersionUID = 1L;
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+    HttpSession session = request.getSession();
+    Object token = session.getAttribute(&quot;token&quot;);
+    String tokenValue = request.getParameter(&quot;token&quot;);
+    System.out.println(token); 
+    System.out.println(tokenValue); 
+
+    if(token != null &amp;&amp; token.equals(tokenValue)){
+    //获取一次后删除
+        session.removeAttribute(&quot;token&quot;);
+    }else{
+        response.sendRedirect(request.getContextPath() + &quot;/token/token.jsp&quot;);
+        return;        }
+
+
+    String name = request.getParameter(&quot;name&quot;);
+    //访问数据库服务器...
+    System.out.println(&quot;name: &quot; + name);
+
+    request.getRequestDispatcher(&quot;/token/success.jsp&quot;).forward(request, response);
+    //response.sendRedirect(request.getContextPath() + &quot;/token/success.jsp&quot;);
+}
+
+}
+
+//登陆界面
+&lt;body&gt;
+
+&lt;%-- 
+    String tokenValue = new Date().getTime() + &quot;&quot;;
+    session.setAttribute(&quot;token&quot;, tokenValue);
+--%&gt;
+
+&lt;form action=&quot;&lt;%= request.getContextPath() %&gt;/tokenServlet&quot; method=&quot;post&quot;&gt;
+
+    &lt;input type=&quot;hidden&quot; name=&quot;token&quot; value=&quot;&lt;%= tokenValue%&gt;&quot;/&gt;
+
+    name: &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+</code></pre><h5 id="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"><a href="#注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。" class="headerlink" title="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"></a>注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。</h5>
       
 
       
@@ -1041,10 +1101,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1053,7 +1109,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1061,7 +1117,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,7 +1129,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1081,11 +1137,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1097,15 +1157,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1121,19 +1181,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
