@@ -51,7 +51,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png">
-<meta property="og:updated_time" content="2019-03-10T10:02:13.092Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png">
+<meta property="og:updated_time" content="2019-03-10T12:40:13.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -882,7 +883,7 @@ JSESSIONID: ${cookie.JSESSIONID.value}
 <p>使用${pageContext}来获取有关用户或页面的详细信息。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png" alt=""></p>
 </blockquote>
 <h5 id="9-自定义标签"><a href="#9-自定义标签" class="headerlink" title="9.自定义标签"></a>9.自定义标签</h5><p>用户自定义的一种jsp标记。当一个含有自定义标签的jsp页面被jsp引擎编译成servlet时，tag标签被转化成了对一个称为标签处理类的对象的操作。于是，当jsp页面被jsp引擎转化为servle后，实际上tag标签被转化为了对tag处理类的操作。</p>
-<p>自定义标签可以降低jsp开发的复杂度和维护量。<br>(1)自定义标签例子：<br>①. 创建一个标签处理器类: 实现 SimpleTag 接口.<br>②. 在 WEB-INF 文件夹下新建一个 .tld(标签库描述文件) 为扩展名的 xml 文件. 并拷入固定的部分: 并对<br>description, display-name, tlib-version, short-name, uri 做出修改。</p>
+<p>自定义标签可以降低jsp开发的复杂度和维护量。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png" alt=""><br>(1)自定义标签例子：<br>①. 创建一个标签处理器类: 实现 SimpleTag 接口.<br>②. 在 WEB-INF 文件夹下新建一个 .tld(标签库描述文件) 为扩展名的 xml 文件. 并拷入固定的部分: 并对<br>description, display-name, tlib-version, short-name, uri 做出修改。</p>
 <pre><code>//固定的部分
 &lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
 xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -982,8 +983,102 @@ protected JspFragment getJspBody() {
     return this.jspBody;
 }   
 }
-</code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag"><a href="#1-创建自定义标签类实现接口SimpleTag" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag"></a>1.创建自定义标签类实现接口SimpleTag</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
-<h5 id="4-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。"><a href="#4-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。" class="headerlink" title="4.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。"></a>4.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。</h5>
+</code></pre><p>(2)带标签体的自定义标签<br>①.若一个标签有标签体：</p>
+<blockquote>
+<p>&lt; zx:testJspFragment&gt;abcdefg&lt; /zx:testJspFragment&gt;<br>在自定义标签的标签处理器中使用 JspFragment 对象封装标签体信息</p>
+</blockquote>
+<p>②.若配置了标签含有标签体, 则 JSP 引擎会调用 setJspBody() 方法把 JspFragment 传递给标签处理器类，在 SimpleTagSupport 中还定义了一个 getJspBody() 方法, 用于返回 JspFragment 对象。<br>③.JspFragment 的 invoke(Writer) 方法: 把标签体内容从 Writer 中输出, 若为 null, 则等同于 invoke(getJspContext().getOut()), 即直接把标签体内容输出到页面上</p>
+<pre><code>public void doTag() throws JspException, IOException {
+    JspFragment bodyContent = getJspBody();
+    //JspFragment.invoke(Witer): Writer 即为标签体内容输出的字符流, 若为 null, 则
+    //输出到 getJspContext().getOut(), 即输出到页面上.
+
+    //1. 利用 StringWriter 得到标签体的内容.
+    StringWriter sw = new StringWriter();
+    bodyContent.invoke(sw);
+
+    //2. 把标签体的内容都变为大写
+    String content = sw.toString().toUpperCase();
+
+    //3. 获取 JSP 页面的 out 隐含对象, 输出到页面上
+    getJspContext().getOut().print(content);
+}
+</code></pre><p>tld文件</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;
+version=&quot;2.0&quot;&gt;
+
+&lt;description&gt;MyTag 1.2 core library&lt;/description&gt;
+&lt;display-name&gt;MyTag core&lt;/display-name&gt;
+&lt;tlib-version&gt;1.2&lt;/tlib-version&gt;
+&lt;short-name&gt;zx&lt;/short-name&gt;
+&lt;uri&gt;http://zx.com/myTag/core&lt;/uri&gt;
+
+&lt;tag&gt;
+    &lt;name&gt;testJspFragment&lt;/name&gt;
+    &lt;tag-class&gt;com.zx.javaweb.TestJspFragment&lt;/tag-class&gt;
+    &lt;body-content&gt;scriptless&lt;/body-content&gt;
+&lt;/tag&gt;
+&lt;/taglib&gt;
+</code></pre><p>④.在 tld 文件中, 使用 body-content 节点来描述标签体的类型: </p>
+<blockquote>
+<p>1.scriptless: 标签体可以包含 el 表达式和 JSP 动作元素，但不能包含 JSP 的脚本元素<br>2.tagdependent: 表示标签体交由标签本身去解析处理。<br>若指定 tagdependent，在标签体中的所有代码都会原封不动的交给标签处理器，而不是将执行结果传递给标签处理器</p>
+</blockquote>
+<blockquote>
+<p>3.empty: 没有标签体</p>
+</blockquote>
+<p>(3)标签体与属性一起用<br>tld</p>
+<pre><code>&lt;tag&gt;
+    &lt;name&gt;printUpper&lt;/name&gt;
+    &lt;tag-class&gt;com.zx.javaweb.PrintUpperTag&lt;/tag-class&gt;
+    &lt;body-content&gt;scriptless&lt;/body-content&gt;
+
+    &lt;attribute&gt;
+        &lt;name&gt;time&lt;/name&gt;
+        &lt;required&gt;true&lt;/required&gt;
+        &lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;
+    &lt;/attribute&gt;
+&lt;/tag&gt;
+</code></pre><p>doTag()代码</p>
+<pre><code>public class PrintUpperTag extends SimpleTagSupport {
+//属性+set方法
+private String time;
+
+public void setTime(String time) {
+    this.time = time;
+}
+
+@Override
+public void doTag() throws JspException, IOException {
+    //1. 得到标签体的内容
+    JspFragment bodyContent = getJspBody();
+    StringWriter sw = new StringWriter();
+    bodyContent.invoke(sw);
+    String content = sw.toString();
+
+    //2. 变为大写
+    content = content.toUpperCase();
+
+    //3. 得到 out 隐含变量
+    //4. 循环输出
+    int count = 1;
+    try {
+        count = Integer.parseInt(time);
+    } catch (Exception e) {}
+    for(int i = 0; i &lt; count; i++){
+        getJspContext().getOut().print(i + 1 + &quot;.&quot; + content + &quot;&lt;br&gt;&quot;);
+    }
+}
+
+}
+</code></pre><p>调用代码</p>
+<pre><code>//其中value是属性值，xiaohuzixiansheng是标签体内容
+&lt;zx:printUpper value=&quot;10&quot;&gt;xiaohuzixiansheng&lt;/zx:printUpper&gt;
+</code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法"><a href="#1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)"></a>1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
+<h5 id="4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt"><a href="#4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt" class="headerlink" title="4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;"></a>4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;</h5><h5 id="5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt"><a href="#5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt" class="headerlink" title="5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;"></a>5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;</h5><p><strong>所谓自定义标签就是自定义内容(body)和属性(value)把它放到doTag中去运行，然后返回一个运行结果给jsp页面。</strong></p>
+
       
 
       
@@ -1273,15 +1368,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1293,15 +1388,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1321,15 +1416,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,10 +1437,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1357,11 +1452,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1369,11 +1464,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
