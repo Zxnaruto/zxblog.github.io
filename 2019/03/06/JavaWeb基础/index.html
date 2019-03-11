@@ -53,6 +53,7 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL24.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL02.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL03.png">
@@ -71,7 +72,12 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL16.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL17.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL18.png">
-<meta property="og:updated_time" content="2019-03-11T03:47:44.477Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL19.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL23.png">
+<meta property="og:updated_time" content="2019-03-11T05:49:48.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -1169,7 +1175,8 @@ public void doTag() throws JspException, IOException {
 ${zx:concat(param.name1, param.name2)}
 </code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法"><a href="#1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)"></a>1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
 <h5 id="4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt"><a href="#4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt" class="headerlink" title="4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;"></a>4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;</h5><h5 id="5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt"><a href="#5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt" class="headerlink" title="5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;"></a>5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;</h5><p><strong>所谓自定义标签就是自定义内容(body)和属性(value)把它放到doTag中去运行，然后返回一个运行结果给jsp页面。</strong></p>
-<h5 id="10-JSTL"><a href="#10-JSTL" class="headerlink" title="10.JSTL"></a>10.JSTL</h5><p>JSTL，即JSP标准标签函数库。<br>(1)JSTL提供的标签库主要分为五大类</p>
+<h5 id="10-JSTL"><a href="#10-JSTL" class="headerlink" title="10.JSTL"></a>10.JSTL</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL24.png" alt=""></p>
+<p>JSTL，即JSP标准标签函数库。<br>(1)JSTL提供的标签库主要分为五大类</p>
 <p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL01.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL02.png" alt=""></p>
 <blockquote>
 <p>注意：使用JSLTL时需要jar包<br>jstl.jar<br>standard.jar</p>
@@ -1262,8 +1269,94 @@ isAdult: &lt;c:out value=&quot;${requestScope.isAdult }&quot;&gt;&lt;/c:out&gt;
   }else{
 
        }
-</code></pre><p>(4)迭代操作</p>
+</code></pre><p>(4)迭代操作<br>迭代主要包含两个标签&lt; c:forEach&gt;和&lt; c:forTokens&gt;。<br>①.&lt; c:forEach&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL19.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL20.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL21.png" alt=""></p>
+<pre><code>&lt;h4&gt;c:forEach: 可以对数组, Collection, Map 进行遍历, begin(对于集合 begin 从 0 开始算), end, step&lt;/h4&gt;
+&lt;c:forEach begin=&quot;1&quot; end=&quot;10&quot; step=&quot;3&quot; var=&quot;i&quot;&gt;
+    ${ i} --
+&lt;/c:forEach&gt;
+&lt;br&gt;&lt;br&gt;
 
+&lt;% 
+    List&lt;Customer&gt; custs = new ArrayList&lt;Customer&gt;();
+    custs.add(new Customer(1, &quot;AAA&quot;)); //index: 0 
+    custs.add(new Customer(2, &quot;BBB&quot;)); //1
+    custs.add(new Customer(3, &quot;CCC&quot;)); 
+    custs.add(new Customer(4, &quot;DDD&quot;)); //3
+    custs.add(new Customer(5, &quot;EEE&quot;));
+    custs.add(new Customer(6, &quot;FFF&quot;)); //5
+
+    request.setAttribute(&quot;custs&quot;, custs);
+%&gt;
+
+&lt;br&gt;&lt;br&gt;
+&lt;!-- 遍历 Collection, 遍历数组同 Collection --&gt;
+&lt;c:forEach items=&quot;${requestScope.custs }&quot; var=&quot;cust&quot;
+    varStatus=&quot;status&quot;&gt;
+    ${status.index}, ${status.count}, ${status.first}, ${status.last}: ${cust.id }: ${cust.name }&lt;br&gt;
+&lt;/c:forEach&gt;
+
+&lt;!-- 遍历 Map --&gt;
+&lt;% 
+    Map&lt;String, Customer&gt; custMap = new HashMap&lt;String, Customer&gt;();
+    custMap.put(&quot;a&quot;, new Customer(1, &quot;AAA&quot;)); 
+    custMap.put(&quot;b&quot;, new Customer(2, &quot;BBB&quot;));  
+    custMap.put(&quot;c&quot;, new Customer(3, &quot;CCC&quot;)); 
+    custMap.put(&quot;d&quot;, new Customer(4, &quot;DDD&quot;)); 
+    custMap.put(&quot;e&quot;, new Customer(5, &quot;EEE&quot;)); 
+    custMap.put(&quot;f&quot;, new Customer(6, &quot;FFF&quot;)); 
+
+    request.setAttribute(&quot;custMap&quot;, custMap);
+%&gt;
+
+&lt;br&gt;&lt;br&gt;
+&lt;c:forEach items=&quot;${requestScope.custMap }&quot; var=&quot;cust&quot;&gt;
+    ${cust.key } - ${cust.value.id } - ${cust.value.name }&lt;br&gt;
+&lt;/c:forEach&gt;
+
+&lt;% 
+    String [] names = new String[]{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;};
+    request.setAttribute(&quot;names&quot;, names);
+%&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;c:forEach var=&quot;name&quot; items=&quot;${names }&quot;&gt;${name }-&lt;/c:forEach&gt;
+</code></pre><p>②.&lt; c:forTokens&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL22.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL23.png" alt=""></p>
+<pre><code>    //其中的delims就是以什么分隔，例子中以,号分隔
+    &lt;h4&gt;c:forTokens: 处理字符串的, 类似于 String 的 split() 方法&lt;/h4&gt;
+&lt;c:set value=&quot;a,b,c.d.e.f;g;h;j&quot; var=&quot;test&quot; scope=&quot;request&quot;&gt;&lt;/c:set&gt;
+&lt;c:forTokens items=&quot;${requestScope.test }&quot; delims=&quot;.&quot; var=&quot;s&quot;&gt;
+    ${s }&lt;br&gt;
+&lt;/c:forTokens&gt;
+</code></pre><p>(5)URL相关操作<br>JSTL包含三个与URL相关的标签：&lt; c:import&gt;、&lt; c:redirect&gt;、&lt; c:url&gt;。它们的主要功能是：用来将其他文件的内容包含起来、网页的重定向、还有url的产生。</p>
+<p>①.&lt; c:import&gt;</p>
+<pre><code>&lt;h4&gt;c:import 可以包含任何页面到当前页面&lt;/h4&gt;
+&lt;c:import url=&quot;http://www.baidu.com&quot;&gt;&lt;/c:import&gt;
+</code></pre><p>②.&lt; c:redirect&gt;</p>
+<pre><code>&lt;h4&gt;
+    c:redirect 使当前 JSP 页面重定向到指定的页面. 使当前 JSP 转发到指定页面可以使用
+    &lt;%--  
+    &lt;jsp:forward page=&quot;/test.jsp&quot;&gt;&lt;/jsp:forward&gt;    
+    --%&gt;
+    / 代表的是当前 WEB 应用的根目录. 
+
+    response.sendRedirect(&quot;/test.jsp&quot;) / 代表 WEB 站点的根目录
+&lt;/h4&gt;
+&lt;%-- 
+&lt;c:redirect url=&quot;http://www.atguigu.com&quot;&gt;&lt;/c:redirect&gt;
+&lt;c:redirect url=&quot;/test.jsp&quot;&gt;&lt;/c:redirect&gt;
+--%&gt;
+</code></pre><p>③.&lt; c:url&gt;</p>
+<pre><code>&lt;h4&gt;
+    c:url 产生一个 url 地址. 可以根据 Cookie 是否可用来智能进行 URL 重写, 对 GET 请求的参数进行编码
+    可以把产生的 URL 存储在域对象的属性中.
+    还可以使用 c:param 为 URL 添加参数. c:url 会对参数进行自动的转码. 
+    value 中的 / 代表的是当前 WEB 应用的根目录. 
+&lt;/h4&gt;
+&lt;c:url value=&quot;/test.jsp&quot; var=&quot;testurl&quot; scope=&quot;page&quot;&gt;
+    &lt;c:param name=&quot;name&quot; value=&quot;尚硅谷&quot;&gt;&lt;/c:param&gt;
+&lt;/c:url&gt;
+
+url: ${testurl }
+</code></pre><h5 id="注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。"><a href="#注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。" class="headerlink" title="注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。"></a>注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。</h5>
       
 
       
@@ -1553,15 +1646,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1570,6 +1655,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,19 +1686,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1633,15 +1726,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1649,11 +1738,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
