@@ -91,7 +91,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png">
-<meta property="og:updated_time" content="2019-03-11T07:32:46.958Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter15.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter16.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter17.png">
+<meta property="og:updated_time" content="2019-03-11T09:34:23.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -1402,10 +1405,9 @@ url: ${testurl }
 <blockquote>
 <p>3.public void destroy(): 释放当前 Filter 所占用的资源的方法. 在 Filter 被销毁之前被调用, 且只被调用一次. </p>
 </blockquote>
-<p>4). &lt; dispatcher&gt; 元素: 指定过滤器所拦截的资源被 Servlet 容器调用的方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。可以设置多个&lt; dispatcher&gt; 子元素用来指定 Filter 对资源的多种调用方式进行拦截 。<br>①. REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问时，那么该过滤器就不会被调用。</p>
-<p>通过 GET 或 POST 请求直接访问。 </p>
-<p>②. FORWARD：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。或 &lt; jsp:forward page=”/…” /&gt; 或 通过 page 指令的 errorPage 转发页面. &lt;%@ page errorPage=”test.jsp” %&gt;</p>
-<p>②. INCLUDE：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。或 &lt; jsp:include file=”/…” /&gt;</p>
+<p>4). &lt; dispatcher&gt; 元素: 指定过滤器所拦截的资源被 Servlet 容器调用的方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。可以设置多个&lt; dispatcher&gt; 子元素用来指定 Filter 对资源的多种调用方式进行拦截 。<br>①. REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问时，那么该过滤器就不会被调用。通过 GET 或 POST 请求直接访问。 </p>
+<p>②. FORWARD：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。<br>或 &lt; jsp:forward page=”/…” /&gt; 或 通过 page 指令的 errorPage 转发页面. &lt;%@ page errorPage=”test.jsp” %&gt;</p>
+<p>②. INCLUDE：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。<br>或 &lt; jsp:include file=”/…” /&gt;</p>
 <p>④. ERROR：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。</p>
 <p>在 web.xml 文件中通过 error-page 节点进行声明:</p>
 <pre><code>&lt;error-page&gt;
@@ -1422,6 +1424,190 @@ url: ${testurl }
 &lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
 &lt;/filter-mapping&gt;
 </code></pre><p>(1)Filter简介<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter01.png" alt=""><br>(2)Filter过滤过程<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter02.png" alt=""><br>(3)Filter的基本工作原理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter03.png" alt=""><br>(4)Filter接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter05.png" alt=""><br>(5)FilterChain接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter06.png" alt=""><br>(6)FilterConfig接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter07.png" alt=""><br>(7)过滤器的部署<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter10.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png" alt=""></p>
+<p>(8)创建HttpFilter实现类来简化Filter创建类<br>①.为什么用抽象类：实现接口如果不实现它的所有的方法就要声明为抽象类。<br>②.为什么声明为抽象方法：父类不提供实现，由继承的子类实现。</p>
+<pre><code>/**
+ * 自定义的 HttpFilter, 实现自 Filter 接口
+ *
+ */
+    public abstract class HttpFilter implements Filter {
+
+/**
+ * 用于保存 FilterConfig 对象. 
+ */
+private FilterConfig filterConfig;
+
+/**
+ * 不建议子类直接覆盖. 若直接覆盖, 将可能会导致 filterConfig 成员变量初始化失败
+ */
+@Override
+public void init(FilterConfig filterConfig) throws ServletException {
+    this.filterConfig = filterConfig;
+    init();
+}
+
+/**
+ * 供子类继承的初始化方法. 可以通过 getFilterConfig() 获取 FilterConfig 对象. 
+ */
+protected void init() {}
+
+/**
+ * 直接返回 init(ServletConfig) 的 FilterConfig 对象
+ */
+public FilterConfig getFilterConfig() {
+    return filterConfig;
+}
+
+/**
+ * 原生的 doFilter 方法, 在方法内部把 ServletRequest 和 ServletResponse 
+ * 转为了 HttpServletRequest 和 HttpServletResponse, 并调用了 
+ * doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+ * 
+ * 若编写 Filter 的过滤方法不建议直接继承该方法. 而建议继承
+ * doFilter(HttpServletRequest request, HttpServletResponse response, 
+ *        FilterChain filterChain) 方法
+ */
+@Override
+public void doFilter(ServletRequest req, ServletResponse resp,
+        FilterChain chain) throws IOException, ServletException {
+    HttpServletRequest request = (HttpServletRequest) req;
+    HttpServletResponse response = (HttpServletResponse) resp;
+
+    doFilter(request, response, chain);
+}
+
+/**
+ * 抽象方法, 为 Http 请求定制. 必须实现的方法. 
+ * @param request
+ * @param response
+ * @param filterChain
+ * @throws IOException
+ * @throws ServletException
+ */
+public abstract void doFilter(HttpServletRequest request, HttpServletResponse response, 
+        FilterChain filterChain) throws IOException, ServletException;
+
+/**
+ * 空的 destroy 方法。 
+ */
+@Override
+public void destroy() {}
+
+}
+</code></pre><p><br><br>(9)理解多个Filter的执行过程<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter15.png" alt=""><br>1,2,3分别代表三个代码块，1，2是两个过滤器中的doFilter方法，3是jsp页面调用。<br>它们3个就组成了一个chain:1-&gt;2-&gt;3<br>至于调用过程就是：先1，通过方法chain.doFilter会调用下个链，下个链会直接调用jsp。调用完jsp后，在倒着调用没有执行完的方法。<br><strong>也就是说链是会直接连着执行的。</strong></p>
+<p><br><br>(10)jsp加载错误页面的两种方式<br>①.在页面上面加入标签</p>
+<blockquote>
+<p>&lt;%@ page errorPage=”error.jsp” %&gt;</p>
+</blockquote>
+<p>②.利用过滤器</p>
+<blockquote>
+<p>编写web.xml<br> &lt; error-page&gt;<br>    &lt; exception-type&gt;java.lang.ArithmeticException&lt; /exception-type&gt;<br>    &lt; location&gt;/error.jsp&lt; /location&gt;<br>    &lt; /error-page&gt;<br>    &lt; filter-mapping&gt;<br>    &lt; filter-name&gt;Filter&lt; /filter-name&gt;<br>    &lt; url-pattern&gt;/error.jsp&lt; /url-pattern&gt;<br>    &lt; dispatcher&gt;ERROR&lt; /dispatcher&gt;<br>    &lt; /filter-mapping&gt;</p>
+</blockquote>
+<p><br><br>(11)禁用浏览器缓存的过滤器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter16.png" alt=""><br>就是在doFilter中加入三行代码(此时用的是HttpFilter自己写的)，用来实时的访问最新的页面：</p>
+<pre><code>response.setDateHeader(&quot;Expries&quot;,-1);
+response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);
+response.setHeader(&quot;Pragma&quot;,&quot;no-cache&quot;);
+</code></pre><p><br><br>(12)字符编码过滤器<br>通过配置参数encoding指明使用何种字符编码，以处理Html Form请求参数的中文问题。防止每段代码都写setencoding。这样更简便。</p>
+<p>web.xml</p>
+<pre><code>&lt;context-param&gt;
+ &lt;param-name&gt;encoding&lt;/param-name&gt;
+ &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ &lt;filter-mapping&gt;
+ &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+ &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+ &lt;/filter-mapping&gt;
+</code></pre><p>encodingFilter</p>
+<pre><code>public class EncodingFilter extends HttpFilter{
+
+private String encoding;
+
+@Override
+protected void init() {
+    encoding = getFilterConfig().getServletContext().getInitParameter(&quot;encoding&quot;);
+}
+
+@Override
+public void doFilter(HttpServletRequest request,
+        HttpServletResponse response, FilterChain filterChain)
+        throws IOException, ServletException {
+    request.setCharacterEncoding(encoding);
+    filterChain.doFilter(request, response);
+}
+
+}
+</code></pre><p>以后只需要改配置文件就可以在访问任何页面的时候自动指定编码集。init用于从xml中获取全局变量encoding的值，然后用于doFilter中。<br><br><br>(12)检测用户是否登陆的过滤器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter17.png" alt=""><br>web.xml</p>
+<pre><code>&lt;!-- 用户信息放入到 session 中的键的名字 --&gt;
+ &lt;context-param&gt;
+ &lt;param-name&gt;userSessionKey&lt;/param-name&gt;
+ &lt;param-value&gt;USERSESSIONKEY&lt;/param-value&gt;
+ &lt;/context-param&gt;
+
+ &lt;!-- 若未登录, 需重定向的页面 --&gt;
+ &lt;context-param&gt;
+ &lt;param-name&gt;rediretPage&lt;/param-name&gt;
+ &lt;param-value&gt;/login/login.jsp&lt;/param-value&gt;
+ &lt;/context-param&gt;
+
+ &lt;!-- 不需要拦截(或检查)的 URL 列表 --&gt;
+ &lt;context-param&gt;
+ &lt;param-name&gt;uncheckedUrls&lt;/param-name&gt;
+ &lt;param-value&gt;/login/a.jsp,/login/list.jsp,/login/login.jsp,/login/doLogin.jsp&lt;/param-value&gt;
+ &lt;/context-param&gt;
+   &lt;filter&gt;
+ &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;
+ &lt;filter-class&gt;com.zx.javaweb.login.LoginFilter&lt;/filter-class&gt;
+</code></pre><p>  </p>
+<pre><code>&lt;filter-mapping&gt;
+&lt;filter-name&gt;loginFilter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/login/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>Filter</p>
+<pre><code>public class LoginFilter extends HttpFilter{
+
+//1. 从 web.xml 文件中获取 sessionKey, redirectUrl, uncheckedUrls
+private String sessionKey;
+private String redirectUrl;
+private String unchekcedUrls;
+
+@Override
+protected void init() {
+    ServletContext servletContext = getFilterConfig().getServletContext();
+
+    sessionKey = servletContext.getInitParameter(&quot;userSessionKey&quot;);
+    redirectUrl = servletContext.getInitParameter(&quot;rediretPage&quot;);
+    ///login/a.jsp,/login/list.jsp,/login/login.jsp,/login/doLogin.jsp
+    unchekcedUrls = servletContext.getInitParameter(&quot;uncheckedUrls&quot;);
+}
+
+@Override
+public void doFilter(HttpServletRequest request,
+        HttpServletResponse response, FilterChain filterChain)
+        throws IOException, ServletException {
+
+    //1. 获取请求的 servletPath
+    // /login/b.jsp
+    String servletPath = request.getServletPath();
+
+    //2. 检查 1 获取的 servletPath 是否为不需要检查的 URL 中的一个, 若是, 则直接放行. 方法结束
+    List&lt;String&gt; urls = Arrays.asList(unchekcedUrls.split(&quot;,&quot;));
+    if(urls.contains(servletPath)){
+        filterChain.doFilter(request, response);
+        return;
+    }
+
+    //3. 从 session 中获取 sessionKey 对应的值, 若值不存在, 则重定向到 redirectUrl
+    Object user = request.getSession().getAttribute(sessionKey);
+    if(user == null){
+        response.sendRedirect(request.getContextPath() + redirectUrl);
+        return;
+    }
+
+    //4. 若存在, 则放行, 允许访问. 
+    filterChain.doFilter(request, response);
+}
+
+}
+</code></pre><p>通过判断不可访问的页面，以及配置访问的条件来实现用户的登陆检查。</p>
 
       
 
@@ -1768,14 +1954,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">md5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
@@ -1784,15 +1962,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">md5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
