@@ -77,7 +77,21 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL21.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL22.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL23.png">
-<meta property="og:updated_time" content="2019-03-11T05:49:48.898Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter06.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter07.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter08.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter09.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter11.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png">
+<meta property="og:updated_time" content="2019-03-11T07:32:46.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -1356,7 +1370,59 @@ isAdult: &lt;c:out value=&quot;${requestScope.isAdult }&quot;&gt;&lt;/c:out&gt;
 &lt;/c:url&gt;
 
 url: ${testurl }
-</code></pre><h5 id="注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。"><a href="#注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。" class="headerlink" title="注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。"></a>注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。</h5>
+</code></pre><h5 id="注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。"><a href="#注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。" class="headerlink" title="注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。"></a>注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。</h5><h5 id="11-Filter过滤器"><a href="#11-Filter过滤器" class="headerlink" title="11.Filter过滤器"></a>11.Filter过滤器</h5><p>(0)Filter<br>1).Filter是什么？<br>①. JavaWEB 的一个重要组件, 可以对发送到 Servlet 的请求进行拦截, 并对响应也进行拦截.<br>②. Filter 是实现了 Filter 接口的 Java 类.<br>③. Filter 需要在 web.xml 文件中进行配置和映射.<br>2).如何创建一个 Filter<br>①. 创建一个 Filter 类: 实现 Filter 接口: public class HelloFilter implements Filter<br>②. 在 web.xml 文件中配置并映射该 Filter. 其中 url-pattern 指定该 Filter 可以拦截哪些资源, 即可以通过哪些 url 访问到该 Filter。</p>
+<pre><code>   &lt;!-- 注册 Filter --&gt;
+
+&lt;filter&gt;
+
+&lt;filter-name&gt;helloFilter&lt;/filter-name&gt;
+&lt;filter-class&gt;com.atguigu.javaweb.HelloFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+    &lt;!-- 映射 Filter --&gt;
+&lt;filter-mapping&gt;
+
+&lt;filter-name&gt;helloFilter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/test.jsp&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>3). Filter 相关的 API:<br>①. Filter 接口:</p>
+<blockquote>
+<p>1.public void init(FilterConfig filterConfig): 类似于 Servlet 的 init 方法. 在创建 Filter 对象(Filter 对象在 Servlet 容器加载当前 WEB 应用时即被创建)后, 立即被调用, 且只被调用一次. 该方法用于对当前的 Filter 进行初始化操作. Filter 实例是单例的. </p>
+<pre><code>*  FilterConfig 类似于 ServletConfig
+* 可以在 web.xml 文件中配置当前 Filter 的初始化参数. 配置方式也和 Servlet 类似。
+</code></pre></blockquote>
+<blockquote>
+<p> &lt; filter&gt;<br>            &lt; filter-name&gt;helloFilter&lt; /filter-name&gt;<br>            &lt; filter-class&gt;com.atguigu.javaweb.HelloFilter&lt; /filter-class&gt;<br>            &lt; init-param&gt;<br>                &lt; param-name&gt;name&lt; /param-name&gt;<br>                &lt; param-value&gt;root&lt; /param-value&gt;<br>            &lt; /init-param&gt;<br>        &lt; /filter&gt;</p>
+</blockquote>
+<blockquote>
+<p>2.public void doFilter(ServletRequest request, ServletResponse response,FilterChain chain): 真正 Filter 的逻辑代码需要编写在该方法中. 每次拦截都会调用该方法. </p>
+<ul>
+<li>FilterChain: Filter 链. 多个 Filter 可以构成一个 Filter 链.<br>   – doFilter(ServletRequest request, ServletResponse response): 把请求传给 Filter 链的下一个 Filter,若当前 Filter 是 Filter 链的最后一个 Filter, 将把请求给到目标 Serlvet(或 JSP)<br>– 多个 Filter 拦截的顺序和 &lt; filter-mapping&gt; 配置的顺序有关, 靠前的先被调用. </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>3.public void destroy(): 释放当前 Filter 所占用的资源的方法. 在 Filter 被销毁之前被调用, 且只被调用一次. </p>
+</blockquote>
+<p>4). &lt; dispatcher&gt; 元素: 指定过滤器所拦截的资源被 Servlet 容器调用的方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。可以设置多个&lt; dispatcher&gt; 子元素用来指定 Filter 对资源的多种调用方式进行拦截 。<br>①. REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问时，那么该过滤器就不会被调用。</p>
+<p>通过 GET 或 POST 请求直接访问。 </p>
+<p>②. FORWARD：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。或 &lt; jsp:forward page=”/…” /&gt; 或 通过 page 指令的 errorPage 转发页面. &lt;%@ page errorPage=”test.jsp” %&gt;</p>
+<p>②. INCLUDE：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。或 &lt; jsp:include file=”/…” /&gt;</p>
+<p>④. ERROR：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。</p>
+<p>在 web.xml 文件中通过 error-page 节点进行声明:</p>
+<pre><code>&lt;error-page&gt;
+&lt;exception-type&gt;java.lang.ArithmeticException&lt;/exception-type&gt;
+&lt;location&gt;/test.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/test.jsp&lt;/url-pattern&gt;
+&lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+&lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt;
+&lt;dispatcher&gt;INCLUDE&lt;/dispatcher&gt;
+&lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>(1)Filter简介<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter01.png" alt=""><br>(2)Filter过滤过程<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter02.png" alt=""><br>(3)Filter的基本工作原理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter03.png" alt=""><br>(4)Filter接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter05.png" alt=""><br>(5)FilterChain接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter06.png" alt=""><br>(6)FilterConfig接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter07.png" alt=""><br>(7)过滤器的部署<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter10.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png" alt=""></p>
+
       
 
       
@@ -1650,15 +1716,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1694,15 +1760,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1714,6 +1776,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
@@ -1722,11 +1788,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
