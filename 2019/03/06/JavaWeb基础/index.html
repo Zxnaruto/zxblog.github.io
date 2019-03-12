@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener10.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png">
-<meta property="og:updated_time" content="2019-03-12T07:39:10.377Z">
+<meta property="og:updated_time" content="2019-03-12T11:04:01.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -1837,6 +1837,285 @@ response.sendRedirect(&quot;test.jsp&quot;);
 <blockquote>
 <p>3.application: 贯穿于当前的 WEB 应用的生命周期.。当前 WEB 应用被加载时创建 application 对象, 当前 WEB 应用被卸载时销毁 application 对象。</p>
 </blockquote>
+<p><br></p>
+<h4 id="十二、文件的上传与下载"><a href="#十二、文件的上传与下载" class="headerlink" title="十二、文件的上传与下载"></a>十二、文件的上传与下载</h4><h5 id="1-进行文件上传时-表单需要做的准备"><a href="#1-进行文件上传时-表单需要做的准备" class="headerlink" title="1. 进行文件上传时, 表单需要做的准备"></a>1. 进行文件上传时, 表单需要做的准备</h5><p>1). 请求方式为 POST: <form action="uploadServlet" method="post" ...=""><br>2). 使用 file 的表单域</form></p>
+<blockquote>
+<p> &lt; input type=”file” name=”file”/&gt;</p>
+</blockquote>
+<p>3). 使用 multipart/form-data 的请求编码方式:</p>
+<blockquote>
+<p>&lt; form action=”uploadServlet” method=”post” enctype=”multipart/form-data”&gt;</p>
+</blockquote>
+<pre><code>&lt;form action=&quot;uploadServlet&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+File: &lt;input type=&quot;file&quot; name=&quot;file&quot;/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
+
+&lt;/form&gt;
+</code></pre><p>4). 关于 enctype</p>
+<blockquote>
+<ol>
+<li>application/x-www-form-urlencoded：表单 enctype 属性的默认值。这种编码方案使用有限的字符集，当使用了非字母和数字时，必须用”%HH”代替(H 代表十六进制数字)。<br>对于大容量的二进制数据或包含非 ASCII 字符的文本来说，这种编码不能满足要求。</li>
+<li>multipart/form-data：form 设定了enctype=“multipart/form-data”属性后，表示表单以二进制传输数据。</li>
+</ol>
+</blockquote>
+<p>5).在编写Servlet代码时</p>
+<blockquote>
+<p>1.不能再使用 request.getParameter() 等方式获取请求信息. 获取不到, 因为请求的编码方式已经改为 multipart/form-data, 以二进制的方式来提交请求信息。<br>所以此时就需要要到文件的输入输出流来获取。可以这样做但不建议这样做。</p>
+</blockquote>
+<blockquote>
+<p>2.建议做法：具体使用 commons-fileupload 组件来完成文件的上传操作。<br>commons-fileupload-x.x.x.jar<br>commons-io-x.x.x.jar</p>
+</blockquote>
+<p>文件输入输出流的Servlet做法：</p>
+<pre><code>InputStream in=request.getInputStream();
+Reader reader=new InputStreamReader(in);
+BufferedReader buf=new BufferedReader(reader);
+String str=null;
+while((str=buf.readLine())!=null){
+System.out.println(str);
+}
+</code></pre><h5 id="2-使用jar包做法"><a href="#2-使用jar包做法" class="headerlink" title="2.使用jar包做法"></a>2.使用jar包做法</h5><p>1).导入jar包 </p>
+<blockquote>
+<p>commons-fileupload-xxx.jar<br>  commons-io-xxx.jar</p>
+</blockquote>
+<p>2).基本思想</p>
+<blockquote>
+<p>1.commons-fileupload 可以解析请求, 得到一个 FileItem 对象组成的 List<br>2.commons-fileupload 把所有的请求信息都解析为 FileItem 对象, 无论是一个一般的文本域还是一个文件域.<br>3.可以调用 FileItem 的 isFormField() 方法来判断是一个 表单域 或不是表单域(则是一个文件域)，再来进一步获取信息。</p>
+</blockquote>
+<pre><code>if (item.isFormField()) {
+    String name = item.getFieldName();
+    String value = item.getString();
+    ...
+} 
+
+if (!item.isFormField()) {
+    String fieldName = item.getFieldName();
+    String fileName = item.getName();
+    String contentType = item.getContentType();
+    boolean isInMemory = item.isInMemory();
+    long sizeInBytes = item.getSize();
+
+    InputStream uploadedStream = item.getInputStream();
+    ...
+    uploadedStream.close();
+}
+</code></pre><p>3).如何得到List&lt; FileItem&gt;对象</p>
+<ul>
+<li><p>简单的方式</p>
+<pre><code>// Create a factory for disk-based file items
+FileItemFactory factory = new DiskFileItemFactory();
+
+// Create a new file upload handler
+ServletFileUpload upload = new ServletFileUpload(factory);
+
+// Parse the request
+List /* FileItem */ items = upload.parseRequest(request);
+</code></pre></li>
+</ul>
+<ul>
+<li>复杂的方式：可以为文件的上传加入一些限制条件和其他属性</li>
+</ul>
+<pre><code>// Create a factory for disk-based file items
+DiskFileItemFactory factory = new DiskFileItemFactory();
+
+//设置内存中最多可以存放的上传文件的大小, 若超出则把文件写到一个临时文件夹中. 以 byte 为单位
+factory.setSizeThreshold(yourMaxMemorySize);
+//设置那个临时文件夹
+factory.setRepository(yourTempDirectory);
+
+// Create a new file upload handler
+ServletFileUpload upload = new ServletFileUpload(factory);
+
+//设置上传文件的总的大小. 也可以设置单个文件的大小. 
+upload.setSizeMax(yourMaxRequestSize);
+
+// Parse the request
+List /* FileItem */ items = upload.parseRequest(request);
+</code></pre><ul>
+<li><p>实现代码</p>
+<pre><code>    protected void doPost(HttpServletRequest request,
+    HttpServletResponse response) throws ServletException, IOException {
+
+// 1. 得到 FileItem 的集合 items
+// Create a factory for disk-based file items
+DiskFileItemFactory factory = new DiskFileItemFactory();
+
+//        FileCleaningTracker fileCleaningTracker = 
+//                FileCleanerCleanup.getFileCleaningTracker(getServletContext());
+//        factory.setFileCleaningTracker(fileCleaningTracker);
+
+// Set factory constraints
+factory.setSizeThreshold(1024 * 500);
+File tempDirectory = new File(&quot;d:\\tempDirectory&quot;);
+factory.setRepository(tempDirectory);
+
+// Create a new file upload handler
+ServletFileUpload upload = new ServletFileUpload(factory);
+
+// Set overall request size constraint
+upload.setSizeMax(1024 * 1024 * 5);
+
+// Parse the request
+try {
+    List&lt; FileItem&gt; /* FileItem */items = upload.parseRequest(request);
+
+    // 2. 遍历 items:
+    for (FileItem item : items) {
+        // 若是一个一般的表单域, 打印信息
+        if (item.isFormField()) {
+            String name = item.getFieldName();
+            String value = item.getString();
+
+            System.out.println(name + &quot;: &quot; + value);
+</code></pre></li>
+</ul>
+<pre><code>            }
+            // 若是文件域则把文件保存到 d:\\files 目录下.
+            else {
+                String fieldName = item.getFieldName();
+                String fileName = item.getName();
+                String contentType = item.getContentType();
+                long sizeInBytes = item.getSize();
+
+                System.out.println(fieldName);
+                System.out.println(fileName);
+                System.out.println(contentType);
+                System.out.println(sizeInBytes);
+
+                InputStream in = item.getInputStream();
+                byte[] buffer = new byte[1024];
+                int len = 0;
+
+                fileName = &quot;d:\\files\\&quot; + fileName;
+                System.out.println(fileName);
+
+                OutputStream out = new FileOutputStream(fileName);
+
+                while ((len = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, len);
+                }
+
+                out.close();
+                in.close();
+            }
+        }
+
+    } catch (FileUploadException e) {
+        e.printStackTrace();
+    }
+
+}
+
+}
+</code></pre><h5 id="3-约束文件上传的可配置性"><a href="#3-约束文件上传的可配置性" class="headerlink" title="3.约束文件上传的可配置性"></a>3.约束文件上传的可配置性</h5><p>我们可以在监听器中完成配置属性的初始化，然后在相应的地方调用(不止在这，其他需要配置文件的地方也可以这样)</p>
+<p>1).配置文件：upload.properties</p>
+<pre><code>exts=pptx,docx,doc
+file.max.size=1048576
+total.file.max.size=5242880
+</code></pre><p>2).单例模式进行反射对象</p>
+<pre><code>public class FileUploadAppProperties {
+
+private Map&lt;String, String&gt; properties = new HashMap&lt;&gt;();
+
+private FileUploadAppProperties(){}
+
+private static FileUploadAppProperties instance = new FileUploadAppProperties();
+
+public static FileUploadAppProperties getInstance() {
+    return instance;
+}
+
+public void addProperty(String propertyName, String propertyValue){
+    properties.put(propertyName, propertyValue);
+}
+
+public String getProperty(String propertyName){
+    return properties.get(propertyName);
+}
+
+}
+</code></pre><p>3).监听器加载配置文件</p>
+<pre><code>public class FileUploadAppListener implements ServletContextListener {
+public FileUploadAppListener() {
+    // TODO Auto-generated constructor stub
+}
+public void contextInitialized(ServletContextEvent arg0) {
+    InputStream in = getClass().getClassLoader().getResourceAsStream(&quot;/upload.properties&quot;);
+
+    Properties properties = new Properties();
+    try {
+        properties.load(in);
+
+        for(Map.Entry&lt;Object, Object&gt; prop: properties.entrySet()){
+            String propertyName = (String) prop.getKey();
+            String propertyValue = (String) prop.getValue();
+//赋值                            FileUploadAppProperties.getInstance().addProperty(propertyName, propertyValue);
+        }
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+public void contextDestroyed(ServletContextEvent arg0) {
+    // TODO Auto-generated method stub
+}
+
+}
+</code></pre><p>4).实现调用</p>
+<pre><code>String exts = FileUploadAppProperties.getInstance().getProperty(&quot;exts&quot;);
+</code></pre><h5 id="4-文件的下载"><a href="#4-文件的下载" class="headerlink" title="4.文件的下载"></a>4.文件的下载</h5><p>1).在Servlet中设置contentType响应头</p>
+<blockquote>
+<p>response.setContentType(“application/x-msdownload”);<br>它的作用是通知浏览器该操作是文件下载</p>
+</blockquote>
+<p>2).设置 Content-Disposition 响应头</p>
+<blockquote>
+<p>response.setHeader(“Content-Disposition”, “attachment;filename=any”);<br>通知浏览器不再有浏览器来自行处理(或打开)要下载的文件, 而由用户手工完成</p>
+</blockquote>
+<p>3).具体文件可以调用response.getOutputStream()，以IO流的方式发送给客户端</p>
+<pre><code>OutputStream out = response.getOutputStream();
+String FileName = &quot;C:\\Users\\test\\1.txt&quot;;
+
+InputStream in = new FileInputStream(FileName);
+
+byte [] buffer = new byte[1024];
+int len = 0;
+
+while((len = in.read(buffer)) != -1){
+out.write(buffer, 0, len);
+}
+//注意这时不关闭out，因为要向用户写
+in.close();
+</code></pre><p>4).看个例子<br>Servlet</p>
+<pre><code>public class DownloadServlet extends HttpServlet {
+private static final long serialVersionUID = 1L;
+
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.setContentType(&quot;application/x-msdownload&quot;); 
+    //以什么样的名称下载
+    String fileName = &quot;文件下载.txt&quot;;
+    response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; + URLEncoder.encode(fileName, &quot;UTF-8&quot;));
+
+    OutputStream out = response.getOutputStream();
+//要下载的文件路径，以文件下载.txt去下1.txt
+String FileName = &quot;C:\\Users\\test\\1.txt&quot;;
+
+InputStream in = new FileInputStream(FileName);
+
+byte [] buffer = new byte[1024];
+int len = 0;
+
+while((len = in.read(buffer)) != -1){
+out.write(buffer, 0, len);
+}
+
+in.close();
+out.close();
+}
+
+}
+</code></pre><p><strong>注意：</strong><br>1.此时的Servlet要用doGet方法<br>2.里面的文件路径以及下载名我们可以动态的指定<br>3.下载的位置由于告诉了浏览器这是下载，所以会有另存为的这个选项</p>
+<p><strong>MIME(Multipurpose Internet Mail Extensions)多用途互联网邮件扩展类型。 是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。 多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。</strong></p>
 
       
 
@@ -2135,15 +2414,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
