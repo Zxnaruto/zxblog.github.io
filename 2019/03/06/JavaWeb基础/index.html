@@ -100,9 +100,12 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener06.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener07.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener09.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png">
-<meta property="og:updated_time" content="2019-03-12T03:39:21.712Z">
+<meta property="og:updated_time" content="2019-03-12T07:05:13.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -1689,14 +1692,82 @@ public String getParameter(String name) {
 </code></pre><p>bbs.jsp</p>
 <pre><code>content: ${param.content }
 </code></pre><h5 id="上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似-Servlet-API-也提供了一个-HttpServletResponseWrapper-类来包装原始的-response-对象"><a href="#上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似-Servlet-API-也提供了一个-HttpServletResponseWrapper-类来包装原始的-response-对象" class="headerlink" title="上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象"></a>上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象</h5><p><br></p>
-<h5 id="12-Servlet监听器"><a href="#12-Servlet监听器" class="headerlink" title="12.Servlet监听器"></a>12.Servlet监听器</h5><p>(1)介绍<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener01.png" alt=""><br>(2)监听器分类<br>①.监听域对象自身的创建和销毁的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener02.png" alt=""></p>
+<h5 id="12-Servlet监听器"><a href="#12-Servlet监听器" class="headerlink" title="12.Servlet监听器"></a>12.Servlet监听器</h5><p>(1)介绍<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener01.png" alt=""></p>
+<p><br><br><br>(2)监听器分类<br>①.监听域对象自身的创建和销毁的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener02.png" alt=""></p>
 <ul>
 <li>ServletContextListener接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener05.png" alt=""></li>
 <li>HttpSessionListener接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener06.png" alt=""></li>
 <li>ServletRequsetListener接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener07.png" alt=""></li>
 </ul>
-<p>②.监听域对象中的属性的增加和删减的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener03.png" alt=""><br>③.监听绑定到HttpSession域中的某个对象的状态的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener04.png" alt=""></p>
-<p>(2)创建Servlet监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png" alt=""><br>(3)监听器创建例子及对其域对象生命周期的理解<br>①.以ServletContextListener为例</p>
+<p><br><br><br>②.监听域对象中的属性的增加和删减的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener03.png" alt=""></p>
+<ul>
+<li>ServletContextAttributeListener</li>
+<li>HttpSessionAttributeListener</li>
+<li>ServletRequestAttributeListener</li>
+<li><p>attributeAdded方法<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener09.png" alt=""></p>
+</li>
+<li><p>说明这三个接口<br>1).监听 ServletContext, HttpSession, ServletRequest 中添加属性, 替换属性, 移除属性的事件监听器。<br>2).以 ServletRequestAttributeListener 为例:</p>
+<pre><code> //实现ServletRequestAttrinbute接口
+//添加属性时被调用
+public void attributeAdded(ServletRequestAttributeEvent srae) {
+System.out.println(&quot;向 request 中添加了一个属性...&quot;);
+}
+
+//移除属性时被调用
+@Override
+public void attributeRemoved(ServletRequestAttributeEvent srae) {
+System.out.println(&quot;从 request 中移除了一个属性...&quot;);
+}
+
+//替换属性时被调用. 
+@Override
+public void attributeReplaced(ServletRequestAttributeEvent srae) {
+System.out.println(&quot;request 中属性替换了...&quot;);
+}
+</code></pre><p>3).这三个 ServletContextAttributeListener,<br>  ServletRequestAttributeListener, HttpSessionAttributeListener 监听器较少被使用。<br>  4). API:</p>
+<blockquote>
+<p>ServletRequestAttributeEvent:</p>
+</blockquote>
+<blockquote>
+<p>getName(): 获取属性的名字<br>getValue(): 获取属性的值</p>
+</blockquote>
+<p>  5). 不要忘了配置web.xml</p>
+<blockquote>
+</blockquote>
+<p>&lt; listener&gt;</p>
+<pre><code>&lt; listener-class&gt;com.zx.javaweb.test.TestAttributeListener&lt; /listener-class&gt;
+</code></pre><p>&lt; /listener&gt;</p>
+<h5 id="注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。"><a href="#注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。" class="headerlink" title="注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。"></a>注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。</h5><p><br><br><br></p>
+</li>
+</ul>
+<p>③.监听绑定到HttpSession域中的某个对象的状态的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener04.png" alt=""></p>
+<ul>
+<li><p>HttpSessionBindingListener<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener10.png" alt=""><br><br> <br><br>1). 监听实现了该接口的 Java 类的对象被绑定到 session 或从 session 中解除绑定的事件.</p>
+<pre><code>//当前对象被绑定到 session 时调用该方法
+public void valueBound(HttpSessionBindingEvent event) 
+
+//当前对象从 session 中解除绑定调用该方法
+public void valueUnbound(HttpSessionBindingEvent event) 
+</code></pre><p>2).注意: 该监听器不需要在 web.xml 文件中进行配置<br>3).HttpSessionBindingEvent:</p>
+<blockquote>
+<p>getName()<br>getValue()<br>getSession()</p>
+</blockquote>
+<p>4).该监听器较少使用</p>
+</li>
+<li><p>HttpSessionActivationListener<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener11.png" alt=""><br><br> <br><br>1). 监听实现了该接口和 Serializable 接口的 Java 类的对象随 session 钝化和活化事件</p>
+<pre><code>//在活化之后被调用. 
+public void sessionDidActivate(HttpSessionEvent se)
+
+//在钝化之前被调用
+public void sessionWillPassivate(HttpSessionEvent se)
+</code></pre></li>
+</ul>
+<p> 2).该监听器不需要在 web.xml 文件中进行配置.<br> 3).HttpSessionEvent: </p>
+<blockquote>
+<p>getSession()</p>
+</blockquote>
+<p> 4). 该监听器较少被使用. </p>
+<p><br><br><br>(2)创建Servlet监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png" alt=""><br>(3)监听器创建例子及对其域对象生命周期的理解<br>①.以ServletContextListener为例</p>
 <ul>
 <li>监听 ServletContext 对象被创建或销毁的 Servlet 监听器</li>
 <li><p>怎么用？<br>1).创建一个实现了 ServletContextListener 的类, 并且实现其中的两个方法</p>
@@ -1722,7 +1793,17 @@ public String getParameter(String name) {
 <blockquote>
 <p>1.request: 是一个请求, 当一个响应返回时, 即被销毁. 当发送一个请求时被创建. 注意, 请求转发的过程是一个 request 对象.重定向是两个请求。</p>
 </blockquote>
-<blockquote>
+<pre><code>//jsp转发
+&lt;jsp:forward page=&quot;/test.jsp&quot;&gt;&lt;/jsp:forward&gt;
+//jsp重定向
+ String site = new String(&quot;/test.jsp&quot;);
+   response.setStatus(response.SC_MOVED_TEMPORARILY);
+   response.setHeader(&quot;Location&quot;, site); 
+//Servlet转发
+request.getRequestDispatcher(&quot;/test.jsp&quot;).forward(request, response);
+//Servlet重定向
+response.sendRedirect(&quot;test.jsp&quot;);
+</code></pre><blockquote>
 <p>2.session: 当第一次访问 WEB 应用的一个 JSP 或 Servlet 时, 且该 JSP 或 Servlet 中还需要创建 session 对象. 此时服务器会创建一个 session 对象。</p>
 </blockquote>
 <blockquote>
@@ -2028,15 +2109,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2045,6 +2118,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2076,19 +2157,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">md5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">md5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sha</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2112,11 +2193,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
