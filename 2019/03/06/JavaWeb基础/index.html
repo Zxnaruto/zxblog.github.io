@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener10.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png">
-<meta property="og:updated_time" content="2019-03-12T07:05:13.776Z">
+<meta property="og:updated_time" content="2019-03-12T07:39:10.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb基础">
 <meta name="twitter:description" content="一、ServletServle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。 1.Servlet的功能： 创建并返回基于客户请求的动态HTML页面 创建可嵌入到现有HTML页面中的部分HTML页面 与其他服务器资源进行通信(如数据库等)">
@@ -403,9 +403,8 @@ var _hmt = _hmt || [];
 </li>
 <li><p>String[] getParameterValues(String name)：根据请求参数的名字，返回请求参数所对应的字符串数组，为什么是数组，是因为可能一个参数会对应多个值，比如多选框checkbox</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;servletLogin&quot; method=&quot;post&quot;&gt;</span><br><span class="line">food:</span><br><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;food&quot; value=&quot;apple&quot;/&gt;apple</span><br><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;food&quot; value=&quot;duck&quot;/&gt;duck</span><br><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;food&quot; value=&quot;drink&quot;/&gt;drink</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">//相应的service</span><br><span class="line">String[] food=request.getParameterValues(&quot;food&quot;);</span><br><span class="line">for(String f : food)&#123;</span><br><span class="line">System.out.println(f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：当用getParameter获取时只会获取第一个选的，只有getParameterValues才会获取所有选的</strong></p>
 </li>
-</ul>
-<h5 id="注意：当用getParameter获取时只会获取第一个选的，只有getParameterValues才会获取所有选的"><a href="#注意：当用getParameter获取时只会获取第一个选的，只有getParameterValues才会获取所有选的" class="headerlink" title="注意：当用getParameter获取时只会获取第一个选的，只有getParameterValues才会获取所有选的"></a>注意：当用getParameter获取时只会获取第一个选的，只有getParameterValues才会获取所有选的</h5><ul>
 <li><p>Enumeration getParameterNames()：返回对应的Enumeration对象，和前面的ServletConfig或者ServletContext的getInitParameterNames方法类似。<br>即获取一些参数和值，web页面传的参数<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP07.png" alt=""></p>
 </li>
 <li><p>Map getParameterMap()：返回请求的键值对，key:参数名 value:参数值（String数组类型的value）<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/HTTP08.png" alt=""></p>
@@ -422,7 +421,8 @@ var _hmt = _hmt || [];
 <li>获取请求的 Serlvet 的映射路径 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String servletPath = httpServletRequest.getServletPath();</span><br><span class="line">System.out.println(servletPath);  //  /loginServlet</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="注意：HttpServletRequest-是-SerlvetRequest-的子接口-针对于-HTTP-请求所定义-里边包含了大量获取-HTTP-请求相关的方法"><a href="#注意：HttpServletRequest-是-SerlvetRequest-的子接口-针对于-HTTP-请求所定义-里边包含了大量获取-HTTP-请求相关的方法" class="headerlink" title="注意：HttpServletRequest: 是 SerlvetRequest 的子接口. 针对于 HTTP 请求所定义. 里边包含了大量获取 HTTP 请求相关的方法."></a>注意：HttpServletRequest: 是 SerlvetRequest 的子接口. 针对于 HTTP 请求所定义. 里边包含了大量获取 HTTP 请求相关的方法.</h5><p><br></p>
+<p> <strong>注意：HttpServletRequest: 是 SerlvetRequest 的子接口. 针对于 HTTP 请求所定义. 里边包含了大量获取 HTTP 请求相关的方法.</strong> </p>
+<p><br></p>
 <h5 id="9-ServletResponse"><a href="#9-ServletResponse" class="headerlink" title="9.ServletResponse"></a>9.ServletResponse</h5><p>ServletResponse: 封装了响应信息, 如果想给用户什么响应, 具体可以使用该接口的方法实现.。</p>
 <ul>
 <li><p>getWriter(): 返回 PrintWriter 对象. 调用该对象的 print() 方法, 将把 print() 中的参数直接打印到客户的浏览器上。</p>
@@ -441,7 +441,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>1.在GenericServlet中声明了一个ServletConfig类型的成员变量，在init(ServletConfig)方法中进行初始化。</li>
 <li>2.然后利用servletConfig成员变量实现了ServletConfig接口的方法</li>
-<li>3.还指定了一个init()方法，在默认的init(ServletConfig)中进行调用，这样在实现该抽象类的子类中，就可以用init()方法直接初始化Servlet。<h5 id="小总结，我们在开发代码的时候可以巧妙结合成员变量和初始化参数的方法-可能是构造函数"><a href="#小总结，我们在开发代码的时候可以巧妙结合成员变量和初始化参数的方法-可能是构造函数" class="headerlink" title="小总结，我们在开发代码的时候可以巧妙结合成员变量和初始化参数的方法(可能是构造函数)"></a>小总结，我们在开发代码的时候可以巧妙结合成员变量和初始化参数的方法(可能是构造函数)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//比如上面的，开始由于只有一个方法内部有ServletConfig的对象，而其他方法要实现相应的操作也要用到该对象，所以就可以在方法外面写个成员变量，在初始化时将其赋值就好了，此时其他方法也就可以用了</span><br><span class="line">private ServletConfig servletConfig;</span><br><span class="line">	</span><br><span class="line">@Override</span><br><span class="line">public void init(ServletConfig arg0) throws ServletException &#123;</span><br><span class="line">		this.servletConfig = arg0;</span><br><span class="line">	&#125;</span><br><span class="line">//其他方法</span><br><span class="line">public String getServletName() &#123;</span><br><span class="line">		return servletConfig.getServletName();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<li>3.还指定了一个init()方法，在默认的init(ServletConfig)中进行调用，这样在实现该抽象类的子类中，就可以用init()方法直接初始化Servlet。<br><strong>小总结，我们在开发代码的时候可以巧妙结合成员变量和初始化参数的方法(可能是构造函数)</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//比如上面的，开始由于只有一个方法内部有ServletConfig的对象，而其他方法要实现相应的操作也要用到该对象，所以就可以在方法外面写个成员变量，在初始化时将其赋值就好了，此时其他方法也就可以用了</span><br><span class="line">private ServletConfig servletConfig;</span><br><span class="line">	</span><br><span class="line">@Override</span><br><span class="line">public void init(ServletConfig arg0) throws ServletException &#123;</span><br><span class="line">		this.servletConfig = arg0;</span><br><span class="line">	&#125;</span><br><span class="line">//其他方法</span><br><span class="line">public String getServletName() &#123;</span><br><span class="line">		return servletConfig.getServletName();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="11-HttpServlet"><a href="#11-HttpServlet" class="headerlink" title="11.HttpServlet"></a>11.HttpServlet</h5><p>(1)它是一个 Servlet, 继承自 GenericServlet. 针对于 HTTP 协议所定制。<br>(2)在 service() 方法中直接把 ServletReuqest 和  ServletResponse 转为 HttpServletRequest 和 HttpServletResponse.并调用了重载的 service(HttpServletRequest, HttpServletResponse)<br>在 service(HttpServletRequest, HttpServletResponse) 获取了请求方式: request.getMethod(). 根据请求方式有创建了<br>doXxx() 方法(xxx 为具体的请求方式, 比如 doGet, doPost)</p>
@@ -458,7 +458,7 @@ var _hmt = _hmt || [];
 <p><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">config.getParameter(&quot;test&quot;);</span><br><span class="line">//输出testValue</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></p>
 <p>⑦. out: JspWriter 对象. 调用 out.println() 可以直接把字符串打印到浏览器上.<br>&lt;%<br>out.println(“hello”);<br>%&gt;<br>⑧. page: 指向当前 JSP 对应的 Servlet 对象的引用, 但为 Object 类型, 只能调用 Object 类的方法(几乎不使用) </p>
 <p>⑨. exception: 在声明了 page 指令的 isErrorPage=”true” 时, 才可以使用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page isErrorPage=&quot;true&quot; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">exception.  ........</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></p>
-<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>pageContext, request, session, application(对属性的作用域的范围从小到大)<br>out, response, config, page<br>exception</p>
+<p><strong>注意：</strong><br>pageContext, request, session, application(对属性的作用域的范围从小到大)<br>out, response, config, page<br>exception</p>
 <p><br></p>
 <h5 id="3-Jsp语法"><a href="#3-Jsp语法" class="headerlink" title="3.Jsp语法"></a>3.Jsp语法</h5><p>(1)Jsp模板元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsp页面中静态的HTML标签内容，以及相应的头</span><br></pre></td></tr></table></figure></p>
 <p>(2)JSP表达式（expression）:提供了将一个 java 变量或表达式的计算结果输出到客户端的简化方式，它将要输出的变量或表达式直接封装在&lt;%= 和 %&gt;之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% </span><br><span class="line">	Date date = new Date();</span><br><span class="line">	out.print(date);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%= date %&gt;</span><br></pre></td></tr></table></figure></p>
@@ -538,7 +538,7 @@ var _hmt = _hmt || [];
 <li>③.Controller<br>(1)控制器接收用户的输入并调用模型和视图去完成用户的需求<br>(2)控制器接收请求并决定调用那个模型组件去处理请求，然后决定调用那个视图来显示模型处理返回的数据</li>
 </ul>
 <h5 id="2-MVC处理过程"><a href="#2-MVC处理过程" class="headerlink" title="2.MVC处理过程"></a>2.MVC处理过程</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/MVC01.png" alt=""><br>说明：首先，客户端发送请求给服务器，服务器收到请求后，根据相应的请求调用Servlet，Servlet根据请求信息调用POJO(简单java对象)来访问数据库并返回相应的结果，根据结果Servlet会转向相应的Jsp页面来显示用户的请求结果，然后响应给客户端。</p>
-<h5 id="注意：POJO与JavaBean"><a href="#注意：POJO与JavaBean" class="headerlink" title="注意：POJO与JavaBean"></a>注意：POJO与JavaBean</h5><p>(1)POJO：Plain Ordinary Java Object(简单普通的java对象)主要用来指代那些没有遵循特定java对象模型，约定或者框架的对象。<br>POJO定义一些private属性，并设置相应的get/set方法。没有任何继承也没有任何接口实现，更没有被其他框架侵入的java对象。<br>(2)JavaBean： 在是Java开发中一种可重用组件。是一种编写代码的规范。</p>
+<p><strong>注意：POJO与JavaBean</strong><br>(1)POJO：Plain Ordinary Java Object(简单普通的java对象)主要用来指代那些没有遵循特定java对象模型，约定或者框架的对象。<br>POJO定义一些private属性，并设置相应的get/set方法。没有任何继承也没有任何接口实现，更没有被其他框架侵入的java对象。<br>(2)JavaBean： 在是Java开发中一种可重用组件。是一种编写代码的规范。</p>
 <ul>
 <li>1.所有属性为private。</li>
 <li>2.这个类必须有一个公共的缺省构造函数。即是提供无参数的构造器。</li>
@@ -806,7 +806,8 @@ LastAccessTime: &lt;%= session.getLastAccessedTime() %&gt;
     &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
 
 &lt;/form&gt;
-</code></pre><h5 id="注意：之所以在hello-jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用"><a href="#注意：之所以在hello-jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用" class="headerlink" title="注意：之所以在hello.jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用"></a>注意：之所以在hello.jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用</h5><pre><code>//不用session也可以获得用户名,用request
+</code></pre><p> <strong>注意：之所以在hello.jsp中设置session储存值是因为login在登陆后会产生session。然后获取值供后面调用</strong></p>
+<pre><code>//不用session也可以获得用户名,用request
 request.getParameter(&quot;username&quot;);
 </code></pre><p><br></p>
 <h5 id="4-HttpSession-URL重写"><a href="#4-HttpSession-URL重写" class="headerlink" title="4.HttpSession URL重写"></a>4.HttpSession URL重写</h5><p>(1)利用URL重写实现Session跟踪<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Session05.png" alt=""></p>
@@ -871,18 +872,19 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
 &lt;/form&gt;
 &lt;/body&gt;
-</code></pre><h5 id="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"><a href="#注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。" class="headerlink" title="注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。"></a>注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。</h5><h5 id="8-验证码原理"><a href="#8-验证码原理" class="headerlink" title="8.验证码原理"></a>8.验证码原理</h5><blockquote>
+</code></pre><p> <strong>注意：所谓隐藏域就是在原页面不想被显示的值，但在后面的页面又想通过name或id获取它的值。比如上面的隐藏域只是给表单做标记但是不想它显示出来。</strong></p>
+<h5 id="8-验证码原理"><a href="#8-验证码原理" class="headerlink" title="8.验证码原理"></a>8.验证码原理</h5><blockquote>
 <p>1.在原表单页面, 生成一个验证码的图片, 生成图片的同时, 需要把该图片中的字符串放入到 session 中.<br>2.在原表单页面, 定义一个文本域, 用于输入验证码.<br>3.在目标的 Servlet 中: 获取 session 和 表单域 中的 验证码的 值<br>4.比较两个值是否一致: 若一致, 受理请求, 且把 session 域中的 验证码 属性清除<br>5.若不一致, 则直接通过重定向的方式返回原表单页面, 并提示用户 “验证码错误”</p>
 </blockquote>
-<h5 id="9-JavaBean"><a href="#9-JavaBean" class="headerlink" title="9.JavaBean"></a>9.JavaBean</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JavaBean.png" alt=""></p>
-<h5 id="10-EL表达式"><a href="#10-EL表达式" class="headerlink" title="10.EL表达式"></a>10.EL表达式</h5><pre><code>${}都是以这种形式展现的
+<h4 id="六、JavaBean"><a href="#六、JavaBean" class="headerlink" title="六、JavaBean"></a>六、JavaBean</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JavaBean.png" alt=""></p>
+<h4 id="七、EL表达式"><a href="#七、EL表达式" class="headerlink" title="七、EL表达式"></a>七、EL表达式</h4><pre><code>${}都是以这种形式展现的
 //以前的写法
 User user=(User)session.getAttribute(&quot;user&quot;);
 String sex=user.getSex();
 //EL写法
 ${sessionScope.user.sex}
 </code></pre><p>都是取sex，可以看出EL表达式更简洁。</p>
-<p>(1)EL表达式的两种使用方式<br>EL有两种储存数据的方式：. 和 [ ]都用在${ }中</p>
+<h5 id="1-EL表达式的两种使用方式"><a href="#1-EL表达式的两种使用方式" class="headerlink" title="1.EL表达式的两种使用方式"></a>1.EL表达式的两种使用方式</h5><p>EL有两种储存数据的方式：. 和 [ ]都用在${ }中</p>
 <pre><code>${sessionScope.user.sex}
 等同于
 ${sessionScope.user[&quot;user&quot;]}
@@ -892,7 +894,7 @@ user.setSex(&quot;M&quot;);
 session.setAttribute(&quot;com.zx.uesr&quot;,user);
 sex:${sessionScope[&quot;com.zx.user&quot;].sex}
 </code></pre><p>而用sessionScope[“com.zx.user”].sex</p>
-<p>(2)EL变量<br>EL存取变量数据的方法很简单，打个比方：${ username}就是取出某一范围中名称为username变量。由于没有指定是哪一个范围的username，所以它的默认值会先从Page范围找，如果找不到，在依次到Request、Session、Application中找。如果中途找到它就直接传回，停止寻找。如果所有地方都没找到，就返回null。</p>
+<h5 id="2-EL变量"><a href="#2-EL变量" class="headerlink" title="2.EL变量"></a>2.EL变量</h5><p>EL存取变量数据的方法很简单，打个比方：${ username}就是取出某一范围中名称为username变量。由于没有指定是哪一个范围的username，所以它的默认值会先从Page范围找，如果找不到，在依次到Request、Session、Application中找。如果中途找到它就直接传回，停止寻找。如果所有地方都没找到，就返回null。</p>
 <ul>
 <li>自动搜索的范围<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL01.png" alt=""></li>
 <li>也可以直接指出范围内的值<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL02.png" alt=""></li>
@@ -901,7 +903,7 @@ sex:${sessionScope[&quot;com.zx.user&quot;].sex}
 </blockquote>
 </li>
 </ul>
-<p>(3)EL隐含对象<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL03.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL05.png" alt=""><br>①.与范围有关的</p>
+<h5 id="3-EL隐含对象"><a href="#3-EL隐含对象" class="headerlink" title="3.EL隐含对象"></a>3.EL隐含对象</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL03.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL05.png" alt=""><br>①.与范围有关的</p>
 <ul>
 <li>applicationScope<blockquote>
 <p>范围和JSP Scope中的application相同，它的属性范围是从服务器一开始执行到服务器关闭为止。</p>
@@ -935,8 +937,9 @@ JSESSIONID: ${cookie.JSESSIONID.value}
 <blockquote>
 <p>使用${pageContext}来获取有关用户或页面的详细信息。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL09.png" alt=""></p>
 </blockquote>
-<h5 id="9-自定义标签"><a href="#9-自定义标签" class="headerlink" title="9.自定义标签"></a>9.自定义标签</h5><p>用户自定义的一种jsp标记。当一个含有自定义标签的jsp页面被jsp引擎编译成servlet时，tag标签被转化成了对一个称为标签处理类的对象的操作。于是，当jsp页面被jsp引擎转化为servle后，实际上tag标签被转化为了对tag处理类的操作。</p>
-<p>自定义标签可以降低jsp开发的复杂度和维护量。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png" alt=""><br>(1)自定义标签例子：<br>①. 创建一个标签处理器类: 实现 SimpleTag 接口.<br>②. 在 WEB-INF 文件夹下新建一个 .tld(标签库描述文件) 为扩展名的 xml 文件. 并拷入固定的部分: 并对<br>description, display-name, tlib-version, short-name, uri 做出修改。</p>
+<h4 id="八、自定义标签"><a href="#八、自定义标签" class="headerlink" title="八、自定义标签"></a>八、自定义标签</h4><p>用户自定义的一种jsp标记。当一个含有自定义标签的jsp页面被jsp引擎编译成servlet时，tag标签被转化成了对一个称为标签处理类的对象的操作。于是，当jsp页面被jsp引擎转化为servle后，实际上tag标签被转化为了对tag处理类的操作。</p>
+<p>自定义标签可以降低jsp开发的复杂度和维护量。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Tag01.png" alt=""></p>
+<h5 id="1-自定义标签例子："><a href="#1-自定义标签例子：" class="headerlink" title="1.自定义标签例子："></a>1.自定义标签例子：</h5><p>①. 创建一个标签处理器类: 实现 SimpleTag 接口.<br>②. 在 WEB-INF 文件夹下新建一个 .tld(标签库描述文件) 为扩展名的 xml 文件. 并拷入固定的部分: 并对<br>description, display-name, tlib-version, short-name, uri 做出修改。</p>
 <pre><code>//固定的部分
 &lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
 xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -967,8 +970,9 @@ version=&quot;2.0&quot;&gt;
 <blockquote>
 <p>使用 taglib 指令导入标签库描述文件: &lt;%@taglib uri=” &lt; url&gt;” prefix=”&lt; short-name&gt;” %&gt;<br>使用自定义的标签: &lt; zx:hello/&gt;</p>
 </blockquote>
-<p>(2)通过自定义标签为其设置属性，并输出在页面上<br>接续上面，我们主要用到实现 SimpleTag 接口中的doTag方法。<br>①.setJspContext: 一定会被 JSP 引擎所调用, 先于 doTag, 把代表 JSP 引擎的 pageContext 传给标签处理器类.<br>这里我们在类里定义一个PageContext的成员变量<br>private PageContext pageContext;<br>用在该类中</p>
-<h5 id="注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。"><a href="#注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。" class="headerlink" title="注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。"></a>注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。</h5><pre><code>private PageContext pageContext;
+<h5 id="2-通过自定义标签为其设置属性，并输出在页面上"><a href="#2-通过自定义标签为其设置属性，并输出在页面上" class="headerlink" title="2.通过自定义标签为其设置属性，并输出在页面上"></a>2.通过自定义标签为其设置属性，并输出在页面上</h5><p>接续上面，我们主要用到实现 SimpleTag 接口中的doTag方法。<br>①.setJspContext: 一定会被 JSP 引擎所调用, 先于 doTag, 把代表 JSP 引擎的 pageContext 传给标签处理器类.<br>这里我们在类里定义一个PageContext的成员变量<br>private PageContext pageContext;<br>用在该类中</p>
+<p> <strong>注意：由于有pagecontext所以他可以在该类中调用前面说的任何隐含变量，来获取值。</strong></p>
+<pre><code>private PageContext pageContext;
 
     @Override
     public void setJspContext(JspContext arg0) {
@@ -1036,7 +1040,7 @@ protected JspFragment getJspBody() {
     return this.jspBody;
 }   
 }
-</code></pre><p>(2)带标签体的自定义标签SetJspBody<br>①.若一个标签有标签体：</p>
+</code></pre><h5 id="3-带标签体的自定义标签SetJspBody"><a href="#3-带标签体的自定义标签SetJspBody" class="headerlink" title="3.带标签体的自定义标签SetJspBody"></a>3.带标签体的自定义标签SetJspBody</h5><p>①.若一个标签有标签体：</p>
 <blockquote>
 <p>&lt; zx:testJspFragment&gt;abcdefg&lt; /zx:testJspFragment&gt;<br>在自定义标签的标签处理器中使用 JspFragment 对象封装标签体信息</p>
 </blockquote>
@@ -1082,7 +1086,7 @@ version=&quot;2.0&quot;&gt;
 <blockquote>
 <p>3.empty: 没有标签体</p>
 </blockquote>
-<p>(3)标签体与属性一起用<br>tld</p>
+<h5 id="4-标签体与属性一起用"><a href="#4-标签体与属性一起用" class="headerlink" title="4.标签体与属性一起用"></a>4.标签体与属性一起用</h5><p>tld</p>
 <pre><code>&lt;tag&gt;
     &lt;name&gt;printUpper&lt;/name&gt;
     &lt;tag-class&gt;com.zx.javaweb.PrintUpperTag&lt;/tag-class&gt;
@@ -1129,7 +1133,7 @@ public void doTag() throws JspException, IOException {
 </code></pre><p>调用代码</p>
 <pre><code>//其中value是属性值，xiaohuzixiansheng是标签体内容
 &lt;zx:printUpper value=&quot;10&quot;&gt;xiaohuzixiansheng&lt;/zx:printUpper&gt;
-</code></pre><p>(3)SetParent带父标签的自定义标签<br>①. 父标签无法获取子标签的引用, 父标签仅把子标签作为标签体来使用. </p>
+</code></pre><h5 id="5-SetParent带父标签的自定义标签"><a href="#5-SetParent带父标签的自定义标签" class="headerlink" title="5.SetParent带父标签的自定义标签"></a>5.SetParent带父标签的自定义标签</h5><p>①. 父标签无法获取子标签的引用, 父标签仅把子标签作为标签体来使用. </p>
 <p>②. 子标签可以通过 getParent() 方法来获取父标签的引用(需继承 SimpleTagSupport 或自实现 SimpleTag 接口的该方法):若子标签的确有父标签, JSP 引擎会把代表父标签的引用通过  setParent(JspTag parent)  赋给标签处理器</p>
 <p>③. 注意: 父标签的类型是 JspTag 类型. 该接口是一个空接口, 但是来统一 SimpleTag 和 Tag 的. 实际使用需要进行类型的强制转换.</p>
 <p>④. 在 tld 配置文件中, 无需为父标签有额外的配置. 但, 子标签是是以标签体的形式存在的, 所以父标签的 &lt; body-content&gt;&lt; /body-content&gt;需设置为 scriptless</p>
@@ -1186,7 +1190,7 @@ public void doTag() throws JspException, IOException {
 </code></pre><p>jsp调用</p>
 <pre><code>&lt;zx:parentdoTag value=&quot;zx&quot;&gt;
 </code></pre><p>&lt;zx:sondoTag /&gt;<br>&lt;/zx:parentdoTag&gt;</p>
-<p>(4)自定义EL函数<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL10.png" alt=""><br>三步：<br>1.定义静态方法</p>
+<h5 id="6-自定义EL函数"><a href="#6-自定义EL函数" class="headerlink" title="6.自定义EL函数"></a>6.自定义EL函数</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/EL10.png" alt=""><br>三步：<br>1.定义静态方法</p>
 <pre><code>public static String concat(String str1, String str2){
     return str1 + str2;
 }
@@ -1201,15 +1205,15 @@ public void doTag() throws JspException, IOException {
 <pre><code>&lt;%@ taglib prefix=&quot;zx&quot; uri=&quot;http://zx.com/myTag/core&quot; %&gt;
 &lt;!-- 测试自定义的 EL 函数 --&gt;
 ${zx:concat(param.name1, param.name2)}
-</code></pre><h5 id="总结一下自定义标签的使用步骤："><a href="#总结一下自定义标签的使用步骤：" class="headerlink" title="总结一下自定义标签的使用步骤："></a>总结一下自定义标签的使用步骤：</h5><h5 id="1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法"><a href="#1-创建自定义标签类实现接口SimpleTag-一般extends-SimpleTagSupport-重写doTag方法" class="headerlink" title="1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)"></a>1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)</h5><h5 id="2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。"><a href="#2-在WEB-INF文件下新建-tld-配置文件-配置它，具体操作看上面。" class="headerlink" title="2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。"></a>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</h5><h5 id="3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"><a href="#3-设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext" class="headerlink" title="3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext"></a>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</h5><p>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</p>
-<h5 id="4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt"><a href="#4-得到标签内容JspFragment-bodyContent-getJspBody-，在tld中设置标签体-lt-body-content-gt-scriptless-lt-body-content-gt" class="headerlink" title="4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;"></a>4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;</h5><h5 id="5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt"><a href="#5-在jsp页面调用，通过标签的shortname-属性值调用，实现相应想要的输出。-lt-zx-printUpper-value-”10”-gt-xiaohuzixiansheng-lt-zx-printUpper-gt" class="headerlink" title="5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;"></a>5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;</h5><p><strong>所谓自定义标签就是自定义内容(body)和属性(value)把它放到doTag中去运行，然后返回一个运行结果给jsp页面。</strong></p>
-<h5 id="10-JSTL"><a href="#10-JSTL" class="headerlink" title="10.JSTL"></a>10.JSTL</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL24.png" alt=""></p>
-<p>JSTL，即JSP标准标签函数库。<br>(1)JSTL提供的标签库主要分为五大类</p>
-<p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL01.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL02.png" alt=""></p>
+</code></pre><p> <strong>总结一下自定义标签的使用步骤：</strong><br><strong>1.创建自定义标签类实现接口SimpleTag(一般extends SimpleTagSupport 重写doTag方法)</strong><br><strong>2.在WEB/INF文件下新建 .tld 配置文件,配置它，具体操作看上面。</strong><br> <strong>3.设置属性，在tld中设置属性，在实现类中实现相应的getter和setter方法，既可以在doTag中调用，关键是doTag和PageContext</strong><br><strong>(输出到浏览器用JSPWriter out =pageContext.getOut()方法，out.print()),这是由于该类中可以用pageContext调用任何隐含变量。</strong><br><strong>4.得到标签内容JspFragment bodyContent = getJspBody();，在tld中设置标签体&lt; body-content&gt;scriptless&lt; /body-content&gt;</strong><br><strong>5.在jsp页面调用，通过标签的shortname+属性值调用，实现相应想要的输出。&lt; zx:printUpper value=”10”&gt;xiaohuzixiansheng&lt; /zx:printUpper&gt;</strong></p>
+<p><strong>所谓自定义标签就是自定义内容(body)和属性(value)把它放到doTag中去运行，然后返回一个运行结果给jsp页面。</strong></p>
+<h4 id="九、JSTL"><a href="#九、JSTL" class="headerlink" title="九、JSTL"></a>九、JSTL</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL24.png" alt=""></p>
+<p>JSTL，即JSP标准标签函数库。</p>
+<h5 id="1-JSTL提供的标签库主要分为五大类"><a href="#1-JSTL提供的标签库主要分为五大类" class="headerlink" title="1.JSTL提供的标签库主要分为五大类"></a>1.JSTL提供的标签库主要分为五大类</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL01.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL02.png" alt=""></p>
 <blockquote>
 <p>注意：使用JSLTL时需要jar包<br>jstl.jar<br>standard.jar</p>
 </blockquote>
-<p>(2)输出赋值移除标签<br>①.c:out</p>
+<h5 id="2-输出赋值移除标签"><a href="#2-输出赋值移除标签" class="headerlink" title="2.输出赋值移除标签"></a>2.输出赋值移除标签</h5><p>①.c:out</p>
 <blockquote>
 <p>&lt; c:out value=”${username}/&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL03.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL05.png" alt=""><br>②.c:set<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL06.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL07.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL10.png" alt=""><br>③.c:remove<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL11.png" alt=""></p>
 </blockquote>
@@ -1255,7 +1259,7 @@ ID: ${requestScope.cust.id }
 book: ${requestScope.book }
 &lt;br&gt;&lt;br&gt;
 book: &lt;c:out value=&quot;${requestScope.book }&quot; default=&quot;booktitle&quot;&gt;&lt;/c:out&gt;
-</code></pre><p>(3)控制流程<br>①.c:if</p>
+</code></pre><h5 id="3-控制流程"><a href="#3-控制流程" class="headerlink" title="3.控制流程"></a>3.控制流程</h5><p>①.c:if</p>
 <blockquote>
 <p>&lt; c:if&gt;就和平时用的if一样<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL12.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL13.png" alt=""></p>
 </blockquote>
@@ -1297,7 +1301,7 @@ isAdult: &lt;c:out value=&quot;${requestScope.isAdult }&quot;&gt;&lt;/c:out&gt;
   }else{
 
        }
-</code></pre><p>(4)迭代操作<br>迭代主要包含两个标签&lt; c:forEach&gt;和&lt; c:forTokens&gt;。<br>①.&lt; c:forEach&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL19.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL20.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL21.png" alt=""></p>
+</code></pre><h5 id="4-迭代操作"><a href="#4-迭代操作" class="headerlink" title="4.迭代操作"></a>4.迭代操作</h5><p>迭代主要包含两个标签&lt; c:forEach&gt;和&lt; c:forTokens&gt;。<br>①.&lt; c:forEach&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL19.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL20.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/JSTL21.png" alt=""></p>
 <pre><code>&lt;h4&gt;c:forEach: 可以对数组, Collection, Map 进行遍历, begin(对于集合 begin 从 0 开始算), end, step&lt;/h4&gt;
 &lt;c:forEach begin=&quot;1&quot; end=&quot;10&quot; step=&quot;3&quot; var=&quot;i&quot;&gt;
     ${ i} --
@@ -1354,7 +1358,7 @@ isAdult: &lt;c:out value=&quot;${requestScope.isAdult }&quot;&gt;&lt;/c:out&gt;
 &lt;c:forTokens items=&quot;${requestScope.test }&quot; delims=&quot;.&quot; var=&quot;s&quot;&gt;
     ${s }&lt;br&gt;
 &lt;/c:forTokens&gt;
-</code></pre><p>(5)URL相关操作<br>JSTL包含三个与URL相关的标签：&lt; c:import&gt;、&lt; c:redirect&gt;、&lt; c:url&gt;。它们的主要功能是：用来将其他文件的内容包含起来、网页的重定向、还有url的产生。</p>
+</code></pre><h5 id="5-URL相关操作"><a href="#5-URL相关操作" class="headerlink" title="5.URL相关操作"></a>5.URL相关操作</h5><p>JSTL包含三个与URL相关的标签：&lt; c:import&gt;、&lt; c:redirect&gt;、&lt; c:url&gt;。它们的主要功能是：用来将其他文件的内容包含起来、网页的重定向、还有url的产生。</p>
 <p>①.&lt; c:import&gt;</p>
 <pre><code>&lt;h4&gt;c:import 可以包含任何页面到当前页面&lt;/h4&gt;
 &lt;c:import url=&quot;http://www.baidu.com&quot;&gt;&lt;/c:import&gt;
@@ -1384,7 +1388,8 @@ isAdult: &lt;c:out value=&quot;${requestScope.isAdult }&quot;&gt;&lt;/c:out&gt;
 &lt;/c:url&gt;
 
 url: ${testurl }
-</code></pre><h5 id="注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。"><a href="#注意：由于标签要交给servlet处理，所以“-”代表当前WEB应用的根目录。而类似于response-sendRedirect-“-test-jsp”-代表-WEB-站点的根目录。" class="headerlink" title="注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。"></a>注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。</h5><h5 id="11-Filter过滤器"><a href="#11-Filter过滤器" class="headerlink" title="11.Filter过滤器"></a>11.Filter过滤器</h5><p>(0)Filter<br>1).Filter是什么？<br>①. JavaWEB 的一个重要组件, 可以对发送到 Servlet 的请求进行拦截, 并对响应也进行拦截.<br>②. Filter 是实现了 Filter 接口的 Java 类.<br>③. Filter 需要在 web.xml 文件中进行配置和映射.<br>2).如何创建一个 Filter<br>①. 创建一个 Filter 类: 实现 Filter 接口: public class HelloFilter implements Filter<br>②. 在 web.xml 文件中配置并映射该 Filter. 其中 url-pattern 指定该 Filter 可以拦截哪些资源, 即可以通过哪些 url 访问到该 Filter。</p>
+</code></pre><p><strong>注意：由于标签要交给servlet处理，所以“/”代表当前WEB应用的根目录。而类似于response.sendRedirect(“/test.jsp”) / 代表 WEB 站点的根目录。</strong></p>
+<h4 id="十、Filter过滤器"><a href="#十、Filter过滤器" class="headerlink" title="十、Filter过滤器"></a>十、Filter过滤器</h4><h5 id="1-Filter"><a href="#1-Filter" class="headerlink" title="1.Filter"></a>1.Filter</h5><p>1).Filter是什么？<br>①. JavaWEB 的一个重要组件, 可以对发送到 Servlet 的请求进行拦截, 并对响应也进行拦截.<br>②. Filter 是实现了 Filter 接口的 Java 类.<br>③. Filter 需要在 web.xml 文件中进行配置和映射.<br>2).如何创建一个 Filter<br>①. 创建一个 Filter 类: 实现 Filter 接口: public class HelloFilter implements Filter<br>②. 在 web.xml 文件中配置并映射该 Filter. 其中 url-pattern 指定该 Filter 可以拦截哪些资源, 即可以通过哪些 url 访问到该 Filter。</p>
 <pre><code>   &lt;!-- 注册 Filter --&gt;
 
 &lt;filter&gt;
@@ -1434,8 +1439,14 @@ url: ${testurl }
 &lt;dispatcher&gt;INCLUDE&lt;/dispatcher&gt;
 &lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
 &lt;/filter-mapping&gt;
-</code></pre><p>(1)Filter简介<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter01.png" alt=""><br>(2)Filter过滤过程<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter02.png" alt=""><br>(3)Filter的基本工作原理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter03.png" alt=""><br>(4)Filter接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter05.png" alt=""><br>(5)FilterChain接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter06.png" alt=""><br>(6)FilterConfig接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter07.png" alt=""><br>(7)过滤器的部署<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter10.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png" alt=""></p>
-<p>(8)创建HttpFilter实现类来简化Filter创建类<br>①.为什么用抽象类：实现接口如果不实现它的所有的方法就要声明为抽象类。<br>②.为什么声明为抽象方法：父类不提供实现，由继承的子类实现。</p>
+</code></pre><h5 id="2-Filter简介"><a href="#2-Filter简介" class="headerlink" title="2.Filter简介"></a>2.Filter简介</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter01.png" alt=""></p>
+<h5 id="3-Filter过滤过程"><a href="#3-Filter过滤过程" class="headerlink" title="3.Filter过滤过程"></a>3.Filter过滤过程</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter02.png" alt=""></p>
+<h5 id="4-Filter的基本工作原理"><a href="#4-Filter的基本工作原理" class="headerlink" title="4.Filter的基本工作原理"></a>4.Filter的基本工作原理</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter03.png" alt=""></p>
+<h5 id="5-Filter接口"><a href="#5-Filter接口" class="headerlink" title="5.Filter接口"></a>5.Filter接口</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter05.png" alt=""></p>
+<h5 id="6-FilterChain接口"><a href="#6-FilterChain接口" class="headerlink" title="6.FilterChain接口"></a>6.FilterChain接口</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter06.png" alt=""></p>
+<h5 id="7-FilterConfig接口"><a href="#7-FilterConfig接口" class="headerlink" title="7.FilterConfig接口"></a>7.FilterConfig接口</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter07.png" alt=""></p>
+<h5 id="8-过滤器的部署"><a href="#8-过滤器的部署" class="headerlink" title="8.过滤器的部署"></a>8.过滤器的部署</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter10.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter12.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter13.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter14.png" alt=""></p>
+<h5 id="9-创建HttpFilter实现类来简化Filter创建类"><a href="#9-创建HttpFilter实现类来简化Filter创建类" class="headerlink" title="9.创建HttpFilter实现类来简化Filter创建类"></a>9.创建HttpFilter实现类来简化Filter创建类</h5><p>①.为什么用抽象类：实现接口如果不实现它的所有的方法就要声明为抽象类。<br>②.为什么声明为抽象方法：父类不提供实现，由继承的子类实现。</p>
 <pre><code>/**
  * 自定义的 HttpFilter, 实现自 Filter 接口
  *
@@ -1504,8 +1515,10 @@ public abstract void doFilter(HttpServletRequest request, HttpServletResponse re
 public void destroy() {}
 
 }
-</code></pre><p><br><br>(9)理解多个Filter的执行过程<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter15.png" alt=""><br>1,2,3分别代表三个代码块，1，2是两个过滤器中的doFilter方法，3是jsp页面调用。<br>它们3个就组成了一个chain:1-&gt;2-&gt;3<br>至于调用过程就是：先1，通过方法chain.doFilter会调用下个链，下个链会直接调用jsp。调用完jsp后，在倒着调用没有执行完的方法。<br><strong>也就是说链是会直接连着执行的。</strong></p>
-<p><br><br>(10)jsp加载错误页面的两种方式<br>①.在页面上面加入标签</p>
+</code></pre><p><br></p>
+<h5 id="10-理解多个Filter的执行过程"><a href="#10-理解多个Filter的执行过程" class="headerlink" title="10.理解多个Filter的执行过程"></a>10.理解多个Filter的执行过程</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter15.png" alt=""><br>1,2,3分别代表三个代码块，1，2是两个过滤器中的doFilter方法，3是jsp页面调用。<br>它们3个就组成了一个chain:1-&gt;2-&gt;3<br>至于调用过程就是：先1，通过方法chain.doFilter会调用下个链，下个链会直接调用jsp。调用完jsp后，在倒着调用没有执行完的方法。<br><strong>也就是说链是会直接连着执行的。</strong></p>
+<p><br></p>
+<h5 id="11-jsp加载错误页面的两种方式"><a href="#11-jsp加载错误页面的两种方式" class="headerlink" title="11.jsp加载错误页面的两种方式"></a>11.jsp加载错误页面的两种方式</h5><p>①.在页面上面加入标签</p>
 <blockquote>
 <p>&lt;%@ page errorPage=”error.jsp” %&gt;</p>
 </blockquote>
@@ -1513,11 +1526,13 @@ public void destroy() {}
 <blockquote>
 <p>编写web.xml<br> &lt; error-page&gt;<br>    &lt; exception-type&gt;java.lang.ArithmeticException&lt; /exception-type&gt;<br>    &lt; location&gt;/error.jsp&lt; /location&gt;<br>    &lt; /error-page&gt;<br>    &lt; filter-mapping&gt;<br>    &lt; filter-name&gt;Filter&lt; /filter-name&gt;<br>    &lt; url-pattern&gt;/error.jsp&lt; /url-pattern&gt;<br>    &lt; dispatcher&gt;ERROR&lt; /dispatcher&gt;<br>    &lt; /filter-mapping&gt;</p>
 </blockquote>
-<p><br><br>(11)禁用浏览器缓存的过滤器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter16.png" alt=""><br>就是在doFilter中加入三行代码(此时用的是HttpFilter自己写的)，用来实时的访问最新的页面：</p>
+<p><br></p>
+<h5 id="12-禁用浏览器缓存的过滤器"><a href="#12-禁用浏览器缓存的过滤器" class="headerlink" title="12.禁用浏览器缓存的过滤器"></a>12.禁用浏览器缓存的过滤器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter16.png" alt=""><br>就是在doFilter中加入三行代码(此时用的是HttpFilter自己写的)，用来实时的访问最新的页面：</p>
 <pre><code>response.setDateHeader(&quot;Expries&quot;,-1);
 response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);
 response.setHeader(&quot;Pragma&quot;,&quot;no-cache&quot;);
-</code></pre><p><br><br>(12)字符编码过滤器<br>通过配置参数encoding指明使用何种字符编码，以处理Html Form请求参数的中文问题。防止每段代码都写setencoding。这样更简便。</p>
+</code></pre><p><br></p>
+<h5 id="13-字符编码过滤器"><a href="#13-字符编码过滤器" class="headerlink" title="13.字符编码过滤器"></a>13.字符编码过滤器</h5><p>通过配置参数encoding指明使用何种字符编码，以处理Html Form请求参数的中文问题。防止每段代码都写setencoding。这样更简便。</p>
 <p>web.xml</p>
 <pre><code>&lt;context-param&gt;
  &lt;param-name&gt;encoding&lt;/param-name&gt;
@@ -1546,7 +1561,8 @@ public void doFilter(HttpServletRequest request,
 }
 
 }
-</code></pre><p>以后只需要改配置文件就可以在访问任何页面的时候自动指定编码集。init用于从xml中获取全局变量encoding的值，然后用于doFilter中。<br><br><br>(12)检测用户是否登陆的过滤器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter17.png" alt=""><br>web.xml</p>
+</code></pre><p>以后只需要改配置文件就可以在访问任何页面的时候自动指定编码集。init用于从xml中获取全局变量encoding的值，然后用于doFilter中。<br><br></p>
+<h5 id="14-检测用户是否登陆的过滤器"><a href="#14-检测用户是否登陆的过滤器" class="headerlink" title="14.检测用户是否登陆的过滤器"></a>14.检测用户是否登陆的过滤器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Filter17.png" alt=""><br>web.xml</p>
 <pre><code>&lt;!-- 用户信息放入到 session 中的键的名字 --&gt;
  &lt;context-param&gt;
  &lt;param-name&gt;userSessionKey&lt;/param-name&gt;
@@ -1619,7 +1635,9 @@ public void doFilter(HttpServletRequest request,
 
 }
 </code></pre><p>通过判断不可访问的页面，以及配置访问的条件来实现用户的登陆检查。</p>
-<p><br><br>(13)Filter实现权限管理<br>①.可根据配置文件读取权限，来判断可执行的操作。<br>(14)通过继承HttpServletRequestWrapper，来实现对原生request方法的修改与增强，此时在页面调用的request的方法都可以是重写增强的。该方法用来防止原生的方法没有的功能，我们可以去实现新的功能去调用。<br>注意：除了你自己重写的方法，其他的方法还是自动调用原生的。<br>举个例子：去除不雅文字(这里也用了Filter)<br>web.xml</p>
+<p><br></p>
+<h5 id="15-Filter实现权限管理"><a href="#15-Filter实现权限管理" class="headerlink" title="15.Filter实现权限管理"></a>15.Filter实现权限管理</h5><p>①.可根据配置文件读取权限，来判断可执行的操作。</p>
+<h5 id="16-HttpServletRequestWrapper-amp-HttpServletResponseWrapper"><a href="#16-HttpServletRequestWrapper-amp-HttpServletResponseWrapper" class="headerlink" title="16.HttpServletRequestWrapper&amp;HttpServletResponseWrapper"></a>16.HttpServletRequestWrapper&amp;HttpServletResponseWrapper</h5><p>通过继承HttpServletRequestWrapper&amp;HttpServletResponseWrapper，来实现对原生request方法的修改与增强，此时在页面调用的request的方法都可以是重写增强的。该方法用来防止原生的方法没有的功能，我们可以去实现新的功能去调用。<br>注意：除了你自己重写的方法，其他的方法还是自动调用原生的。<br>举个例子：去除不雅文字(这里也用了Filter)<br>web.xml</p>
 <pre><code>&lt;filter&gt;
 &lt;display-name&gt;ContentFilter&lt;/display-name&gt;
 &lt;filter-name&gt;ContentFilter&lt;/filter-name&gt;
@@ -1691,9 +1709,11 @@ public String getParameter(String name) {
 &lt;/form&gt;
 </code></pre><p>bbs.jsp</p>
 <pre><code>content: ${param.content }
-</code></pre><h5 id="上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似-Servlet-API-也提供了一个-HttpServletResponseWrapper-类来包装原始的-response-对象"><a href="#上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似-Servlet-API-也提供了一个-HttpServletResponseWrapper-类来包装原始的-response-对象" class="headerlink" title="上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象"></a>上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象</h5><p><br></p>
-<h5 id="12-Servlet监听器"><a href="#12-Servlet监听器" class="headerlink" title="12.Servlet监听器"></a>12.Servlet监听器</h5><p>(1)介绍<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener01.png" alt=""></p>
-<p><br><br><br>(2)监听器分类<br>①.监听域对象自身的创建和销毁的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener02.png" alt=""></p>
+</code></pre><p> <strong>上面的这个方法除了getParamter方法，其他的方法还是用原生的。因为只重写了一个。相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象</strong></p>
+<p><br></p>
+<h4 id="十一、Servlet监听器"><a href="#十一、Servlet监听器" class="headerlink" title="十一、Servlet监听器"></a>十一、Servlet监听器</h4><h5 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener01.png" alt=""></p>
+<p><br><br></p>
+<h5 id="2-监听器分类"><a href="#2-监听器分类" class="headerlink" title="2.监听器分类"></a>2.监听器分类</h5><p>①.监听域对象自身的创建和销毁的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener02.png" alt=""></p>
 <ul>
 <li>ServletContextListener接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener05.png" alt=""></li>
 <li>HttpSessionListener接口<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener06.png" alt=""></li>
@@ -1736,8 +1756,8 @@ System.out.println(&quot;request 中属性替换了...&quot;);
 </blockquote>
 <p>&lt; listener&gt;</p>
 <pre><code>&lt; listener-class&gt;com.zx.javaweb.test.TestAttributeListener&lt; /listener-class&gt;
-</code></pre><p>&lt; /listener&gt;</p>
-<h5 id="注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。"><a href="#注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。" class="headerlink" title="注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。"></a>注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。</h5><p><br><br><br></p>
+</code></pre><p>&lt; /listener&gt;<br><strong>注意：这些接口中的方法都是在相应的属性发生变化时会自动调用相应的方法，其中getName和getValue可以获得改变的属性名和属性值。</strong></p>
+<p><br><br><br></p>
 </li>
 </ul>
 <p>③.监听绑定到HttpSession域中的某个对象的状态的事件监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener04.png" alt=""></p>
@@ -1767,7 +1787,9 @@ public void sessionWillPassivate(HttpSessionEvent se)
 <p>getSession()</p>
 </blockquote>
 <p> 4). 该监听器较少被使用. </p>
-<p><br><br><br>(2)创建Servlet监听器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png" alt=""><br>(3)监听器创建例子及对其域对象生命周期的理解<br>①.以ServletContextListener为例</p>
+<p><br><br></p>
+<h5 id="3-创建Servlet监听器"><a href="#3-创建Servlet监听器" class="headerlink" title="3.创建Servlet监听器"></a>3.创建Servlet监听器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Listener08.png" alt=""></p>
+<h5 id="4-监听器创建例子及对其域对象生命周期的理解"><a href="#4-监听器创建例子及对其域对象生命周期的理解" class="headerlink" title="4.监听器创建例子及对其域对象生命周期的理解"></a>4.监听器创建例子及对其域对象生命周期的理解</h5><p>①.以ServletContextListener为例</p>
 <ul>
 <li>监听 ServletContext 对象被创建或销毁的 Servlet 监听器</li>
 <li><p>怎么用？<br>1).创建一个实现了 ServletContextListener 的类, 并且实现其中的两个方法</p>
@@ -2121,11 +2143,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
