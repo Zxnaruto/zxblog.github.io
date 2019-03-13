@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/03/13/jQuery/">jQuery </a>
+      <a class="article-title" href="/zxblog.github.io/2019/03/13/jQuery/">jQuery</a>
     </h1>
   
 
@@ -217,10 +217,620 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������</p>
-<h5 id="1-JQuery������"><a href="#1-JQuery������" class="headerlink" title="1.JQuery������"></a>1.JQuery������</h5><p>(1)������<br>(2)ǿ���ѡ����<br>(3)��ɫ��DOM�����ķ�װ<br>(4)�ɿ����¼��������<br>(5)���Ƶ�Ajax<br>(7)��ɫ�������������<br>(8)��ʽ������ʽ<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/13/jQuery/#more">more >></a>
-        
+<h5 id="1-JQuery������"><a href="#1-JQuery������" class="headerlink" title="1.JQuery������"></a>1.JQuery������</h5><p>(1)������<br>(2)ǿ���ѡ����<br>(3)��ɫ��DOM�����ķ�װ<br>(4)�ɿ����¼��������<br>(5)���Ƶ�Ajax<br>(7)��ɫ�������������<br>(8)��ʽ������ʽ</p>
+<h5 id="2-jQuery֮Helloworld"><a href="#2-jQuery֮Helloworld" class="headerlink" title="2.jQuery֮Helloworld"></a>2.jQuery֮Helloworld</h5><p>(1)����jQuery�����İ���jquery-x.x.x.js<br>(2)���룺</p>
+<pre><code>&lt;!-- ���� jQuery �� --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+//$(function(){}) �൱�� window.onload, ����ж�� {} ֮��
+$(function(){
+    //1. ѡȡ button: $(&quot;button&quot;)
+    //2. Ϊ button ��� onclick ��Ӧ����: $(&quot;button&quot;).click(function(){})
+    //�����д�� function �� {} ��. 
+    $(&quot;button&quot;).click(function(){
+        //3. ���� helloworld
+        alert(&quot;helloworld&quot;);
+
+    });
+
+})
+&lt;/script&gt;
+</code></pre><h4 id="������ϸ����jQuery�ĸ��ַ���"><a href="#������ϸ����jQuery�ĸ��ַ���" class="headerlink" title="������ϸ����jQuery�ĸ��ַ���"></a>������ϸ����jQuery�ĸ��ַ���</h4><h5 id="1-jQuery�����DOM����"><a href="#1-jQuery�����DOM����" class="headerlink" title="1.jQuery�����DOM����"></a>1.jQuery�����DOM����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png" alt=""><br>(1)jQuery����ת��DOM������������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery02.png" alt=""></p>
+<pre><code>//jQuery �� DOM ����,��������
+//1. �� jQuery ����תΪ DOM ����
+//1). ��ȡһ�� jQuery ����
+var $btn = $(&quot;button&quot;);
+
+//2). jQuery ������һ������. 
+alert($btn.length);
+
+//3). ����ͨ��������±�תΪ DOM ����
+//alert($btn[1].firstChild.nodeValue);
+</code></pre><p>(2)DOM����תΪjQuery��������$()<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery03.png" alt=""></p>
+<pre><code>//DOMתjQuery����$()
+alert($(this).text());
+ //2. �� DOM ����תΪ jQuery ����
+ //1). ѡȡһ�� DOM ����
+ var btn = document.getElementById(&quot;btn&quot;);
+
+ //2). �� DOM ����תΪһ�� jQuery ����: ʹ�� $() ���а�װ
+ alert(&quot;--&quot; + $(btn).text())
+</code></pre><p><strong>ע�⣺ֻ��jquery������Ե�������Ӧ�ķ�����DOMҲֻ�ܵ���DOM�ģ���������֮���ת������Ϊ��Ҫ��</strong></p>
+<h5 id="2-jQuery����ѡ����"><a href="#2-jQuery����ѡ����" class="headerlink" title="2.jQuery����ѡ����"></a>2.jQuery����ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery04.png" alt=""><br>(1)����ѡ����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery05.png" alt=""></p>
+<pre><code>$(function()){
+  //ʹ��idѡ����ѡ��id=btn1��Ԫ�أ�$(&quot;btn1&quot;)
+  //Ϊѡ���jQuery�������onclick��Ӧ����
+  $(&quot;btn1&quot;).click(function(){
+  //one��id������Ҫ��idѡ����#one
+  $(&quot;#one&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
+  });
+   $(&quot;btn2&quot;).click(function(){
+  //mini����������Ҫ����ѡ����.mini
+  $(&quot;.mini&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
+  });
+   $(&quot;btn3&quot;).click(function(){
+  //Ԫ������div��
+  $(&quot;div&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
+  });
+     $(&quot;btn4&quot;).click(function(){
+  //ѡ������Ԫ��
+  $(&quot;*&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
+  });  
+   $(&quot;btn5&quot;).click(function(){
+  //������ѡ��Ԫ����Ϊspan��id=two��Ԫ��
+  $(&quot;span,#two&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
+  });
+  }
+</code></pre><h5 id="3-jQuery���ѡ����"><a href="#3-jQuery���ѡ����" class="headerlink" title="3.jQuery���ѡ����"></a>3.jQuery���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery06.png" alt=""><br>(1)ʾ�����룺</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+
+        $(function(){
+
+//ѡ�� body �ڵ����� div Ԫ��            $(&quot;#btn1&quot;).click(function(){
+                $(&quot;body div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;body &gt; div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                $(&quot;#one + div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;#two ~ div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn5&quot;).click(function(){
+                $(&quot;#two&quot;).siblings(&quot;div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn6&quot;).click(function(){
+                //����ѡ����ѡ����ǽ��� #one �� span Ԫ��, ���span
+                //�� #one ������, ѡ������Ч. 
+                //$(&quot;#one + span&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+                $(&quot;#one&quot;).nextAll(&quot;span:first&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn7&quot;).click(function(){
+//ѡ�� id Ϊ two ��Ԫ��ǰ�ߵ����е� div �ֵ�Ԫ��                    $(&quot;#two&quot;).prevAll(&quot;div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+        })
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� body �ڵ����� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;�� body ��, ѡ����Ԫ���� div ��.&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ one ����һ�� div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ�غ�������� div �ֵ�Ԫ��&quot; id=&quot;btn4&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ������ div �ֵ�Ԫ��&quot; id=&quot;btn5&quot; /&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ one ����һ�� span Ԫ��&quot; id=&quot;btn6&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ��ǰ�ߵ����е� div �ֵ�Ԫ��&quot; id=&quot;btn7&quot; /&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;span id=&quot;span&quot;&gt;^^spanԪ��^^&lt;/span&gt;
+    &lt;span id=&quot;span&quot;&gt;--spanԪ��--&lt;/span&gt;
+&lt;/body&gt;
+</code></pre><h5 id="4-jQuery��������ѡ����"><a href="#4-jQuery��������ѡ����" class="headerlink" title="4.jQuery��������ѡ����"></a>4.jQuery��������ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery07.png" alt=""><br>(1)��������ѡ����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery08.png" alt=""><br>(2)ʾ�����룺</p>
+<pre><code>$(function(){
+$(&quot;#btn1&quot;).click(function(){
+                $(&quot;div:first&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;div:last&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                $(&quot;div:not(.one)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;div:even&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn5&quot;).click(function(){
+                $(&quot;div:odd&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn6&quot;).click(function(){
+                $(&quot;div:gt(3)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn7&quot;).click(function(){
+                $(&quot;div:eq(3)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn8&quot;).click(function(){
+                $(&quot;div:lt(3)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn9&quot;).click(function(){
+                $(&quot;:header&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn10&quot;).click(function(){
+                $(&quot;:animated&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn11&quot;).click(function(){
+                $(&quot;#two&quot;).nextAll(&quot;span:first&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+});
+//Ҫ��
+&lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡ���һ�� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�����һ�� div Ԫ��&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ��class��Ϊ one ������ div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪż���� div Ԫ��&quot; id=&quot;btn4&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ������ div Ԫ��&quot; id=&quot;btn5&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ���� 3 �� div Ԫ��&quot; id=&quot;btn6&quot; /&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ���� 3 �� div Ԫ��&quot; id=&quot;btn7&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪС�� 3 �� div Ԫ��&quot; id=&quot;btn8&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�����еı���Ԫ��&quot; id=&quot;btn9&quot; /&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;ѡ��ǰ����ִ�ж���������Ԫ��&quot; id=&quot;btn10&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ����һ�� span Ԫ��&quot; id=&quot;btn11&quot; /&gt;
+
+    &lt;h3&gt;����ѡ����.&lt;/h3&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;span id=&quot;span&quot;&gt;^^spanԪ�� 111^^&lt;/span&gt;
+    &lt;span id=&quot;span&quot;&gt;^^spanԪ�� 222^^&lt;/span&gt;
+    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h5 id="5-jQuery���ݹ���ѡ����"><a href="#5-jQuery���ݹ���ѡ����" class="headerlink" title="5.jQuery���ݹ���ѡ����"></a>5.jQuery���ݹ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery09.png" alt=""><br>(1)����ʾ����</p>
+<pre><code>    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function(){
+
+            $(&quot;#btn1&quot;).click(function(){
+                $(&quot;div:contains(&apos;di&apos;)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;div:empty&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                $(&quot;div:has(.mini)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;div:parent&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+                //$(&quot;div:not(:empty)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+        });
+
+    &lt;/script&gt;
+    //body
+    &lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�� �����ı� &apos;di&apos; �� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�񲻰�����Ԫ��(�����ı�Ԫ��) �� div ��Ԫ��&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ���� class Ϊ mini Ԫ�ص� div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ������Ԫ��(�����ı�Ԫ��)��divԪ��&quot; id=&quot;btn4&quot; /&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h5 id="6-jQuery�ɼ��Թ���ѡ����"><a href="#6-jQuery�ɼ��Թ���ѡ����" class="headerlink" title="6.jQuery�ɼ��Թ���ѡ����"></a>6.jQuery�ɼ��Թ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery10.png" alt=""><br>(1)ʾ�����룺</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function(){
+
+            $(&quot;#btn1&quot;).click(function(){
+                $(&quot;div:visible&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                //alert($(&quot;div:hidden&quot;).length);
+                //show(time): ����ʹ���ɼ���Ԫ�ر�Ϊ�ɼ�, time ��ʾʱ��, ��
+                //����Ϊ��λ
+                //jQuery �ĺܶ෽��֧�ַ�������׺, ��һ�������ķ���ֵ��ʱ���ø�
+                //������ jQuery ����: ���Լ������øö������������. 
+                $(&quot;div:hidden&quot;).show(2000).css(&quot;background&quot;, 
+                        &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                //val() �������Է���ĳһ����Ԫ�ص� value ����ֵ. 
+                alert($(&quot;input:hidden&quot;).val());
+            });
+
+        });
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ���пɼ���  div Ԫ��&quot; id=&quot;btn1&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�����в��ɼ��� div Ԫ��&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡ�����в��ɼ��� input Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div
+        &lt;input type=&quot;hidden&quot; value=&quot;123456789000&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h5 id="7-jQuery���Թ���ѡ����"><a href="#7-jQuery���Թ���ѡ����" class="headerlink" title="7.jQuery���Թ���ѡ����"></a>7.jQuery���Թ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery11.png" alt=""><br>(1)ʾ�����룺</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(function(){
+
+            $(&quot;#btn1&quot;).click(function(){
+                $(&quot;div[title]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;div[title=&apos;test&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                //ѡȡ��Ԫ���а���û�� title �� div Ԫ��. 
+                $(&quot;div[title!=&apos;test&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;div[title^=&apos;te&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn5&quot;).click(function(){
+                $(&quot;div[title$=&apos;est&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn6&quot;).click(function(){
+                $(&quot;div[title*=&apos;es&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn7&quot;).click(function(){
+                $(&quot;div[id][title*=&apos;es&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn8&quot;).click(function(){
+                $(&quot;div[title][title!=&apos;test&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+        })
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ���� ����title ��divԪ��.&quot; id=&quot;btn1&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ����&apos;test&apos;��divԪ��.&quot; id=&quot;btn2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ������&apos;test&apos;��divԪ��(û������title��Ҳ����ѡ��).&quot; id=&quot;btn3&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ��&apos;te&apos;��ʼ ��divԪ��.&quot; id=&quot;btn4&quot;/&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ��&apos;est&apos;���� ��divԪ��.&quot; id=&quot;btn5&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ����&apos;es&apos;��divԪ��.&quot; id=&quot;btn6&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;�������ѡ����,����ѡȡ������id��divԪ�أ�Ȼ���ڽ���� ѡȡ����titleֵ ����&apos;es&apos;�� div Ԫ��.&quot; id=&quot;btn7&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ���� title ����ֵ, ��title ����ֵ������ test �� div Ԫ��.&quot; id=&quot;btn8&quot;/&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h5 id="8-jQuery��Ԫ�ع���ѡ����"><a href="#8-jQuery��Ԫ�ع���ѡ����" class="headerlink" title="8.jQuery��Ԫ�ع���ѡ����"></a>8.jQuery��Ԫ�ع���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png" alt=""><br>(1)ʾ�����룺</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function(){
+
+            $(&quot;#btn1&quot;).click(function(){
+                //ѡȡ��Ԫ��, ��Ҫ��ѡ����ǰ���һ���ո�. 
+                $(&quot;div.one :nth-child(2)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;div.one :first-child&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                $(&quot;div.one :last-child&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;div.one :only-child&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+            });
+
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;        
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µĵ�2����Ԫ��.&quot; id=&quot;btn1&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µĵ�һ����Ԫ��.&quot; id=&quot;btn2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µ����һ����Ԫ��.&quot; id=&quot;btn3&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;���classΪone��div��Ԫ���µĽ���ֻ��һ����Ԫ�أ���ôѡ�������Ԫ��.&quot; id=&quot;btn4&quot;/&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
+        id Ϊ one,class Ϊ one ��div
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
+        idΪtwo,classΪone,titleΪtest��div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one&quot;&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div&gt;
+        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h5 id="9-jQuery��Ԫ�ع���ѡ����"><a href="#9-jQuery��Ԫ�ع���ѡ����" class="headerlink" title="9.jQuery��Ԫ�ع���ѡ����"></a>9.jQuery��Ԫ�ع���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png" alt=""><br>(1)ʾ�����룺</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(function(){
+            $(&quot;#btn1&quot;).click(function(){
+                //ʹ���еĿ��õĵ����ı���� value ֵ��Ϊ zx
+                alert($(&quot;:text:enabled&quot;).val());
+                $(&quot;:text:enabled&quot;).val(&quot;zx&quot;);
+            });
+            $(&quot;#btn2&quot;).click(function(){
+                $(&quot;:text:disabled&quot;).val(&quot;xiaohuzixiansheng&quot;);
+            });
+            $(&quot;#btn3&quot;).click(function(){
+                var num = 
+                    $(&quot;:checkbox[name=&apos;newsletter&apos;]:checked&quot;).length;
+                alert(num);
+            });
+
+            $(&quot;#btn5&quot;).click(function(){
+                //ʵ�ʱ�ѡ��Ĳ��� select, ���� select �� option �ӽڵ�
+                //����Ҫ��һ�� �ո�. 
+                //var len = $(&quot;select :selected&quot;).length
+                //alert(len);
+
+                //��Ϊ $(&quot;select :selected&quot;) ѡ�����һ������
+                //�����������ж��Ԫ��ʱ, ͨ�� .val() ������ֻ�ܻ�ȡ��һ����ѡ���ֵ��. 
+                //alert($(&quot;select :selected&quot;).val());
+
+                //jQuery ��������ķ�ʽʹ each, �� each �ڲ��� this ������
+                //�õ��� DOM ����, ������һ�� jQuery ����
+                $(&quot;select :selected&quot;).each(function(){
+                    alert(this.value);
+                });
+            });
+
+            $(&quot;#btn4&quot;).click(function(){
+                $(&quot;:checkbox[name=&apos;newsletter&apos;]:checked&quot;).each(function(){
+                    alert(this.value);
+                });
+            });
+        })
+    &lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h3&gt;���������Թ���ѡ����&lt;/h3&gt;
+     &lt;button id=&quot;btn1&quot;&gt;�Ա��� ����input ��ֵ����.&lt;/button&gt;
+       &lt;button id=&quot;btn2&quot;&gt;�Ա��� ������input ��ֵ����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+     &lt;button id=&quot;btn3&quot;&gt;��ȡ��ѡ��ѡ�еĸ���.&lt;/button&gt;
+     &lt;button id=&quot;btn4&quot;&gt;��ȡ��ѡ��ѡ�е�����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+     &lt;button id=&quot;btn5&quot;&gt;��ȡ������ѡ�е�����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+
+    &lt;form id=&quot;form1&quot; action=&quot;#&quot;&gt;            
+        ����Ԫ��: &lt;input name=&quot;add&quot; value=&quot;�����ı���1&quot;/&gt;&lt;br&gt;
+        ������Ԫ��: &lt;input name=&quot;email&quot; disabled=&quot;true&quot; value=&quot;�������ı���&quot;/&gt;&lt;br&gt;
+        ����Ԫ��: &lt;input name=&quot;che&quot; value=&quot;�����ı���2&quot;/&gt;&lt;br&gt;
+        ������Ԫ��: &lt;input name=&quot;name&quot; disabled=&quot;true&quot; value=&quot;�������ı���&quot;/&gt;&lt;br&gt;
+        &lt;br&gt;
+
+        ��ѡ��: &lt;br&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;test1&quot; /&gt;test1
+        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test2&quot; /&gt;test2
+        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test3&quot; /&gt;test3
+        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;test4&quot; /&gt;test4
+        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test5&quot; /&gt;test5
+
+        &lt;br&gt;&lt;br&gt;
+        �����б�1: &lt;br&gt;
+        &lt;select name=&quot;test&quot; multiple=&quot;multiple&quot; style=&quot;height: 100px&quot;&gt;
+            &lt;option&gt;�㽭&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;����&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;���&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        �����б�2: &lt;br&gt;
+        &lt;select name=&quot;test2&quot;&gt;
+            &lt;option&gt;�㽭&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;����&lt;/option&gt;
+            &lt;option&gt;���&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+            &lt;option&gt;����&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;textarea rows=&quot;&quot; cols=&quot;&quot;&gt;&lt;/textarea&gt;
+    &lt;/form&gt;        
+&lt;/body&gt;
+</code></pre><h5 id="10-jQuery��ѡ����"><a href="#10-jQuery��ѡ����" class="headerlink" title="10.jQuery��ѡ����"></a>10.jQuery��ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png" alt=""></p>
+<h5 id="11-jQueryС��"><a href="#11-jQueryС��" class="headerlink" title="11.jQueryС��"></a>11.jQueryС��</h5><p>(1)jQuery��JavaScript��һ�������⡣<br>(2)����jQuery�����Ĳ��裺<br>��.����jQuery��<br>��.��$(function(){})�б�дjQuery����</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+   $(&quot;btn1&quot;).click(function(){
+   //ʹ���еĿ��õ����ı����value��ֵ��Ϊzx
+   $(&quot;text:enabled&quot;).val(&quot;zx&quot;);
+});
+  });
+&lt;/script&gt;
+</code></pre><p>(3)jQuery������DOM����<br>��.jQuery������ʹ��DOM��������Ժͷ�������֮��DOM����Ҳ����ʹ��jQuery��������Ժͷ�����<br>��.<strong>jQuery������һ��DOM�������</strong>�����Կ���ʹ���±�ķ�ʽתΪDOM����</p>
+<pre><code>var $btn=$(&quot;button&quot;);
+var btn=$btn[0];
+</code></pre><p>��.jQuery����ʹ��${}��֤DOM����ת����jQuery����</p>
+<pre><code>  $(&quot;select :selted&quot;).each(function(){
+alert($(this).val());
+  });
+</code></pre><p>(4).jQuery��ѡ����<br>��.ѡȡ��ѡ�е�select��option��Ҫʹ��ѡȡ�ӽڵ�ķ�ʽ��</p>
+<pre><code>$(&quot;select[name=&apos;test&apos;] :selected&quot;).each(function{
+......
+});
+</code></pre><p>��.jQueryѡ���������ۺ�ʹ��<br>��.���ѡ�����㲻�������Խ�������</p>
+<p>(5)jQuery����ļ�������<br>��.val()����ȡ�����ñ�Ԫ�ص�value����ֵ��</p>
+<pre><code> //����ֵ
+$(&quot;:text:enabled&quot;).val(&quot;zx&quot;);
+//��ȡֵ
+alert((&quot;:text:enabled&quot;).val());
+</code></pre><p>��.attr()����val()��������</p>
+<pre><code>attr(name,val);//Ϊname���Ը�ֵval
+attr(name);//��ȡname������ֵ
+</code></pre><p>��.eatch()����jQuery������б���������Ϊfunction,�����ڲ���this�����ڱ�����DOM����</p>
+<pre><code>$(&quot;select :selected&quot;).each(function{
+alert(this.value);
+//�ȼ�
+//alert($(this).val());
+});
+</code></pre><p>��.text()����val()��������<br>text()����ȡԪ�ؽڵ���ı��ӽڵ��ֵ<br>text(str)������Ԫ�ؽڵ���ı��ӽڵ��ֵ</p>
+
       
 
       
@@ -1151,11 +1761,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,10 +1781,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -1183,11 +1789,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1195,7 +1801,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,7 +1809,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,7 +1821,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,10 +1838,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
