@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>jQuery | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
+  <meta name="description" content="一、简介jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。">
 <meta name="keywords" content="jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/13/jQuery/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
+<meta property="og:description" content="一、简介jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery02.png">
@@ -30,10 +30,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png">
-<meta property="og:updated_time" content="2019-03-13T12:59:52.371Z">
+<meta property="og:updated_time" content="2019-03-13T13:02:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
-<meta name="twitter:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
+<meta name="twitter:description" content="一、简介jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -238,79 +238,79 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������<br><a id="more"></a></p>
-<h5 id="1-JQuery������"><a href="#1-JQuery������" class="headerlink" title="1.JQuery������"></a>1.JQuery������</h5><p>(1)������<br>(2)ǿ���ѡ����<br>(3)��ɫ��DOM�����ķ�װ<br>(4)�ɿ����¼��������<br>(5)���Ƶ�Ajax<br>(7)��ɫ�������������<br>(8)��ʽ������ʽ</p>
-<h5 id="2-jQuery֮Helloworld"><a href="#2-jQuery֮Helloworld" class="headerlink" title="2.jQuery֮Helloworld"></a>2.jQuery֮Helloworld</h5><p>(1)����jQuery�����İ���jquery-x.x.x.js<br>(2)���룺</p>
-<pre><code>&lt;!-- ���� jQuery �� --&gt;
+        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。<br><a id="more"></a></p>
+<h5 id="1-JQuery的优势"><a href="#1-JQuery的优势" class="headerlink" title="1.JQuery的优势"></a>1.JQuery的优势</h5><p>(1)轻量级<br>(2)强大的选择器<br>(3)出色的DOM操作的封装<br>(4)可靠的事件处理机制<br>(5)完善的Ajax<br>(7)出色的浏览器兼容性<br>(8)链式操作方式</p>
+<h5 id="2-jQuery之Helloworld"><a href="#2-jQuery之Helloworld" class="headerlink" title="2.jQuery之Helloworld"></a>2.jQuery之Helloworld</h5><p>(1)导入jQuery依赖的包：jquery-x.x.x.js<br>(2)代码：</p>
+<pre><code>&lt;!-- 导入 jQuery 库 --&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
 
-//$(function(){}) �൱�� window.onload, ����ж�� {} ֮��
+//$(function(){}) 相当于 window.onload, 代码卸载 {} 之间
 $(function(){
-    //1. ѡȡ button: $(&quot;button&quot;)
-    //2. Ϊ button ��� onclick ��Ӧ����: $(&quot;button&quot;).click(function(){})
-    //�����д�� function �� {} ��. 
+    //1. 选取 button: $(&quot;button&quot;)
+    //2. 为 button 添加 onclick 响应函数: $(&quot;button&quot;).click(function(){})
+    //代码编写在 function 的 {} 中. 
     $(&quot;button&quot;).click(function(){
-        //3. ���� helloworld
+        //3. 弹出 helloworld
         alert(&quot;helloworld&quot;);
 
     });
 
 })
 &lt;/script&gt;
-</code></pre><h4 id="������ϸ����jQuery�ĸ��ַ���"><a href="#������ϸ����jQuery�ĸ��ַ���" class="headerlink" title="������ϸ����jQuery�ĸ��ַ���"></a>������ϸ����jQuery�ĸ��ַ���</h4><h5 id="1-jQuery�����DOM����"><a href="#1-jQuery�����DOM����" class="headerlink" title="1.jQuery�����DOM����"></a>1.jQuery�����DOM����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png" alt=""><br>(1)jQuery����ת��DOM������������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery02.png" alt=""></p>
-<pre><code>//jQuery �� DOM ����,��������
-//1. �� jQuery ����תΪ DOM ����
-//1). ��ȡһ�� jQuery ����
+</code></pre><h4 id="二、详细介绍jQuery的各种方法"><a href="#二、详细介绍jQuery的各种方法" class="headerlink" title="二、详细介绍jQuery的各种方法"></a>二、详细介绍jQuery的各种方法</h4><h5 id="1-jQuery对象和DOM对象"><a href="#1-jQuery对象和DOM对象" class="headerlink" title="1.jQuery对象和DOM对象"></a>1.jQuery对象和DOM对象</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png" alt=""><br>(1)jQuery对象转成DOM对象：利用数组<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery02.png" alt=""></p>
+<pre><code>//jQuery 和 DOM 对象,利用数组
+//1. 由 jQuery 对象转为 DOM 对象
+//1). 获取一个 jQuery 对象
 var $btn = $(&quot;button&quot;);
 
-//2). jQuery ������һ������. 
+//2). jQuery 对象是一个数组. 
 alert($btn.length);
 
-//3). ����ͨ��������±�תΪ DOM ����
+//3). 可以通过数组的下标转为 DOM 对象
 //alert($btn[1].firstChild.nodeValue);
-</code></pre><p>(2)DOM����תΪjQuery��������$()<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery03.png" alt=""></p>
-<pre><code>//DOMתjQuery����$()
+</code></pre><p>(2)DOM对象转为jQuery对象：利用$()<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery03.png" alt=""></p>
+<pre><code>//DOM转jQuery，加$()
 alert($(this).text());
- //2. �� DOM ����תΪ jQuery ����
- //1). ѡȡһ�� DOM ����
+ //2. 由 DOM 对象转为 jQuery 对象
+ //1). 选取一个 DOM 对象
  var btn = document.getElementById(&quot;btn&quot;);
 
- //2). �� DOM ����תΪһ�� jQuery ����: ʹ�� $() ���а�װ
+ //2). 把 DOM 对象转为一个 jQuery 对象: 使用 $() 进行包装
  alert(&quot;--&quot; + $(btn).text())
-</code></pre><p><strong>ע�⣺ֻ��jquery������Ե�������Ӧ�ķ�����DOMҲֻ�ܵ���DOM�ģ���������֮���ת������Ϊ��Ҫ��</strong></p>
-<h5 id="2-jQuery����ѡ����"><a href="#2-jQuery����ѡ����" class="headerlink" title="2.jQuery����ѡ����"></a>2.jQuery����ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery04.png" alt=""><br>(1)����ѡ����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery05.png" alt=""></p>
+</code></pre><p><strong>注意：只有jquery对象可以调用其相应的方法，DOM也只能调用DOM的，所以两者之间的转换就尤为重要了</strong></p>
+<h5 id="2-jQuery基本选择器"><a href="#2-jQuery基本选择器" class="headerlink" title="2.jQuery基本选择器"></a>2.jQuery基本选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery04.png" alt=""><br>(1)基本选择器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery05.png" alt=""></p>
 <pre><code>$(function()){
-  //ʹ��idѡ����ѡ��id=btn1��Ԫ�أ�$(&quot;btn1&quot;)
-  //Ϊѡ���jQuery�������onclick��Ӧ����
+  //使用id选择器选择id=btn1的元素：$(&quot;btn1&quot;)
+  //为选择的jQuery对象添加onclick响应函数
   $(&quot;btn1&quot;).click(function(){
-  //one��id������Ҫ��idѡ����#one
+  //one是id名所以要用id选择器#one
   $(&quot;#one&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
   });
    $(&quot;btn2&quot;).click(function(){
-  //mini����������Ҫ����ѡ����.mini
+  //mini是类名所以要用类选择器.mini
   $(&quot;.mini&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
   });
    $(&quot;btn3&quot;).click(function(){
-  //Ԫ������div��
+  //元素名是div的
   $(&quot;div&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
   });
      $(&quot;btn4&quot;).click(function(){
-  //ѡ������Ԫ��
+  //选择所有元素
   $(&quot;*&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
   });  
    $(&quot;btn5&quot;).click(function(){
-  //������ѡ��Ԫ����Ϊspan��id=two��Ԫ��
+  //并集，选择元素名为span和id=two的元素
   $(&quot;span,#two&quot;).css(&quot;background&quot;,&quot;#ffaadd&quot;);
   });
   }
-</code></pre><h5 id="3-jQuery���ѡ����"><a href="#3-jQuery���ѡ����" class="headerlink" title="3.jQuery���ѡ����"></a>3.jQuery���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery06.png" alt=""><br>(1)ʾ�����룺</p>
+</code></pre><h5 id="3-jQuery层次选择器"><a href="#3-jQuery层次选择器" class="headerlink" title="3.jQuery层次选择器"></a>3.jQuery层次选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery06.png" alt=""><br>(1)示例代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
 
         $(function(){
 
-//ѡ�� body �ڵ����� div Ԫ��            $(&quot;#btn1&quot;).click(function(){
+//选择 body 内的所有 div 元素            $(&quot;#btn1&quot;).click(function(){
                 $(&quot;body div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn2&quot;).click(function(){
@@ -327,13 +327,13 @@ alert($(this).text());
                 $(&quot;#two&quot;).siblings(&quot;div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn6&quot;).click(function(){
-                //����ѡ����ѡ����ǽ��� #one �� span Ԫ��, ���span
-                //�� #one ������, ѡ������Ч. 
+                //以下选择器选择的是近邻 #one 的 span 元素, 若该span
+                //和 #one 不相邻, 选择器无效. 
                 //$(&quot;#one + span&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
                 $(&quot;#one&quot;).nextAll(&quot;span:first&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn7&quot;).click(function(){
-//ѡ�� id Ϊ two ��Ԫ��ǰ�ߵ����е� div �ֵ�Ԫ��                    $(&quot;#two&quot;).prevAll(&quot;div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
+//选择 id 为 two 的元素前边的所有的 div 兄弟元素                    $(&quot;#two&quot;).prevAll(&quot;div&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
 
         })
@@ -341,46 +341,46 @@ alert($(this).text());
     &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� body �ڵ����� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;�� body ��, ѡ����Ԫ���� div ��.&quot; id=&quot;btn2&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ one ����һ�� div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ�غ�������� div �ֵ�Ԫ��&quot; id=&quot;btn4&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ������ div �ֵ�Ԫ��&quot; id=&quot;btn5&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 body 内的所有 div 元素&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;在 body 内, 选择子元素是 div 的.&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 one 的下一个 div 元素&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 two 的元素后面的所有 div 兄弟元素&quot; id=&quot;btn4&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 two 的元素所有 div 兄弟元素&quot; id=&quot;btn5&quot; /&gt;
 
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ one ����һ�� span Ԫ��&quot; id=&quot;btn6&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ��Ԫ��ǰ�ߵ����е� div �ֵ�Ԫ��&quot; id=&quot;btn7&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 one 的下一个 span 元素&quot; id=&quot;btn6&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 two 的元素前边的所有的 div 兄弟元素&quot; id=&quot;btn7&quot; /&gt;
 
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+        包含input的type为&quot;hidden&quot;的div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;span id=&quot;span&quot;&gt;^^spanԪ��^^&lt;/span&gt;
-    &lt;span id=&quot;span&quot;&gt;--spanԪ��--&lt;/span&gt;
+    &lt;span id=&quot;span&quot;&gt;^^span元素^^&lt;/span&gt;
+    &lt;span id=&quot;span&quot;&gt;--span元素--&lt;/span&gt;
 &lt;/body&gt;
-</code></pre><h5 id="4-jQuery��������ѡ����"><a href="#4-jQuery��������ѡ����" class="headerlink" title="4.jQuery��������ѡ����"></a>4.jQuery��������ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery07.png" alt=""><br>(1)��������ѡ����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery08.png" alt=""><br>(2)ʾ�����룺</p>
+</code></pre><h5 id="4-jQuery基本过滤选择器"><a href="#4-jQuery基本过滤选择器" class="headerlink" title="4.jQuery基本过滤选择器"></a>4.jQuery基本过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery07.png" alt=""><br>(1)基本过滤选择器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery08.png" alt=""><br>(2)示例代码：</p>
 <pre><code>$(function(){
 $(&quot;#btn1&quot;).click(function(){
                 $(&quot;div:first&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
@@ -420,56 +420,56 @@ $(&quot;#btn1&quot;).click(function(){
             });
 
 });
-//Ҫ��
+//要求：
 &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡ���һ�� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�����һ�� div Ԫ��&quot; id=&quot;btn2&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ��class��Ϊ one ������ div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择第一个 div 元素&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择最后一个 div 元素&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择class不为 one 的所有 div 元素&quot; id=&quot;btn3&quot; /&gt;
 
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪż���� div Ԫ��&quot; id=&quot;btn4&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ������ div Ԫ��&quot; id=&quot;btn5&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ���� 3 �� div Ԫ��&quot; id=&quot;btn6&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择索引值为偶数的 div 元素&quot; id=&quot;btn4&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择索引值为奇数的 div 元素&quot; id=&quot;btn5&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择索引值为大于 3 的 div 元素&quot; id=&quot;btn6&quot; /&gt;
 
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪ���� 3 �� div Ԫ��&quot; id=&quot;btn7&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������ֵΪС�� 3 �� div Ԫ��&quot; id=&quot;btn8&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�����еı���Ԫ��&quot; id=&quot;btn9&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择索引值为等于 3 的 div 元素&quot; id=&quot;btn7&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择索引值为小于 3 的 div 元素&quot; id=&quot;btn8&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择所有的标题元素&quot; id=&quot;btn9&quot; /&gt;
 
-    &lt;input type=&quot;button&quot; value=&quot;ѡ��ǰ����ִ�ж���������Ԫ��&quot; id=&quot;btn10&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� id Ϊ two ����һ�� span Ԫ��&quot; id=&quot;btn11&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择当前正在执行动画的所有元素&quot; id=&quot;btn10&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 id 为 two 的下一个 span 元素&quot; id=&quot;btn11&quot; /&gt;
 
-    &lt;h3&gt;����ѡ����.&lt;/h3&gt;
+    &lt;h3&gt;基本选择器.&lt;/h3&gt;
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+        包含input的type为&quot;hidden&quot;的div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;span id=&quot;span&quot;&gt;^^spanԪ�� 111^^&lt;/span&gt;
-    &lt;span id=&quot;span&quot;&gt;^^spanԪ�� 222^^&lt;/span&gt;
-    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+    &lt;span id=&quot;span&quot;&gt;^^span元素 111^^&lt;/span&gt;
+    &lt;span id=&quot;span&quot;&gt;^^span元素 222^^&lt;/span&gt;
+    &lt;div id=&quot;mover&quot;&gt;正在执行动画的div元素.&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><h5 id="5-jQuery���ݹ���ѡ����"><a href="#5-jQuery���ݹ���ѡ����" class="headerlink" title="5.jQuery���ݹ���ѡ����"></a>5.jQuery���ݹ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery09.png" alt=""><br>(1)����ʾ����</p>
+</code></pre><h5 id="5-jQuery内容过滤选择器"><a href="#5-jQuery内容过滤选择器" class="headerlink" title="5.jQuery内容过滤选择器"></a>5.jQuery内容过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery09.png" alt=""><br>(1)代码示例：</p>
 <pre><code>    &lt;script type=&quot;text/javascript&quot;&gt;
         $(document).ready(function(){
 
@@ -493,41 +493,41 @@ $(&quot;#btn1&quot;).click(function(){
     &lt;/script&gt;
     //body
     &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�� �����ı� &apos;di&apos; �� div Ԫ��&quot; id=&quot;btn1&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�񲻰�����Ԫ��(�����ı�Ԫ��) �� div ��Ԫ��&quot; id=&quot;btn2&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ���� class Ϊ mini Ԫ�ص� div Ԫ��&quot; id=&quot;btn3&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ������Ԫ��(�����ı�Ԫ��)��divԪ��&quot; id=&quot;btn4&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择 含有文本 &apos;di&apos; 的 div 元素&quot; id=&quot;btn1&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择不包含子元素(或者文本元素) 的 div 空元素&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择含有 class 为 mini 元素的 div 元素&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择含有子元素(或者文本元素)的div元素&quot; id=&quot;btn4&quot; /&gt;
 
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
+        包含input的type为&quot;hidden&quot;的div&lt;input type=&quot;hidden&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;正在执行动画的div元素.&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><h5 id="6-jQuery�ɼ��Թ���ѡ����"><a href="#6-jQuery�ɼ��Թ���ѡ����" class="headerlink" title="6.jQuery�ɼ��Թ���ѡ����"></a>6.jQuery�ɼ��Թ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery10.png" alt=""><br>(1)ʾ�����룺</p>
+</code></pre><h5 id="6-jQuery可见性过滤选择器"><a href="#6-jQuery可见性过滤选择器" class="headerlink" title="6.jQuery可见性过滤选择器"></a>6.jQuery可见性过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery10.png" alt=""><br>(1)示例代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
         $(document).ready(function(){
@@ -537,15 +537,15 @@ $(&quot;#btn1&quot;).click(function(){
             });
             $(&quot;#btn2&quot;).click(function(){
                 //alert($(&quot;div:hidden&quot;).length);
-                //show(time): ����ʹ���ɼ���Ԫ�ر�Ϊ�ɼ�, time ��ʾʱ��, ��
-                //����Ϊ��λ
-                //jQuery �ĺܶ෽��֧�ַ�������׺, ��һ�������ķ���ֵ��ʱ���ø�
-                //������ jQuery ����: ���Լ������øö������������. 
+                //show(time): 可以使不可见的元素变为可见, time 表示时间, 以
+                //毫秒为单位
+                //jQuery 的很多方法支持方法的连缀, 即一个方法的返回值来时调用该
+                //方法的 jQuery 对象: 可以继续调用该对象的其他方法. 
                 $(&quot;div:hidden&quot;).show(2000).css(&quot;background&quot;, 
                         &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn3&quot;).click(function(){
-                //val() �������Է���ĳһ����Ԫ�ص� value ����ֵ. 
+                //val() 方法可以返回某一个表单元素的 value 属性值. 
                 alert($(&quot;input:hidden&quot;).val());
             });
 
@@ -554,41 +554,41 @@ $(&quot;#btn1&quot;).click(function(){
     &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ���пɼ���  div Ԫ��&quot; id=&quot;btn1&quot;&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�����в��ɼ��� div Ԫ��&quot; id=&quot;btn2&quot; /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡ�����в��ɼ��� input Ԫ��&quot; id=&quot;btn3&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取所有可见的  div 元素&quot; id=&quot;btn1&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择所有不可见的 div 元素&quot; id=&quot;btn2&quot; /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选择所有不可见的 input 元素&quot; id=&quot;btn3&quot; /&gt;
 
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div
+        包含input的type为&quot;hidden&quot;的div
         &lt;input type=&quot;hidden&quot; value=&quot;123456789000&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;正在执行动画的div元素.&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><h5 id="7-jQuery���Թ���ѡ����"><a href="#7-jQuery���Թ���ѡ����" class="headerlink" title="7.jQuery���Թ���ѡ����"></a>7.jQuery���Թ���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery11.png" alt=""><br>(1)ʾ�����룺</p>
+</code></pre><h5 id="7-jQuery属性过滤选择器"><a href="#7-jQuery属性过滤选择器" class="headerlink" title="7.jQuery属性过滤选择器"></a>7.jQuery属性过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery11.png" alt=""><br>(1)示例代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
         $(function(){
@@ -600,7 +600,7 @@ $(&quot;#btn1&quot;).click(function(){
                 $(&quot;div[title=&apos;test&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn3&quot;).click(function(){
-                //ѡȡ��Ԫ���а���û�� title �� div Ԫ��. 
+                //选取的元素中包含没有 title 的 div 元素. 
                 $(&quot;div[title!=&apos;test&apos;]&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
 
@@ -626,52 +626,52 @@ $(&quot;#btn1&quot;).click(function(){
     &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ���� ����title ��divԪ��.&quot; id=&quot;btn1&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ����&apos;test&apos;��divԪ��.&quot; id=&quot;btn2&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ������&apos;test&apos;��divԪ��(û������title��Ҳ����ѡ��).&quot; id=&quot;btn3&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ��&apos;te&apos;��ʼ ��divԪ��.&quot; id=&quot;btn4&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取含有 属性title 的div元素.&quot; id=&quot;btn1&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 属性title值等于&apos;test&apos;的div元素.&quot; id=&quot;btn2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 属性title值不等于&apos;test&apos;的div元素(没有属性title的也将被选中).&quot; id=&quot;btn3&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 属性title值 以&apos;te&apos;开始 的div元素.&quot; id=&quot;btn4&quot;/&gt;
 
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ��&apos;est&apos;���� ��divԪ��.&quot; id=&quot;btn5&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ����titleֵ ����&apos;es&apos;��divԪ��.&quot; id=&quot;btn6&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;�������ѡ����,����ѡȡ������id��divԪ�أ�Ȼ���ڽ���� ѡȡ����titleֵ ����&apos;es&apos;�� div Ԫ��.&quot; id=&quot;btn7&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡ ���� title ����ֵ, ��title ����ֵ������ test �� div Ԫ��.&quot; id=&quot;btn8&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 属性title值 以&apos;est&apos;结束 的div元素.&quot; id=&quot;btn5&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 属性title值 含有&apos;es&apos;的div元素.&quot; id=&quot;btn6&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;组合属性选择器,首先选取有属性id的div元素，然后在结果中 选取属性title值 含有&apos;es&apos;的 div 元素.&quot; id=&quot;btn7&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取 含有 title 属性值, 且title 属性值不等于 test 的 div 元素.&quot; id=&quot;btn8&quot;/&gt;
 
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
+        包含input的type为&quot;hidden&quot;的div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;正在执行动画的div元素.&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><h5 id="8-jQuery��Ԫ�ع���ѡ����"><a href="#8-jQuery��Ԫ�ع���ѡ����" class="headerlink" title="8.jQuery��Ԫ�ع���ѡ����"></a>8.jQuery��Ԫ�ع���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png" alt=""><br>(1)ʾ�����룺</p>
+</code></pre><h5 id="8-jQuery子元素过滤选择器"><a href="#8-jQuery子元素过滤选择器" class="headerlink" title="8.jQuery子元素过滤选择器"></a>8.jQuery子元素过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png" alt=""><br>(1)示例代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
         $(document).ready(function(){
 
             $(&quot;#btn1&quot;).click(function(){
-                //ѡȡ��Ԫ��, ��Ҫ��ѡ����ǰ���һ���ո�. 
+                //选取子元素, 需要在选择器前添加一个空格. 
                 $(&quot;div.one :nth-child(2)&quot;).css(&quot;background&quot;, &quot;#ffbbaa&quot;);
             });
             $(&quot;#btn2&quot;).click(function(){
@@ -689,46 +689,46 @@ $(&quot;#btn1&quot;).click(function(){
     &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;        
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µĵ�2����Ԫ��.&quot; id=&quot;btn1&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µĵ�һ����Ԫ��.&quot; id=&quot;btn2&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;ѡȡÿ��classΪone��div��Ԫ���µ����һ����Ԫ��.&quot; id=&quot;btn3&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;���classΪone��div��Ԫ���µĽ���ֻ��һ����Ԫ�أ���ôѡ�������Ԫ��.&quot; id=&quot;btn4&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取每个class为one的div父元素下的第2个子元素.&quot; id=&quot;btn1&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取每个class为one的div父元素下的第一个子元素.&quot; id=&quot;btn2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;选取每个class为one的div父元素下的最后一个子元素.&quot; id=&quot;btn3&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素.&quot; id=&quot;btn4&quot;/&gt;
 
     &lt;br&gt;&lt;br&gt;
     &lt;div class=&quot;one&quot; id=&quot;one&quot;&gt;
-        id Ϊ one,class Ϊ one ��div
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        id 为 one,class 为 one 的div
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot; id=&quot;two&quot; title=&quot;test&quot;&gt;
-        idΪtwo,classΪone,titleΪtest��div
-        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;classΪmini,titleΪother&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;classΪmini,titleΪtest&lt;/div&gt;
+        id为two,class为one,title为test的div
+        &lt;div class=&quot;mini&quot; title=&quot;other&quot;&gt;class为mini,title为other&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;test&quot;&gt;class为mini,title为test&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
         &lt;div class=&quot;mini&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;one&quot;&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot;&gt;classΪmini&lt;/div&gt;
-        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;classΪmini,titleΪtesst&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot;&gt;class为mini&lt;/div&gt;
+        &lt;div class=&quot;mini&quot; title=&quot;tesst&quot;&gt;class为mini,title为tesst&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style��displayΪ&quot;none&quot;��div&lt;/div&gt;
-    &lt;div class=&quot;hide&quot;&gt;classΪ&quot;hide&quot;��div&lt;/div&gt;
+    &lt;div style=&quot;display:none;&quot; class=&quot;none&quot;&gt;style的display为&quot;none&quot;的div&lt;/div&gt;
+    &lt;div class=&quot;hide&quot;&gt;class为&quot;hide&quot;的div&lt;/div&gt;
     &lt;div&gt;
-        ����input��typeΪ&quot;hidden&quot;��div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
+        包含input的type为&quot;hidden&quot;的div&lt;input type=&quot;hidden&quot; value=&quot;123456789&quot; size=&quot;8&quot;&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;mover&quot;&gt;����ִ�ж�����divԪ��.&lt;/div&gt;
+    &lt;div id=&quot;mover&quot;&gt;正在执行动画的div元素.&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><h5 id="9-jQuery��Ԫ�ع���ѡ����"><a href="#9-jQuery��Ԫ�ع���ѡ����" class="headerlink" title="9.jQuery��Ԫ�ع���ѡ����"></a>9.jQuery��Ԫ�ع���ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png" alt=""><br>(1)ʾ�����룺</p>
+</code></pre><h5 id="9-jQuery表单元素过滤选择器"><a href="#9-jQuery表单元素过滤选择器" class="headerlink" title="9.jQuery表单元素过滤选择器"></a>9.jQuery表单元素过滤选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png" alt=""><br>(1)示例代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
         $(function(){
             $(&quot;#btn1&quot;).click(function(){
-                //ʹ���еĿ��õĵ����ı���� value ֵ��Ϊ zx
+                //使所有的可用的单行文本框的 value 值变为 zx
                 alert($(&quot;:text:enabled&quot;).val());
                 $(&quot;:text:enabled&quot;).val(&quot;zx&quot;);
             });
@@ -742,17 +742,17 @@ $(&quot;#btn1&quot;).click(function(){
             });
 
             $(&quot;#btn5&quot;).click(function(){
-                //ʵ�ʱ�ѡ��Ĳ��� select, ���� select �� option �ӽڵ�
-                //����Ҫ��һ�� �ո�. 
+                //实际被选择的不是 select, 而是 select 的 option 子节点
+                //所以要加一个 空格. 
                 //var len = $(&quot;select :selected&quot;).length
                 //alert(len);
 
-                //��Ϊ $(&quot;select :selected&quot;) ѡ�����һ������
-                //�����������ж��Ԫ��ʱ, ͨ�� .val() ������ֻ�ܻ�ȡ��һ����ѡ���ֵ��. 
+                //因为 $(&quot;select :selected&quot;) 选择的是一个数组
+                //当该数组中有多个元素时, 通过 .val() 方法就只能获取第一个被选择的值了. 
                 //alert($(&quot;select :selected&quot;).val());
 
-                //jQuery ��������ķ�ʽʹ each, �� each �ڲ��� this ������
-                //�õ��� DOM ����, ������һ�� jQuery ����
+                //jQuery 对象遍历的方式使 each, 在 each 内部的 this 是正在
+                //得到的 DOM 对象, 而不是一个 jQuery 对象
                 $(&quot;select :selected&quot;).each(function(){
                     alert(this.value);
                 });
@@ -768,21 +768,21 @@ $(&quot;#btn1&quot;).click(function(){
 
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;h3&gt;���������Թ���ѡ����&lt;/h3&gt;
-     &lt;button id=&quot;btn1&quot;&gt;�Ա��� ����input ��ֵ����.&lt;/button&gt;
-       &lt;button id=&quot;btn2&quot;&gt;�Ա��� ������input ��ֵ����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
-     &lt;button id=&quot;btn3&quot;&gt;��ȡ��ѡ��ѡ�еĸ���.&lt;/button&gt;
-     &lt;button id=&quot;btn4&quot;&gt;��ȡ��ѡ��ѡ�е�����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
-     &lt;button id=&quot;btn5&quot;&gt;��ȡ������ѡ�е�����.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+    &lt;h3&gt;表单对象属性过滤选择器&lt;/h3&gt;
+     &lt;button id=&quot;btn1&quot;&gt;对表单内 可用input 赋值操作.&lt;/button&gt;
+       &lt;button id=&quot;btn2&quot;&gt;对表单内 不可用input 赋值操作.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+     &lt;button id=&quot;btn3&quot;&gt;获取多选框选中的个数.&lt;/button&gt;
+     &lt;button id=&quot;btn4&quot;&gt;获取多选框选中的内容.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+     &lt;button id=&quot;btn5&quot;&gt;获取下拉框选中的内容.&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
 
     &lt;form id=&quot;form1&quot; action=&quot;#&quot;&gt;            
-        ����Ԫ��: &lt;input name=&quot;add&quot; value=&quot;�����ı���1&quot;/&gt;&lt;br&gt;
-        ������Ԫ��: &lt;input name=&quot;email&quot; disabled=&quot;true&quot; value=&quot;�������ı���&quot;/&gt;&lt;br&gt;
-        ����Ԫ��: &lt;input name=&quot;che&quot; value=&quot;�����ı���2&quot;/&gt;&lt;br&gt;
-        ������Ԫ��: &lt;input name=&quot;name&quot; disabled=&quot;true&quot; value=&quot;�������ı���&quot;/&gt;&lt;br&gt;
+        可用元素: &lt;input name=&quot;add&quot; value=&quot;可用文本框1&quot;/&gt;&lt;br&gt;
+        不可用元素: &lt;input name=&quot;email&quot; disabled=&quot;true&quot; value=&quot;不可用文本框&quot;/&gt;&lt;br&gt;
+        可用元素: &lt;input name=&quot;che&quot; value=&quot;可用文本框2&quot;/&gt;&lt;br&gt;
+        不可用元素: &lt;input name=&quot;name&quot; disabled=&quot;true&quot; value=&quot;不可用文本框&quot;/&gt;&lt;br&gt;
         &lt;br&gt;
 
-        ��ѡ��: &lt;br&gt;
+        多选框: &lt;br&gt;
         &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;test1&quot; /&gt;test1
         &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test2&quot; /&gt;test2
         &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test3&quot; /&gt;test3
@@ -790,69 +790,69 @@ $(&quot;#btn1&quot;).click(function(){
         &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;test5&quot; /&gt;test5
 
         &lt;br&gt;&lt;br&gt;
-        �����б�1: &lt;br&gt;
+        下拉列表1: &lt;br&gt;
         &lt;select name=&quot;test&quot; multiple=&quot;multiple&quot; style=&quot;height: 100px&quot;&gt;
-            &lt;option&gt;�㽭&lt;/option&gt;
-            &lt;option selected=&quot;selected&quot;&gt;����&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
-            &lt;option selected=&quot;selected&quot;&gt;���&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
+            &lt;option&gt;浙江&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;辽宁&lt;/option&gt;
+            &lt;option&gt;北京&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;天津&lt;/option&gt;
+            &lt;option&gt;广州&lt;/option&gt;
+            &lt;option&gt;湖北&lt;/option&gt;
         &lt;/select&gt;
 
         &lt;br&gt;&lt;br&gt;
-        �����б�2: &lt;br&gt;
+        下拉列表2: &lt;br&gt;
         &lt;select name=&quot;test2&quot;&gt;
-            &lt;option&gt;�㽭&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
-            &lt;option selected=&quot;selected&quot;&gt;����&lt;/option&gt;
-            &lt;option&gt;���&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
-            &lt;option&gt;����&lt;/option&gt;
+            &lt;option&gt;浙江&lt;/option&gt;
+            &lt;option&gt;辽宁&lt;/option&gt;
+            &lt;option selected=&quot;selected&quot;&gt;北京&lt;/option&gt;
+            &lt;option&gt;天津&lt;/option&gt;
+            &lt;option&gt;广州&lt;/option&gt;
+            &lt;option&gt;湖北&lt;/option&gt;
         &lt;/select&gt;
 
         &lt;textarea rows=&quot;&quot; cols=&quot;&quot;&gt;&lt;/textarea&gt;
     &lt;/form&gt;        
 &lt;/body&gt;
-</code></pre><h5 id="10-jQuery��ѡ����"><a href="#10-jQuery��ѡ����" class="headerlink" title="10.jQuery��ѡ����"></a>10.jQuery��ѡ����</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png" alt=""></p>
-<h5 id="11-jQueryС��"><a href="#11-jQueryС��" class="headerlink" title="11.jQueryС��"></a>11.jQueryС��</h5><p>(1)jQuery��JavaScript��һ�������⡣<br>(2)����jQuery�����Ĳ��裺<br>��.����jQuery��<br>��.��$(function(){})�б�дjQuery����</p>
+</code></pre><h5 id="10-jQuery表单选择器"><a href="#10-jQuery表单选择器" class="headerlink" title="10.jQuery表单选择器"></a>10.jQuery表单选择器</h5><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png" alt=""></p>
+<h5 id="11-jQuery小结"><a href="#11-jQuery小结" class="headerlink" title="11.jQuery小结"></a>11.jQuery小结</h5><p>(1)jQuery是JavaScript的一个函数库。<br>(2)利用jQuery开发的步骤：<br>①.导入jQuery库<br>②.在$(function(){})中编写jQuery代码</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.js&quot;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
 $(function(){
    $(&quot;btn1&quot;).click(function(){
-   //ʹ���еĿ��õ����ı����value��ֵ��Ϊzx
+   //使所有的可用单行文本框的value的值变为zx
    $(&quot;text:enabled&quot;).val(&quot;zx&quot;);
 });
   });
 &lt;/script&gt;
-</code></pre><p>(3)jQuery������DOM����<br>��.jQuery������ʹ��DOM��������Ժͷ�������֮��DOM����Ҳ����ʹ��jQuery��������Ժͷ�����<br>��.<strong>jQuery������һ��DOM�������</strong>�����Կ���ʹ���±�ķ�ʽתΪDOM����</p>
+</code></pre><p>(3)jQuery对象与DOM对象<br>①.jQuery对象不能使用DOM对象的属性和方法，反之，DOM对象也不能使用jQuery对象的属性和方法。<br>②.<strong>jQuery对象是一个DOM数组对象</strong>，所以可以使用下标的方式转为DOM对象。</p>
 <pre><code>var $btn=$(&quot;button&quot;);
 var btn=$btn[0];
-</code></pre><p>��.jQuery����ʹ��${}��֤DOM����ת����jQuery����</p>
+</code></pre><p>③.jQuery对象使用${}保证DOM对象转化成jQuery对象。</p>
 <pre><code>  $(&quot;select :selted&quot;).each(function(){
 alert($(this).val());
   });
-</code></pre><p>(4).jQuery��ѡ����<br>��.ѡȡ��ѡ�е�select��option��Ҫʹ��ѡȡ�ӽڵ�ķ�ʽ��</p>
+</code></pre><p>(4).jQuery的选择器<br>①.选取被选中的select的option需要使用选取子节点的方式。</p>
 <pre><code>$(&quot;select[name=&apos;test&apos;] :selected&quot;).each(function{
 ......
 });
-</code></pre><p>��.jQueryѡ���������ۺ�ʹ��<br>��.���ѡ�����㲻�������Խ�������</p>
-<p>(5)jQuery����ļ�������<br>��.val()����ȡ�����ñ�Ԫ�ص�value����ֵ��</p>
-<pre><code> //����ֵ
+</code></pre><p>②.jQuery选择器可以综合使用<br>③.如果选择器搞不定，可以借助方法</p>
+<p>(5)jQuery对象的几个方法<br>①.val()：获取或设置表单元素的value属性值。</p>
+<pre><code> //设置值
 $(&quot;:text:enabled&quot;).val(&quot;zx&quot;);
-//��ȡֵ
+//获取值
 alert((&quot;:text:enabled&quot;).val());
-</code></pre><p>��.attr()����val()��������</p>
-<pre><code>attr(name,val);//Ϊname���Ը�ֵval
-attr(name);//��ȡname������ֵ
-</code></pre><p>��.eatch()����jQuery������б���������Ϊfunction,�����ڲ���this�����ڱ�����DOM����</p>
+</code></pre><p>②.attr()：和val()方法类似</p>
+<pre><code>attr(name,val);//为name属性赋值val
+attr(name);//获取name的属性值
+</code></pre><p>③.eatch()：对jQuery对象进行遍历，参数为function,函数内部的this是正在遍历的DOM对象</p>
 <pre><code>$(&quot;select :selected&quot;).each(function{
 alert(this.value);
-//�ȼ�
+//等价
 //alert($(this).val());
 });
-</code></pre><p>��.text()����val()��������<br>text()����ȡԪ�ؽڵ���ı��ӽڵ��ֵ<br>text(str)������Ԫ�ؽڵ���ı��ӽڵ��ֵ</p>
-<p>(5)jQuery��ϰ</p>
+</code></pre><p>④.text()：和val()方法类似<br>text()：获取元素节点的文本子节点的值<br>text(str)：设置元素节点的文本子节点的值</p>
+<p>(5)jQuery练习</p>
 
       
 
@@ -1134,7 +1134,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,11 +1146,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,15 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,6 +1214,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1226,15 +1226,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
