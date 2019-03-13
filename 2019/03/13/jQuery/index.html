@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>jQuery | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������ 1.JQuery������(1)������(2)ǿ���ѡ����(3)��ɫ��DOM�����ķ�װ(4)�ɿ����¼">
+  <meta name="description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
 <meta name="keywords" content="jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/13/jQuery/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������ 1.JQuery������(1)������(2)ǿ���ѡ����(3)��ɫ��DOM�����ķ�װ(4)�ɿ����¼">
+<meta property="og:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery02.png">
@@ -30,10 +30,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png">
-<meta property="og:updated_time" content="2019-03-13T12:25:18.429Z">
+<meta property="og:updated_time" content="2019-03-13T12:59:52.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
-<meta name="twitter:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������ 1.JQuery������(1)������(2)ǿ���ѡ����(3)��ɫ��DOM�����ķ�װ(4)�ɿ����¼">
+<meta name="twitter:description" content="һ�����jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -238,7 +238,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������</p>
+        <h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>jQuery �Ǽ� Prototype ֮����һ������� JavaScript ��ܡ���ʹ�û��ܸ�����ش��� HTML documents��events��ʵ�ֶ���Ч�������ҷ����Ϊ��վ�ṩ Ajax ������<br><a id="more"></a></p>
 <h5 id="1-JQuery������"><a href="#1-JQuery������" class="headerlink" title="1.JQuery������"></a>1.JQuery������</h5><p>(1)������<br>(2)ǿ���ѡ����<br>(3)��ɫ��DOM�����ķ�װ<br>(4)�ɿ����¼��������<br>(5)���Ƶ�Ajax<br>(7)��ɫ�������������<br>(8)��ʽ������ʽ</p>
 <h5 id="2-jQuery֮Helloworld"><a href="#2-jQuery֮Helloworld" class="headerlink" title="2.jQuery֮Helloworld"></a>2.jQuery֮Helloworld</h5><p>(1)����jQuery�����İ���jquery-x.x.x.js<br>(2)���룺</p>
 <pre><code>&lt;!-- ���� jQuery �� --&gt;
@@ -852,6 +852,7 @@ alert(this.value);
 //alert($(this).val());
 });
 </code></pre><p>��.text()����val()��������<br>text()����ȡԪ�ؽڵ���ı��ӽڵ��ֵ<br>text(str)������Ԫ�ؽڵ���ı��ӽڵ��ֵ</p>
+<p>(5)jQuery��ϰ</p>
 
       
 
@@ -1169,11 +1170,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,15 +1186,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,11 +1222,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
