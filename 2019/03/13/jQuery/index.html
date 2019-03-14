@@ -30,7 +30,9 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery13.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png">
-<meta property="og:updated_time" content="2019-03-13T13:02:52.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery15.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery16.png">
+<meta property="og:updated_time" content="2019-03-14T03:05:08.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="一、简介jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。">
@@ -852,8 +854,285 @@ alert(this.value);
 //alert($(this).val());
 });
 </code></pre><p>④.text()：和val()方法类似<br>text()：获取元素节点的文本子节点的值<br>text(str)：设置元素节点的文本子节点的值</p>
-<p>(5)jQuery练习</p>
+<h5 id="12-jQuery创建节点及插入节点"><a href="#12-jQuery创建节点及插入节点" class="headerlink" title="12.jQuery创建节点及插入节点"></a>12.jQuery创建节点及插入节点</h5><p>(1)测试使用 jQuery 操作文本节点,，属性节点，及查找元素节点</p>
+<pre><code>$(function(){
+            //1. 操作文本节点: 通过 jQuery 对象的 text() 方法
+            alert($(&quot;#bj&quot;).text());
+            //重新设置id=bj的文本域
+            $(&quot;#bj&quot;).text(&quot;xx&quot;);
 
+            //2. 操作属性节点: 通过 jQuery 对象的 attr() 方法. 
+            //注: 直接操作 value 属性值可以使用更便捷的 val() 方法. 
+//输出name等于username的value的值                alert($(&quot;:text[name=&apos;username&apos;]&quot;).attr(&quot;value&quot;));
+            $(&quot;:text[name=&apos;username&apos;]&quot;).attr(&quot;value&quot;, &quot;zx&quot;);
+
+        })
+</code></pre><p>(2) jQuery 创建节点并插入节点到指定的节点<br>①.创建节点：使用 $(html) 方式，创建 元素节点, 文本节点, 属性节点返回对应节点的 jQuery 对象</p>
+<pre><code>$(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;)
+</code></pre><p>②.添加节点</p>
+<blockquote>
+<p>1.appendTo 和 append: 主语和宾语的位置不同，即给不同的标签添加节点，下面的例子就是给city在增加一个值。</p>
+</blockquote>
+<pre><code>$(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;).appendTo($(&quot;#city&quot;));    
+$(&quot;#city&quot;).append(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;);
+</code></pre><blockquote>
+<p>2.prependTo 和  prepend: 主语和宾语的位置不同: 把标签添加到开头</p>
+</blockquote>
+<pre><code>$(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;).prependTo($(&quot;#city&quot;));
+$(&quot;#city&quot;).prepend(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;);    
+</code></pre><p>③.插入节点：在相应的位置插入想要放的节点</p>
+<pre><code>  //在id=bj的节点后面插入
+$(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;).insertAfter($(&quot;#bj&quot;));
+$(&quot;#bj&quot;).after(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;);
+//在id=bj的节点前面面插入
+$(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;).insertBefore($(&quot;#bj&quot;));
+$(&quot;#bj&quot;).before(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;);
+</code></pre><p>#####13. jQuery删除或清空节点<br>(1)remove(): 从 DOM 中删除所有匹配的元素, 传入的参数用于根据 jQuery 表达式来筛选元素。 当某个节点用 remove() 方法删除后, 该节点所包含的所有后代节点将被同时删除. 这个方法的返回值是一个指向已被删除的节点的引用。<br>(2)empty(): 清空节点 – 清空元素中的所有后代节点(不包含属性节点)。<br>(3)代码示例：</p>
+<pre><code>$(function(){
+            //1. 为 #city 的每一个 li 添加 click 响应函数: 点击时, li 被删除
+            $(&quot;#city li&quot;).click(function(){
+            $(this).remove();
+            //});
+
+            //jQuery 对象的 remove() 方法: 将把 jQuery 对象对应的
+            //DOM 节点直接删除. 
+            $(&quot;#bj&quot;).remove();
+
+            //2. 清空 #game 节点
+            //jQuery 对象的 empty() 方法: 清空 jQuery 对象对应的 
+            //DOM 对象的所有的子节点. 
+            alert(&quot;要清空了!&quot;);
+            $(&quot;#game&quot;).empty();
+        })
+</code></pre><h5 id="14-jQuery克隆和替换节点"><a href="#14-jQuery克隆和替换节点" class="headerlink" title="14.jQuery克隆和替换节点"></a>14.jQuery克隆和替换节点</h5><p>(1)克隆节点<br>①.clone(): 克隆匹配的 DOM 元素, 返回值为克隆后的副本。 但此时复制的新节点不具有任何行为。<br>②.clone(true): 复制元素的同时也复制元素中的的事件<br>(2)替换节点：<br>①.replaceWith(): 将所有匹配的元素都替换为指定的 HTML 或 DOM 元素<br>②.replaceAll(): 颠倒了的 replaceWith() 方法。<br>③.注意: 若在替换之前, 已经在元素上绑定了事件, 替换后原先绑定的事件会与原先的元素一起消失。</p>
+<p>(3)代码示例：<br>①.克隆节点</p>
+<pre><code>//测试使用 jQuery clone 方法: 复制节点
+    $(function(){
+
+        $(&quot;li&quot;).click(function(){
+            alert($(this).text());
+        });
+
+        //复制 #bj 节点, 并添加到 #rl 节点的后面
+        /*
+        1. clone 节点时需要注意克隆后的节点的 id 属性. 若原节点有 id属性, 则克隆后, 会出现在一个文档中有两个 id 相同的节点的情况，所以此时最好给它换个id
+        2. clone(true): 在克隆节点的同时, 克隆节点包含的事件. 
+        */
+        $(&quot;#bj&quot;).clone(true)
+                .attr(&quot;id&quot;, &quot;bj2&quot;)
+                .insertAfter($(&quot;#rl&quot;));
+
+    })
+</code></pre><p>②.替换节点</p>
+<pre><code>//测试使用 jQuery replaceWith (replaceAll) 方法: 替换节点
+        /*
+        1. replaceWith , replaceAll 一对方法, 可以完成一件事. 就是主语宾语哪个在前面的问题. 
+        2. 以上的两个方法还有移动节点的功能
+        3. 节点互换需要先克隆节点. 
+        4. var $rl = $(&quot;#rl&quot;).replaceWith($bj2);
+        */
+        $(function(){
+
+            //1. 创建一个 &lt;li&gt;zx&lt;/li&gt; 节点, 替换 #city 的最后一个 li 子节点
+            $(&quot;&lt;li&gt;zx&lt;/li&gt;&quot;).replaceAll($(&quot;#city li:last&quot;));
+
+            //2. 创建一个 &lt;li&gt;[zx]&lt;/li&gt; 节点, 
+            //替换 #city 的第二个 li 子节点
+            $(&quot;#city li:eq(1)&quot;).replaceWith($(&quot;&lt;li&gt;[zx]&lt;/li&gt;&quot;));
+
+
+            //3. 互换以下两个节点: #rl 和 #bj. 还有移动的功能.
+            //$(&quot;#bj&quot;).replaceWith($(&quot;#rl&quot;));
+
+            //节点互换需要先克隆节点. 
+            alert(1);
+            var $bj2 = $(&quot;#bj&quot;).clone(true);
+            var $rl = $(&quot;#rl&quot;).replaceWith($bj2);
+
+            alert(2);
+            $(&quot;#bj&quot;).replaceWith($rl);
+        })
+</code></pre><h5 id="15-jQuery包裹节点"><a href="#15-jQuery包裹节点" class="headerlink" title="15.jQuery包裹节点"></a>15.jQuery包裹节点</h5><p>(1)包裹节点<br>①.wrap(): 将指定节点用其他标记包裹起来。该方法对于需要在文档中插入额外的结构化标记非常有用，而且不会破坏原始文档的语义。</p>
+<p>②.wrapAll(): 将所有匹配的元素用一个元素来包裹，而 wrap() 方法是将所有的元素进行单独包裹。</p>
+<p>③.wrapInner(): 将每一个匹配的元素的子内容(包括文本节点)用其他结构化标记包裹起来。</p>
+<p>(2)代码示例：</p>
+<pre><code>//测试使用 jQuery wrap, wrapAll, wrapInner
+    $(function(){
+
+        //包装 li 本身
+        $(&quot;#game li&quot;).wrap(&quot;&lt;font color=&apos;red&apos;&gt;&lt;/font&gt;&quot;);
+
+        //包装所有的 li
+        $(&quot;#city li&quot;).wrapAll(&quot;&lt;font color=&apos;red&apos;&gt;&lt;/font&gt;&quot;);
+
+        //包装 li 里边的文字. 
+        $(&quot;#language li&quot;).wrapInner(&quot;&lt;font color=&apos;red&apos;&gt;&lt;/font&gt;&quot;);
+    })
+</code></pre><h5 id="16-jQuery属性操作"><a href="#16-jQuery属性操作" class="headerlink" title="16.jQuery属性操作"></a>16.jQuery属性操作</h5><p>(1)attr(): 获取属性和设置属性<br>①.当为该方法传递一个参数时, 即为某元素的获取指定属性。<br>②.当为该方法传递两个参数时, 即为某元素设置指定属性的值。<br>③.jQuery 中有很多方法都是一个函数实现获取和设置. 如: attr(), html(), text(), val(), height(), width(), css() 等。<br>(2)removeAttr(): 删除指定元素的指定属性。<br>(3)Html():读取和设置某个元素中的 HTML 内容，该方法可以用于 XHTML, 但不能用于 XML 文档。</p>
+<pre><code>//测试使用 html() 方法. 
+    $(function(){
+        //弹出对对话框显示city的所有子节点信息
+        alert($(&quot;#city&quot;).html());
+        //把city的所有子节点直接覆盖为zx
+        $(&quot;#city&quot;).html(&quot;&lt;li id=&apos;zx&apos;&gt;zx&lt;/li&gt;&quot;);
+
+    })
+</code></pre><p>(4)text():读取和设置某个元素中的文本内容，该方法既可以用于 XHTML 也可以用于 XML 文档。<br>(5)val():读取和设置某个元素中的值，该方法类似 JavaScript 中的 value 属性。 对于文本框, 下拉列表框, 单选框该方法可返回元素的值(多选框只能返回第一个值).如果为多选下拉列表框, 则返回一个包含所有选择值的数组。<br><br><br>(6)实例代码：</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    &lt;title&gt;Untitled Document&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;scripts/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+
+        $(function(){
+            //1. 为 #address 添加 focus(获取焦点), blur(失去焦点) 响应函数
+            $(&quot;:text&quot;).focus(function(){
+                //2. 当获取焦点时, 若 #address 中是默认值
+                //(defaultValue 属性, 该属性是 DOM 对象的属性), 就使其值置为 &quot;&quot;
+                var val = $(this).val();
+
+                if(val == this.defaultValue){
+                    $(this).val(&quot;&quot;);
+                }
+            }).blur(function(){
+                //3. 失去焦点是, 若 #address 的值在去除前后空格后等于 &quot;&quot;
+                //则为其恢复默认值. 
+                var val = this.value;    
+                if($.trim(val) == &quot;&quot;){
+                    this.value = this.defaultValue;
+                }
+            });
+
+            //2. 
+            $(&quot;:button:eq(1)&quot;).click(function(){
+                $(&quot;#single&quot;).val(&quot;选择3号&quot;);
+            });
+
+            $(&quot;:button:eq(2)&quot;).click(function(){
+                $(&quot;#multiple&quot;).val([&quot;选择2号&quot;, &quot;选择4号&quot;]);                
+            });
+
+            $(&quot;:button:eq(3)&quot;).click(function(){
+                $(&quot;:checkbox[name=&apos;c&apos;]&quot;).val([&quot;check2&quot;, &quot;check4&quot;]);
+            });
+
+            $(&quot;:button:eq(4)&quot;).click(function(){
+                //即便是为一组 radio 赋值, val 参数中也应该使用数组. 
+                //使用一个值不起作用。 
+                $(&quot;:radio[name=&apos;r&apos;]&quot;).val([&quot;radio2&quot;]);
+            });
+
+            $(&quot;:button:eq(5)&quot;).click(function(){
+                //val() 可以直接获取 select 的被选择的值. 
+                alert($(&quot;#single&quot;).val());
+                alert($(&quot;#multiple&quot;).val());
+
+                //val 不能直接获取 checkbox 被选择的值
+                //若直接获取, 只能得到第一个被选择的值. 
+                //因为 $(&quot;:checkbox[name=&apos;c&apos;]:checked&quot;) 得到的是一个
+                //数组. 而使用 val() 方法只能获取数组元素的第一个值
+                //若希望打印被选择的所有制, 需要使用 each 遍历. 
+                //alert($(&quot;:checkbox[name=&apos;c&apos;]:checked&quot;).val());
+                $(&quot;:checkbox[name=&apos;c&apos;]:checked&quot;).each(function(){
+                    alert(this.value);
+                });
+
+                //而 raido 被选择的只有一个, 所以可以直接使用 val() 方法. 
+                alert($(&quot;:radio[name=&apos;r&apos;]:checked&quot;).val());
+            });
+
+        })
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type=&quot;text&quot; id=&quot;address&quot; value=&quot;请输入邮箱地址&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;text&quot; id=&quot;password&quot; value=&quot;请输入邮箱密码&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;登录&quot;&gt;
+
+    &lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;使单选下拉框的&apos;选择3号&apos;被选中&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;使多选下拉框选中的&apos;选择2号&apos;和&apos;选择4号&apos;被选中&quot;/&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;使多选框的&apos;多选2&apos;和&apos;多选4&apos;被选中&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;使单选框的&apos;单选2&apos;被选中&quot;/&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;打印已经被选中的值&quot;&gt;&lt;br&gt;
+
+    &lt;br/&gt;
+
+    &lt;select id=&quot;single&quot;&gt;
+      &lt;option&gt;选择1号&lt;/option&gt;
+      &lt;option&gt;选择2号&lt;/option&gt;
+      &lt;option&gt;选择3号&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;select id=&quot;multiple&quot; multiple=&quot;multiple&quot; style=&quot;height:120px;&quot;&gt;
+      &lt;option selected=&quot;selected&quot;&gt;选择1号&lt;/option&gt;
+      &lt;option&gt;选择2号&lt;/option&gt;
+      &lt;option&gt;选择3号&lt;/option&gt;
+      &lt;option&gt;选择4号&lt;/option&gt;
+      &lt;option selected=&quot;selected&quot;&gt;选择5号&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;br/&gt;&lt;br/&gt;
+
+    &lt;input type=&quot;checkbox&quot; name=&quot;c&quot; value=&quot;check1&quot;/&gt; 多选1
+    &lt;input type=&quot;checkbox&quot; name=&quot;c&quot; value=&quot;check2&quot;/&gt; 多选2
+    &lt;input type=&quot;checkbox&quot; name=&quot;c&quot; value=&quot;check3&quot;/&gt; 多选3
+    &lt;input type=&quot;checkbox&quot; name=&quot;c&quot; value=&quot;check4&quot;/&gt; 多选4
+
+    &lt;br/&gt;
+
+    &lt;input type=&quot;radio&quot; name=&quot;r&quot; value=&quot;radio1&quot;/&gt; 单选1
+    &lt;input type=&quot;radio&quot; name=&quot;r&quot;  value=&quot;radio2&quot;/&gt; 单选2
+    &lt;input type=&quot;radio&quot; name=&quot;r&quot;  value=&quot;radio3&quot;/&gt; 单选3
+
+&lt;/body&gt;
+</code></pre><p></p>
+<h5 id="17-jQuery-CSS-DOM操作"><a href="#17-jQuery-CSS-DOM操作" class="headerlink" title="17.jQuery CSS DOM操作"></a>17.jQuery CSS DOM操作</h5><p>(1)样式操作<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery15.png" alt=""><br>(2)代码示例：</p>
+<pre><code>$(function(){
+
+            //测试 jQuery 样式相关的方法. 
+
+            //1. hasClass(): 某元素是否有指定的样式
+            alert($(&quot;div:first&quot;).hasClass(&quot;SubCategoryBox&quot;)); //true
+
+            //2. 移除样式
+            $(&quot;div:first&quot;).removeClass(&quot;SubCategoryBox&quot;);
+
+            alert($(&quot;div:first&quot;).hasClass(&quot;SubCategoryBox&quot;));
+
+            //3. 添加样式
+            $(&quot;div:first&quot;).addClass(&quot;SubCategoryBox&quot;);
+
+            //4. 切换样式: 存在, 则去除; 没有, 则添加. 
+            $(&quot;.showmore&quot;).click(function(){
+                $(&quot;div:first&quot;).toggleClass(&quot;SubCategoryBox&quot;);
+                return false;
+            });
+            });
+</code></pre><p>(3)CSS-DOM操作<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery16.png" alt=""><br>(4)代码示例：</p>
+<pre><code>//1. 获取和设置元素透明度: opacity 属性
+            $(function(){
+            alert($(&quot;div:first&quot;).css(&quot;opacity&quot;));
+
+            $(&quot;div:first&quot;).css(&quot;opacity&quot;, 0.5);
+
+            //2. width 和 height
+            alert($(&quot;div:first&quot;).width());
+            alert($(&quot;div:first&quot;).height());
+
+            $(&quot;div:first&quot;).width(400);
+            $(&quot;div:first&quot;).height(80);
+
+            //3. 获取元素在当前视窗中的相对位移: offset(). 
+            //其返回对象包含了两个属性: top, left. 该方法只对可见元素有效
+            alert($(&quot;div:first&quot;).offset().top);
+            alert($(&quot;div:first&quot;).offset().left);
+
+        });
+</code></pre>
       
 
       
@@ -1134,19 +1413,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,11 +1457,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,15 +1481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,7 +1497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,19 +1505,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
