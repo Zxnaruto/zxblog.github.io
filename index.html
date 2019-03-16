@@ -216,60 +216,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>Ajax(AsyNchronous JavaScript and XML)��������������������ͨ�Ŷ�����ˢ��ҳ��ļ�����</p>
-<h4 id="������ͳg����Ajaxg�͵�����"><a href="#������ͳg����Ajaxg�͵�����" class="headerlink" title="������ͳģ����Ajaxģ�͵�����"></a>������ͳģ����Ajaxģ�͵�����</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax001.png" alt=""></p>
-<h4 id="����Ajax�Lؼ�"><a href="#����Ajax�Lؼ�" class="headerlink" title="����Ajax�Ĺؼ�"></a>����Ajax�Ĺؼ�</h4><p>XMLHttpRequest���ö����Ƕ�JavaScript��һ����չ������ʹ��ҳ�����������ͨ�š��Ǵ���AjaxӦ�õ����ѡ��Ajaxʹ��XMLHttpRequest��������첽���ݻ�ȡ��</p>
-<h4 id="�g�Ajax����ԭ��"><a href="#�g�Ajax����ԭ��" class="headerlink" title="�ġ�Ajax����ԭ��"></a>�ġ�Ajax����ԭ��</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax02.png" alt=""></p>
-<h4 id="�塢Ajax���߰�"><a href="#�塢Ajax���߰�" class="headerlink" title="�塢Ajax���߰�"></a>�塢Ajax���߰�</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax03.png" alt=""></p>
-<h4 id="����Ajaxo�ݼ��w�"><a href="#����Ajaxo�ݼ��w�" class="headerlink" title="����Ajaxȱ�ݼ��ŵ�"></a>����Ajaxȱ�ݼ��ŵ�</h4><p>1.ȱ�ݣ�</p>
-<ul>
-<li>��.��js��Ajax���浼�µ�������ļ���</li>
-<li>��.ҳ��ֲ�ˢ�£����º��˵ȹ���ʧЧ</li>
-<li>��.����ý���֧��û��FLASH��JavaApplet��</li>
-<li>��.һЩ�ֳ��豸֧���Բ�<br>2.�ŵ㣺</li>
-<li>��.�ֲ�ˢ��ҳ�棬��Ӧ�ٶȸ��졣</li>
-<li>��.ʹҳ����ʾЧ������<h4 id="�ߡ�����ʵ��"><a href="#�ߡ�����ʵ��" class="headerlink" title="�ߡ�����ʵ��"></a>�ߡ�����ʵ��</h4>1.XMLHttpRequest<br>(1)����XMLHttpRequest����<blockquote>
-<p>var xhr=new XMLHttpRequest();</p>
-</blockquote>
-</li>
-</ul>
-<p>(2)XMLHttpRequest�ķ���<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax05.png" alt=""><br>(3)ʵ�ַ�������<br>����XMLHttpRequest���������������ͨ�Ű������������ؼ�����<br>��.onreadystatechange�¼�������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax06.png" alt=""><br>��.open����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax07.png" alt=""><br>��.send����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax08.png" alt=""><br>��.setRequestHeader(header,value)<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax09.png" alt=""><br>(4)������Ӧ<br>��.readyState<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax10.png" alt=""><br>��.status<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax11.png" alt=""><br>��.responseText<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax12.png" alt=""><br>��.responseXML<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax13.png" alt=""><br>(5)HelloWrld</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-window.onload=function(){
-
-//1.��ȡa�ڵ㣬��Ϊ�����onclick��Ӧ����
-document.getElementsByTagName(&quot;a&quot;)[0].onclick=function(){
-//3.����һ��XMLHttpRequest()����
-var req=new XMLHttpRequest();
-//4.׼��������������ݣ�url
-var url=this.href;
-var method=&quot;GET&quot;;
-//5.����XMLHttpRequest
-req.open(method,url);
-//6.����XMLHttpRequest�����send����
-req.send(null);
-//7.ΪXMLHttpRequst�������onreadystatechange��Ӧ����
-req.onreadystatechange=function(){
-    //8.�ж���Ӧ�Ƿ���ɣ�XMLHttpRequst�����readyState����ֵΪ4��ʱ��
-    if(req.readyState==4){
-        //9.���ж���Ӧ�Ƿ���ã�XMLHttpRequst����status����ֵΪ200
-        if(req.status==200||req.status==304){
-            //10.��ӡ��Ӧ�����reponseText
-            alert(req.responseText);
-        }
-
-    }
-
-}
-
-
-//2.ȡ��a�ڵ��Ĭ����Ϊ
-return false;    
-}
-}
-
-&lt;/script&gt;
-</code></pre>
+        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>Ajax(AsyNchronous JavaScript and XML)，即允许浏览器与服务器通信而无需刷新页面的技术。<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/16/Ajax/#more">more >></a>
+        
       
 
       
@@ -1195,10 +1145,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1215,11 +1161,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,6 +1178,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,15 +1205,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,7 +1233,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,15 +1241,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1303,7 +1253,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
