@@ -192,6 +192,137 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/03/16/Ajax/">Ajax</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/03/16/Ajax/" class="archive-article-date">
+  	<time datetime="2019-03-16T13:54:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h4 id="һ�����"><a href="#һ�����" class="headerlink" title="һ�����"></a>һ�����</h4><p>Ajax(AsyNchronous JavaScript and XML)��������������������ͨ�Ŷ�����ˢ��ҳ��ļ�����</p>
+<h4 id="������ͳg����Ajaxg�͵�����"><a href="#������ͳg����Ajaxg�͵�����" class="headerlink" title="������ͳģ����Ajaxģ�͵�����"></a>������ͳģ����Ajaxģ�͵�����</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax001.png" alt=""></p>
+<h4 id="����Ajax�Lؼ�"><a href="#����Ajax�Lؼ�" class="headerlink" title="����Ajax�Ĺؼ�"></a>����Ajax�Ĺؼ�</h4><p>XMLHttpRequest���ö����Ƕ�JavaScript��һ����չ������ʹ��ҳ�����������ͨ�š��Ǵ���AjaxӦ�õ����ѡ��Ajaxʹ��XMLHttpRequest��������첽���ݻ�ȡ��</p>
+<h4 id="�g�Ajax����ԭ��"><a href="#�g�Ajax����ԭ��" class="headerlink" title="�ġ�Ajax����ԭ��"></a>�ġ�Ajax����ԭ��</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax02.png" alt=""></p>
+<h4 id="�塢Ajax���߰�"><a href="#�塢Ajax���߰�" class="headerlink" title="�塢Ajax���߰�"></a>�塢Ajax���߰�</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax03.png" alt=""></p>
+<h4 id="����Ajaxo�ݼ��w�"><a href="#����Ajaxo�ݼ��w�" class="headerlink" title="����Ajaxȱ�ݼ��ŵ�"></a>����Ajaxȱ�ݼ��ŵ�</h4><p>1.ȱ�ݣ�</p>
+<ul>
+<li>��.��js��Ajax���浼�µ�������ļ���</li>
+<li>��.ҳ��ֲ�ˢ�£����º��˵ȹ���ʧЧ</li>
+<li>��.����ý���֧��û��FLASH��JavaApplet��</li>
+<li>��.һЩ�ֳ��豸֧���Բ�<br>2.�ŵ㣺</li>
+<li>��.�ֲ�ˢ��ҳ�棬��Ӧ�ٶȸ��졣</li>
+<li>��.ʹҳ����ʾЧ������<h4 id="�ߡ�����ʵ��"><a href="#�ߡ�����ʵ��" class="headerlink" title="�ߡ�����ʵ��"></a>�ߡ�����ʵ��</h4>1.XMLHttpRequest<br>(1)����XMLHttpRequest����<blockquote>
+<p>var xhr=new XMLHttpRequest();</p>
+</blockquote>
+</li>
+</ul>
+<p>(2)XMLHttpRequest�ķ���<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax05.png" alt=""><br>(3)ʵ�ַ�������<br>����XMLHttpRequest���������������ͨ�Ű������������ؼ�����<br>��.onreadystatechange�¼�������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax06.png" alt=""><br>��.open����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax07.png" alt=""><br>��.send����<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax08.png" alt=""><br>��.setRequestHeader(header,value)<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax09.png" alt=""><br>(4)������Ӧ<br>��.readyState<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax10.png" alt=""><br>��.status<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax11.png" alt=""><br>��.responseText<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax12.png" alt=""><br>��.responseXML<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax13.png" alt=""><br>(5)HelloWrld</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload=function(){
+
+//1.��ȡa�ڵ㣬��Ϊ�����onclick��Ӧ����
+document.getElementsByTagName(&quot;a&quot;)[0].onclick=function(){
+//3.����һ��XMLHttpRequest()����
+var req=new XMLHttpRequest();
+//4.׼��������������ݣ�url
+var url=this.href;
+var method=&quot;GET&quot;;
+//5.����XMLHttpRequest
+req.open(method,url);
+//6.����XMLHttpRequest�����send����
+req.send(null);
+//7.ΪXMLHttpRequst�������onreadystatechange��Ӧ����
+req.onreadystatechange=function(){
+    //8.�ж���Ӧ�Ƿ���ɣ�XMLHttpRequst�����readyState����ֵΪ4��ʱ��
+    if(req.readyState==4){
+        //9.���ж���Ӧ�Ƿ���ã�XMLHttpRequst����status����ֵΪ200
+        if(req.status==200||req.status==304){
+            //10.��ӡ��Ӧ�����reponseText
+            alert(req.responseText);
+        }
+
+    }
+
+}
+
+
+//2.ȡ��a�ڵ��Ĭ����Ϊ
+return false;    
+}
+}
+
+&lt;/script&gt;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/16/Ajax/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jQuery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -943,88 +1074,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java反射源头Class类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/02/28/Java反射源头Class类/">Java反射源头Class类</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/02/28/Java反射源头Class类/" class="archive-article-date">
-  	<time datetime="2019-02-28T08:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h4><p>在Object类中定义了以下方法，此方法将被所有子类继承：<br>public final Class getClass()<br>以上的方法返回值的类型是一个Class类。反射从运行结果来看就是通过反射求出类的名称。</p>
-<p>1.正常方式：引入需要的”包类“名称—》通过new实例化—》取得实例化对象<br>2.反射方式：实例化对象—》getClass()方法—》得到完整的”包类“名称。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/02/28/Java反射源头Class类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/02/28/Java反射源头Class类/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/8/">8</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1146,6 +1195,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1166,15 +1219,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,10 +1255,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
@@ -1214,7 +1263,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,10 +1279,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
@@ -1246,11 +1291,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
