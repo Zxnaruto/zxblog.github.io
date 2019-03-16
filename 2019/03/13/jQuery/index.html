@@ -32,7 +32,9 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery14.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery15.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery16.png">
-<meta property="og:updated_time" content="2019-03-14T03:05:08.055Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery17.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery18.png">
+<meta property="og:updated_time" content="2019-03-16T07:58:41.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="一、简介jQuery 是继 Prototype 之后又一个优秀的 JavaScript 框架。能使用户能更方便地处理 HTML documents、events、实现动画效果，并且方便地为网站提供 Ajax 交互。">
@@ -1132,6 +1134,186 @@ $(&quot;#bj&quot;).before(&quot;&lt;li id=&apos;1&apos;&gt;zx&lt;/li&gt;&quot;);
             alert($(&quot;div:first&quot;).offset().left);
 
         });
+</code></pre><h5 id="18-jQuery-事件处理"><a href="#18-jQuery-事件处理" class="headerlink" title="18.jQuery 事件处理"></a>18.jQuery 事件处理</h5><p>(1)加载DOM<br>在页面加载完毕后, 浏览器会通过 JavaScript 为 DOM 元素添加事件。 在常规的 JavaScript 代码中, 通常使用 window.onload 方法, 在 jQuery 中使用$(document).ready() 方法。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery17.png" alt=""><br>①.两种方式代码示例：</p>
+<pre><code>//加载 DOM 的两种方式: jQuery 的 和 window.onlaod
+// $(document) .ready(function(){}); 等于$ (function(){});    
+        $(doucment).ready(function(){
+            alert(&quot;1&quot;);
+    })    
+        $(function(){
+            alert(&quot;1&quot;);
+        });
+
+        window.onload = function(){
+            alert(&quot;1&quot;);
+        }
+</code></pre><p><br><br>(2)DOM<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/jQuery18.png" alt=""></p>
+<p><br><br>(3)事件绑定<br>对匹配的元素进行特定的事件绑定: bind()<br>注意：： 使用 jQuery 的 is() 方法判断元素是否可见。</p>
+<pre><code>//为 .head 添加 Onclick 响应函数: 若 .content 隐藏则显示, 若 .content 显示, 则隐藏
+$(function(){
+
+    $(&quot;.head&quot;).click(function(){
+        //使用 is() 方法, 来判断某个给定的 jQuery 对象是否符合指定
+        //的选择器. 
+        var flag = $(&quot;.content&quot;).is(&quot;:hidden&quot;);
+
+        if(flag){
+            //show() 方法: 使隐藏的变为显示
+            $(&quot;.content&quot;).show();
+         }else{
+            $(&quot;.content&quot;).hide();
+        }
+       });
+
+
+    //bind: 为某 jQuery 对象绑定事件. 
+
+    $(&quot;.head&quot;).bind(&quot;click&quot;, function(){
+        //使用 is() 方法, 来判断某个给定的 jQuery 对象是否符合指定
+        //的选择器. 
+        var flag = $(&quot;.content&quot;).is(&quot;:hidden&quot;);
+
+        if(flag){
+            //show() 方法: 使隐藏的变为显示
+            $(&quot;.content&quot;).show();
+        }else{
+            $(&quot;.content&quot;).hide();
+        }
+    });
+
+
+
+
+    //合成事件: toggle: 第一次点击执行第一个函数, 第二次点击执行第二个
+    //函数 ... 循环执行. 
+    $(&quot;.head&quot;).toggle(function(){
+    $(&quot;.content&quot;).show();
+    }, function(){
+        $(&quot;.content&quot;).hide();
+    });
+  })
+</code></pre><p>(4)合成事件</p>
+<p>①.hover(): 模拟光标悬停事件 当光标移动到元素上时, 会触发指定的第一个函数, 当光标移出这个元素时, 会触发指定的第二个函数。</p>
+<pre><code>//合成事件: hover: 鼠标移上去执行第一个函数, 移出执行第二个函数. 
+
+    $(&quot;.head&quot;).hover(function(){
+    $(&quot;.content&quot;).show();
+    }, function(){
+        $(&quot;.content&quot;).hide();
+    });
+</code></pre><p>②.toggle(): 用于模拟鼠标连续单击事件。 第一次单击元素, 触发指定的第一个函数, 当再一次单击同一个元素时, 则触发指定的第二个函数, 如果有更多个函数, 则依次触发, 直到最后一个。toggle() 的另一个作用: 切换元素的可见状态。</p>
+<pre><code>//合成事件: toggle: 第一次点击执行第一个函数, 第二次点击执行第二个
+//函数 ... 循环执行. 
+$(&quot;.head&quot;).toggle(function(){
+    $(&quot;.content&quot;).show();
+}, function(){
+    $(&quot;.content&quot;).hide();
+});
+</code></pre><p>③.鼠标移动事件</p>
+<pre><code>//mouseover: 鼠标移上去
+//mouseout: 鼠标移出. 
+
+$(&quot;.head&quot;).mouseover(function(){
+$(&quot;.content&quot;).show();
+}).mouseout(function(){
+$(&quot;.content&quot;).hide();
+});
+</code></pre><p>(5)事件冒泡<br>①.事件会按照 DOM 层次结构像水泡一样不断向上只止顶端<br>②.解决: 在事件处理函数中返回 false, 会对事件停止冒泡. 还可以停止元素的默认行为。</p>
+<pre><code>$(function(){
+    //事件的冒泡: 什么是事件的冒泡
+    $(&quot;body&quot;).click(function(){
+        alert(&quot;body click&quot;);
+        });
+
+    $(&quot;#content&quot;).click(function(){
+        alert(&quot;div click&quot;);
+    });
+
+    $(&quot;span&quot;).click(function(){
+        alert(&quot;span click&quot;);
+        //如何解决事件的冒泡: 通过在响应函数的结尾返回 false, 可以阻止冒泡. 
+        return false;
+    });
+})
+</code></pre><p>(6)事件对象的属性<br>①.事件对象: 当触发事件时, 事件对象就被创建了。在程序中使用事件只需要为函数添加一个参数。该事件对象只有事件处理函数才能访问到. 事件处理函数执行完毕后, 事件对象就被销毁了。<br>②.event.pageX, event.pageY: 获取到光标相对于页面的 x, y 坐标。</p>
+<pre><code>/*
+        1. 事件: 当鼠标移动时, 就会触发 mousemove 事件. 
+        2. 如何得到事件对象: 在响应函数中添加一个参数就可以. 
+        3. 事件对象的两个属性: pageX,pageY
+        */
+        $(function(){
+            //事件的 pageX, pageY 属性
+            $(&quot;body&quot;).mousemove(function(obj){
+                $(&quot;#msg&quot;).text(&quot;x: &quot; + obj.pageX 
+                        + &quot;, y: &quot; + obj.pageY);
+            });
+        })
+</code></pre><p>(7)移除事件<br>①.移除某按钮上的所有  click 事件: $(“btn”).unbind(“click”)<br>移除某按钮上的所有事件: $(“btn”).unbind();<br>②.one(): 该方法可以为元素绑定处理函数。当处理函数触发一次后, 立即被删除. 即在每个对象上, 事件处理函数只会被执行一次。</p>
+<pre><code>//测试移除事件: 使用 unbind 移除事件. 
+//one(): 只为某一个元素添加一次事件, 事件函数响应后, 将不再被触发响应. 
+$(function(){
+
+    $(&quot;#rl&quot;).one(&quot;click&quot;, function(){
+        alert(&quot;红色警戒. &quot;);
+    });
+
+ $(&quot;li:not(#rl)&quot;).click(function(){
+                alert(this.firstChild.nodeValue);
+
+    //对于 #bj 节点, 点击一次后, 就没有 click 响应函数了
+    if(this.id == &quot;bj&quot;)
+    $(&quot;#bj&quot;).unbind(&quot;click&quot;);
+});
+
+  })
+</code></pre><h5 id="19-jQuery-动画"><a href="#19-jQuery-动画" class="headerlink" title="19.jQuery 动画"></a>19.jQuery 动画</h5><p>(1)隐藏和显示<br>①.hide(): 在 HTML 文档中, 为一个元素调用 hide() 方法会将该元素的 display 样式改为 none. 代码功能同 css(“display”, “none”);<br>②.show(): 将元素的 display 样式改为先前的显示状态。<br>③.以上两个方法在不带任何参数的情况下, 作用是立即隐藏或显示匹配的元素, 不会有任何动画。可以通过制定速度参数使元素动起来。以上两个方法会同时减少(增大)内容的高度, 宽度和不透明度。</p>
+<pre><code>//演示动画效果: show() 和 hide() 方法中传入毫秒数以达到动画的效果
+        /*
+        $(function(){ 
+            $(&quot;.head&quot;).toggle(function(){
+                $(&quot;.content&quot;).show(1000);
+            }, function(){
+                $(&quot;.content&quot;).hide(1000);
+            });
+        })
+        */
+</code></pre><p>(2)透明度与拉伸<br>①.fadeIn(), fadeOut(): 只改变元素的透明度。fadeOut() 会在指定的一段时间内降低元素的不透明度, 直到元素完全消失. fadeIn() 则相反。<br>②.slideDown(), slideUp(): 只会改变元素的高度。如果一个元素的 display 属性为 none, 当调用 slideDown() 方法时, 这个元素将由上至下延伸显示. slideUp() 方法正好相反, 元素由下至上缩短隐藏。</p>
+<pre><code>//只改变透明度
+
+$(function(){ 
+    $(&quot;.head&quot;).toggle(function(){
+    $(&quot;.content&quot;).fadeIn(1000);
+    }, function(){
+    $(&quot;.content&quot;).fadeOut(1000);
+});
+})
+</code></pre><p>(3)可见状态<br>toggle(): 切换元素的可见状态: 如果元素时可见的, 则切换为隐藏; 如果元素时隐藏的, 则切换为可见的。<br>slideToggle(): 通过高度变化来切换匹配元素的可见性。<br>fadeTo(): 把不透明度以渐近的方式调整到指定的值(0 – 1 之间)。</p>
+<pre><code>//只改变高度
+
+$(function(){ 
+    $(&quot;.head&quot;).toggle(function(){
+    $(&quot;.content&quot;).slideDown(500);
+        }, function(){
+        $(&quot;.content&quot;).slideUp(500);
+    });
+})
+//toggle() 可以切换元素的可见状态. 
+//slideToggle(): 通过高度变化来切换匹配元素的可见性
+//fadeToggle(): 通过透明度来切换元素的可见性.
+//fadeTo(): 把不透明度以渐近的方式调整到指定的值 (0 – 1 之间). 
+$(function(){ 
+    $(&quot;.content&quot;).show();
+    var i = 1; 
+
+    $(&quot;.head&quot;).click(function(){
+        //$(&quot;.content&quot;).toggle();
+        //$(&quot;.content&quot;).slideToggle();
+        //$(&quot;.content&quot;).fadeToggle();
+
+        $(&quot;.content&quot;).fadeTo(&quot;slow&quot;, i);
+        i = i - 0.1;
+    });
+})
 </code></pre>
       
 
@@ -1417,10 +1599,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1438,6 +1616,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1465,10 +1647,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
@@ -1481,11 +1659,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
