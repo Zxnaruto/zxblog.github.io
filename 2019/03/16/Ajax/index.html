@@ -36,7 +36,16 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax17.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax18.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax14.png">
-<meta property="og:updated_time" content="2019-03-16T19:51:29.433Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax26.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax29.png">
+<meta property="og:updated_time" content="2019-03-17T09:08:29.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="一、简介Ajax(AsyNchronous JavaScript and XML)，即允许浏览器与服务器通信而无需刷新页面的技术。">
@@ -560,6 +569,267 @@ for(var i=0;i&lt;Nodes.length;i++){
 &lt;div id=&quot;details&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
+</code></pre><h4 id="九、jQuery中的Ajax"><a href="#九、jQuery中的Ajax" class="headerlink" title="九、jQuery中的Ajax"></a>九、jQuery中的Ajax</h4><p>jQuery对Ajax操作进行了封装。</p>
+<pre><code>&gt; 在JQuery中最底层的方法是$.ajax()
+&gt; 第二层是load(),$.get()和$.post()
+&gt; 第三层是$.getScript和$.getJSON()
+</code></pre><p>1.load()方法<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax21.png" alt=""><br>①.selector url<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax22.png" alt=""><br>②.load传参数的方法<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax23.png" alt=""><br>③.load回调函数<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax24.png" alt=""><br>④.load方法的简单使用</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;scrpits/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+    $(&quot;a&quot;).click(function(){
+    //使用load方法处理Ajax
+    var url=this.href;
+    //防止缓存
+    var args={&quot;time&quot;:new Date()};
+
+    $(&quot;#content&quot;).load(url,args);
+    return false;
+
+});
+
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href=&quot;load.txt&quot;&gt;load&lt;/a&gt;
+&lt;br&gt;
+&lt;span id=&quot;content&quot;&gt;&lt;/span&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>⑤.load参数</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../scrpits/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+$(&quot;a&quot;).click(function(){
+    //使用load方法处理Ajax
+    var url=this.href+&quot; h2&quot;;
+    var urlz=this.href;
+    //防止缓存
+    var args={&quot;time&quot;:new Date()};
+
+    $(&quot;#details&quot;).load(url,args);
+    $(&quot;#details&quot;).load(urlz,args);
+    return false;
+
+});
+
+})
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx01.html&quot;&gt;zx01&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx02.html&quot;&gt;zx02&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx03.html&quot;&gt;zx03&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;details&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>注意：所传的参数都为Json格式</strong></p>
+<p>2.$.get() (或.post())方法<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax25.png" alt=""><br>①.get方法使用(post方法只需将get变为post)</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../scrpits/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+$(function(){
+
+$(&quot;a&quot;).click(function(){
+
+    var url=this.href;
+    var args={&quot;time&quot;:new Date()}
+    //args:JSON格式
+    //function:回调函数，当响应结束时，回调函数被触发，响应结果在data中。
+    $.get(url,args,function(data){
+        var name=$(data).find(&quot;name&quot;).text();
+        var hrefs=$(data).find(&quot;hrefs&quot;).text();
+
+        $(&quot;#details&quot;).empty().append(&quot;&lt;a href=&apos;&quot;+hrefs+&quot;&apos;&gt;&quot;+name+&quot;&lt;/a&gt;&quot;);//读取xml信息，返回页面
+    });
+
+    return false;
+});
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx1.xml&quot;&gt;zx1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx2.xml&quot;&gt;zx2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx3.xml&quot;&gt;zx3&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;details&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>②.返回JSON格式的</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../scrpits/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+$(function(){
+
+$(&quot;a&quot;).click(function(){
+
+    var url=this.href;
+    var args={&quot;time&quot;:new Date()}
+
+    $.getJSON(url,args,function(data){
+        var name=data.name;
+        var hrefs=data.hrefs;
+
+        $(&quot;#details&quot;).empty().append(&quot;&lt;a href=&apos;&quot;+hrefs+&quot;&apos;&gt;&quot;+name+&quot;&lt;/a&gt;&quot;);//
+    });
+
+    $.get(url,args,function(data){
+        var name=data.name;
+        var hrefs=data.hrefs;
+
+        $(&quot;#details&quot;).empty().append(&quot;&lt;a href=&apos;&quot;+hrefs+&quot;&apos;&gt;&quot;+name+&quot;&lt;/a&gt;&quot;);//
+    },&quot;JSON&quot;);
+    return false;
+});
+})    
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx1.js&quot;&gt;zx1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx2.js&quot;&gt;zx2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;zx3.js&quot;&gt;zx3&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;details&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="十、Ajax小结"><a href="#十、Ajax小结" class="headerlink" title="十、Ajax小结"></a>十、Ajax小结</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax26.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax27.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax28.png" alt=""></p>
+<h4 id="十一、用户登陆示例"><a href="#十一、用户登陆示例" class="headerlink" title="十一、用户登陆示例"></a>十一、用户登陆示例</h4><p>1.user.jsp</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
+pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;user&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;${pageContext.request.contextPath}/scrpits/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+$(function(){
+$(&quot;:input[name=&apos;username&apos;]&quot;).change(function(){
+    var val=$(this).val();
+    val=$.trim(val);
+
+    if(val!=&quot;&quot;){
+        var url=&quot;${pageContext.request.contextPath}/submit&quot;;
+        var args={&quot;username&quot;:val,&quot;time&quot;:new Date()};
+
+        $.post(url,args,function(data){
+            $(&quot;#message&quot;).html(data);
+        });
+
+    }
+
+});
+})
+
+
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+Username: &lt;input type=&quot; text&quot; name=&quot;username&quot; /&gt;
+&lt;br&gt;
+&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>2.submit.class</p>
+<pre><code>@WebServlet(&quot;/submit&quot;)
+public class submit extends HttpServlet {
+private static final long serialVersionUID = 1L;
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+
+    List&lt;String&gt; userNames=Arrays.asList(&quot;AAA&quot;);
+    String userName=request.getParameter(&quot;username&quot;);
+    String result=null;
+    if(userNames.contains(userName)) {
+        result=&quot;&lt;font color=&apos;red&apos;&gt;该用户已经被使用&lt;/font&gt;&quot;;
+    }else {
+        result=&quot;&lt;font color=&apos;green&apos;&gt;该用户可以使用&lt;/font&gt;&quot;;
+    }
+
+    response.setContentType(&quot;text/html&quot;);
+    response.setCharacterEncoding(&quot;UTF-8&quot;);
+    response.getWriter().print(result);
+}
+
+}
+</code></pre><h4 id="十二、Ajax使用Jackson"><a href="#十二、Ajax使用Jackson" class="headerlink" title="十二、Ajax使用Jackson"></a>十二、Ajax使用Jackson</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/Ajax29.png" alt=""></p>
+<pre><code>OjbectMapper map=new ObjectMapper();
+Customer customer=new Customer(&quot;zx&quot;,&quot;20&quot;);
+//调用mapper的writeValueAsString方法吧一个对象转为一个Json字符串
+String jsonStr=mapper.writeValueAsString(customer);
+</code></pre><h4 id="十三、Ajax小结"><a href="#十三、Ajax小结" class="headerlink" title="十三、Ajax小结"></a>十三、Ajax小结</h4><p>在我们进行web编程时是获得服务器响应得到的一个json字符串，然后通过ajax解析字符串，返回相应的结果。</p>
+<pre><code>//登录的方法
+function login(){
+var name=$(&quot;#name&quot;).val();//通过id获取数据
+var password=$(&quot;#password&quot;).val();
+$.ajax({
+    url:contextPath+&quot;/Login&quot;,
+    method:&quot;post&quot;,
+    data:{action:&quot;check&quot;,name:name,password:password},
+    success:function(jsonStr){
+         var result = eval(&quot;(&quot;+jsonStr+&quot;)&quot;);
+        if(result.status==1){
+            alert(result.data);
+            window.location.href=contextPath+&quot;/pre/loginsuccess.jsp&quot;;
+        }else{
+            alert(result.message);
+        }
+    }
+})
+}
 </code></pre>
       
 
@@ -837,11 +1107,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,23 +1179,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,6 +1204,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
