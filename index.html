@@ -363,6 +363,72 @@ public static void main(String[] args) {
 <blockquote>
 <p>②.加载映射文件<br>//手动加载<br>cfg.addResource(“pers/zx/hibernate/demo/Customer.hbm.xml”);<br>//在核心配置文件中加载<br>&lt; mapping resource=”pers/zx/hibernate/demo/Customer.hbm.xml”/&gt;</p>
 </blockquote>
+<p>(2)SessionFactory：Session工厂<br>SessionFactory接口负责初始化Hibernate，其内部维护了Hibernate的连接池和Hibernate的二级缓存。是线程安全对象，一个项目创建一个对象即可。<br>①.配置连接池：在hibernate.cfg.xml</p>
+<pre><code>&lt;!-- 配置C3P0连接池 --&gt;
+    &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+    &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
+    &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
+    &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
+    &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
+    &lt;!--设定数据库连接的过期时间,以秒为单位,
+    如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
+    &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
+     &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;    
+    &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+</code></pre><p>②.抽取工具类</p>
+<pre><code>public class HibernateUtils {
+
+public static final Configuration configuration;
+public static final SessionFactory sessionFactory;
+
+static {
+    configuration=new Configuration().configure();
+    sessionFactory=configuration.buildSessionFactory();
+}
+public static Session getSession() {
+    return sessionFactory.openSession();
+}
+}
+</code></pre><p>(3)Session：类似于Connection对象是一个链接对象<br>Session接口负责执行被持久化对象的CRUD(增删改查)操作，其代表的是Hibernate与数据库的连接对象，不是线程安全的。<br>①.Session接口中的API</p>
+<blockquote>
+<p>1.保存方法：<br>Serializable save(Object obj); //返回一个序列化的数值，即id</p>
+</blockquote>
+<blockquote>
+<p>2.查询方法：<br>T get(Class c,Serializable id);<br>T load(Class c,Serializable id);</p>
+</blockquote>
+<blockquote>
+<p>具体使用：<br>Customer c=session.get(Customer.class,1L);<br>Customer c=session.load(Customer.class,2L);</p>
+</blockquote>
+<blockquote>
+<p>区别：</p>
+</blockquote>
+<p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate16.png" alt=""></p>
+<blockquote>
+<p>3.修改方法：<br>void update(Object obj);</p>
+</blockquote>
+<blockquote>
+<p>具体使用：<br>Ⅰ、直接创建对象，进行修改<br>Customer c=new Customer();<br>c.setCust_id(1L);<br>c.setCust_name(“xxx”);<br>session.update(c);//更新id为1的对象的name</p>
+</blockquote>
+<blockquote>
+<p>Ⅱ、先查寻、后修改（推荐）<br>Customer c=session.get(Customer.class,1L);<br>c.setCust_name(“xxx”);<br>session.update(customer);</p>
+</blockquote>
+<p><strong>注意：推荐使用Ⅱ，这时由于第一种方法可能会错误修改其他数据。第二种是查询出来后设置查询后的对象，将修改后的对象在更新到数据表中，不会出错。</strong></p>
+<blockquote>
+<p>4.删除方法<br>void delete(Object obj);</p>
+</blockquote>
+<blockquote>
+<p>具体使用<br>Ⅰ、直接创建对象，进行删除<br>Customer c=new Customer();<br>c.setCust_id(1L);<br>session.delete(c);//更新id为1的对象的name</p>
+</blockquote>
+<blockquote>
+<p>Ⅱ、先查寻、后修改（推荐）<br>Customer c=session.get(Customer.class,1L);<br>session.delete(customer);</p>
+</blockquote>
+<blockquote>
+<p>5.查询所有<br>Ⅰ、HQL查询：Hibernate Query Language,面向对象的查询语言，该方式查询出来的是一个对象<br>Query query=session.createQuery(“from Customer”);<br>List&lt; Customer&gt; list=query.list();<br>for(Customer customer : list){<br>Systeem.out.println(customer);<br> }</p>
+</blockquote>
+<blockquote>
+<p>Ⅱ.SQL方式：结构化查询语言，返回的是个对象数组<br>SQLQuery query=session.createSQLQuery(“SELECT * from cst_customer”);<br>List&lt;Object[]&gt; list=query.list();<br>for(Object[] objects : list){<br>System.out.println(Arrays.toString(objects));<br>}</p>
+</blockquote>
+<p>(4)Transaction：事务处理对象<br>①.commit()：提交<br>②.rollback()：回滚</p>
 
       
 
@@ -1289,7 +1355,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,11 +1367,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1313,15 +1379,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,11 +1399,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,15 +1419,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,11 +1447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
