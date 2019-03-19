@@ -217,219 +217,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、框架的概述"><a href="#一、框架的概述" class="headerlink" title="一、框架的概述"></a>一、框架的概述</h3><h4 id="1-什么是框架"><a href="#1-什么是框架" class="headerlink" title="1.什么是框架"></a>1.什么是框架</h4><p>框架：指的是软件的半成品，已经完成了部分功能。</p>
-<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""></p>
-<h3 id="二、Hibernate概述"><a href="#二、Hibernate概述" class="headerlink" title="二、Hibernate概述"></a>二、Hibernate概述</h3><h4 id="1-什么是Hibernate"><a href="#1-什么是Hibernate" class="headerlink" title="1.什么是Hibernate"></a>1.什么是Hibernate</h4><p>Hibernate是持久层的一个ORM(Object Relational Mapping)框架。</p>
-<h4 id="2-ORM"><a href="#2-ORM" class="headerlink" title="2.ORM"></a>2.ORM</h4><p>ORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操作数据库中的表。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate02.png" alt=""></p>
-<h4 id="3-Hibernate的优势"><a href="#3-Hibernate的优势" class="headerlink" title="3.Hibernate的优势"></a>3.Hibernate的优势</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate03.png" alt=""></p>
-<h4 id="4-Hibernate入门"><a href="#4-Hibernate入门" class="headerlink" title="4.Hibernate入门"></a>4.Hibernate入门</h4><p>(1)下载Hibernate<br><a href="https://sourceforge.net/projects/hibernate/files/hibernate-orm" target="_blank" rel="noopener">https://sourceforge.net/projects/hibernate/files/hibernate-orm</a><br>(2)Hibernate文件结构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate04.png" alt=""><br>(3)创建Hibernate<br>①.创建Java Project导入下列jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate05.png" alt=""><br>②.创建数据库表以及对应的实体类<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate06.png" alt=""></p>
-<pre><code>package pers.zx.hibernate.demo;
-
-public class Customer {
-  private long cust_id;
-  private String cust_name;
-  private String cust_source;
-  private String cust_industry;
-  private String cust_level;
-  private String cust_phone;
-  private String cust_mobile;
-public long getCust_id() {
-    return cust_id;
-}
-public void setCust_id(long cust_id) {
-this.cust_id = cust_id;
-}
-public String getCust_name() {
-return cust_name;
-}
-public void setCust_name(String cust_name) {
-this.cust_name = cust_name;
-}
-public String getCust_source() {
-return cust_source;
-}
-public void setCust_source(String cust_source) {
-this.cust_source = cust_source;
-}
-public String getCust_industry() {
-return cust_industry;
-}
-public void setCust_industry(String cust_industry) {
-this.cust_industry = cust_industry;
-}
-public String getCust_level() {
-return cust_level;
-}
-public void setCust_level(String cust_level) {
-this.cust_level = cust_level;
-}
-public String getCust_phone() {
-return cust_phone;
-}
-public void setCust_phone(String cust_phone) {
-this.cust_phone = cust_phone;
-}
-public String getCust_mobile() {
-return cust_mobile;
-}
-public void setCust_mobile(String cust_mobile) {
-this.cust_mobile = cust_mobile;
-} 
-}
-</code></pre><p>③.编写映射文件：命名方式(实体类名.hbm.xml)<br>Customer.hbm.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-mapping PUBLIC 
-&quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
-
-&lt;hibernate-mapping&gt;
-&lt;!-- 建立类与表的映射 --&gt;
-&lt;class name=&quot;pers.zx.hibernate.demo.Customer&quot; table=&quot;cst_customer&quot;&gt;
-&lt;!-- 建立类中属性与表的主键对应 --&gt;
-&lt;id name=&quot;cust_id&quot; column=&quot;cust_id&quot;&gt;
-&lt;generator class=&quot;native&quot; /&gt;
-&lt;/id&gt;
-&lt;!-- 建立类中的普通的属性和表的字段的应对 --&gt;
-&lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot;/&gt;
-&lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot;/&gt;
-&lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot;/&gt;
-&lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot;/&gt;
-&lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot;/&gt;
-&lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot;/&gt;
-&lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><p>④.编写hibernate核心配置文件，配置数据库连接以及与映射文件的关联<br>hibernate.cfg.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-configuration PUBLIC
-&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
-&quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
-
-&lt;hibernate-configuration&gt;
-&lt;session-factory&gt;
-&lt;!-- 建立数据库连接的基本参数 --&gt;
-&lt;property name=&quot;hibernate.connection.driver.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
-&lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///hibernate01&lt;/property&gt;
-&lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
-&lt;property name=&quot;hibernate.connection.password&quot;&gt;19960213zx.&lt;/property&gt;
-&lt;!-- 配置hibernate的方言 --&gt;
-&lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
-
-&lt;!-- 可选配置 --&gt;
-&lt;!-- 打印SQL --&gt;
-&lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
-&lt;!-- 格式化SQL --&gt;
-&lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
-
-&lt;mapping resource=&quot;pers/zx/hibernate/demo/Customer.hbm.xml&quot;/&gt;
-&lt;/session-factory&gt;
-&lt;/hibernate-configuration&gt;
-</code></pre><p>⑤.编写测试代码</p>
-<pre><code>public class Hibernate01 {
-
-public static void main(String[] args) {
-    //1.加载Hibernate的核心配置文件
-    Configuration configuration=new Configuration();
-    configuration.configure();//多读一次hibernate.cfg.xml配置
-    //2.创建一个SessionFactory获取到Session对象：类似于JDBC中的连接池
-    SessionFactory sessionFactory=configuration.buildSessionFactory();
-    //3.通过SessionFactory获取到Session对象：类似于JDBC中的Connection
-    Session session=sessionFactory.openSession();
-    //4.手动开启事务
-    Transaction transaction=session.beginTransaction();
-    //5.编写代码
-    Customer customer=new Customer();
-    customer.setCust_name(&quot;zx&quot;);
-
-    session.save(customer);
-    //6.提交事务
-    transaction.commit();
-    //7.资源释放
-    session.close();
-}
-
-}
-</code></pre><h4 id="5-Hibernate的常见配置"><a href="#5-Hibernate的常见配置" class="headerlink" title="5.Hibernate的常见配置"></a>5.Hibernate的常见配置</h4><p>1.配置XML提示<br>目的：是在编写XML文件的时候会有自动提示<br>步骤：在eclipse中，选择windows–&gt;prefernces–&gt;搜索XML–&gt;选择XML Catalog<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate07.png" alt=""><br>然后点击User Specified Entries–&gt;Add<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate08.png" alt=""><br>在1中选择需要添加的.dtd文件的位置，2中选择URI，3中填写链接<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate09.png" alt=""></p>
-<h4 id="6-Hibernate常见的映射配置"><a href="#6-Hibernate常见的映射配置" class="headerlink" title="6.Hibernate常见的映射配置"></a>6.Hibernate常见的映射配置</h4><p>(1)class标签配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate10.png" alt=""><br>(2)id标签配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate11.png" alt=""><br>(3)property标签配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate12.png" alt=""></p>
-<h4 id="7-Hibernate常见的核心配置"><a href="#7-Hibernate常见的核心配置" class="headerlink" title="7.Hibernate常见的核心配置"></a>7.Hibernate常见的核心配置</h4><p>(1)核心配置的方式<br>①.属性文件：hibernate.properties</p>
-<blockquote>
-<p>hibernate.connection.driver_class=com.mysql.jdbc.Driver<br>hibernate.connection.url=jdbc:mysql:///hibernate<br>hibernate.connection.username=root<br>hibernate.connection.password=123456<br>hibernate.dialect=org.hibernate.dialect.MySQLDialect<br>hibernate.show_sql=true<br>hibernate.format_sql=true</p>
-</blockquote>
-<p><strong>注意：属性文件的方式不能引入映射文件，需要手动编写代码加载映射。</strong></p>
-<p>②.XML文件的方式：hibernate.cfg.xml</p>
-<p>(2)必须的配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate13.png" alt=""><br>(3)可选的配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate14.png" alt=""><br>(4)映射文件引入<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate15.png" alt=""></p>
-<h4 id="8-Hibernate核心的API"><a href="#8-Hibernate核心的API" class="headerlink" title="8.Hibernate核心的API"></a>8.Hibernate核心的API</h4><p>(1)Configuration</p>
-<blockquote>
-<p>作用：对Hibernate进行配置<br>①.加载核心配置文件<br>//对于hibernate.properties<br>Configuration cfg=new Configuration();<br>//对于hibernate.cfg.xml<br>Configuration cfg=new Configuration().configure();</p>
-</blockquote>
-<blockquote>
-<p>②.加载映射文件<br>//手动加载<br>cfg.addResource(“pers/zx/hibernate/demo/Customer.hbm.xml”);<br>//在核心配置文件中加载<br>&lt; mapping resource=”pers/zx/hibernate/demo/Customer.hbm.xml”/&gt;</p>
-</blockquote>
-<p>(2)SessionFactory：Session工厂<br>SessionFactory接口负责初始化Hibernate，其内部维护了Hibernate的连接池和Hibernate的二级缓存。是线程安全对象，一个项目创建一个对象即可。<br>①.配置连接池：在hibernate.cfg.xml</p>
-<pre><code>&lt;!-- 配置C3P0连接池 --&gt;
-    &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
-    &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
-    &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
-    &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
-    &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
-    &lt;!--设定数据库连接的过期时间,以秒为单位,
-    如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
-    &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
-     &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;    
-    &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
-</code></pre><p>②.抽取工具类</p>
-<pre><code>public class HibernateUtils {
-
-public static final Configuration configuration;
-public static final SessionFactory sessionFactory;
-
-static {
-    configuration=new Configuration().configure();
-    sessionFactory=configuration.buildSessionFactory();
-}
-public static Session getSession() {
-    return sessionFactory.openSession();
-}
-}
-</code></pre><p>(3)Session：类似于Connection对象是一个链接对象<br>Session接口负责执行被持久化对象的CRUD(增删改查)操作，其代表的是Hibernate与数据库的连接对象，不是线程安全的。<br>①.Session接口中的API</p>
-<blockquote>
-<p>1.保存方法：<br>Serializable save(Object obj); //返回一个序列化的数值，即id</p>
-</blockquote>
-<blockquote>
-<p>2.查询方法：<br>T get(Class c,Serializable id);<br>T load(Class c,Serializable id);</p>
-</blockquote>
-<blockquote>
-<p>具体使用：<br>Customer c=session.get(Customer.class,1L);<br>Customer c=session.load(Customer.class,2L);</p>
-</blockquote>
-<blockquote>
-<p>区别：</p>
-</blockquote>
-<p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate16.png" alt=""></p>
-<blockquote>
-<p>3.修改方法：<br>void update(Object obj);</p>
-</blockquote>
-<blockquote>
-<p>具体使用：<br>Ⅰ、直接创建对象，进行修改<br>Customer c=new Customer();<br>c.setCust_id(1L);<br>c.setCust_name(“xxx”);<br>session.update(c);//更新id为1的对象的name</p>
-</blockquote>
-<blockquote>
-<p>Ⅱ、先查寻、后修改（推荐）<br>Customer c=session.get(Customer.class,1L);<br>c.setCust_name(“xxx”);<br>session.update(customer);</p>
-</blockquote>
-<p><strong>注意：推荐使用Ⅱ，这时由于第一种方法可能会错误修改其他数据。第二种是查询出来后设置查询后的对象，将修改后的对象在更新到数据表中，不会出错。</strong></p>
-<blockquote>
-<p>4.删除方法<br>void delete(Object obj);</p>
-</blockquote>
-<blockquote>
-<p>具体使用<br>Ⅰ、直接创建对象，进行删除<br>Customer c=new Customer();<br>c.setCust_id(1L);<br>session.delete(c);//更新id为1的对象的name</p>
-</blockquote>
-<blockquote>
-<p>Ⅱ、先查寻、后修改（推荐）<br>Customer c=session.get(Customer.class,1L);<br>session.delete(customer);</p>
-</blockquote>
-<blockquote>
-<p>5.查询所有<br>Ⅰ、HQL查询：Hibernate Query Language,面向对象的查询语言，该方式查询出来的是一个对象<br>Query query=session.createQuery(“from Customer”);<br>List&lt; Customer&gt; list=query.list();<br>for(Customer customer : list){<br>Systeem.out.println(customer);<br> }</p>
-</blockquote>
-<blockquote>
-<p>Ⅱ.SQL方式：结构化查询语言，返回的是个对象数组<br>SQLQuery query=session.createSQLQuery(“SELECT * from cst_customer”);<br>List&lt;Object[]&gt; list=query.list();<br>for(Object[] objects : list){<br>System.out.println(Arrays.toString(objects));<br>}</p>
-</blockquote>
-<p>(4)Transaction：事务处理对象<br>①.commit()：提交<br>②.rollback()：回滚</p>
-
+<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""><br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/18/Hibernate/#more">more >></a>
+        
       
 
       
@@ -1355,6 +1146,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1367,14 +1166,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
@@ -1383,15 +1174,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,15 +1210,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1439,19 +1230,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">

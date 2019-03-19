@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Hibernate | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
+  <meta name="description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
 <meta name="keywords" content="hibernate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/18/Hibernate/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
+<meta property="og:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate02.png">
@@ -32,10 +32,20 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate14.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate15.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate16.png">
-<meta property="og:updated_time" content="2019-03-18T16:11:58.840Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate17.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate18.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate19.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate26.png">
+<meta property="og:updated_time" content="2019-03-19T10:07:22.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate">
-<meta name="twitter:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
+<meta name="twitter:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -241,7 +251,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、框架的概述"><a href="#一、框架的概述" class="headerlink" title="一、框架的概述"></a>一、框架的概述</h3><h4 id="1-什么是框架"><a href="#1-什么是框架" class="headerlink" title="1.什么是框架"></a>1.什么是框架</h4><p>框架：指的是软件的半成品，已经完成了部分功能。</p>
-<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""></p>
+<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""><br><a id="more"></a></p>
 <h3 id="二、Hibernate概述"><a href="#二、Hibernate概述" class="headerlink" title="二、Hibernate概述"></a>二、Hibernate概述</h3><h4 id="1-什么是Hibernate"><a href="#1-什么是Hibernate" class="headerlink" title="1.什么是Hibernate"></a>1.什么是Hibernate</h4><p>Hibernate是持久层的一个ORM(Object Relational Mapping)框架。</p>
 <h4 id="2-ORM"><a href="#2-ORM" class="headerlink" title="2.ORM"></a>2.ORM</h4><p>ORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操作数据库中的表。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate02.png" alt=""></p>
 <h4 id="3-Hibernate的优势"><a href="#3-Hibernate的优势" class="headerlink" title="3.Hibernate的优势"></a>3.Hibernate的优势</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate03.png" alt=""></p>
@@ -453,6 +463,176 @@ public static Session getSession() {
 <p>Ⅱ.SQL方式：结构化查询语言，返回的是个对象数组<br>SQLQuery query=session.createSQLQuery(“SELECT * from cst_customer”);<br>List&lt;Object[]&gt; list=query.list();<br>for(Object[] objects : list){<br>System.out.println(Arrays.toString(objects));<br>}</p>
 </blockquote>
 <p>(4)Transaction：事务处理对象<br>①.commit()：提交<br>②.rollback()：回滚</p>
+<h3 id="三、Hibernate进阶"><a href="#三、Hibernate进阶" class="headerlink" title="三、Hibernate进阶"></a>三、Hibernate进阶</h3><h4 id="1-持久化类的编写规则"><a href="#1-持久化类的编写规则" class="headerlink" title="1.持久化类的编写规则"></a>1.持久化类的编写规则</h4><p>(1)什么是持久化类？</p>
+<blockquote>
+<p>持久化：将内存中的一个对象持久化到数据库(磁盘)的过程。Hibernate框架就是用来进行持久化的框架。</p>
+<p>持久化类：一个Java对象与数据库建立了映射关系，那么这个类在Hibernate中称为持久化类。</p>
+</blockquote>
+<blockquote>
+<p>持久化类= java类+映射文件</p>
+</blockquote>
+<p>(2)持久化类的编写规则<br>①.对持久化类提供一个无参的构造方法</p>
+<blockquote>
+<p>目的：Hibernate底层需要使用反射生成实例</p>
+</blockquote>
+<p>②.属性需要私有，对私有属性提供public的get和set方法</p>
+<blockquote>
+<p>目的：在Hibernate中获取，设置对象的值</p>
+</blockquote>
+<p>③.对持久化类提供一个唯一标识OID的属性区分是否是同一个对象</p>
+<blockquote>
+<p>目的：Java中通过对象的地址区分是否是同一个对象，数据库中通过主键确定是否是同一条记录，在Hibernate中通过持久化类的OID的属性区分是否是同一个对象。</p>
+</blockquote>
+<p>④.持久化类中的属性尽量使用包装类类型</p>
+<blockquote>
+<p>目的：基本数据类型默认是0，那么就会有很多的歧义，包装类类型默认为null。</p>
+</blockquote>
+<p>⑤.持久化类不要使用final修饰</p>
+<blockquote>
+<p>目的：延迟加载本身是hibernate一个优化的手段。其返回的是一个代理对象(javassist可以对没有实现接口的类产生代理—–使用了底层的字节码增强技术，继承这个类进行代理)。由于要是使用了final的话，该类就不能被继承了，如果不能被继承，就不能产生代理对象，延迟加载就失效了。load方法就和get方法一致了。</p>
+</blockquote>
+<h4 id="2-主键生成策略"><a href="#2-主键生成策略" class="headerlink" title="2.主键生成策略"></a>2.主键生成策略</h4><p>(1)主键的分类<br>①.自然主键：主键本身就是表中的一个字段(实体中的一个具体属性)。表中的主键即是代码中的主键。<br>②.代理主键：主键本身不是表中必须的一个字段(不是实体中的某个具体属性)</p>
+<p><strong>注意：在实际开发中，尽量使用代理主键，一旦自然主键参与到业务逻辑中，后期有可能需要修改源代码。好的程序设计满足OCP原则：对程序的扩展是open，对程序的修改是关闭的。</strong></p>
+<p>(2)主键生成策略<br>在实际开发中一般不允许用户手动设置主键，一般将主键交给数据库，手动编写程序进行设置。在Hibernate中为了减少程序编写，提供了很多种的主键的生成策略。<br>①.increment：hibernate中提供的自动增长机制，适用于short、int、long类型的主键。在单线程程序中使用。<br>执行原理：首先发送一条语句：selete max(id) from table,然后id+1作为下一条记录的主键。<br>②.identity：适用于short、int、long类型的主键，使用的是数据库底层的自动增长机制，适用于有自动增长的数据库(MySQL、MSSQL)，不适合Oracle。<br>③.sequence：适用short、int、long类型的主键，采用的是序列的方式。(Oracle支持序列)。MySql不能适用sequence<br>④.uuid：适用于字符串类型的主键，适用hibernate中的随机方式生成字符串主键。<br>⑤.native：本地策略，可以在identity和sequence之间进行自动切换<br>⑥.assigned：hibernate放弃外键的管理，需要手动编写程序或用户自己设置。<br>⑦.foreign：外部的，一对一的关系映射的情况下适用，其他表的属性字段是一个表的主键。</p>
+<h4 id="3-持久化类的三种状态"><a href="#3-持久化类的三种状态" class="headerlink" title="3.持久化类的三种状态"></a>3.持久化类的三种状态</h4><p>Hibernate是持久层框架，通过持久化类完成ORM操作。Hibernate为了更好的管理持久化类，将持久化类分成三种状态。<br>(1)瞬时态<br>这种对象没有唯一的标识OID，没有被session管理。<br>(2)持久态<br>这种对象有唯一标识OID，被session管理。<br>(3)脱管态<br>这种对象有唯一标识OID，没有被session管理。</p>
+<p>(4)如何区分这三种状态：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate17.png" alt=""></p>
+<p>(5)三种状态转换<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate18.png" alt=""><br>①.瞬时态对象<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate20.png" alt=""><br>②.持久太对象<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate19.png" alt=""><br>③.脱管态<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate21.png" alt=""></p>
+<p>(6)持久态对象的特性<br>它可以自动跟新数据库，利用的原理就是Hibernate的一级缓存。<br>下面的代码可以不用update方法更新数据库(当数据和数据库中的数据不一致时更新，一样不更新)</p>
+<pre><code>public void test1() {
+    Session session=HibernateUtils.getSession();
+    Transaction t=session.beginTransaction();
+
+    Customer c=session.get(Customer.class, 1L);
+    c.setCust_name(&quot;xxx&quot;);
+    //session.update(c);
+
+    t.commit();
+    session.close();
+}
+</code></pre><h4 id="4-Hibernate一级缓存"><a href="#4-Hibernate一级缓存" class="headerlink" title="4.Hibernate一级缓存"></a>4.Hibernate一级缓存</h4><p>(1)什么是缓存？<br>是一种优化方式，将数据存入到内存中，使用的时候直接从缓存中获取，不用通过存储源。<br>(2)一级缓存<br>一级缓存是hibernate框架中提供的一种优化手段，包括：缓存，抓取策略。关于缓存其提供了两种缓存机制：一级缓存和二级缓存。<br>所谓一级缓存：称为是Session级别的缓存，一级缓存生命周期与session一致，它是由session中的一系列的java集合构成。一级缓存是自带的不可卸载的。<br>二级缓存是SessionFactory级别的缓存，是需要配置的缓存。</p>
+<p>(3)测试一级缓存</p>
+<pre><code>public void test() {
+    Session session=HibernateUtils.getSession();
+    Transaction t=session.beginTransaction();
+
+    Customer c=session.get(Customer.class, 1L);//发送sql语句
+    System.out.println(c);
+    Customer c1=session.get(Customer.class, 1L);//不发送，从缓存中读
+    System.out.println(c1);
+
+    t.commit();
+    session.close();
+}
+</code></pre><p>(4)一级缓存的特点<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate22.png" alt=""></p>
+<p>(5)一级缓存的特殊区域：快照区<br>快照区会复制缓存区的内容，当在一次执行操作时，会修改缓存区，此时进行提交时，会用快照区的数据与更新后的缓存区的数据进行对比，如果不一样就更新数据库，一样就不更新数据库。</p>
+<p>原理：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate23.png" alt=""></p>
+<h4 id="4-Hibernate事务管理"><a href="#4-Hibernate事务管理" class="headerlink" title="4.Hibernate事务管理"></a>4.Hibernate事务管理</h4><p>(1)回顾事务管理<br>①.事务：事务是指逻辑上的一组操作，组成事务操作的各个单元必须全部成功。<br>②.事务的特性(ACID)<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate24.png" alt=""><br>③.不考虑隔离性可能引发的问题<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate25.png" alt=""></p>
+<p>④.设置隔离级别<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate26.png" alt=""></p>
+<p>(2)Hibernate设置事务的隔离级别<br>在核心配置文件中</p>
+<blockquote>
+<p>&lt; property name=”hibernate.connection.isolation”&gt;4&lt; /property&gt;<br>1—–Read uncommitted isolation<br>2—–Read committed isolation<br>4—–Repeatable read isolation<br>8—–Serializable isolation</p>
+</blockquote>
+<p>(3)线程绑定<br>①.在项目中使用同一个连接的方法(同一个Session)</p>
+<blockquote>
+<p>1.向下传递：在所要使用该连接的方法的上一层做一个公共的连接，把这个连接传到这些被调用的方法中。<br>2.ThreadLocal：同一个线程产生的连接是一样的。</p>
+</blockquote>
+<p>②.Hibernate线程绑定<br>修改工具类，得到当前线程的session</p>
+<pre><code>public class HibernateUtils {
+
+public static final Configuration configuration;
+public static final SessionFactory sessionFactory;
+
+static {
+    configuration=new Configuration().configure();
+    sessionFactory=configuration.buildSessionFactory();
+}
+public static Session getSession() {
+    return sessionFactory.openSession();
+}
+
+//getCurrentSession
+public static Session getCurrentSession() {
+
+    return sessionFactory.getCurrentSession();
+}
+}
+</code></pre><p>修改核心配置文件</p>
+<pre><code>&lt;!-- 配置session绑定本地线程 --&gt;
+&lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;Thread&lt;/property&gt;
+</code></pre><p>编写代码测试：此时不用关闭session</p>
+<pre><code>public void test2() {
+    Session session=HibernateUtils.getCurrentSession();
+    Transaction t=session.beginTransaction();
+
+    Customer c=session.get(Customer.class, 1L);
+    c.setCust_name(&quot;xxx&quot;);
+
+    t.commit();
+
+}
+</code></pre><h4 id="5-Hibernate其他的一些API"><a href="#5-Hibernate其他的一些API" class="headerlink" title="5.Hibernate其他的一些API"></a>5.Hibernate其他的一些API</h4><p>(1)Query<br>Query接口用于接收HQL，查询多个对象。<br>HQL:Hibernate Query Language Hibernate查询语言，是面向对象的查询语言。<br>①.代码</p>
+<pre><code>//Query测试
+public void test3() {
+    Session session=HibernateUtils.getCurrentSession();
+    Transaction t=session.beginTransaction();
+    //简单查询
+    String hql=&quot;from Customer&quot;;
+    Query query=session.createQuery(hql);
+    List&lt;Customer&gt; list=query.list();
+    for(Customer lists:list) {
+
+        System.out.println(lists);
+    }
+    //条件查询
+    String hql1=&quot;from Customer where cust_name = ?&quot;;
+    Query query1=session.createQuery(hql1);
+    query1.setParameter(0, &quot;zx&quot;);//为占位符赋值
+    //设置分页
+    String hql2=&quot;from Customer&quot;;
+    Query query2=session.createQuery(hql2);
+    query2.setFirstResult(0);//从哪开始
+    query2.setMaxResults(2);//每页的个数
+    List&lt;Customer&gt; list2=query.list();
+    for(Customer lists:list2) {
+
+        System.out.println(lists);
+    }
+
+    t.commit();
+
+}
+</code></pre><p>(2)Criteria<br>QBC(Query by Criteria)，query条件查询。是一种更加面向对象的方式。<br>①.代码</p>
+<pre><code>@Test
+//criteria测试
+public void test4() {
+    Session session=HibernateUtils.getCurrentSession();
+    Transaction t=session.beginTransaction();
+    //简单查询
+    Criteria c=session.createCriteria(Customer.class);
+    List&lt;Customer&gt; list=c.list();
+
+    for(Customer a:list) {
+        System.out.println(a);
+    }
+
+    //条件查询
+    c.add(Restrictions.like(&quot;cust_name&quot;, &quot;z%&quot;));//以z开头的
+    List&lt;Customer&gt; list1=c.list();
+    for(Customer a:list1) {
+        System.out.println(a);
+    }
+    //分页
+    Criteria b=session.createCriteria(Customer.class);
+    b.setFirstResult(0);
+    b.setMaxResults(2);
+    List&lt;Customer&gt; list2=b.list();
+    for(Customer a:list2) {
+        System.out.println(a);
+    }
+    t.commit();
+
+}
+</code></pre><p>(3)SQLQuery<br>用来接收SQL语句，一般用于复杂的SQL语句。</p>
 
       
 
@@ -734,6 +914,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -746,14 +934,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
@@ -762,15 +942,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,15 +978,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,19 +998,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
