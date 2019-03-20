@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Hibernate | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
+  <meta name="description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
 <meta name="keywords" content="hibernate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/18/Hibernate/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
+<meta property="og:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate02.png">
@@ -42,10 +42,15 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate24.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate25.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate26.png">
-<meta property="og:updated_time" content="2019-03-19T10:07:22.364Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate29.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate30.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate31.png">
+<meta property="og:updated_time" content="2019-03-20T07:14:48.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate">
-<meta name="twitter:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层">
+<meta name="twitter:description" content="一、框架的概述1.什么是框架框架：指的是软件的半成品，已经完成了部分功能。 2.JavaEE的三层架构web层、业务层、持久层 二、Hibernate概述1.什么是HibernateHibernate是持久层的一个ORM(Object Relational Mapping)框架。 2.ORMORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -251,7 +256,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、框架的概述"><a href="#一、框架的概述" class="headerlink" title="一、框架的概述"></a>一、框架的概述</h3><h4 id="1-什么是框架"><a href="#1-什么是框架" class="headerlink" title="1.什么是框架"></a>1.什么是框架</h4><p>框架：指的是软件的半成品，已经完成了部分功能。</p>
-<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""><br><a id="more"></a></p>
+<h4 id="2-JavaEE的三层架构"><a href="#2-JavaEE的三层架构" class="headerlink" title="2.JavaEE的三层架构"></a>2.JavaEE的三层架构</h4><p>web层、业务层、持久层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate01.png" alt=""></p>
 <h3 id="二、Hibernate概述"><a href="#二、Hibernate概述" class="headerlink" title="二、Hibernate概述"></a>二、Hibernate概述</h3><h4 id="1-什么是Hibernate"><a href="#1-什么是Hibernate" class="headerlink" title="1.什么是Hibernate"></a>1.什么是Hibernate</h4><p>Hibernate是持久层的一个ORM(Object Relational Mapping)框架。</p>
 <h4 id="2-ORM"><a href="#2-ORM" class="headerlink" title="2.ORM"></a>2.ORM</h4><p>ORM:对象关系映射。指的是将一个Java中的对象与关系型数据库中的表建立一种映射关系，从而操作对象就可以操作数据库中的表。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate02.png" alt=""></p>
 <h4 id="3-Hibernate的优势"><a href="#3-Hibernate的优势" class="headerlink" title="3.Hibernate的优势"></a>3.Hibernate的优势</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate03.png" alt=""></p>
@@ -633,7 +638,334 @@ public void test4() {
 
 }
 </code></pre><p>(3)SQLQuery<br>用来接收SQL语句，一般用于复杂的SQL语句。</p>
+<h3 id="四、Hibernate表的操作与配置"><a href="#四、Hibernate表的操作与配置" class="headerlink" title="四、Hibernate表的操作与配置"></a>四、Hibernate表的操作与配置</h3><h4 id="1-表与表之间的关系"><a href="#1-表与表之间的关系" class="headerlink" title="1.表与表之间的关系"></a>1.表与表之间的关系</h4><p>(1)一对多<br>①.1 ：N ：一个部门有多个员工，一个员工只能属于一个部门<br>②.建表原则<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate27.png" alt=""><br>(2)多对多<br>①.M : N：一个学生可以选多门课，每门课也可以有多个学生选。<br>②.建表原则<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate28.png" alt=""><br>(3)一对一<br>①.1 ：1：一个公司只有一个地址，一个地址对应一个公司。<br>②.建表原则<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate29.png" alt=""></p>
+<h4 id="2-创建一对多的实例"><a href="#2-创建一对多的实例" class="headerlink" title="2.创建一对多的实例"></a>2.创建一对多的实例</h4><p>(1)创建一对多的数据库表<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate30.png" alt=""><br>(2)编写实体<br>①.Customer</p>
+<pre><code>  private long cust_id;
+  private String cust_name;
+  private String cust_source;
+  private String cust_industry;
+  private String cust_level;
+  private String cust_phone;
+  private String cust_mobile;
+//通过ORM方式表示：一个客户对应多个联系人。
+// 放置的多的一方的集合。Hibernate默认使用的是Set集合。
+  private Set&lt;LinkMan&gt; linkMans=new HashSet&lt;LinkMan&gt;();
+</code></pre><p>②.LinkMan</p>
+<pre><code>private Long lkm_id;
+private String lkm_name;
+private String lkm_gender;
+private String lkm_phone;
+private String lkm_mobile;
+private String lkm_email;
+private String lkm_qq;
+private String lkm_position;
+private String lkm_memo;
+// 通过ORM方式表示：一个联系人只能属于某一个客户。
+// 放置的是一的一方的对象。
+private Customer customer;
+</code></pre><p><strong>注意：在多的一方要写一个一的一方的对象，而一的一方要写多的一方的集合，同时生成get和set方法。</strong></p>
+<p>(3)编写配置文件<br>①.Customer.hbm.xml</p>
+<pre><code>&lt;hibernate-mapping&gt;
+&lt;!-- 建立类与表的映射 --&gt;
+&lt;class name=&quot;pers.zx.hibernate.demo.Customer&quot; table=&quot;cst_customer&quot;&gt;
+&lt;!-- 建立类中属性与表的主键对应 --&gt;
+&lt;id name=&quot;cust_id&quot; column=&quot;cust_id&quot;&gt;
+&lt;generator class=&quot;native&quot; /&gt;
+&lt;/id&gt;
+&lt;!-- 建立类中的普通的属性和表的字段的应对 --&gt;
+&lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot;/&gt;
+&lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot;/&gt;
+&lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot;/&gt;
+&lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot;/&gt;
+&lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot;/&gt;
+&lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot;/&gt;
+&lt;!-- 配置一对多的映射：放置的多的一方的集合 --&gt;
+    &lt;!-- 
+        set标签 ：
+            name    ：多的一方的对象集合的属性名称。
+            cascade ：级联
+            inverse ：放弃外键维护权。
+    --&gt;
+    &lt;set name=&quot;linkMans&quot; cascade=&quot;save-update&quot; inverse=&quot;true&quot;&gt;
+    &lt;!--
+             key标签
+                 column：多的一方的外键的名称。
+         --&gt;
+        &lt;key column=&quot;lkm_cust_id&quot;/&gt;
+        &lt;!-- 
+            one-to-many标签
+                 class    :多的一方的类的全路径
+         --&gt;
 
+    &lt;one-to-many class=&quot;pers.zx.hibernate.test.LinkMan&quot;/&gt;
+    &lt;/set&gt;
+&lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre><p>②.LinkMan.hbm.xml</p>
+<pre><code>&lt;hibernate-mapping&gt;
+&lt;class name=&quot;pers.zx.hibernate.test.LinkMan.class&quot; table=&quot;cst_linkman&quot;&gt;
+&lt;!-- 建立OID与主键映射 --&gt;
+&lt;id name=&quot;lkm_id&quot; column=&quot;lkm_id&quot;&gt;
+&lt;generator class=&quot;native&quot; /&gt;
+&lt;/id&gt;
+&lt;!-- 建立属性与表字段的映射 --&gt;
+    &lt;property name=&quot;lkm_name&quot;/&gt;
+    &lt;property name=&quot;lkm_gender&quot;/&gt;
+    &lt;property name=&quot;lkm_phone&quot;/&gt;
+    &lt;property name=&quot;lkm_mobile&quot;/&gt;
+    &lt;property name=&quot;lkm_email&quot;/&gt;
+    &lt;property name=&quot;lkm_qq&quot;/&gt;
+    &lt;property name=&quot;lkm_position&quot;/&gt;
+    &lt;property name=&quot;lkm_memo&quot;/&gt;
+
+&lt;!--配置多对一的关系：放置的是一的一方的对象  --&gt;
+&lt;!-- 
+many-to-one标签
+ name        :一的一方的对象的属性名称。
+ class        :一的一方的类的全路径。
+ column        :在多的一方的表的外键的名称。
+ --&gt;
+ &lt;many-to-one name=&quot;customer&quot; class=&quot;pers.zx.hibernate.test.Customer&quot; column=&quot;lkm_cust_id&quot; /&gt;
+&lt;/class&gt;
+
+&lt;/hibernate-mapping&gt;
+</code></pre><p>(4)编写核心配置文件</p>
+<pre><code>&lt;hibernate-configuration&gt;
+&lt;session-factory&gt;
+&lt;!-- 建立数据库连接的基本参数 --&gt;
+&lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///hibernate&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.password&quot;&gt;19960213zx&lt;/property&gt;
+&lt;!-- 配置hibernate的方言 --&gt;
+&lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+    &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+    &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
+    &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
+    &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
+    &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
+    &lt;!--设定数据库连接的过期时间,以秒为单位,
+    如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
+    &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
+     &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;    
+    &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+
+&lt;!-- 可选配置 --&gt;
+&lt;!-- 打印SQL --&gt;
+&lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+&lt;!-- 格式化SQL --&gt;
+&lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+&lt;!-- 设置事务隔离级别 --&gt;
+&lt;property name=&quot;hibernate.connection.isolation&quot;&gt;4&lt;/property&gt;
+&lt;!-- 配置session绑定本地线程 --&gt;
+&lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;
+&lt;!-- 有几个就配置几个映射 --&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/Customer.hbm.xml&quot;/&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/LinkMan.hbm.xml&quot;/&gt;
+&lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><p>(5)引入工具类</p>
+<pre><code>public class HibernateUtils {
+
+public static final Configuration configuration;
+public static final SessionFactory sessionFactory;
+
+static {
+    configuration=new Configuration().configure();
+    sessionFactory=configuration.buildSessionFactory();
+}
+public static Session getSession() {
+    return sessionFactory.openSession();
+}
+
+//getCurrentSession
+public static Session getCurrentSession() {
+
+    return sessionFactory.getCurrentSession();
+}
+}
+</code></pre><p>(6)编写测试类</p>
+<pre><code>// 保存2个客户  和 3个联系人  并且建立好关系
+public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 创建两个客户
+    Customer customer1 = new Customer();
+    customer1.setCust_name(&quot;zx&quot;);
+    Customer customer2 = new Customer();
+    customer2.setCust_name(&quot;xx&quot;);
+
+    // 创建三个联系人
+    LinkMan linkMan1 = new LinkMan();
+    linkMan1.setLkm_name(&quot;rt&quot;);
+    LinkMan linkMan2 = new LinkMan();
+    linkMan2.setLkm_name(&quot;qw&quot;);
+    LinkMan linkMan3 = new LinkMan();
+    linkMan3.setLkm_name(&quot;gf&quot;);
+
+    // 设置关系:
+    linkMan1.setCustomer(customer1);
+    linkMan2.setCustomer(customer1);
+    linkMan3.setCustomer(customer2);
+    customer1.getLinkMans().add(linkMan1);
+    customer1.getLinkMans().add(linkMan2);
+    customer2.getLinkMans().add(linkMan3);
+
+
+    // 保存数据:
+    session.save(linkMan1);
+    session.save(linkMan2);
+    session.save(linkMan3);
+    session.save(customer1);
+    session.save(customer2);
+
+    tx.commit();
+}
+</code></pre><h4 id="3-一对多的级联保存或跟新"><a href="#3-一对多的级联保存或跟新" class="headerlink" title="3.一对多的级联保存或跟新"></a>3.一对多的级联保存或跟新</h4><p>我们在对数据库操作的时候，如果不设置级联，则就不能进行单方面的保存，必须要像上面一样同时都要保存。<br>(1)什么叫级联？<br>级联指的是，操作一个对象的时候，是否会同时操作其关联的对象。<br>(2)级联的方向性<br>操作一的一方时，会影响到多的一方<br>操作多的一方时，会影响到一的一方<br>(3)级联保存或更新的配置<br>①.要想在一的一方更新影响多的一方<br>配置一的一方的配置文件，在&lt; set&gt;中添加属性：cascade=”save-update”</p>
+<p>②.要想在多的一方更新影响一的一方<br>配置多的一方的配置文件，在&lt; many-to-one&gt;中添加属性：cascade=”save-update”</p>
+<p>③.代码：</p>
+<pre><code>@Test
+
+ //  级联保存或更新操作：
+// 保存客户级联联系人，操作的主体是客户对象，需要在Customer.hbm.xml中进行配置
+ // &lt;set name=&quot;linkMans&quot; cascade=&quot;save-update&quot;&gt;
+
+public void demo3(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    Customer customer = new Customer();
+    customer.setCust_name(&quot;赵洪&quot;);
+
+    LinkMan linkMan = new LinkMan();
+    linkMan.setLkm_name(&quot;如花&quot;);
+
+    customer.getLinkMans().add(linkMan);
+    linkMan.setCustomer(customer);
+
+    session.save(customer);
+
+    tx.commit();
+}
+
+
+//级联保存或更新操作：
+ //保存联系人级联客户，操作的主体是联系人对象，需要在LinkMan.hbm.xml中进行配置
+ //&lt;many-to-one name=&quot;customer&quot; cascade=&quot;save-update&quot; class=&quot;com.itheima.hibernate.domain.Customer&quot; column=&quot;lkm_cust_id&quot;/&gt;
+public void demo4(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    Customer customer = new Customer();
+    customer.setCust_name(&quot;李兵&quot;);
+
+    LinkMan linkMan = new LinkMan();
+    linkMan.setLkm_name(&quot;凤姐&quot;);
+
+    customer.getLinkMans().add(linkMan);
+    linkMan.setCustomer(customer);
+
+    session.save(linkMan);
+
+    tx.commit();
+}
+</code></pre><p><strong>注意：谁级联谁就去改谁的配置文件</strong></p>
+<p>(4)对象的导航</p>
+<pre><code>@Test
+
+    //测试对象的导航
+ //前提：一对多的双方都设置cascade=&quot;save-update&quot;
+
+public void demo5(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    Customer customer = new Customer();
+    customer.setCust_name(&quot;zx&quot;);
+
+    LinkMan linkMan1 = new LinkMan();
+    linkMan1.setLkm_name(&quot;vv&quot;);
+    LinkMan linkMan2 = new LinkMan();
+    linkMan2.setLkm_name(&quot;xx&quot;);
+    LinkMan linkMan3 = new LinkMan();
+    linkMan3.setLkm_name(&quot;oo&quot;);
+
+    linkMan1.setCustomer(customer);
+    customer.getLinkMans().add(linkMan2);
+    customer.getLinkMans().add(linkMan3);
+
+    // 双方都设置了cascade
+//        session.save(linkMan1); // 发送几条insert语句  4条
+//        session.save(customer); // 发送几条insert语句  3条
+    session.save(linkMan2); // 发送几条insert语句  1条
+
+    tx.commit();
+}
+</code></pre><p>第一个session发送四条是因为联系人关联了客户，保存联系人之后由于级联操作，客户会保存，又是由于级联操作，所以另外两个联系人也会被保存。<br>第二个session是因为，保存客户会发一条，有因为另外两个联系人和客户有关联，所以也会发送。<br>第三个session发一条是因为没有客户与他关联，所以只发一条</p>
+<p>关系：Link1–&gt;customer–&gt;link2<br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;–&gt;link3</p>
+<p><br><br>(5)级联删除<br>一般是删除一的一方级联删除多的一方。方法是在一的一方的配置文件中的set中添加cascade=”delete”（反过来也可以，但不常用）</p>
+<pre><code>// 级联删除：
+ //删除客户级联删除联系人，删除的主体是客户，需要在Customer.hbm.xml中配置
+ //&lt;set name=&quot;linkMans&quot; cascade=&quot;delete&quot;&gt;
+
+public void demo6(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 没有设置级联删除，默认情况:修改了联系人的外键，删除客户
+    /*Customer customer = session.get(Customer.class, 1l);
+    session.delete(customer);*/
+
+    // 删除客户，同时删除联系人
+    Customer customer = session.get(Customer.class, 1l);
+    session.delete(customer);
+
+    tx.commit();
+}
+</code></pre><p>(6)如何防止多余的SQL语句<br>使用在一的一方的set中使用属性inverse=”true”,这是由于在未设置inverse之前，双方都会维护外键，所以会有多余的更新语句。在设置后，一的一方会放弃对外键的维护权。<br>原理：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate31.png" alt=""></p>
+<pre><code>@Test
+
+ //将2号联系人原来归1号客户，现在改为2号客户
+
+public void demo8(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询2号联系人
+    LinkMan linkMan = session.get(LinkMan.class, 2l);
+    // 查询2号客户
+    Customer customer = session.get(Customer.class, 2l);
+    // 双向的关联
+    linkMan.setCustomer(customer);
+    customer.getLinkMans().add(linkMan);
+
+    tx.commit();
+}
+</code></pre><p>(7)区分cascade和inverse<br>在一方级联的时候设置inverse为true时，若是更新这一方，则不会维护外键值，只会插入相应的客户和联系人，外键值为空。</p>
+<pre><code>@Test
+
+ //区分cascade和inverse的区别
+
+public void demo9(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    Customer customer = new Customer();
+    customer.setCust_name(&quot;李兵&quot;);
+
+    LinkMan linkMan = new LinkMan();
+    linkMan.setLkm_name(&quot;凤姐&quot;);
+
+    customer.getLinkMans().add(linkMan);
+
+    // 条件在Customer.hbm.xml上的set中配置了cascade=&quot;save-update&quot; inverse=&quot;true&quot;
+    session.save(customer); // 客户会插入到数据库，联系人也会插入到数据库，但是外键为null
+
+    tx.commit();
+}
+</code></pre>
       
 
       
@@ -914,11 +1246,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,11 +1258,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,7 +1270,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -954,15 +1282,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -998,10 +1330,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1011,6 +1339,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
