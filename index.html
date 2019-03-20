@@ -926,6 +926,846 @@ public void demo9(){
 
     tx.commit();
 }
+</code></pre><h4 id="4-多对多操作"><a href="#4-多对多操作" class="headerlink" title="4.多对多操作"></a>4.多对多操作</h4><p>(1)创建表<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate32.png" alt=""><br>(2)创建实体<br>①.User</p>
+<pre><code>private Long user_id;
+private String user_code;
+private String user_name;
+private String user_password;
+private String user_state;
+// 设置多对多关系：表示一个用户选择多个角色？
+// 放置的是角色的集合
+private Set&lt;Role&gt; roles = new HashSet&lt;Role&gt;();
+</code></pre><p>②.Role</p>
+<pre><code>private Long role_id;
+private String role_name;
+private String role_memo;
+// 一个角色被多个用户选择：
+// 放置的是用户的集合
+private Set&lt;User&gt; users = new HashSet&lt;User&gt;();
+</code></pre><p>(3)配置实体与表的映射文件<br>①.User.hbm.xml</p>
+<pre><code>&lt;hibernate-mapping&gt;
+&lt;class name=&quot;pers.zx.hibernate.test.User&quot; table=&quot;sys_user&quot;&gt;
+&lt;id name=&quot;user_id&quot; column=&quot;use_id&quot;&gt;
+&lt;generator class=&quot;native&quot;/&gt;
+&lt;/id&gt;
+&lt;property name=&quot;user_code&quot; column=&quot;user_code&quot; /&gt;
+&lt;property name=&quot;user_name&quot; column=&quot;user_name&quot; /&gt;
+&lt;property name=&quot;user_password&quot; column=&quot;user_password&quot; /&gt;
+&lt;property name=&quot;user_state&quot; column=&quot;user_state&quot; /&gt;
+&lt;!-- 建立多对多的映射关系 --&gt;
+&lt;!-- 
+        set标签
+             name        ：对方的集合的属性名称。
+             table        ：多对多的关系需要使用中间表，放的是中间表的名称。
+     --&gt;
+&lt;set name=&quot;roles&quot; table=&quot;sys_user_role&quot; cascade=&quot;save-update,delete&quot;&gt;
+&lt;!-- 
+                key标签：
+                column    ：当前的对象对应中间表的外键的名称。
+         --&gt;
+&lt;key column=&quot;user_id&quot; /&gt;
+&lt;!-- 
+            many-to-many标签：
+                class        ：对方的类的全路径
+                 column    ：对方的对象在中间表中的外键的名称。
+         --&gt;
+&lt;many-to-many class=&quot;pers.zx.hibernate.test.Role&quot; column=&quot;role_id&quot;/&gt;
+&lt;/set&gt;
+&lt;/class&gt;
+
+&lt;/hibernate-mapping&gt; 
+</code></pre><p>②.Role.hbm.xml</p>
+<pre><code>&lt;hibernate-mapping&gt;
+&lt;class name=&quot;pers.zx.hibernate.test.Role&quot; table=&quot;sys_role&quot;&gt;
+    &lt;!-- 建立OID与主键的映射 --&gt;
+    &lt;id name=&quot;role_id&quot; column=&quot;role_id&quot;&gt;
+        &lt;generator class=&quot;native&quot;/&gt;
+    &lt;/id&gt;
+    &lt;!-- 建立普通属性与字段的映射 --&gt;
+    &lt;property name=&quot;role_name&quot; column=&quot;role_name&quot;/&gt;
+    &lt;property name=&quot;role_memo&quot; column=&quot;role_memo&quot;/&gt;
+    &lt;!-- 与用户的多对多的映射关系 --&gt;
+    &lt;!-- 
+        set标签
+            name        ：对方的集合的属性名称。
+            table        ：多对多的关系需要使用中间表，放的是中间表的名称。
+     --&gt;
+    &lt;set name=&quot;users&quot; table=&quot;sys_user_role&quot; cascade=&quot;save-update,delete&quot; inverse=&quot;true&quot;&gt;
+        &lt;!-- 
+            key标签：
+                 column    ：当前的对象对应中间表的外键的名称。
+         --&gt;
+        &lt;key column=&quot;role_id&quot;/&gt;
+        &lt;!-- 
+            many-to-many标签：
+                class        ：对方的类的全路径
+                 column    ：对方的对象在中间表中的外键的名称。
+         --&gt;
+        &lt;many-to-many class=&quot;pers.zx.hibernate.test.User&quot; column=&quot;user_id&quot;/&gt;
+    &lt;/set&gt;
+&lt;/class&gt;
+&lt;/hibernate-mapping&gt;    
+</code></pre><p>(4)配置核心配置文件</p>
+<pre><code>&lt;hibernate-configuration&gt;
+&lt;session-factory&gt;
+&lt;!-- 建立数据库连接的基本参数 --&gt;
+&lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///hibernate&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.password&quot;&gt;19960213zx&lt;/property&gt;
+&lt;!-- 配置hibernate的方言 --&gt;
+&lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+    &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+    &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
+    &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
+    &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
+    &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
+    &lt;!--设定数据库连接的过期时间,以秒为单位,
+    如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
+    &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
+     &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;    
+    &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+
+&lt;!-- 可选配置 --&gt;
+&lt;!-- 打印SQL --&gt;
+&lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+&lt;!-- 格式化SQL --&gt;
+&lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+&lt;!-- 设置事务隔离级别 --&gt;
+&lt;property name=&quot;hibernate.connection.isolation&quot;&gt;4&lt;/property&gt;
+&lt;!-- 配置session绑定本地线程 --&gt;
+&lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;
+&lt;!-- 有几个就配置几个映射 --&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/Customer.hbm.xml&quot;/&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/LinkMan.hbm.xml&quot;/&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/User.hbm.xml&quot;/&gt;
+&lt;mapping resource=&quot;pers/zx/hibernate/test/Role.hbm.xml&quot;/&gt;
+&lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><p>(5)编写测试代码</p>
+<pre><code>@Test
+
+ // 保存多条记录：保存多个用户和角色
+public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 创建2个用户
+    User user1 = new User();
+    user1.setUser_name(&quot;赵洪&quot;);
+    User user2 = new User();
+    user2.setUser_name(&quot;李兵&quot;);
+
+    // 创建3个角色
+    Role role1 = new Role();
+    role1.setRole_name(&quot;研发部&quot;);
+    Role role2 = new Role();
+    role2.setRole_name(&quot;市场部&quot;);
+    Role role3 = new Role();
+    role3.setRole_name(&quot;公关部&quot;);
+
+    // 设置双向的关联关系:
+    user1.getRoles().add(role1);
+    user1.getRoles().add(role2);
+    user2.getRoles().add(role2);
+    user2.getRoles().add(role3);
+    role1.getUsers().add(user1);
+    role2.getUsers().add(user1);
+    role2.getUsers().add(user2);
+    role3.getUsers().add(user2);
+
+    // 保存操作:多对多建立了双向的关系必须有一方放弃外键维护。
+    // 一般是被动方放弃外键维护权。
+    session.save(user1);
+    session.save(user2);
+    session.save(role1);
+    session.save(role2);
+    session.save(role3);
+
+    tx.commit();
+}
+</code></pre><h4 id="5-多对多的级联操作"><a href="#5-多对多的级联操作" class="headerlink" title="5.多对多的级联操作"></a>5.多对多的级联操作</h4><p>也需要在相应的配置文件的set中设置属性cascade=”save-update”。谁去级联谁就去改谁的配置文件。</p>
+<pre><code>@Test
+
+//多对多的级联保存：
+ //保存用户级联保存角色。在用户的映射文件中配置。
+ //在User.hbm.xml中的set上配置 cascade=&quot;save-update&quot;
+
+public void demo3(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 创建2个用户
+    User user1 = new User();
+    user1.setUser_name(&quot;赵洪&quot;);
+
+    // 创建3个角色
+    Role role1 = new Role();
+    role1.setRole_name(&quot;研发部&quot;);
+
+    // 设置双向的关联关系:
+    user1.getRoles().add(role1);
+    role1.getUsers().add(user1);
+    // 只保存用户：
+    session.save(user1);
+
+    tx.commit();
+}
+</code></pre><h4 id="6-多对多的其他操作"><a href="#6-多对多的其他操作" class="headerlink" title="6.多对多的其他操作"></a>6.多对多的其他操作</h4><p>(1)给用户选择角色</p>
+<pre><code>public void demo7(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 给1号用户多选2号角色
+    // 查询1号用户
+    User user  = session.get(User.class, 1l);
+    // 查询2号角色
+    Role role = session.get(Role.class, 2l);
+    user.getRoles().add(role);
+
+    tx.commit();
+}
+</code></pre><p>(2)给用户改选角色</p>
+<pre><code>public void demo8(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 给2号用户将原有的2号角色改为3号角色
+    // 查询2号用户
+    User user  = session.get(User.class, 2l);
+    // 查询2号角色
+    Role role2 = session.get(Role.class, 2l);
+    Role role3 = session.get(Role.class, 3l);
+    user.getRoles().remove(role2);
+    user.getRoles().add(role3);
+
+    tx.commit();
+}
+</code></pre><p>(3)删除用户的角色</p>
+<pre><code>public void demo9(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 给2号用户删除1号角色
+    // 查询2号用户
+    User user  = session.get(User.class, 2l);
+    // 查询2号角色
+    Role role = session.get(Role.class, 1l);
+    user.getRoles().remove(role);
+
+    tx.commit();
+}
+</code></pre><h3 id="五、Hibernate查询方式"><a href="#五、Hibernate查询方式" class="headerlink" title="五、Hibernate查询方式"></a>五、Hibernate查询方式</h3><p>Hibernate中提供了五种查询方式。</p>
+<h4 id="1-OID查询"><a href="#1-OID查询" class="headerlink" title="1.OID查询"></a>1.OID查询</h4><p>OID检索：Hibernate根据对象的OID(主键)进行检索。<br>(1)使用get方法</p>
+<blockquote>
+<p>Customer c=session.get(Customer.class,1L);</p>
+</blockquote>
+<p>(2)使用load方法</p>
+<blockquote>
+<p>Customer c=session.load(Customer.class,1L);</p>
+</blockquote>
+<h4 id="2-对象导航检索"><a href="#2-对象导航检索" class="headerlink" title="2.对象导航检索"></a>2.对象导航检索</h4><p>对象导航检索：Hibernate根据一个已经查询到的对象，获得其关联的对象的一种查询方式。</p>
+<p>通过联系人获取顾客信息</p>
+<blockquote>
+<p>LinkMan l=session.get(LinkMan.class,1L);<br>Customer c=l.getCustomer();</p>
+</blockquote>
+<blockquote>
+<p>Customer c=session.get(Customer.class,1L);<br>Set&lt; LinkMan&gt; l=c.getLinkMans();</p>
+</blockquote>
+<h4 id="3-HQL检索"><a href="#3-HQL检索" class="headerlink" title="3.HQL检索"></a>3.HQL检索</h4><p>Hibernate Query Language，Hibernate的查询语言，是一种面向对象的方式的查询语言，语法类似SQL。通过session.createQuery()接收HQL的方式查询。<br>(1)初始化数据库数据<br>用于查询操作</p>
+<pre><code>public void demo1() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 创建一个客户
+    Customer customer = new Customer();
+    customer.setCust_name(&quot;zx1mm&quot;);
+
+    for (int i = 1; i &lt;= 10; i++) {
+        LinkMan linkMan = new LinkMan();
+        linkMan.setLkm_name(&quot;er&quot; + i);
+        linkMan.setCustomer(customer);
+
+        customer.getLinkMans().add(linkMan);
+
+        session.save(linkMan);
+    }
+    session.save(customer);
+
+    tx.commit();
+}
+</code></pre><p>(2)HQL简单查询</p>
+<pre><code>public void demo2() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // 简单的查询
+    Query query = session.createQuery(&quot;from Customer&quot;);
+    List&lt;Customer&gt; list = query.list();
+
+    // sql中支持*号的写法：select * from cst_customer; 但是在HQL中不支持*号的写法。
+    /*
+     * Query query = session.createQuery(&quot;select * from Customer&quot;);// 报错
+     * List&lt;Customer&gt; list = query.list();
+     */
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(3)HQL别名查询</p>
+<pre><code>public void demo3() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // 别名的查询
+    /*
+     * Query query = session.createQuery(&quot;from Customer c&quot;); List&lt;Customer&gt;
+     * list = query.list();
+     */
+
+    Query query = session.createQuery(&quot;select c from Customer c&quot;);
+    List&lt;Customer&gt; list = query.list();
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(4)排序查询</p>
+<pre><code>public void demo4() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // 排序的查询
+    // 默认情况
+    // List&lt;Customer&gt; list = session.createQuery(&quot;from Customer order by
+    // cust_id&quot;).list();
+    // 设置降序排序 升序使用asc 降序使用desc
+    List&lt;Customer&gt; list = session.createQuery(&quot;from Customer order by cust_id desc&quot;).list();
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(5)条件查询</p>
+<pre><code>public void demo5() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // 条件的查询
+    // 一、按位置绑定：根据参数的位置进行绑定。
+    // 一个条件
+    /*
+     * Query query = session.createQuery(&quot;from Customer where cust_name = ?&quot;
+     * ); query.setParameter(0, &quot;李兵&quot;); List&lt;Customer&gt; list = query.list();
+     */
+
+    // 多个条件
+    /*
+     * Query query = session.createQuery(
+     * &quot;from Customer where cust_source = ? and cust_name like ?&quot;);
+     * query.setParameter(0, &quot;小广告&quot;); query.setParameter(1, &quot;李%&quot;);
+     * List&lt;Customer&gt; list = query.list();
+     */
+
+    // 二、按名称绑定
+    Query query = session.createQuery(&quot;from Customer where cust_source = :aaa and cust_name like :bbb&quot;);
+    // 设置参数:
+    query.setParameter(&quot;aaa&quot;, &quot;朋友推荐&quot;);
+    query.setParameter(&quot;bbb&quot;, &quot;李%&quot;);
+    List&lt;Customer&gt; list = query.list();
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(6)投影查询<br>投影查询：查询对象的某个或某些属性。</p>
+<pre><code>public void demo6() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 投影查询
+    // 单个属性
+    /*
+     * List&lt;Object&gt; list = session.createQuery(
+     * &quot;select c.cust_name from Customer c&quot;).list(); for (Object object :
+     * list) { System.out.println(object); }
+     */
+
+    // 多个属性:
+    /*
+     * List&lt;Object[]&gt; list = session.createQuery(
+     * &quot;select c.cust_name,c.cust_source from Customer c&quot;).list(); for
+     * (Object[] objects : list) {
+     * System.out.println(Arrays.toString(objects)); }
+     */
+
+    // 查询多个属性，但是我想封装到对象中。
+    List&lt;Customer&gt; list = session.createQuery(&quot;select new Customer(cust_name,cust_source) from Customer&quot;).list();
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(7)分页查询</p>
+<pre><code>public void demo7() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 分页查询
+    Query query = session.createQuery(&quot;from LinkMan&quot;);
+    query.setFirstResult(20);//从哪开始
+    query.setMaxResults(10);//多少个
+    List&lt;LinkMan&gt; list = query.list();
+
+    for (LinkMan linkMan : list) {
+        System.out.println(linkMan);
+    }
+    tx.commit();
+}
+</code></pre><p>(8)分组统计查询</p>
+<pre><code>public void demo8() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 聚合函数的使用：count(),max(),min(),avg(),sum()
+    Object object = session.createQuery(&quot;select count(*) from Customer&quot;).uniqueResult();
+    System.out.println(object);
+    // 分组统计：
+    List&lt;Object[]&gt; list = session.createQuery(&quot;select cust_source,count(*) from Customer group by cust_source&quot;)
+            .list();
+    for (Object[] objects : list) {
+        System.out.println(Arrays.toString(objects));
+    }
+    tx.commit();
+}
+</code></pre><p>(9) HQL的多表查询</p>
+<pre><code>public void demo9() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // SQL:SELECT * FROM cst_customer c INNER JOIN cst_linkman l ON
+    // c.cust_id = l.lkm_cust_id;
+    // HQL:内连接 from Customer c inner join c.linkMans
+    /*
+     * List&lt;Object[]&gt; list = session.createQuery(
+     * &quot;from Customer c inner join c.linkMans&quot;).list(); for (Object[]
+     * objects : list) { System.out.println(Arrays.toString(objects)); }
+     */
+
+    // HQL:迫切内连接 其实就在普通的内连接inner join后添加一个关键字fetch. from Customer c inner
+    // join fetch c.linkMans
+    List&lt;Customer&gt; list = session.createQuery(&quot;select distinct c from Customer c inner join fetch c.linkMans&quot;)
+            .list();// 通知hibernate，将另一个对象的数据封装到该对象中
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><h4 id="4-QBC查询"><a href="#4-QBC查询" class="headerlink" title="4.QBC查询"></a>4.QBC查询</h4><p>QBC查询：Query By Criteria，条件查询。是一种更加面向对象化的查询的方式。<br>(1)简单查询</p>
+<pre><code>public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 获得Criteria的对象
+    Criteria criteria = session.createCriteria(Customer.class);
+    List&lt;Customer&gt; list = criteria.list();
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(2)排序查询</p>
+<pre><code>public void demo2(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 排序查询
+    Criteria criteria = session.createCriteria(Customer.class);
+//        criteria.addOrder(Order.asc(&quot;cust_id&quot;)); // 升序
+    criteria.addOrder(Order.desc(&quot;cust_id&quot;)); // 降序
+    List&lt;Customer&gt; list = criteria.list();
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+
+    tx.commit();
+}
+</code></pre><p>(3)分页查询</p>
+<pre><code>public void demo3(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 分页查询
+    Criteria criteria = session.createCriteria(LinkMan.class);
+    criteria.setFirstResult(10);
+    criteria.setMaxResults(10);
+    List&lt;LinkMan&gt; list = criteria.list();
+
+    for (LinkMan linkMan : list) {
+        System.out.println(linkMan);
+    }
+    tx.commit();
+}
+</code></pre><p>(4)条件查询<br>条件是默认并列的</p>
+<pre><code>public void demo4(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 条件查询
+    Criteria criteria = session.createCriteria(Customer.class);
+    // 设置条件:
+    /**
+     * =   eq
+     * &gt;   gt
+     * &gt;=  ge
+     * &lt;   lt
+     * &lt;=  le
+     * &lt;&gt;  ne
+     * like
+     * in
+     * and
+     * or
+     */
+    criteria.add(Restrictions.eq(&quot;cust_source&quot;, &quot;小广告&quot;));
+//        criteria.add(Restrictions.or(Restrictions.like(&quot;cust_name&quot;, &quot;李%&quot;)));
+    criteria.add(Restrictions.like(&quot;cust_name&quot;, &quot;李%&quot;));
+    List&lt;Customer&gt; list = criteria.list();
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><p>(5)统计查询</p>
+<pre><code>public void demo5(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    Criteria criteria = session.createCriteria(Customer.class);
+    /**
+     * add                :普通的条件。where后面条件
+     * addOrder            :排序
+     * setProjection    :聚合函数 和 group by having
+     */
+    criteria.setProjection(Projections.rowCount());
+    Long num = (Long) criteria.uniqueResult();
+    System.out.println(num);
+    tx.commit();
+}
+</code></pre><p>(6)离线条件查询</p>
+<pre><code>public void demo6(){
+    DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
+    detachedCriteria.add(Restrictions.like(&quot;cust_name&quot;, &quot;李%&quot;));//上面两行在web层，下面在dao层
+
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction transaction = session.beginTransaction();
+
+    Criteria criteria = detachedCriteria.getExecutableCriteria(session);
+    List&lt;Customer&gt; list = criteria.list();
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    transaction.commit();
+}
+</code></pre><h4 id="5-多表查询"><a href="#5-多表查询" class="headerlink" title="5.多表查询"></a>5.多表查询</h4><p><strong>SQL多表查询</strong><br>(1)连接查询</p>
+<blockquote>
+<p>1.交叉连接：表与表之间的笛卡儿积<br>select * from A,B;</p>
+</blockquote>
+<blockquote>
+<p>内连接：inner join (inner 可以省略)，内连接就是表的交集。<br>①.隐式内连接：没有join关键字<br>select * from A,B where A.id=B.aid;</p>
+</blockquote>
+<blockquote>
+<p>②.显示内连接：<br>select * from A inner join B on A.id=B.aid;</p>
+</blockquote>
+<blockquote>
+<p>外连接：<br>左外连接：left outer join(outer可以省略)，即左边的表与右边表的交集加上左边表与右边表没有交集的部分。<br>select * from A left outer join B on A.id=B.id;</p>
+</blockquote>
+<blockquote>
+<p>右外连接：right outer join(outer可以省略)<br>右边表与左边表的交集加上右边表中与左边表没有交集的部分<br>select * from A right outer join B on A.id=B.aid;</p>
+</blockquote>
+<blockquote>
+<p>2.子查询</p>
+</blockquote>
+<p><strong>HQL多表查询</strong><br>(1)连接查询<br>    交叉连接<br>(2)内连接<br> from Customer c inner join  c.linkMans</p>
+<blockquote>
+<p>   显示内连接<br>   隐式内连接<br>    迫切内连接:fetch通知hibernate，将另一个对象的数据封装到该对象中<br> from Customer c inner join fetch c.linkMans</p>
+</blockquote>
+<p>(3)外连接</p>
+<blockquote>
+<p>   左外连接<br>   右外连接<br>   迫切左外连接</p>
+</blockquote>
+<pre><code>  public void demo9() {
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    // SQL:SELECT * FROM cst_customer c INNER JOIN cst_linkman l ON
+    // c.cust_id = l.lkm_cust_id;
+    // HQL:内连接 from Customer c inner join c.linkMans
+
+    // List&lt;Object[]&gt; list = session.createQuery(
+    // &quot;from Customer c inner join c.linkMans&quot;).list(); for (Object[]
+     // objects : list) { System.out.println(Arrays.toString(objects)); }
+
+    // HQL:迫切内连接 其实就在普通的内连接inner join后添加一个关键字fetch. from Customer c inner
+    // join fetch c.linkMans
+    List&lt;Customer&gt; list = session.createQuery(&quot;select distinct c from Customer c inner join fetch c.linkMans&quot;)
+            .list();// fetch通知hibernate，将另一个对象的数据封装到该对象中
+
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><h4 id="6-SQL查询"><a href="#6-SQL查询" class="headerlink" title="6.SQL查询"></a>6.SQL查询</h4><p>通过使用sql语句进行查询</p>
+<pre><code>public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    //返回数组
+    /*SQLQuery sqlQuery = session.createSQLQuery(&quot;select * from cst_customer&quot;);
+    List&lt;Object[]&gt; list = sqlQuery.list();
+    for (Object[] objects : list) {
+        System.out.println(Arrays.toString(objects));
+    }*/
+    //返回对象实体
+    SQLQuery sqlQuery = session.createSQLQuery(&quot;select * from cst_customer&quot;);
+    sqlQuery.addEntity(Customer.class);
+    List&lt;Customer&gt; list = sqlQuery.list();
+    for (Customer customer : list) {
+        System.out.println(customer);
+    }
+    tx.commit();
+}
+</code></pre><h3 id="六、Hibernate抓取策略"><a href="#六、Hibernate抓取策略" class="headerlink" title="六、Hibernate抓取策略"></a>六、Hibernate抓取策略</h3><p>对查询关联对象SQL语句的一种优化</p>
+<h4 id="1-延迟加载"><a href="#1-延迟加载" class="headerlink" title="1.延迟加载"></a>1.延迟加载</h4><p>(1)延迟加载：lazy（懒加载）。执行到该行代码的时候，不会发送语句去进行查询，在真正使用这个对象的属性的时候才会发送SQL语句进行查询。<br>(2)延迟加载的分类<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate33.png" alt=""></p>
+<h4 id="2-抓取策略"><a href="#2-抓取策略" class="headerlink" title="2.抓取策略"></a>2.抓取策略</h4><p>通过一个对象抓取到关联对象需要发送的SQL语句，对于SQL语句如何发送，和发送成什么样格式通过策略进行配置。</p>
+<blockquote>
+<pre><code>通过&lt; set&gt;或者&lt; many-to-one&gt;上通过fetch属性进行设置
+</code></pre><p> fetch和这些标签上的lazy如何设置优化发送的SQL语句</p>
+</blockquote>
+<p>(1)&lt; set&gt;上的fetch和lazy<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate34.png" alt=""></p>
+<pre><code>//在&lt;set&gt;上的fetch和lazy
+public class HibernateDemo2 {
+
+@Test
+
+ // 默认情况：
+
+public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询1号客户
+    Customer customer = session.get(Customer.class, 1l);// 发送一条查询客户的SQL
+    System.out.println(customer.getCust_name());
+    // 查看1号客户的每个联系人的信息
+    for (LinkMan linkMan : customer.getLinkMans()) {// 发送一条根据客户ID查询联系人的SQL
+        System.out.println(linkMan.getLkm_name());
+    }
+    tx.commit();
+}
+
+@Test
+ //设置fetch=&quot;select&quot; lazy=&quot;true&quot;
+public void demo2(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询1号客户
+    Customer customer = session.get(Customer.class, 1l);// 发送一条查询客户的SQL
+    System.out.println(customer.getCust_name());
+    // 查看1号客户的每个联系人的信息
+    for (LinkMan linkMan : customer.getLinkMans()) {// 发送一条根据客户ID查询联系人的SQL
+        System.out.println(linkMan.getLkm_name());
+    }
+    tx.commit();
+}
+
+@Test
+// 设置    fetch=&quot;select&quot; lazy=&quot;false&quot;
+
+public void demo3(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询1号客户
+    Customer customer = session.get(Customer.class, 1l);// 发送两条SQL语句：查询客户的名称，查询客户关联联系人
+    System.out.println(customer.getCust_name());
+    /*// 查看1号客户的每个联系人的信息
+    for (LinkMan linkMan : customer.getLinkMans()) {// 
+        System.out.println(linkMan.getLkm_name());
+    }*/
+
+    System.out.println(customer.getLinkMans().size());
+    tx.commit();
+}
+
+@Test
+
+ //设置fetch=&quot;select&quot; lazy=&quot;extra&quot;
+
+public void demo4(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询1号客户
+    Customer customer = session.get(Customer.class, 1l);// 发送一条查询1号客户的SQL语句
+    System.out.println(customer.getCust_name());
+
+    System.out.println(customer.getLinkMans().size());// 发送一条select count() from ...;
+    tx.commit();
+}
+
+@Test
+
+//设置fetch=&quot;join&quot; lazy=失效
+public void demo5(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    // 查询1号客户
+    Customer customer = session.get(Customer.class, 1l);// 发送一条迫切左外连接查询记录
+    System.out.println(customer.getCust_name());
+
+    System.out.println(customer.getLinkMans().size());// 不发送
+    tx.commit();
+}
+
+@SuppressWarnings(&quot;unchecked&quot;)
+@Test
+
+ //设置fetch=&quot;subselect&quot; lazy=&quot;true&quot;
+public void demo6(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    List&lt;Customer&gt; list = session.createQuery(&quot;from Customer&quot;).list();// 发送查询所有客户的SQL
+    for (Customer customer : list) {
+        System.out.println(customer.getCust_name());
+        System.out.println(customer.getLinkMans().size());// 发送一条子查询
+    }
+
+    tx.commit();
+}
+
+@SuppressWarnings(&quot;unchecked&quot;)
+@Test
+
+//设置fetch=&quot;subselect&quot; lazy=&quot;false&quot;     
+public void demo7(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    List&lt;Customer&gt; list = session.createQuery(&quot;from Customer&quot;).list();// 发送查询所有客户的SQL，发送一条子查询
+    for (Customer customer : list) {
+        System.out.println(customer.getCust_name());
+        System.out.println(customer.getLinkMans().size());// 
+    }
+
+    tx.commit();
+}
+}
+</code></pre><p>(2)&lt; many-to-one&gt;上的fetch和lazy<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxhibernate35.png" alt=""></p>
+<pre><code>// many-to-one上的fetch和lazy测试
+public class HibernateDemo3 {
+
+@Test
+
+ // 默认值
+public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    LinkMan linkMan = session.get(LinkMan.class, 1l);// 发送一条查询联系人语句
+    System.out.println(linkMan.getLkm_name());
+    System.out.println(linkMan.getCustomer().getCust_name());// 发送一条select语句查询联系人所关联的客户
+
+    tx.commit();
+}
+
+@Test
+
+ //fetch=&quot;select&quot; lazy=&quot;proxy&quot;
+public void demo2(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    LinkMan linkMan = session.get(LinkMan.class, 1l);// 发送一条查询联系人语句
+    System.out.println(linkMan.getLkm_name());
+    System.out.println(linkMan.getCustomer().getCust_name());// 发送一条select语句查询联系人所关联的客户
+
+    tx.commit();
+}
+
+@Test
+
+//fetch=&quot;select&quot; lazy=&quot;false&quot;
+public void demo3(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    LinkMan linkMan = session.get(LinkMan.class, 1l);// 发送一条查询联系人语句,发送一条select语句查询联系人所关联的客户
+    System.out.println(linkMan.getLkm_name());
+    System.out.println(linkMan.getCustomer().getCust_name());// 
+
+    tx.commit();
+}
+
+@Test
+
+//fetch=&quot;join&quot; lazy=失效
+public void demo4(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    LinkMan linkMan = session.get(LinkMan.class, 1l);// 发送一条迫切左外连接查询联系人所关联的客户。
+    System.out.println(linkMan.getLkm_name());
+    System.out.println(linkMan.getCustomer().getCust_name());// 
+
+    tx.commit();
+}
+}
+</code></pre><h4 id="3-批量抓取"><a href="#3-批量抓取" class="headerlink" title="3.批量抓取"></a>3.批量抓取</h4><p>一批关联对象一起抓取，batch-size，在set上设置属性batch-size=””,来指定每次抓几条。即发送多少条sql语句。内部其实使用的in来一次性查询多少条。<br>下面有两种配置方式：</p>
+<pre><code>// 批量抓取
+ public class HibernateDemo4 {
+
+@SuppressWarnings(&quot;unchecked&quot;)
+@Test
+
+// 获取客户的时候，批量抓取联系人
+//在Customer.hbm.xml中set上配置batch-size
+public void demo1(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    List&lt;Customer&gt; list = session.createQuery(&quot;from Customer&quot;).list();
+    for (Customer customer : list) {
+        System.out.println(customer.getCust_name());
+        for (LinkMan linkMan : customer.getLinkMans()) {
+            System.out.println(linkMan.getLkm_name());
+        }
+    }
+    tx.commit();
+}
+
+@SuppressWarnings(&quot;unchecked&quot;)
+@Test
+
+// 获取联系人的时候，批量抓取客户
+//在Customer.hbm.xml中&lt;class&gt;上配置
+public void demo2(){
+    Session session = HibernateUtils.getCurrentSession();
+    Transaction tx = session.beginTransaction();
+
+    List&lt;LinkMan&gt; list = session.createQuery(&quot;from LinkMan&quot;).list();
+    for (LinkMan linkMan : list) {
+        System.out.println(linkMan.getLkm_name());
+        System.out.println(linkMan.getCustomer().getCust_name());
+    }
+    tx.commit();
+}
+}
 </code></pre>
       
 
@@ -1848,14 +2688,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1865,6 +2697,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1904,10 +2744,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -1924,6 +2760,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
@@ -1936,19 +2776,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
