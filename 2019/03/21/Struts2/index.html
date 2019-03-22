@@ -26,7 +26,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts08.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts09.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts10.png">
-<meta property="og:updated_time" content="2019-03-21T18:23:07.139Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts11.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts12.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts13.png">
+<meta property="og:updated_time" content="2019-03-22T08:33:25.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Struts2">
 <meta name="twitter:description" content="һ��Struts2����Struts2��һ������MVC���ģʽ��web���ܡ� 1.������web����struts2��struts��Webwork��SpringMVC 2.Web���ܻ���ǰ�˿�����ģ�����">
@@ -383,7 +386,346 @@ public String execute() throws Exception {
 </blockquote>
 <p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts09.png" alt=""></p>
 <p>(3)��̬��������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts10.png" alt=""></p>
+<h3 id="����Struts2����Servlet-API�k�ʽ"><a href="#����Struts2����Servlet-API�k�ʽ" class="headerlink" title="����Struts2����Servlet API�ķ�ʽ"></a>����Struts2����Servlet API�ķ�ʽ</h3><p>ͨ����Щ���ʷ�ʽ�Ϳ��Դ�ҳ���ȡ���ݻ�����ҳ�洫�����ݡ�</p>
+<h4 id="1-��o����k�ʽ"><a href="#1-��o����k�ʽ" class="headerlink" title="1.��ȫ����ķ�ʽ"></a>1.��ȫ����ķ�ʽ</h4><p>�÷�ʽ�õ��Ǻ�request�ȷ�ʽ��ȫ�޹صķ�ʽ���õ���Action���Դ��ķ�����<br>(1)Action��Ĵ���</p>
+<pre><code>    @Override
+public String execute() throws Exception {
+    // һ�����ղ�����
+    // ����Struts2�еĶ���ActionContext����.
+    ActionContext context = ActionContext.getContext();
+    // ����ActionContext�еķ�����
+    // ������Map&lt;String,String[]&gt; request.getParameterMap();
+    Map&lt;String,Object&gt; map = context.getParameters();
+    for (String key : map.keySet()) {
+        String[] values = (String[]) map.get(key);
+        System.out.println(key+&quot;    &quot;+Arrays.toString(values));
+    }
 
+    // ������������д������ݣ���ҳ��Ϳ�����EL���ʽ����
+    context.put(&quot;reqName&quot;, &quot;reqValue&quot;);// �൱��request.setAttribute();
+    context.getSession().put(&quot;sessName&quot;, &quot;sessValue&quot;); // �൱��session.setAttribute();
+    context.getApplication().put(&quot;appName&quot;, &quot;appValue&quot;); // �൱��application.setAttribute();
+
+    return SUCCESS;
+}
+</code></pre><p><strong>ע�⣺���ַ�ʽֻ�ܻ�ô���request��session��application�����ݵ�Map���ϣ����ܲ�����Щ�����������ȡurl����ֻ�ܻ�ȡ���ݡ�</strong></p>
+<h4 id="2-ʹ��Servlet��API��ԭ����ʽ"><a href="#2-ʹ��Servlet��API��ԭ����ʽ" class="headerlink" title="2.ʹ��Servlet��API��ԭ����ʽ"></a>2.ʹ��Servlet��API��ԭ����ʽ</h4><p>����ԭ����request,response�ȵ�<br>(1)Action����</p>
+<pre><code>@Override
+public String execute() throws Exception {
+    // һ����������
+    // ֱ�ӻ��request����ͨ��ServletActionContext
+    HttpServletRequest request = ServletActionContext.getRequest();
+    Map&lt;String, String[]&gt; map = request.getParameterMap();
+    for (String key : map.keySet()) {
+        String[] values = map.get(key);
+        System.out.println(key+&quot;    &quot;+Arrays.toString(values));
+    }
+
+    // ������������б�������
+    // ��request�б�������:
+    request.setAttribute(&quot;reqName&quot;, &quot;reqValue&quot;);
+    // ��session�б�������
+    request.getSession().setAttribute(&quot;sessName&quot;, &quot;sessValue&quot;);
+    // ��application�б�������
+    ServletActionContext.getServletContext().setAttribute(&quot;appName&quot;, &quot;appValue&quot;);
+    return SUCCESS;
+}
+</code></pre><p><strong>ע�⣺���Ϳ��Ի�ȡֵ����������ֵ</strong></p>
+<h4 id="3-ʹ�yӿ�ע��k�ʽ"><a href="#3-ʹ�yӿ�ע��k�ʽ" class="headerlink" title="3.ʹ�ýӿ�ע��ķ�ʽ"></a>3.ʹ�ýӿ�ע��ķ�ʽ</h4><p>ͨ��ʵ��ServletRequestAware��ServletContextAware�Ƚӿ���ʵ�֡�<br>(1)����ʾ��</p>
+<pre><code>public class RequestDemo3 extends ActionSupport implements ServletRequestAware,ServletContextAware{
+
+private HttpServletRequest request;
+private ServletContext context;
+
+public RequestDemo3() {
+    super();
+    System.out.println(&quot;RequestDemo3��������...&quot;);
+}
+
+@Override
+public String execute() throws Exception {
+    // һ�����ղ���
+    // ͨ���ӿ�ע��ķ�ʽ���request����
+    Map&lt;String, String[]&gt; map = request.getParameterMap();
+    for (String key : map.keySet()) {
+        String[] values = map.get(key);
+        System.out.println(key+&quot;    &quot;+Arrays.toString(values));
+    }
+    // ������������б�������
+    // ��request���б�������
+    request.setAttribute(&quot;reqName&quot;, &quot;reqValue&quot;);
+    // ��session�б�������:
+    request.getSession().setAttribute(&quot;sessName&quot;, &quot;sessValue&quot;);
+    // ��application�б�������:
+    context.setAttribute(&quot;appName&quot;, &quot;appValue&quot;);
+
+    return super.execute();
+}
+
+@Override
+public void setServletRequest(HttpServletRequest request) {
+    this.request = request;
+}
+
+@Override
+public void setServletContext(ServletContext context) {
+    this.context = context;
+}
+}
+</code></pre><p><strong>ע�⣺Servlet�ǵ����ģ�����������ͬһ��Servletֻ�ᴴ��һ��Servlet��ʵ����Action�Ƕ����ģ�һ�����󣬴���һ��Action��ʵ����������̰߳�ȫ�����⣩��</strong></p>
+<h3 id="����Struts���ҳ������"><a href="#����Struts���ҳ������" class="headerlink" title="����Struts���ҳ������"></a>����Struts���ҳ������</h3><h4 id="1-Struts���ҳ������"><a href="#1-Struts���ҳ������" class="headerlink" title="1.Struts���ҳ������"></a>1.Struts���ҳ������</h4><p>(1)ȫ�ֽ��ҳ������<br>�κη���ֻҪ���صĽ��name����֮��ȵģ��ͻ�ִ����Ӧ����ת��</p>
+<pre><code>&lt;!--ȫ��--&gt;
+&lt;global-results&gt;
+&lt;result name=&quot;success&quot;&gt;/index.jsp&lt;/result&gt;
+&lt;/global-results&gt;
+</code></pre><p>(2)�ֲ����ҳ������<br>��Ӧ�ķ���ֻ�з��ؽ��name��֮��ȣ���ִ����Ӧ����ת</p>
+<pre><code>&lt;action name=&quot;login&quot; class=&quot;pres.zx.test.Login&quot;&gt;
+&lt;result name=&quot;success&quot;&gt;/index.jsp&lt;/result&gt;
+&lt;/action&gt;
+</code></pre><p><strong>ע�⣺���ȫ�ֽ��name=�ֲ����name�����ת�ֲ��ġ�</strong></p>
+<h4 id="2-result��k������"><a href="#2-result��k������" class="headerlink" title="2.result��ǩ������"></a>2.result��ǩ������</h4><blockquote>
+<p>&lt; result name=”” type=””&gt;&lt; /result&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts11.png" alt=""></p>
+</blockquote>
+<h3 id="�g�Struts���ݷ�װ�k�ʽ"><a href="#�g�Struts���ݷ�װ�k�ʽ" class="headerlink" title="�ġ�Struts���ݷ�װ�ķ�ʽ"></a>�ġ�Struts���ݷ�װ�ķ�ʽ</h3><h4 id="1-����������������action������set����"><a href="#1-����������������action������set����" class="headerlink" title="1.����������������action������set����"></a>1.����������������action������set����</h4><p>(1)��дUser�࣬����get��set����</p>
+<pre><code>public class User {
+private String username;
+private String password;
+private Integer age;
+private Date birthday;
+private Double salary;
+public String getUsername() {
+    return username;
+}
+public void setUsername(String username) {
+    this.username = username;
+}
+public String getPassword() {
+    return password;
+}
+public void setPassword(String password) {
+    this.password = password;
+}
+public Integer getAge() {
+    return age;
+}
+public void setAge(Integer age) {
+    this.age = age;
+}
+public Date getBirthday() {
+    return birthday;
+}
+public void setBirthday(Date birthday) {
+    this.birthday = birthday;
+}
+public Double getSalary() {
+    return salary;
+}
+public void setSalary(Double salary) {
+    this.salary = salary;
+}
+
+@Override
+public String toString() {
+    return &quot;User [username=&quot; + username + &quot;, password=&quot; + password + &quot;, age=&quot; + age + &quot;, birthday=&quot; + birthday+ &quot;, salary=&quot; + salary + &quot;]&quot;;
+}
+
+}
+</code></pre><p>(2)��дAction�࣬���������Ӧ���Ե�set��������ʱ�Ϳ���ֱ�ӻ�ñ�ֵ</p>
+<pre><code>public class UserAction1 extends ActionSupport {
+// �ṩ�˶�Ӧ������
+private String username;
+private String password;
+private Integer age;
+private Date birthday;
+private Double salary;
+// �ṩ���Զ�Ӧ��set����
+public void setUsername(String username) {
+    this.username = username;
+}
+
+public void setPassword(String password) {
+    this.password = password;
+}
+
+public void setAge(Integer age) {
+    this.age = age;
+}
+
+public void setBirthday(Date birthday) {
+    this.birthday = birthday;
+}
+
+public void setSalary(Double salary) {
+    this.salary = salary;
+}
+
+
+@Override
+public String execute() throws Exception {
+    // ��������:
+    System.out.println(username);
+    System.out.println(password);
+    System.out.println(age);
+    System.out.println(birthday);
+    System.out.println(salary);
+    // ��װ����:
+    User user = new User();
+    user.setUsername(username);
+    user.setPassword(password);
+    user.setAge(age);
+    user.setBirthday(birthday);
+    user.setSalary(salary);
+    return NONE;
+}
+}
+</code></pre><p>(3)jspҳ��</p>
+<pre><code>&lt;h3&gt;��ʽһ����������-�ṩset�����ķ�ʽ&lt;/h3&gt;
+
+&lt;form action=&quot;${ pageContext.request.contextPath }/userAction1.action&quot; method=&quot;post&quot;&gt;
+�û���:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+&lt;/form&gt;
+</code></pre><h4 id="2-����������ҳ�����s���ʽ��ʽ"><a href="#2-����������ҳ�����s���ʽ��ʽ" class="headerlink" title="2.����������ҳ�����ṩ���ʽ��ʽ"></a>2.����������ҳ�����ṩ���ʽ��ʽ</h4><p>��Ҫͨ����Action���ж���һ��˽�еĶ������ԣ���������get��set��������ҳ���е�����nameҪ�Զ��������.�������ķ�ʽ������Ҫ������struts�Դ�����������ʵ��ֵ�Ļ�ȡ�ġ�<br>(1)JSP</p>
+<pre><code>&lt;h3&gt;��ʽ������������-��ҳ�����ṩ���ʽ��ʽ&lt;/h3&gt;
+&lt;form action=&quot;${ pageContext.request.contextPath }/userAction2.action&quot; method=&quot;post&quot;&gt;
+�û���:&lt;input type=&quot;text&quot; name=&quot;user.username&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;password&quot; name=&quot;user.password&quot;&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;user.age&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;user.birthday&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;user.salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+</code></pre><p></p>
+<p>(2)Action��</p>
+<pre><code>public class UserAction2 extends ActionSupport {
+
+// �ṩһ��User����:
+private User user;
+// �ṩuser��set��get������һ��Ҫ�ṩget������
+// ��Ϊ������������ݷ�װ����Ҫ����User����ͨ��get�������Ի��ͬһ�����󣬽����ݷ�װ��ͬһ�������С�
+public User getUser() {
+    return user;
+}
+public void setUser(User user) {
+    this.user = user;
+}
+@Override
+public String execute() throws Exception {
+    System.out.println(user);
+    return NONE;
+}
+
+}
+</code></pre><h4 id="3-��������������g�������k�ʽ"><a href="#3-��������������g�������k�ʽ" class="headerlink" title="3.��������������ģ�������ķ�ʽ"></a>3.��������������ģ�������ķ�ʽ</h4><p>�÷�ʽ����õķ�ʽ����Ҫʵ��ModelDriven&lt; T&gt;�ӿڣ��Լ�ʵ����Ӧ��getModel()����������Ҫ�ֶ�ʵ��������<br>(1)JSP</p>
+<pre><code>&lt;h3&gt;��ʽ����ģ������-ģ��������ʽ&lt;/h3&gt;
+&lt;form action=&quot;${ pageContext.request.contextPath }/userAction3.action&quot; method=&quot;post&quot;&gt;
+�û���:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
+����:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>(2)Action��</p>
+<pre><code>public class UserAction3 extends ActionSupport implements ModelDriven&lt;User&gt;{
+// ģ������ʹ�õĶ���ǰ������ֶ��ṩ�����ʵ��
+private User user = new User(); // �ֶ�ʵ����User.
+@Override
+// ģ��������Ҫʹ�õķ���:
+public User getModel() {
+    return user;
+}
+@Override
+public String execute() throws Exception {
+    System.out.println(user);
+    return NONE;
+}
+}
+</code></pre><p><strong>ע�⣺ģ��������ʽ��õķ�ʽ��ȱ����ֻ��ͬʱ��һ�������з�װ���ݡ���ʹ��ҳ���б��ʽ�ķ�ʽ��������������ͬʱ��װ���ݡ�</strong><br><strong>��ͬ�ķ�ʽ���õ��������ǲ�һ����</strong></p>
+<h3 id="�塢Input�߼���ͼ"><a href="#�塢Input�߼���ͼ" class="headerlink" title="�塢Input�߼���ͼ"></a>�塢Input�߼���ͼ</h3><p>struts��ִ�еĹ����л�ִ��һϵ�е����������������������ܴ������еĴ������Ե���������������Ĵ���ʱ�����Զ���ת�����ؽ������input�߼���ͼ����Ӧ��ҳ�档<br>����һ��ͼ��<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts12.png" alt=""></p>
+<p>���ԣ��ڱ�д����ʱ��Ҫ����input���������</p>
+<h3 id="����Struts�����������͵k�װ"><a href="#����Struts�����������͵k�װ" class="headerlink" title="����Struts�����������͵ķ�װ"></a>����Struts�����������͵ķ�װ</h3><h4 id="1-��װ��List��"><a href="#1-��װ��List��" class="headerlink" title="1.��װ��List��"></a>1.��װ��List��</h4><p>(1)ʵ����</p>
+<pre><code>public class Product {
+private String name;
+private Double price;
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+public Double getPrice() {
+    return price;
+}
+public void setPrice(Double price) {
+    this.price = price;
+}
+@Override
+public String toString() {
+    return &quot;Product [name=&quot; + name + &quot;, price=&quot; + price + &quot;]&quot;;
+}
+
+}
+</code></pre><p>(2)Action��</p>
+<pre><code>public class ProductAction1 extends ActionSupport {
+
+private List&lt;Product&gt; products;
+// �ṩ���ϵ�set����:
+public void setProducts(List&lt;Product&gt; products) {
+    this.products = products;
+}
+public List&lt;Product&gt; getProducts() {
+    return products;
+}
+
+@Override
+public String execute() throws Exception {
+    for (Product product : products) {
+        System.out.println(product);
+    }
+    return NONE;
+}
+
+
+}
+</code></pre><p>(3)JSP<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts13.png" alt=""></p>
+<h4 id="2-��װ��Map��"><a href="#2-��װ��Map��" class="headerlink" title="2.��װ��Map��"></a>2.��װ��Map��</h4><p>(1)Action��</p>
+<pre><code>public class ProductAction2 extends ActionSupport {
+
+private Map&lt;String,Product&gt; map;
+
+public Map&lt;String, Product&gt; getMap() {
+    return map;
+}
+
+public void setMap(Map&lt;String, Product&gt; map) {
+    this.map = map;
+}
+
+@Override
+public String execute() throws Exception {
+    for (String key : map.keySet()) {
+        Product product = map.get(key);
+        System.out.println(key+&quot;    &quot;+product);
+    }
+    return NONE;
+}
+}
+</code></pre><p>(2)JSP</p>
+<pre><code>&lt;h3&gt;��װ��Map�����У�����������Ʒ&lt;/h3&gt;
+&lt;form action=&quot;${ pageContext.request.contextPath }/productAction2.action&quot; method=&quot;post&quot;&gt;
+��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].name&quot;&gt;&lt;br/&gt;
+��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].price&quot;&gt;&lt;br/&gt;
+��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].name&quot;&gt;&lt;br/&gt;
+��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].price&quot;&gt;&lt;br/&gt;
+��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].name&quot;&gt;&lt;br/&gt;
+��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].price&quot;&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+&lt;/form&gt;
+</code></pre>
       
 
       
@@ -680,10 +1022,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
@@ -700,6 +1038,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
@@ -708,7 +1050,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,11 +1058,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -748,14 +1094,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
@@ -768,11 +1106,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
