@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Struts2 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һ��Struts2����Struts2��һ������MVC���ģʽ��web���ܡ� 1.������web����struts2��struts��Webwork��SpringMVC 2.Web���ܻ���ǰ�˿�����ģ�����">
+  <meta name="description" content="一、Struts2概述Struts2是一个基于MVC设计模式的web层框架。 1.常见的web层框架struts2、struts、Webwork、SpringMVC 2.Web层框架基于前端控制器模型设计">
 <meta name="keywords" content="struts2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Struts2">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/21/Struts2/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="һ��Struts2����Struts2��һ������MVC���ģʽ��web���ܡ� 1.������web����struts2��struts��Webwork��SpringMVC 2.Web���ܻ���ǰ�˿�����ģ�����">
+<meta property="og:description" content="一、Struts2概述Struts2是一个基于MVC设计模式的web层框架。 1.常见的web层框架struts2、struts、Webwork、SpringMVC 2.Web层框架基于前端控制器模型设计">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts02.png">
@@ -29,10 +29,23 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts13.png">
-<meta property="og:updated_time" content="2019-03-22T08:33:25.189Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts14.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts15.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts16.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts17.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts18.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts19.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts26.png">
+<meta property="og:updated_time" content="2019-03-22T12:04:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Struts2">
-<meta name="twitter:description" content="һ��Struts2����Struts2��һ������MVC���ģʽ��web���ܡ� 1.������web����struts2��struts��Webwork��SpringMVC 2.Web���ܻ���ǰ�˿�����ģ�����">
+<meta name="twitter:description" content="一、Struts2概述Struts2是一个基于MVC设计模式的web层框架。 1.常见的web层框架struts2、struts、Webwork、SpringMVC 2.Web层框架基于前端控制器模型设计">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -237,10 +250,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="һ��Struts2����"><a href="#һ��Struts2����" class="headerlink" title="һ��Struts2����"></a>һ��Struts2����</h3><p>Struts2��һ������MVC���ģʽ��web���ܡ�</p>
-<h4 id="1-������web����"><a href="#1-������web����" class="headerlink" title="1.������web����"></a>1.������web����</h4><p>struts2��struts��Webwork��SpringMVC</p>
-<h4 id="2-Web���ܻ���j�˿�����g�����"><a href="#2-Web���ܻ���j�˿�����g�����" class="headerlink" title="2.Web���ܻ���ǰ�˿�����ģ�����"></a>2.Web���ܻ���ǰ�˿�����ģ�����</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts01.png" alt=""><br><a id="more"></a></p>
-<h4 id="3-Struts2��helloworld"><a href="#3-Struts2��helloworld" class="headerlink" title="3.Struts2��helloworld"></a>3.Struts2��helloworld</h4><p>(1)����struts2<br><a href="http://struts.apache.org" target="_blank" rel="noopener">http://struts.apache.org</a><br>(2)��ѹѹ�������õ�struts2��Ŀ¼�ṹ<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts02.png" alt=""><br><strong>ע�⣺war�ļ�����web��Ŀ���war����ֱ�ӷ��뵽tomcat����ִ��</strong><br>(3)������̬web��Ŀ������jar��<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts04.png" alt=""><br>(4)����hello.jsp��success.jsp<br>hello.jsp</p>
+        <h3 id="一、Struts2概述"><a href="#一、Struts2概述" class="headerlink" title="一、Struts2概述"></a>一、Struts2概述</h3><p>Struts2是一个基于MVC设计模式的web层框架。</p>
+<h4 id="1-常见的web层框架"><a href="#1-常见的web层框架" class="headerlink" title="1.常见的web层框架"></a>1.常见的web层框架</h4><p>struts2、struts、Webwork、SpringMVC</p>
+<h4 id="2-Web层框架基于前端控制器模型设计"><a href="#2-Web层框架基于前端控制器模型设计" class="headerlink" title="2.Web层框架基于前端控制器模型设计"></a>2.Web层框架基于前端控制器模型设计</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts01.png" alt=""><br><a id="more"></a></p>
+<h4 id="3-Struts2的helloworld"><a href="#3-Struts2的helloworld" class="headerlink" title="3.Struts2的helloworld"></a>3.Struts2的helloworld</h4><p>(1)下载struts2<br><a href="http://struts.apache.org" target="_blank" rel="noopener">http://struts.apache.org</a><br>(2)解压压缩包，得到struts2的目录结构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts02.png" alt=""><br><strong>注意：war文件：是web项目打成war包。直接放入到tomcat可以执行</strong><br>(3)创建动态web项目，导入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts04.png" alt=""><br>(4)创建hello.jsp和success.jsp<br>hello.jsp</p>
 <pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
 pageEncoding=&quot;utf-8&quot;%&gt;
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
@@ -250,7 +263,7 @@ pageEncoding=&quot;utf-8&quot;%&gt;
 &lt;title&gt;hello struts2&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;h1&gt;Struts2����&lt;/h1&gt;
+&lt;h1&gt;Struts2入门&lt;/h1&gt;
 &lt;a href=&quot;${ pageContext.request.contextPath }/hello.action&quot;&gt;hello&lt;/a&gt;
 &lt;/body&gt;
 &lt;/html&gt;
@@ -267,35 +280,35 @@ pageEncoding=&quot;utf-8&quot;%&gt;
 success!!!
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>(5)��дstruts��action��<br>HelloAction.class</p>
+</code></pre><p>(5)编写struts的action类<br>HelloAction.class</p>
 <pre><code>package pers.zx.struts.hello;
 
 public class HelloAction {
 
 public String execute() {
 
-    System.out.println(&quot;����������&quot;);
+    System.out.println(&quot;动作被调用&quot;);
     return &quot;sussess&quot;;
 }
 }
-</code></pre><p>(6)��src�´���������struts.xml</p>
+</code></pre><p>(6)在src下创建并配置struts.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE struts PUBLIC
 &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;
 &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;
 &lt;struts&gt;
-&lt;!-- Struts2Ϊ�˹���Action�����ã�ͨ�������й��� --&gt;
-&lt;!-- ����Struts2�İ� --&gt;
+&lt;!-- Struts2为了管理Action的配置，通过包进行管理。 --&gt;
+&lt;!-- 配置Struts2的包 --&gt;
 &lt;package name=&quot;demo1&quot; extends=&quot;struts-default&quot; namespace=&quot;/&quot;&gt;
-    &lt;!-- ����Action================ --&gt;
+    &lt;!-- 配置Action================ --&gt;
     &lt;action name=&quot;hello&quot; class=&quot;pers.zx.struts.hello.HelloAction&quot; &gt;
-        &lt;!-- ����ҳ�����ת=========== --&gt;
+        &lt;!-- 配置页面的跳转=========== --&gt;
         &lt;result name=&quot;success&quot;&gt;/hello/success.jsp&lt;/result&gt;
     &lt;/action&gt;
 &lt;/package&gt;
 
 &lt;/struts&gt;
-</code></pre><p>(7)��WEB-INF�µ�web.xml���ù�����</p>
+</code></pre><p>(7)给WEB-INF下的web.xml配置过滤器</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
   &lt;display-name&gt;struts2_day01&lt;/display-name&gt;
@@ -307,11 +320,11 @@ public String execute() {
 &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
 &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
 </code></pre><p>  </p>
-<pre><code>  &lt;!-- ����Struts2�ĺ��Ĺ����� --&gt;
+<pre><code>  &lt;!-- 配置Struts2的核心过滤器 --&gt;
   &lt;filter&gt;
   &lt;filter-name&gt;struts2&lt;/filter-name&gt;
   &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
-  &lt;!-- �޸ĳ��� --&gt;
+  &lt;!-- 修改常量 --&gt;
 &lt;!--       &lt;init-param&gt; --&gt;
 &lt;!--           &lt;param-name&gt;struts.action.extension&lt;/param-name&gt; --&gt;
 &lt;!--           &lt;param-value&gt;xyz&lt;/param-value&gt; --&gt;
@@ -324,96 +337,96 @@ public String execute() {
   &lt;/filter-mapping&gt;
 
 &lt;/web-app&gt;
-</code></pre><p>(8)���</p>
-<h4 id="4-Struts2����ִ�й���"><a href="#4-Struts2����ִ�й���" class="headerlink" title="4.Struts2����ִ�й���"></a>4.Struts2����ִ�й���</h4><p>���û�ִ��ĳ��actionʱ�������Ⱦ������Ĺ��������������һ��������������в�����֮�����struts.xml�����ļ��ҵ���Ӧ�Ķ�����ķ�������ִ�з�������и�����ֵ���ڸ����������ֵ��ת����Ӧ��ҳ�档<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts03.png" alt=""></p>
-<h4 id="5-XML��ʾ����"><a href="#5-XML��ʾ����" class="headerlink" title="5.XML��ʾ����"></a>5.XML��ʾ����</h4><p>(1)windows–��preference–��XML–��XML Catalog<br>(2)����dtd: <a href="http://struts.apache.org/dtds/struts-2.3.dtd" target="_blank" rel="noopener">http://struts.apache.org/dtds/struts-2.3.dtd</a><br>(3)�ҵ�dtd�ļ�����,��סҪѡURI</p>
-<h4 id="6-Struts�����l�����˳��"><a href="#6-Struts�����l�����˳��" class="headerlink" title="6.Struts�����ļ�����˳��"></a>6.Struts�����ļ�����˳��</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts05.png" alt=""></p>
-<p><strong>ע�⣺�����ó���ʱҪע���ļ��ļ���˳�򣬺����õĳ����Ḳ�������õĳ�����</strong></p>
-<h4 id="7-Struts2�����l�-struts-xml-�i�k���"><a href="#7-Struts2�����l�-struts-xml-�i�k���" class="headerlink" title="7.Struts2�����ļ�(struts.xml)�ı�ǩ���"></a>7.Struts2�����ļ�(struts.xml)�ı�ǩ���</h4><p>(1)package<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts06.png" alt=""></p>
+</code></pre><p>(8)完成</p>
+<h4 id="4-Struts2基本执行过程"><a href="#4-Struts2基本执行过程" class="headerlink" title="4.Struts2基本执行过程"></a>4.Struts2基本执行过程</h4><p>当用户执行某个action时，它会先经过核心过滤器，里面会有一组连接器对其进行操作，之后更具struts.xml配置文件找到相应的动作类的方法，在执行方法后会有个返回值，在根据这个返回值跳转到相应的页面。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts03.png" alt=""></p>
+<h4 id="5-XML提示配置"><a href="#5-XML提示配置" class="headerlink" title="5.XML提示配置"></a>5.XML提示配置</h4><p>(1)windows–》preference–》XML–》XML Catalog<br>(2)复制dtd: <a href="http://struts.apache.org/dtds/struts-2.3.dtd" target="_blank" rel="noopener">http://struts.apache.org/dtds/struts-2.3.dtd</a><br>(3)找到dtd文件导入,记住要选URI</p>
+<h4 id="6-Struts配置文件加载顺序"><a href="#6-Struts配置文件加载顺序" class="headerlink" title="6.Struts配置文件加载顺序"></a>6.Struts配置文件加载顺序</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts05.png" alt=""></p>
+<p><strong>注意：在配置常量时要注意文件的加载顺序，后配置的常量会覆盖先配置的常量。</strong></p>
+<h4 id="7-Struts2配置文件-struts-xml-的标签详解"><a href="#7-Struts2配置文件-struts-xml-的标签详解" class="headerlink" title="7.Struts2配置文件(struts.xml)的标签详解"></a>7.Struts2配置文件(struts.xml)的标签详解</h4><p>(1)package<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts06.png" alt=""></p>
 <p>(2)action<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts07.png" alt=""></p>
-<p>(3)Struts2�ĳ�������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts08.png" alt=""></p>
-<p>(4)��ģ�鿪��������<br>��ʱ�ͻ��õ�&lt; include file=”pers/zx/struts/test/struts_test.xml”&gt;��ǩ<br>����Ҫ������xml�ļ�������struts.xml�С�һ����Эͬ������ʹ�á�</p>
-<h4 id="8-Action��i�д��ʽ"><a href="#8-Action��i�д��ʽ" class="headerlink" title="8.Action��ı�д��ʽ"></a>8.Action��ı�д��ʽ</h4><p>��.POJO��</p>
-<pre><code>//Action�ı�д��ʽһ��Action����һ��POJO����
+<p>(3)Struts2的常量配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts08.png" alt=""></p>
+<p>(4)分模块开发的配置<br>这时就会用到&lt; include file=”pers/zx/struts/test/struts_test.xml”&gt;标签<br>即把要包含的xml文件包含到struts.xml中。一般在协同开发中使用。</p>
+<h4 id="8-Action类的编写方式"><a href="#8-Action类的编写方式" class="headerlink" title="8.Action类的编写方式"></a>8.Action类的编写方式</h4><p>①.POJO类</p>
+<pre><code>//Action的编写方式一：Action类是一个POJO的类
 
 public class ActionDemo1 {
 
 public String execute(){
-    System.out.println(&quot;ActionDemo1ִ����...&quot;);
+    System.out.println(&quot;ActionDemo1执行了...&quot;);
     return null;
 }
 }
-</code></pre><p>��.ʵ��Action�ӿ�</p>
-<pre><code>// Action�ı�д��ʽ����ʵ��һ��Action�Ľӿ�
- // ʵ�ֽӿڵ����ַ�ʽ���ṩ���������������߼���ͼ�����ƣ�
- //     SUCCESS    :�ɹ�
-//     ERROR        :ʧ��
- //     LOGIN        :��¼����ҳ����ת
- //     INPUT        :��У���ʱ�����
- //     NONE        :����ת
+</code></pre><p>②.实现Action接口</p>
+<pre><code>// Action的编写方式二：实现一个Action的接口
+ // 实现接口的这种方式：提供了五个常量（五个逻辑视图的名称）
+ //     SUCCESS    :成功
+//     ERROR        :失败
+ //     LOGIN        :登录出错页面跳转
+ //     INPUT        :表单校验的时候出错
+ //     NONE        :不跳转
 public class ActionDemo2 implements Action{
 
 @Override
 public String execute() throws Exception {
-    System.out.println(&quot;ActionDemo2ִ����...&quot;);
+    System.out.println(&quot;ActionDemo2执行了...&quot;);
     return NONE;
 }
 
 }
-</code></pre><p>��.�̳�ActionSupport��(�Ƽ�)</p>
-<pre><code> //Action�ı�д��ʽ����Action��̳�ActionSupport��
-//�Ƽ�ʹ�ü̳�ActionSupport��ʽ
- // ActionSupport���ṩ������У�顢���ʻ���һϵ�в����ķ�����
+</code></pre><p>③.继承ActionSupport类(推荐)</p>
+<pre><code> //Action的编写方式三：Action类继承ActionSupport类
+//推荐使用继承ActionSupport方式
+ // ActionSupport中提供了数据校验、国际化等一系列操作的方法。
 
 public class ActionDemo3 extends ActionSupport{
 
 @Override
 public String execute() throws Exception {
-    System.out.println(&quot;ActionDemo3ִ����...&quot;);
+    System.out.println(&quot;ActionDemo3执行了...&quot;);
     return NONE;
 }
 }
-</code></pre><h4 id="9-Action���ʷ�ʽ����"><a href="#9-Action���ʷ�ʽ����" class="headerlink" title="9.Action���ʷ�ʽ����"></a>9.Action���ʷ�ʽ����</h4><p>(1)method����(��struts.xml������)<br>ͨ��method��ʽ���Ի�ȡͬһ��action���еĲ�ͬ�ķ�����</p>
+</code></pre><h4 id="9-Action访问方式配置"><a href="#9-Action访问方式配置" class="headerlink" title="9.Action访问方式配置"></a>9.Action访问方式配置</h4><p>(1)method配置(在struts.xml中配置)<br>通过method方式可以获取同一个action类中的不同的方法。</p>
 <blockquote>
 <p>&lt; action name=”user_insert”  class=”zx” method=”insert”&gt;&lt; /action&gt;<br>&lt; action name=”user_delete”  class=”zx” method=”delete”&gt;&lt; /action&gt;</p>
 </blockquote>
-<p>(2)ͨ����ķ�ʽ</p>
+<p>(2)通配符的方式</p>
 <blockquote>
-<p>&lt; action name=”user_<em>“  class=”zx” method=”{1}”&gt;&lt; /action&gt;<br>ѡȡuser_��ͷ������action,��һ��</em>�ţ��������1����user _����������Ƶķ�����</p>
+<p>&lt; action name=”user_<em>“  class=”zx” method=”{1}”&gt;&lt; /action&gt;<br>选取user_开头的所有action,有一个</em>号，所以这个1代表user _后的任意名称的方法。</p>
 </blockquote>
 <blockquote>
-<p><a href="user_insert.action">&lt; /a&gt;<br>insert����*����Action���У�����insert������</a></p>
+<p><a href="user_insert.action">&lt; /a&gt;<br>insert就是*，在Action类中，会有insert方法。</a></p>
 </blockquote>
 <p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts09.png" alt=""></p>
-<p>(3)��̬��������<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts10.png" alt=""></p>
-<h3 id="����Struts2����Servlet-API�k�ʽ"><a href="#����Struts2����Servlet-API�k�ʽ" class="headerlink" title="����Struts2����Servlet API�ķ�ʽ"></a>����Struts2����Servlet API�ķ�ʽ</h3><p>ͨ����Щ���ʷ�ʽ�Ϳ��Դ�ҳ���ȡ���ݻ�����ҳ�洫�����ݡ�</p>
-<h4 id="1-��o����k�ʽ"><a href="#1-��o����k�ʽ" class="headerlink" title="1.��ȫ����ķ�ʽ"></a>1.��ȫ����ķ�ʽ</h4><p>�÷�ʽ�õ��Ǻ�request�ȷ�ʽ��ȫ�޹صķ�ʽ���õ���Action���Դ��ķ�����<br>(1)Action��Ĵ���</p>
+<p>(3)动态方法访问<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts10.png" alt=""></p>
+<h3 id="二、Struts2访问Servlet-API的方式"><a href="#二、Struts2访问Servlet-API的方式" class="headerlink" title="二、Struts2访问Servlet API的方式"></a>二、Struts2访问Servlet API的方式</h3><p>通过这些访问方式就可以从页面获取数据或者向页面传输数据。</p>
+<h4 id="1-完全解耦的方式"><a href="#1-完全解耦的方式" class="headerlink" title="1.完全解耦的方式"></a>1.完全解耦的方式</h4><p>该方式用的是和request等方式完全无关的方式，用的是Action类自带的方法。<br>(1)Action类的代码</p>
 <pre><code>    @Override
 public String execute() throws Exception {
-    // һ�����ղ�����
-    // ����Struts2�еĶ���ActionContext����.
+    // 一、接收参数：
+    // 利用Struts2中的对象ActionContext对象.
     ActionContext context = ActionContext.getContext();
-    // ����ActionContext�еķ�����
-    // ������Map&lt;String,String[]&gt; request.getParameterMap();
+    // 调用ActionContext中的方法。
+    // 类似于Map&lt;String,String[]&gt; request.getParameterMap();
     Map&lt;String,Object&gt; map = context.getParameters();
     for (String key : map.keySet()) {
         String[] values = (String[]) map.get(key);
         System.out.println(key+&quot;    &quot;+Arrays.toString(values));
     }
 
-    // ������������д������ݣ���ҳ��Ϳ�����EL���ʽ����
-    context.put(&quot;reqName&quot;, &quot;reqValue&quot;);// �൱��request.setAttribute();
-    context.getSession().put(&quot;sessName&quot;, &quot;sessValue&quot;); // �൱��session.setAttribute();
-    context.getApplication().put(&quot;appName&quot;, &quot;appValue&quot;); // �൱��application.setAttribute();
+    // 二、向域对象中存入数据，在页面就可以用EL表达式接收
+    context.put(&quot;reqName&quot;, &quot;reqValue&quot;);// 相当于request.setAttribute();
+    context.getSession().put(&quot;sessName&quot;, &quot;sessValue&quot;); // 相当于session.setAttribute();
+    context.getApplication().put(&quot;appName&quot;, &quot;appValue&quot;); // 相当于application.setAttribute();
 
     return SUCCESS;
 }
-</code></pre><p><strong>ע�⣺���ַ�ʽֻ�ܻ�ô���request��session��application�����ݵ�Map���ϣ����ܲ�����Щ�����������ȡurl����ֻ�ܻ�ȡ���ݡ�</strong></p>
-<h4 id="2-ʹ��Servlet��API��ԭ����ʽ"><a href="#2-ʹ��Servlet��API��ԭ����ʽ" class="headerlink" title="2.ʹ��Servlet��API��ԭ����ʽ"></a>2.ʹ��Servlet��API��ԭ����ʽ</h4><p>����ԭ����request,response�ȵ�<br>(1)Action����</p>
+</code></pre><p><strong>注意：这种方式只能获得代表request、session、application的数据的Map集合，不能操作这些对象本身，比如获取url，它只能获取数据。</strong></p>
+<h4 id="2-使用Servlet的API的原生方式"><a href="#2-使用Servlet的API的原生方式" class="headerlink" title="2.使用Servlet的API的原生方式"></a>2.使用Servlet的API的原生方式</h4><p>就是原生的request,response等等<br>(1)Action代码</p>
 <pre><code>@Override
 public String execute() throws Exception {
-    // һ����������
-    // ֱ�ӻ��request����ͨ��ServletActionContext
+    // 一、接收数据
+    // 直接获得request对象，通过ServletActionContext
     HttpServletRequest request = ServletActionContext.getRequest();
     Map&lt;String, String[]&gt; map = request.getParameterMap();
     for (String key : map.keySet()) {
@@ -421,17 +434,17 @@ public String execute() throws Exception {
         System.out.println(key+&quot;    &quot;+Arrays.toString(values));
     }
 
-    // ������������б�������
-    // ��request�б�������:
+    // 二、向域对象中保存数据
+    // 向request中保存数据:
     request.setAttribute(&quot;reqName&quot;, &quot;reqValue&quot;);
-    // ��session�б�������
+    // 向session中保存数据
     request.getSession().setAttribute(&quot;sessName&quot;, &quot;sessValue&quot;);
-    // ��application�б�������
+    // 向application中保存数据
     ServletActionContext.getServletContext().setAttribute(&quot;appName&quot;, &quot;appValue&quot;);
     return SUCCESS;
 }
-</code></pre><p><strong>ע�⣺���Ϳ��Ի�ȡֵ����������ֵ</strong></p>
-<h4 id="3-ʹ�yӿ�ע��k�ʽ"><a href="#3-ʹ�yӿ�ע��k�ʽ" class="headerlink" title="3.ʹ�ýӿ�ע��ķ�ʽ"></a>3.ʹ�ýӿ�ע��ķ�ʽ</h4><p>ͨ��ʵ��ServletRequestAware��ServletContextAware�Ƚӿ���ʵ�֡�<br>(1)����ʾ��</p>
+</code></pre><p><strong>注意：他就可以获取值和其他属性值</strong></p>
+<h4 id="3-使用接口注入的方式"><a href="#3-使用接口注入的方式" class="headerlink" title="3.使用接口注入的方式"></a>3.使用接口注入的方式</h4><p>通过实现ServletRequestAware、ServletContextAware等接口来实现。<br>(1)代码示例</p>
 <pre><code>public class RequestDemo3 extends ActionSupport implements ServletRequestAware,ServletContextAware{
 
 private HttpServletRequest request;
@@ -439,24 +452,24 @@ private ServletContext context;
 
 public RequestDemo3() {
     super();
-    System.out.println(&quot;RequestDemo3��������...&quot;);
+    System.out.println(&quot;RequestDemo3被创建了...&quot;);
 }
 
 @Override
 public String execute() throws Exception {
-    // һ�����ղ���
-    // ͨ���ӿ�ע��ķ�ʽ���request����
+    // 一、接收参数
+    // 通过接口注入的方式获得request对象。
     Map&lt;String, String[]&gt; map = request.getParameterMap();
     for (String key : map.keySet()) {
         String[] values = map.get(key);
         System.out.println(key+&quot;    &quot;+Arrays.toString(values));
     }
-    // ������������б�������
-    // ��request���б�������
+    // 二、向域对象中保存数据
+    // 向request域中保存数据
     request.setAttribute(&quot;reqName&quot;, &quot;reqValue&quot;);
-    // ��session�б�������:
+    // 向session中保存数据:
     request.getSession().setAttribute(&quot;sessName&quot;, &quot;sessValue&quot;);
-    // ��application�б�������:
+    // 向application中保存数据:
     context.setAttribute(&quot;appName&quot;, &quot;appValue&quot;);
 
     return super.execute();
@@ -472,21 +485,21 @@ public void setServletContext(ServletContext context) {
     this.context = context;
 }
 }
-</code></pre><p><strong>ע�⣺Servlet�ǵ����ģ�����������ͬһ��Servletֻ�ᴴ��һ��Servlet��ʵ����Action�Ƕ����ģ�һ�����󣬴���һ��Action��ʵ����������̰߳�ȫ�����⣩��</strong></p>
-<h3 id="����Struts���ҳ������"><a href="#����Struts���ҳ������" class="headerlink" title="����Struts���ҳ������"></a>����Struts���ҳ������</h3><h4 id="1-Struts���ҳ������"><a href="#1-Struts���ҳ������" class="headerlink" title="1.Struts���ҳ������"></a>1.Struts���ҳ������</h4><p>(1)ȫ�ֽ��ҳ������<br>�κη���ֻҪ���صĽ��name����֮��ȵģ��ͻ�ִ����Ӧ����ת��</p>
-<pre><code>&lt;!--ȫ��--&gt;
+</code></pre><p><strong>注意：Servlet是单例的，多个程序访问同一个Servlet只会创建一个Servlet的实例。Action是多例的，一次请求，创建一个Action的实（不会出现线程安全的问题）。</strong></p>
+<h3 id="三、Struts结果页面配置"><a href="#三、Struts结果页面配置" class="headerlink" title="三、Struts结果页面配置"></a>三、Struts结果页面配置</h3><h4 id="1-Struts结果页面配置"><a href="#1-Struts结果页面配置" class="headerlink" title="1.Struts结果页面配置"></a>1.Struts结果页面配置</h4><p>(1)全局结果页面配置<br>任何方法只要返回的结果name是与之相等的，就会执行相应的跳转。</p>
+<pre><code>&lt;!--全局--&gt;
 &lt;global-results&gt;
 &lt;result name=&quot;success&quot;&gt;/index.jsp&lt;/result&gt;
 &lt;/global-results&gt;
-</code></pre><p>(2)�ֲ����ҳ������<br>��Ӧ�ķ���ֻ�з��ؽ��name��֮��ȣ���ִ����Ӧ����ת</p>
+</code></pre><p>(2)局部结果页面配置<br>相应的方法只有返回结果name与之相等，则执行相应的跳转</p>
 <pre><code>&lt;action name=&quot;login&quot; class=&quot;pres.zx.test.Login&quot;&gt;
 &lt;result name=&quot;success&quot;&gt;/index.jsp&lt;/result&gt;
 &lt;/action&gt;
-</code></pre><p><strong>ע�⣺���ȫ�ֽ��name=�ֲ����name�����ת�ֲ��ġ�</strong></p>
-<h4 id="2-result��k������"><a href="#2-result��k������" class="headerlink" title="2.result��ǩ������"></a>2.result��ǩ������</h4><blockquote>
+</code></pre><p><strong>注意：如果全局结果name=局部结果name则会跳转局部的。</strong></p>
+<h4 id="2-result标签的设置"><a href="#2-result标签的设置" class="headerlink" title="2.result标签的设置"></a>2.result标签的设置</h4><blockquote>
 <p>&lt; result name=”” type=””&gt;&lt; /result&gt;<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts11.png" alt=""></p>
 </blockquote>
-<h3 id="�g�Struts���ݷ�װ�k�ʽ"><a href="#�g�Struts���ݷ�װ�k�ʽ" class="headerlink" title="�ġ�Struts���ݷ�װ�ķ�ʽ"></a>�ġ�Struts���ݷ�װ�ķ�ʽ</h3><h4 id="1-����������������action������set����"><a href="#1-����������������action������set����" class="headerlink" title="1.����������������action������set����"></a>1.����������������action������set����</h4><p>(1)��дUser�࣬����get��set����</p>
+<h3 id="四、Struts数据封装的方式"><a href="#四、Struts数据封装的方式" class="headerlink" title="四、Struts数据封装的方式"></a>四、Struts数据封装的方式</h3><h4 id="1-属性驱动：利用在action类中用set方法"><a href="#1-属性驱动：利用在action类中用set方法" class="headerlink" title="1.属性驱动：利用在action类中用set方法"></a>1.属性驱动：利用在action类中用set方法</h4><p>(1)编写User类，包含get、set方法</p>
 <pre><code>public class User {
 private String username;
 private String password;
@@ -530,15 +543,15 @@ public String toString() {
 }
 
 }
-</code></pre><p>(2)��дAction�࣬���������Ӧ���Ե�set��������ʱ�Ϳ���ֱ�ӻ�ñ�ֵ</p>
+</code></pre><p>(2)编写Action类，里面包含相应属性的set方法，此时就可以直接获得表单值</p>
 <pre><code>public class UserAction1 extends ActionSupport {
-// �ṩ�˶�Ӧ������
+// 提供了对应的属性
 private String username;
 private String password;
 private Integer age;
 private Date birthday;
 private Double salary;
-// �ṩ���Զ�Ӧ��set����
+// 提供属性对应的set方法
 public void setUsername(String username) {
     this.username = username;
 }
@@ -562,13 +575,13 @@ public void setSalary(Double salary) {
 
 @Override
 public String execute() throws Exception {
-    // ��������:
+    // 接收数据:
     System.out.println(username);
     System.out.println(password);
     System.out.println(age);
     System.out.println(birthday);
     System.out.println(salary);
-    // ��װ����:
+    // 封装数据:
     User user = new User();
     user.setUsername(username);
     user.setPassword(password);
@@ -578,34 +591,34 @@ public String execute() throws Exception {
     return NONE;
 }
 }
-</code></pre><p>(3)jspҳ��</p>
-<pre><code>&lt;h3&gt;��ʽһ����������-�ṩset�����ķ�ʽ&lt;/h3&gt;
+</code></pre><p>(3)jsp页面</p>
+<pre><code>&lt;h3&gt;方式一：属性驱动-提供set方法的方式&lt;/h3&gt;
 
 &lt;form action=&quot;${ pageContext.request.contextPath }/userAction1.action&quot; method=&quot;post&quot;&gt;
-�û���:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
-&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+密码:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
+年龄:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
+生日:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
+工资:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre><h4 id="2-����������ҳ�����s���ʽ��ʽ"><a href="#2-����������ҳ�����s���ʽ��ʽ" class="headerlink" title="2.����������ҳ�����ṩ���ʽ��ʽ"></a>2.����������ҳ�����ṩ���ʽ��ʽ</h4><p>��Ҫͨ����Action���ж���һ��˽�еĶ������ԣ���������get��set��������ҳ���е�����nameҪ�Զ��������.�������ķ�ʽ������Ҫ������struts�Դ�����������ʵ��ֵ�Ļ�ȡ�ġ�<br>(1)JSP</p>
-<pre><code>&lt;h3&gt;��ʽ������������-��ҳ�����ṩ���ʽ��ʽ&lt;/h3&gt;
+</code></pre><h4 id="2-属性驱动：页面中提供表达式方式"><a href="#2-属性驱动：页面中提供表达式方式" class="headerlink" title="2.属性驱动：页面中提供表达式方式"></a>2.属性驱动：页面中提供表达式方式</h4><p>主要通过在Action类中定义一个私有的对象属性，并设置其get和set方法。在页面中的属性name要以对象的名称.属性名的方式。它主要是利用struts自带的拦截器来实现值的获取的。<br>(1)JSP</p>
+<pre><code>&lt;h3&gt;方式二：属性驱动-在页面中提供表达式方式&lt;/h3&gt;
 &lt;form action=&quot;${ pageContext.request.contextPath }/userAction2.action&quot; method=&quot;post&quot;&gt;
-�û���:&lt;input type=&quot;text&quot; name=&quot;user.username&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;password&quot; name=&quot;user.password&quot;&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;user.age&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;user.birthday&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;user.salary&quot;/&gt;&lt;br/&gt;
-&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+用户名:&lt;input type=&quot;text&quot; name=&quot;user.username&quot;/&gt;&lt;br/&gt;
+密码:&lt;input type=&quot;password&quot; name=&quot;user.password&quot;&gt;&lt;br/&gt;
+年龄:&lt;input type=&quot;text&quot; name=&quot;user.age&quot;/&gt;&lt;br/&gt;
+生日:&lt;input type=&quot;text&quot; name=&quot;user.birthday&quot;/&gt;&lt;br/&gt;
+工资:&lt;input type=&quot;text&quot; name=&quot;user.salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 </code></pre><p></p>
-<p>(2)Action��</p>
+<p>(2)Action类</p>
 <pre><code>public class UserAction2 extends ActionSupport {
 
-// �ṩһ��User����:
+// 提供一个User对象:
 private User user;
-// �ṩuser��set��get������һ��Ҫ�ṩget������
-// ��Ϊ������������ݷ�װ����Ҫ����User����ͨ��get�������Ի��ͬһ�����󣬽����ݷ�װ��ͬһ�������С�
+// 提供user的set和get方法：一定要提供get方法。
+// 因为拦截器完成数据封装，需要创建User对象。通过get方法可以获得同一个对象，将数据封装到同一个对象中。
 public User getUser() {
     return user;
 }
@@ -619,22 +632,22 @@ public String execute() throws Exception {
 }
 
 }
-</code></pre><h4 id="3-��������������g�������k�ʽ"><a href="#3-��������������g�������k�ʽ" class="headerlink" title="3.��������������ģ�������ķ�ʽ"></a>3.��������������ģ�������ķ�ʽ</h4><p>�÷�ʽ����õķ�ʽ����Ҫʵ��ModelDriven&lt; T&gt;�ӿڣ��Լ�ʵ����Ӧ��getModel()����������Ҫ�ֶ�ʵ��������<br>(1)JSP</p>
-<pre><code>&lt;h3&gt;��ʽ����ģ������-ģ��������ʽ&lt;/h3&gt;
+</code></pre><h4 id="3-属性驱动：采用模型驱动的方式"><a href="#3-属性驱动：采用模型驱动的方式" class="headerlink" title="3.属性驱动：采用模型驱动的方式"></a>3.属性驱动：采用模型驱动的方式</h4><p>该方式是最常用的方式，需要实现ModelDriven&lt; T&gt;接口，以及实现相应的getModel()方法，并且要手动实例化对象。<br>(1)JSP</p>
+<pre><code>&lt;h3&gt;方式三：模型驱动-模型驱动方式&lt;/h3&gt;
 &lt;form action=&quot;${ pageContext.request.contextPath }/userAction3.action&quot; method=&quot;post&quot;&gt;
-�û���:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
-����:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
-&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+密码:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;
+年龄:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
+生日:&lt;input type=&quot;text&quot; name=&quot;birthday&quot;/&gt;&lt;br/&gt;
+工资:&lt;input type=&quot;text&quot; name=&quot;salary&quot;/&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre><p>(2)Action��</p>
+</code></pre><p>(2)Action类</p>
 <pre><code>public class UserAction3 extends ActionSupport implements ModelDriven&lt;User&gt;{
-// ģ������ʹ�õĶ���ǰ������ֶ��ṩ�����ʵ��
-private User user = new User(); // �ֶ�ʵ����User.
+// 模型驱动使用的对象：前提必须手动提供对象的实例
+private User user = new User(); // 手动实例化User.
 @Override
-// ģ��������Ҫʹ�õķ���:
+// 模型驱动需要使用的方法:
 public User getModel() {
     return user;
 }
@@ -644,10 +657,10 @@ public String execute() throws Exception {
     return NONE;
 }
 }
-</code></pre><p><strong>ע�⣺ģ��������ʽ��õķ�ʽ��ȱ����ֻ��ͬʱ��һ�������з�װ���ݡ���ʹ��ҳ���б��ʽ�ķ�ʽ��������������ͬʱ��װ���ݡ�</strong><br><strong>��ͬ�ķ�ʽ���õ��������ǲ�һ����</strong></p>
-<h3 id="�塢Input�߼���ͼ"><a href="#�塢Input�߼���ͼ" class="headerlink" title="�塢Input�߼���ͼ"></a>�塢Input�߼���ͼ</h3><p>struts��ִ�еĹ����л�ִ��һϵ�е����������������������ܴ������еĴ������Ե���������������Ĵ���ʱ�����Զ���ת�����ؽ������input�߼���ͼ����Ӧ��ҳ�档<br>����һ��ͼ��<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts12.png" alt=""></p>
-<p>���ԣ��ڱ�д����ʱ��Ҫ����input���������</p>
-<h3 id="����Struts�����������͵k�װ"><a href="#����Struts�����������͵k�װ" class="headerlink" title="����Struts�����������͵ķ�װ"></a>����Struts�����������͵ķ�װ</h3><h4 id="1-��װ��List��"><a href="#1-��װ��List��" class="headerlink" title="1.��װ��List��"></a>1.��װ��List��</h4><p>(1)ʵ����</p>
+</code></pre><p><strong>注意：模型驱动方式最常用的方式，缺点是只能同时向一个对象中封装数据。而使用页面中表达式的方式可以向多个对象中同时封装数据。</strong><br><strong>不同的方式调用的拦截器是不一样的</strong></p>
+<h3 id="五、Input逻辑视图"><a href="#五、Input逻辑视图" class="headerlink" title="五、Input逻辑视图"></a>五、Input逻辑视图</h3><p>struts在执行的过程中会执行一系列的拦截器，而拦截器并不能处理所有的错误，所以当出现拦截器以外的错误时，会自动跳转到返回结果含有input逻辑视图的相应的页面。<br>来看一个图：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts12.png" alt=""></p>
+<p>所以，在编写程序时，要配置input来处理错误。</p>
+<h3 id="六、Struts复杂数据类型的封装"><a href="#六、Struts复杂数据类型的封装" class="headerlink" title="六、Struts复杂数据类型的封装"></a>六、Struts复杂数据类型的封装</h3><h4 id="1-封装到List中"><a href="#1-封装到List中" class="headerlink" title="1.封装到List中"></a>1.封装到List中</h4><p>(1)实体类</p>
 <pre><code>public class Product {
 private String name;
 private Double price;
@@ -669,11 +682,11 @@ public String toString() {
 }
 
 }
-</code></pre><p>(2)Action��</p>
+</code></pre><p>(2)Action类</p>
 <pre><code>public class ProductAction1 extends ActionSupport {
 
 private List&lt;Product&gt; products;
-// �ṩ���ϵ�set����:
+// 提供集合的set方法:
 public void setProducts(List&lt;Product&gt; products) {
     this.products = products;
 }
@@ -692,7 +705,7 @@ public String execute() throws Exception {
 
 }
 </code></pre><p>(3)JSP<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts13.png" alt=""></p>
-<h4 id="2-��װ��Map��"><a href="#2-��װ��Map��" class="headerlink" title="2.��װ��Map��"></a>2.��װ��Map��</h4><p>(1)Action��</p>
+<h4 id="2-封装到Map中"><a href="#2-封装到Map中" class="headerlink" title="2.封装到Map中"></a>2.封装到Map中</h4><p>(1)Action类</p>
 <pre><code>public class ProductAction2 extends ActionSupport {
 
 private Map&lt;String,Product&gt; map;
@@ -715,17 +728,39 @@ public String execute() throws Exception {
 }
 }
 </code></pre><p>(2)JSP</p>
-<pre><code>&lt;h3&gt;��װ��Map�����У�����������Ʒ&lt;/h3&gt;
+<pre><code>&lt;h3&gt;封装到Map集合中：批量插入商品&lt;/h3&gt;
 &lt;form action=&quot;${ pageContext.request.contextPath }/productAction2.action&quot; method=&quot;post&quot;&gt;
-��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].name&quot;&gt;&lt;br/&gt;
-��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].price&quot;&gt;&lt;br/&gt;
-��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].name&quot;&gt;&lt;br/&gt;
-��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].price&quot;&gt;&lt;br/&gt;
-��Ʒ����:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].name&quot;&gt;&lt;br/&gt;
-��Ʒ�۸�:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].price&quot;&gt;&lt;br/&gt;
-&lt;input type=&quot;submit&quot; value=&quot;�ύ&quot;&gt;
+商品名称:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].name&quot;&gt;&lt;br/&gt;
+商品价格:&lt;input type=&quot;text&quot; name=&quot;map[&apos;one&apos;].price&quot;&gt;&lt;br/&gt;
+商品名称:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].name&quot;&gt;&lt;br/&gt;
+商品价格:&lt;input type=&quot;text&quot; name=&quot;map[&apos;two&apos;].price&quot;&gt;&lt;br/&gt;
+商品名称:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].name&quot;&gt;&lt;br/&gt;
+商品价格:&lt;input type=&quot;text&quot; name=&quot;map[&apos;three&apos;].price&quot;&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre>
+</code></pre><h3 id="七、OGNL"><a href="#七、OGNL" class="headerlink" title="七、OGNL"></a>七、OGNL</h3><p> OGNL：对象图导航语言，它调用对象的方法，获取Struts2的值栈的数据。</p>
+<h4 id="1-OGNL访问对象的方法"><a href="#1-OGNL访问对象的方法" class="headerlink" title="1.OGNL访问对象的方法"></a>1.OGNL访问对象的方法</h4><p>在jsp页面<br>(1)引入struts标签</p>
+<pre><code>&lt;%@ taglib uri=&quot;/struts-tags&quot; prefix=&quot;s&quot;%&gt;
+</code></pre><p>(2)编写代码</p>
+<pre><code>&lt;s:property value=&quot;&apos;struts&apos;.length()&quot; /&gt;
+</code></pre><h4 id="2-OGNL访问对象的静态方法"><a href="#2-OGNL访问对象的静态方法" class="headerlink" title="2.OGNL访问对象的静态方法"></a>2.OGNL访问对象的静态方法</h4><p>(1)引入struts标签</p>
+<pre><code>&lt;%@ taglib uri=&quot;/struts-tags&quot; prefix=&quot;s&quot;%&gt;
+</code></pre><p>(2)在struts.xml设置可以访问静态方法(由于struts2默认是不可以访问的)</p>
+<pre><code>&lt;constant name=&quot;struts.ognl.allowStaticMethodAccess&quot; value=&quot;true&quot; /&gt;
+</code></pre><p>(3)编写代码:第一个@后是 类名，第二个@后是 方法名(参数)<br>    &lt;s:property value=”@java.lang.Math@random()”/&gt;</p>
+<h4 id="3-ValueStack-值栈"><a href="#3-ValueStack-值栈" class="headerlink" title="3.ValueStack(值栈)"></a>3.ValueStack(值栈)</h4><p>(1)什么是值栈<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts14.png" alt=""><br>(2)值栈的内部结构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts15.png" alt=""></p>
+<p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts16.png" alt=""><br>(3)值栈于ActionContext的关系<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts17.png" alt=""><br>(4)获取ValueStack对象<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts18.png" alt=""><br>(5)值栈的操作<br>①.向值栈中存入数据<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts19.png" alt=""></p>
+<blockquote>
+<p>第一种方法，就是利用在Action中创建实体的私有对象，以及其get方法,并new一个对象设置其属性值，此时值栈中就会有数据了。可以用对象名.属性名来调用。注意要用&lt; s：property&gt;&lt; /s&gt;来获取。</p>
+</blockquote>
+<blockquote>
+<p>第二种方法，创建valuestack的对象，通过它的put或者set方法，此时值就会进入到值栈中，之后在页面直接取就好了，利用属性名。注意put方法是直接取,set方法是对象名.属性名。</p>
+</blockquote>
+<p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts20.png" alt=""></p>
+<p>②.值栈获取数据<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts22.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts21.png" alt=""></p>
+<p>③.EL获取值栈的值<br>因为Struts的框架的底层对request.getAttribute()进行了增强。如果在request中没有找到，就回去值栈中找，所以使用EL表达式也可以获得。(从源码中可以知道)</p>
+<h4 id="4-OGNL中的特殊符号"><a href="#4-OGNL中的特殊符号" class="headerlink" title="4.OGNL中的特殊符号"></a>4.OGNL中的特殊符号</h4><p>(1) #<br>①.获取context的数据<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts23.png" alt=""><br>②.构建map集合<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts24.png" alt=""><br>(2) %<br>%{}可以将字符串强行识别成ognl表达式进行解析。而%{‘ ‘}就不会解析<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts25.png" alt=""><br>(3) $<br>在配置文件中使用ognl<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts26.png" alt=""></p>
+
       
 
       
@@ -1022,6 +1057,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
@@ -1038,10 +1077,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
@@ -1050,15 +1085,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1094,11 +1129,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1106,11 +1141,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,6 +1150,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
