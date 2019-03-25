@@ -35,7 +35,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring16.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring17.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring19.png">
-<meta property="og:updated_time" content="2019-03-25T11:12:42.041Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring22.png">
+<meta property="og:updated_time" content="2019-03-25T20:20:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="一、Spring的概述Spring是一个分层的Java EE/SE开发的一站式框架。  一站式：有每一层的解决方案。WEB层：SpringMVCService层：Spring的Bean管理，Spring声明式事务DAO层：Spring的JDBC模板，Spring的ORM模板  二、Spring运行架构">
@@ -501,6 +504,402 @@ public void test() {
 <blockquote>
 <p>JDK动态代理：只能对实现了接口的类产生代理<br>Cglib动态代理：对没有实现接口的类产生代理对象，生成子类对象</p>
 </blockquote>
+<h4 id="2-JDK动态代理实现"><a href="#2-JDK动态代理实现" class="headerlink" title="2.JDK动态代理实现"></a>2.JDK动态代理实现</h4><p>(1)创建User类和UserImpl实现类<br>User.class</p>
+<pre><code>package pers.zx.aop.proxy;
+
+public interface User {
+
+public void save();
+public void add();
+}
+</code></pre><p>UserImpl.class</p>
+<pre><code>package pers.zx.aop.proxy;
+
+public class UserImpl implements User{
+
+public void save() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;save被调用&quot;);
+}
+
+public void add() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;add被调用&quot;);
+}
+
+}
+</code></pre><p>(2)创建动态代理类</p>
+<pre><code>package pers.zx.aop.proxy;
+
+
+import java.lang.reflect.Method;
+
+import org.springframework.cglib.proxy.Proxy;
+
+public class UserProxy implements org.springframework.cglib.proxy.InvocationHandler  {
+
+private User user;
+public UserProxy(User user) {
+    this.user=user;
+
+}
+
+public UserProxy() {
+    // TODO Auto-generated constructor stub
+}
+
+public User createProxy() {
+
+    User userProxy=(User)Proxy.newProxyInstance(user.getClass().getClassLoader(),
+            user.getClass().getInterfaces(),new UserProxy(user));//创建user的代理
+    return userProxy;
+}
+
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    if(&quot;save&quot;.equals(method.getName())) {
+        System.out.println(&quot;proxy&quot;);
+        return method.invoke(user, args);
+    }
+    return method.invoke(user, args);
+}
+
+
+}
+</code></pre><p>(3)测试类</p>
+<pre><code>package pers.zx.aop.proxy;
+
+import org.junit.Test;
+
+public class TestOfProxy {
+
+@Test
+public void test() {
+    User user=new UserImpl();
+    User p=new UserProxy(user).createProxy();//创建user的代理
+    p.save();
+    p.add();
+}
+}
+</code></pre><h4 id="3-cglib动态代理"><a href="#3-cglib动态代理" class="headerlink" title="3.cglib动态代理"></a>3.cglib动态代理</h4><p>(1)编写CustomerDao</p>
+<pre><code>package pers.zx.aop.cglib;
+
+public class CustomerDao {
+
+public void save() {
+    System.out.println(&quot;save被调用&quot;);
+}
+
+public void add() {
+    System.out.println(&quot;add被调用&quot;);
+}
+}
+</code></pre><p>(2)编写代理类</p>
+<pre><code>package pers.zx.aop.cglib;
+
+import java.lang.reflect.Method;
+
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
+
+public class CglibProxy implements MethodInterceptor {
+
+private CustomerDao customerDao;
+public CglibProxy(CustomerDao customerDao) {
+
+    this.customerDao=customerDao;
+}
+
+public CustomerDao createProxy() {
+    //1.创建cglib的核心类对象
+    Enhancer enhancer=new Enhancer();
+    //2.设置父类
+    enhancer.setSuperclass(customerDao.getClass());
+    //3.设置回调，类似于InvocationHandler对象
+    enhancer.setCallback(this);//或者new CglibProxy(customerDao);
+    //4.创建代理对象
+    CustomerDao proxy=(CustomerDao)enhancer.create();
+
+    return proxy;
+
+}
+public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+    if(&quot;save&quot;.equals(method.getName())) {
+        System.out.println(&quot;proxy&quot;);
+        return methodProxy.invokeSuper(proxy, args);
+    }
+    return methodProxy.invokeSuper(proxy, args);
+}
+
+
+
+}
+</code></pre><p>(3)编写测试类</p>
+<pre><code>package pers.zx.aop.cglib;
+
+import org.junit.Test;
+
+public class ProxyTest {
+
+@Test
+public void test() {
+    CustomerDao c=new CustomerDao();
+    CustomerDao u=new CglibProxy(c).createProxy();
+    u.save();
+    u.add();
+}
+}
+</code></pre><h3 id="十、Spring-Aop开发（AspectJ的XML方式）"><a href="#十、Spring-Aop开发（AspectJ的XML方式）" class="headerlink" title="十、Spring Aop开发（AspectJ的XML方式）"></a>十、Spring Aop开发（AspectJ的XML方式）</h3><p>AspectJ是一种面向切面编程的框架。</p>
+<h4 id="1-AOP术语"><a href="#1-AOP术语" class="headerlink" title="1.AOP术语"></a>1.AOP术语</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring20.png" alt=""></p>
+<h4 id="2-AspectJ-示例"><a href="#2-AspectJ-示例" class="headerlink" title="2.AspectJ 示例"></a>2.AspectJ 示例</h4><p>(1)添加jar包，我们在Spring整合Jutils单元测试的时候要引入spring-test-4.2.4.RELEASE,这样就可以和方便的测试，不用每次都创建工厂了，通过注解的方式，在测试类中可以看到<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring21.png" alt=""><br>(2)在src下创建application.xml，并添加约束<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring22.png" alt=""><br>(3)编写User接口和UserImpl实现类</p>
+<pre><code>package pers.zx.AspectJ.test;
+
+public interface User {
+
+public void save();
+public void add();
+}
+package pers.zx.AspectJ.test;
+
+public class UserImpl implements User{
+
+public void save() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;save被调用&quot;);
+}
+
+public void add() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;add被调用&quot;);
+}
+
+}
+</code></pre><p>(4)编写切入类</p>
+<pre><code>package pers.zx.AspectJ.test;
+
+public class XMLAspectJ {
+
+public void check() {
+    System.out.println(&quot;Check&quot;);
+}
+}
+</code></pre><p>(5)配置xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt; &lt;!-- bean definitions here --&gt;
+
+&lt;!-- 配置目标对象：被增强的对象 --&gt;
+&lt;bean id=&quot;user&quot; class=&quot;pers.zx.AspectJ.test.UserImpl&quot;/&gt;
+&lt;!-- 将切面类交给Spring管理 --&gt;
+&lt;bean id=&quot;aspectj&quot; class=&quot;pers.zx.AspectJ.test.XMLAspectJ&quot;/&gt;
+&lt;!-- 通过AOP的配置完成对目标类产生代理 --&gt;
+&lt;aop:config&gt;
+&lt;!-- 通过表达式配置那些类的那些方法需要进行增强 ,..是可变参数，*是任意返回值--&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.save(..))&quot; id=&quot;pointcut_save&quot;/&gt;
+&lt;!-- 配置切面 --&gt;
+&lt;aop:aspect ref=&quot;aspectj&quot;&gt;
+&lt;!-- 在配置方法之前调用 --&gt;
+&lt;aop:before method=&quot;check&quot; pointcut-ref=&quot;pointcut_save&quot;/&gt;
+&lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre><p>(6)编写测试类(Spring整合Jutils测试)</p>
+<pre><code>package pers.zx.AspectJ.test;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+//Spring 整合Jutil单元测试
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class AspectjTest {
+
+@Autowired
+@Qualifier(value=&quot;user&quot;)
+private User user;
+
+@Test 
+public void test() {
+    user.save();
+    user.add();
+}
+}
+</code></pre><h4 id="3-Spring中的通知类型"><a href="#3-Spring中的通知类型" class="headerlink" title="3.Spring中的通知类型"></a>3.Spring中的通知类型</h4><p>(1)前置通知</p>
+<blockquote>
+<p>在目标方法执行前进行的操作，可以获得切入点的信息</p>
+</blockquote>
+<p>(2)后置通知</p>
+<blockquote>
+<p>在目标方法之后进行的操作，可以获得方法的返回值</p>
+</blockquote>
+<p>(3)环绕通知</p>
+<blockquote>
+<p>在目标方法执行前和执行后进行的操作，可以阻止目标方法的执行</p>
+</blockquote>
+<p>(4)异常抛出通知</p>
+<blockquote>
+<p>当所配置的方法有异常了会执行的操作，可以抛出异常类型</p>
+</blockquote>
+<p>(5)最终通知</p>
+<blockquote>
+<p>不管方法有没有异常，只要配置了都要执行，相当于finall块中的语句</p>
+</blockquote>
+<p><strong>切入类代码：</strong></p>
+<pre><code>package pers.zx.AspectJ.test;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+
+public class XMLAspectJ {
+    //前置通知：并获得切入点信息
+public void before(JoinPoint joinPoint) {
+    System.out.println(&quot;Check &quot;+joinPoint); 
+}
+//后置通知：并获取配置方法的返回值
+public void behind(Object result) {
+    System.out.println(&quot;Behind &quot;+result);
+}
+//环绕通知
+public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+    System.out.println(&quot;around before&quot;);
+    Object obj=joinPoint.proceed();
+    System.out.println(&quot;around behind&quot;);
+
+    return obj;
+
+}
+//异常抛出通知
+public void throwsEx(Throwable ex) {
+    System.out.println(&quot;throws exception&quot;+ex);
+    int i=1/0;
+
+}
+//最终通知
+public void end() {
+    System.out.println(&quot;end&quot;);
+}
+}
+</code></pre><p><strong>配置文件代码：</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt; &lt;!-- bean definitions here --&gt;
+
+&lt;!-- 配置目标对象：被增强的对象 --&gt;
+&lt;bean id=&quot;user&quot; class=&quot;pers.zx.AspectJ.test.UserImpl&quot;/&gt;
+&lt;!-- 将切面类交给Spring管理 --&gt;
+&lt;bean id=&quot;aspectj&quot; class=&quot;pers.zx.AspectJ.test.XMLAspectJ&quot;/&gt;
+&lt;!-- 通过AOP的配置完成对目标类产生代理 --&gt;
+&lt;aop:config&gt;
+&lt;!-- 通过表达式配置那些类的那些方法需要进行增强 ,..是可变参数，*是任意返回值--&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.before(..))&quot; id=&quot;pointcut_before&quot;/&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.behind(..))&quot; id=&quot;pointcut_behind&quot;/&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.around(..))&quot; id=&quot;pointcut_around&quot;/&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.throwsEx(..))&quot; id=&quot;pointcut_throwsEx&quot;/&gt;
+&lt;aop:pointcut expression=&quot;execution(* pers.zx.AspectJ.test.UserImpl.end(..))&quot; id=&quot;pointcut_end&quot;/&gt;
+&lt;!-- 配置切面 --&gt;
+&lt;aop:aspect ref=&quot;aspectj&quot;&gt;
+&lt;!-- 前置通知：在配置方法之前调用 --&gt;
+&lt;aop:before method=&quot;before&quot; pointcut-ref=&quot;pointcut_before&quot;/&gt;
+&lt;!-- 后置通知 :返回结果result--&gt;
+&lt;aop:after-returning method=&quot;behind&quot; pointcut-ref=&quot;pointcut_behind&quot; returning=&quot;result&quot;/&gt;
+&lt;!-- 环绕通知 --&gt;
+&lt;aop:around method=&quot;around&quot; pointcut-ref=&quot;pointcut_around&quot;/&gt;
+&lt;!-- 异常抛出通知:抛出异常ex --&gt;
+&lt;aop:after-throwing method=&quot;throwsEx&quot; pointcut-ref=&quot;pointcut_throwsEx&quot; throwing=&quot;ex&quot;/&gt;
+&lt;!-- 最终通知 :相当于finall块中的语句--&gt;
+&lt;aop:after method=&quot;end&quot; pointcut-ref=&quot;pointcut_end&quot;/&gt;
+&lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre><p><strong>测试类：</strong></p>
+<pre><code>package pers.zx.AspectJ.test;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+//Spring 整合Jutil单元测试
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class AspectjTest {
+
+@Autowired
+@Qualifier(value=&quot;user&quot;)
+private User user;
+
+@Test 
+public void test() {
+    user.before();
+    user.behind();
+    user.around();
+    user.throwsEx();
+    user.end();
+}
+}
+</code></pre><p><strong>User接口与UserImpl.class：</strong></p>
+<pre><code>package pers.zx.AspectJ.test;
+
+public interface User {
+
+public void before();
+public int behind();
+public void around();
+public void throwsEx();
+public void end();
+}
+///////////////////////////
+package pers.zx.AspectJ.test;
+
+public class UserImpl implements User{
+
+public void before() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;before被调用&quot;); 
+}
+
+public int behind() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;behind被调用&quot;);
+    return 10;
+}
+
+public void around() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;around被调用&quot;);
+}
+
+public void throwsEx() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;throwsEx被调用&quot;);
+}
+
+public void end() {
+    // TODO Auto-generated method stub
+    System.out.println(&quot;end被调用&quot;);
+}
+
+}
+</code></pre><h4 id="4-切入点表达式语法"><a href="#4-切入点表达式语法" class="headerlink" title="4.切入点表达式语法"></a>4.切入点表达式语法</h4><blockquote>
+<p>基于execution()函数来完成<br>语法：<br>[访问控制修饰符] 方法的返回值类型 包名.类名.方法名(参数)</p>
+</blockquote>
+<blockquote>
+<p>(1) <em> 代表任意方法的返回值类型 、包名、类名、方法名。<br>public </em> pers.zx.spring.test.clazz.method(); //任意方法的返回值类型</p>
+<p>(2) .. 放在参数中代表任意个数参数，放在类名后面是其任意子类，包后面就是任意子包<br>public <em> pers.zx.spring.test.clazz.method(..); //代表任意个数参数<br>public </em> pers.zx.test..*.method(..);//test的所有子包下的所有类的method方法</p>
+<p>(3) + 表示本类和其子类<br>public  * pers.zx.test.User+.metnod(..);//user及其子类下面的method方法</p>
+</blockquote>
 
       
 
@@ -814,11 +1213,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -834,19 +1233,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,6 +1273,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -886,19 +1293,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
