@@ -220,192 +220,10 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>一站式：有每一层的解决方案。<br>WEB层：SpringMVC<br>Service层：Spring的Bean管理，Spring声明式事务<br>DAO层：Spring的JDBC模板，Spring的ORM模板</p>
 </blockquote>
-<h3 id="二、Spring运行架构"><a href="#二、Spring运行架构" class="headerlink" title="二、Spring运行架构"></a>二、Spring运行架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring01.png" alt=""></p>
-<h3 id="三、Spring-IOC"><a href="#三、Spring-IOC" class="headerlink" title="三、Spring IOC"></a>三、Spring IOC</h3><p>IOC：Inversion of Control(控制反转)，将对象的创建权反转给(交给)Spring。</p>
-<h4 id="1-IOC的底层实现"><a href="#1-IOC的底层实现" class="headerlink" title="1.IOC的底层实现"></a>1.IOC的底层实现</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring02.png" alt=""></p>
-<h4 id="2-示例"><a href="#2-示例" class="headerlink" title="2.示例"></a>2.示例</h4><p>(1)下载spring<br><a href="http://spring.io/" target="_blank" rel="noopener">http://spring.io/</a><br>(2)相关文件夹说明<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring03.png" alt=""><br>(3)创建项目导入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring04.png" alt=""><br>(4)编写接口和实现类<br>①.User接口</p>
-<pre><code>public interface User {
-
-public void test();
-}
-</code></pre><p>②.UserImpl和CustomerImpl</p>
-<pre><code>public class UserImpl implements User {
-
-public void test() {
-    // TODO Auto-generated method stub
-    System.out.println(&quot;UserImpl&quot;);
-}
-
-}
-
-public class CustomerImpl implements User {
-
-public void test() {
-    // TODO Auto-generated method stub
- System.out.println(&quot;CustomerImpl&quot;);
-}
-
-}
-</code></pre><p>③.配置文件</p>
-<pre><code>&lt;beans 
-xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
-xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-xsi:schemaLocation=&quot;
-    http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
-
-&lt;!-- Spring配置 --&gt;
-&lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot; /&gt; 
-</code></pre><p></p>
-<p>④.测试类</p>
-<pre><code>public class TestSpring {
-
-@Test
-public void test() {
-
-ApplicationContext a=new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-
- User user=(User)a.getBean(&quot;user&quot;);
- user.test();
-}
-}
-</code></pre><p>此时调用不同的类只需要修改配置文件就可以了。</p>
-<h3 id="四、IOC与DI"><a href="#四、IOC与DI" class="headerlink" title="四、IOC与DI"></a>四、IOC与DI</h3><p>IOC：控制反转，将对象的创建权反转给了spring。<br>DI：依赖注入，前提是必须有IOC的环境，Spring管理这个类的时候将类的依赖的属性注入(设置)进来。</p>
-<pre><code>&lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot; &gt;
-&lt;property name=&quot;name&quot; value=&quot;zx&quot; /&gt;
-&lt;/bean&gt; 
-</code></pre><p>把name属性依赖(设置)到UserImpl类中。</p>
-<h3 id="五、Spring工厂类"><a href="#五、Spring工厂类" class="headerlink" title="五、Spring工厂类"></a>五、Spring工厂类</h3><h4 id="1-工厂类结构图"><a href="#1-工厂类结构图" class="headerlink" title="1.工厂类结构图"></a>1.工厂类结构图</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring05.png" alt=""></p>
-<h4 id="2-FactoryBean与ApplicationContext区别"><a href="#2-FactoryBean与ApplicationContext区别" class="headerlink" title="2.FactoryBean与ApplicationContext区别"></a>2.FactoryBean与ApplicationContext区别</h4><p>以上是两个工厂类，FactoryBean是老版的工厂类，ApplicationContext是新版的工厂类。<br>区别：</p>
-<blockquote>
-<p>1.BeanFactory：调用getBean的时候，才会生成类的实例。</p>
-<p>2.ApplicationContext：加载配置文件的时候，就会将Spring管理的类都实例化。</p>
-</blockquote>
-<h4 id="3-ApplicationContext的两个实现类"><a href="#3-ApplicationContext的两个实现类" class="headerlink" title="3.ApplicationContext的两个实现类"></a>3.ApplicationContext的两个实现类</h4><blockquote>
-<p>   ClassPathXmlApplicationContext    ：加载类路径下的配置文件<br>   FileSystemXmlApplicationContext    ：加载文件系统下的配置文件</p>
-</blockquote>
-<h3 id="六、Spring配置"><a href="#六、Spring配置" class="headerlink" title="六、Spring配置"></a>六、Spring配置</h3><h4 id="1-Schema配置"><a href="#1-Schema配置" class="headerlink" title="1.Schema配置"></a>1.Schema配置</h4><p>复制.xsd的连接，window–&gt;preference–&gt;XML–&gt;XML CataLog，按照下图配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring06.png" alt=""></p>
-<h4 id="2-Bean的相关配置"><a href="#2-Bean的相关配置" class="headerlink" title="2.Bean的相关配置"></a>2.Bean的相关配置</h4><p>(1)&lt; bean&gt;标签的id和name</p>
-<blockquote>
-<p>id：使用了约束中的唯一约束。里面不能出现特殊字符的。<br>name：没有使用约束中的唯一约束（理论上可以出现重复的，但是实际开发不能出现的）。里面可以出现特殊字符。</p>
-</blockquote>
-<p>即在使用getBean时，可以通过name调用也可以通过id调用。<br>在老的项目中会这样配置：有个斜杠</p>
-<pre><code>&lt;bean name=&quot;/user&quot; class=&quot;&quot; /&gt;
-</code></pre><p>(2)&lt; bean&gt;的生命周期的配置</p>
-<blockquote>
-<p>   init-method：Bean被初始化的时候执行的方法<br>   destroy-method：Bean被销毁的时候执行的方法（Bean是单例创建，工厂关闭）</p>
-</blockquote>
-<pre><code>&lt;bean id=&quot;user&quot; class=&quot;&quot; init-method=&quot;&quot; destroy-method=&quot;&quot;/&gt;
-</code></pre><p>(3)&lt; bean&gt;的作用范围的配置</p>
-<blockquote>
-<p>scope:<br>1.singleton：默认的，Spring会采用单例模式创建这个对象。<br>2.prototype：多例模式。<br>3.request：应用在web项目中，Spring创建这个类以后，将这个类存入到request范围中。<br>4.session：应用在web项目中，Spring创建这个类以后，将这个类存入到session范围中。<br>5.globalsession：应用在web项目中，必须在porlet环境下使用。但是如果没有这种环境，相对于session。</p>
-</blockquote>
-<p><strong>注意：</strong><br><strong>1.单例模式：每次用只创建一个对象，每次new的是同一个对象</strong><br><strong>2.多例模式：每次用都创建不同的对象，每次new的都是新的对象</strong><br><strong>3.Porlet环境：有子应用的程序，只要在父应用登陆过，子应用就不用登陆就可以实现操作。</strong></p>
-<h3 id="七、Spring属性注入"><a href="#七、Spring属性注入" class="headerlink" title="七、Spring属性注入"></a>七、Spring属性注入</h3><h4 id="1-设置属性的方式"><a href="#1-设置属性的方式" class="headerlink" title="1.设置属性的方式"></a>1.设置属性的方式</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring07.png" alt=""></p>
-<h4 id="2-Spring的构造方法注入"><a href="#2-Spring的构造方法注入" class="headerlink" title="2.Spring的构造方法注入"></a>2.Spring的构造方法注入</h4><pre><code>  &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
- &lt;constructor-arg name=&quot;name&quot; value=&quot;zx&quot; /&gt;
- &lt;constructor-arg name=&quot;age&quot; value=&quot;20&quot; /&gt;
- &lt;/bean&gt;
-
-private String name;
-private Integer age;
-
-public UserImpl(String name,Integer age){
-this.age=age;
-this.name=name;
-}
-</code></pre><h4 id="3-Spring的set方法注入"><a href="#3-Spring的set方法注入" class="headerlink" title="3.Spring的set方法注入"></a>3.Spring的set方法注入</h4><pre><code>private String name;
-privete Integer age;
-private Customer customer;   
-public void setName(String name) {
-    this.name = name;
-}
-public void setAge(Integer age) {
-    this.age = age;
-} 
-public void setCustomer(Customer customer) {
-    this.customer = customer;
-} 
-
- &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
-   &lt;property name=&quot;name&quot; value=&quot;zx&quot; /&gt;
-   &lt;property name=&quot;age&quot; value=&quot;10&quot; /&gt;
- &lt;/bean&gt;
- &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
-   &lt;property name=&quot;name&quot; value=&quot;zx&quot; /&gt;
-   &lt;!-- value:设置普通类型的值 ref:设置其他的类的id或name --&gt;
-   &lt;property name=&quot;customer&quot; ref=&quot;customer&quot; /&gt;
- &lt;/bean&gt;
-</code></pre><h4 id="4-P名称空间的属性注入"><a href="#4-P名称空间的属性注入" class="headerlink" title="4.P名称空间的属性注入"></a>4.P名称空间的属性注入</h4><p>(1)引入名称空间<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring08.png" alt=""><br>(2)编写xml</p>
-<blockquote>
-<p>普通属性     p:属性名=”值”<br>    对象属性     p:属性名-ref=”值”<br>(3)例子</p>
-</blockquote>
-<pre><code>&lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot; p:name=&quot;zx&quot; p:age=&quot;10&quot; /&gt;
- &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot; p:name=&quot;zx&quot; p:Customer-ref=&quot;customer&quot;/&gt;
-</code></pre><h4 id="5-SpEL属性注入"><a href="#5-SpEL属性注入" class="headerlink" title="5.SpEL属性注入"></a>5.SpEL属性注入</h4><p>SpEL：Spring Expression Language，Spring的表达式语言。<br>其他不变，只是把bean中的value=””换成SpEL。</p>
-<pre><code>语法：#{ }
-字符串：#{&apos;字符串&apos;}
-数值：#{20.0}
-对象：#{obj}
-对象属性：#{obj.value}
-对象方法：#{obj.method()}
-
-&lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
-   &lt;property name=&quot;name&quot; value=&quot;#{&apos;zx&apos;}&quot; /&gt;
-   &lt;property name=&quot;age&quot; value=&quot;#{20.0}&quot; /&gt;
- &lt;/bean&gt;
- or
- &lt;!--先引入其他对象再调用其方法--&gt;
- &lt;bean name=&quot;obj&quot; class=&quot;pers.zx.spring.test.ObjMessage&quot;/&gt;
- &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
-   &lt;property name=&quot;name&quot; value=&quot;#{obj.vale}&quot; /&gt;
-   &lt;property name=&quot;age&quot; value=&quot;#{obj.method()}&quot; /&gt;
- &lt;/bean&gt;
-</code></pre><h4 id="6-Spring集合类型注入"><a href="#6-Spring集合类型注入" class="headerlink" title="6.Spring集合类型注入"></a>6.Spring集合类型注入</h4><pre><code>&lt;!-- 注入集合类型，属性value,对象 ref --&gt;
-&lt;bean id=&quot;collectionBean&quot; class=&quot;pers.zx.sprint.test.CollectionBean&quot;&gt;
-    &lt;!-- 数组类型 --&gt;
-    &lt;property name=&quot;arrs&quot;&gt;
-        &lt;list&gt;
-            &lt;value&gt;aa&lt;/value&gt;
-            &lt;value&gt;bb&lt;/value&gt;
-            &lt;value&gt;cc&lt;/value&gt;
-        &lt;/list&gt;
-    &lt;/property&gt;
-
-    &lt;!-- 注入list集合 --&gt;
-    &lt;property name=&quot;list&quot;&gt;
-        &lt;list&gt;
-            &lt;value&gt;aa&lt;/value&gt;
-            &lt;value&gt;bb&lt;/value&gt;
-            &lt;value&gt;cc&lt;/value&gt;
-        &lt;/list&gt;
-    &lt;/property&gt;
-
-    &lt;!-- 注入set集合 --&gt;
-    &lt;property name=&quot;set&quot;&gt;
-        &lt;set&gt;
-            &lt;value&gt;aaa&lt;/value&gt;
-            &lt;value&gt;bbb&lt;/value&gt;
-            &lt;value&gt;ccc&lt;/value&gt;
-        &lt;/set&gt;
-    &lt;/property&gt;
-
-    &lt;!-- 注入Map集合 --&gt;
-    &lt;property name=&quot;map&quot;&gt;
-
-        &lt;map&gt;
-            &lt;entry key=&quot;aaa&quot; value=&quot;111&quot;/&gt;
-            &lt;entry key=&quot;bbb&quot; value=&quot;222&quot;/&gt;
-            &lt;entry key=&quot;ccc&quot; value=&quot;333&quot;/&gt;
-        &lt;/map&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p><strong>在具体collectionBean类中要有相应的set方法。而要获取值的时候相应的类中要有get方法。</strong></p>
-<h3 id="六、Spring分模块开发"><a href="#六、Spring分模块开发" class="headerlink" title="六、Spring分模块开发"></a>六、Spring分模块开发</h3><h4 id="1-一次加载多个配置文件"><a href="#1-一次加载多个配置文件" class="headerlink" title="1.一次加载多个配置文件"></a>1.一次加载多个配置文件</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring09.png" alt=""></p>
-<h4 id="2-在一个配置文件中引入多个"><a href="#2-在一个配置文件中引入多个" class="headerlink" title="2.在一个配置文件中引入多个"></a>2.在一个配置文件中引入多个</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring10.png" alt=""></p>
-<p><strong>注意：在编写dao时如何用service调用它，就可以将dao和service层的实现类放到spring中，然后将dao注入到service中。此时就可以直接在service中调用dao中的方法了，不用在service中getBean</strong></p>
-
+<h3 id="二、Spring运行架构"><a href="#二、Spring运行架构" class="headerlink" title="二、Spring运行架构"></a>二、Spring运行架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring01.png" alt=""><br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/25/Spring/#more">more >></a>
+        
       
 
       
@@ -1334,6 +1152,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1342,15 +1164,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,11 +1180,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,6 +1216,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
              
@@ -1406,23 +1228,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,11 +1252,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
