@@ -16,33 +16,51 @@
 <meta property="og:site_name" content="XiaoHuZiZx">
 <meta property="og:description" content="一、Spring的概述Spring是一个分层的Java EE/SE开发的一站式框架。  一站式：有每一层的解决方案。WEB层：SpringMVCService层：Spring的Bean管理，Spring声明式事务DAO层：Spring的JDBC模板，Spring的ORM模板  二、Spring运行架构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring01.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring02.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring03.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring04.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring05.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring06.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring07.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring08.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring09.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring10.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring11.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring12.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring13.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring14.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring15.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring18.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring16.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring17.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring19.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring20.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring21.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring22.png">
-<meta property="og:updated_time" content="2019-03-25T20:20:20.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring02.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring03.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring04.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring05.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring06.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring07.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring08.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring09.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring11.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring12.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring13.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring14.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring15.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring18.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring16.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring17.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring19.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring26.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring29.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring30.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring31.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring32.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring33.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring34.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring35.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring36.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring37.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring38.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring39.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring40.png">
+<meta property="og:updated_time" content="2019-03-26T10:16:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="一、Spring的概述Spring是一个分层的Java EE/SE开发的一站式框架。  一站式：有每一层的解决方案。WEB层：SpringMVCService层：Spring的Bean管理，Spring声明式事务DAO层：Spring的JDBC模板，Spring的ORM模板  二、Spring运行架构">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring01.png">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -250,10 +268,10 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>一站式：有每一层的解决方案。<br>WEB层：SpringMVC<br>Service层：Spring的Bean管理，Spring声明式事务<br>DAO层：Spring的JDBC模板，Spring的ORM模板</p>
 </blockquote>
-<h3 id="二、Spring运行架构"><a href="#二、Spring运行架构" class="headerlink" title="二、Spring运行架构"></a>二、Spring运行架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring01.png" alt=""><br><a id="more"></a></p>
+<h3 id="二、Spring运行架构"><a href="#二、Spring运行架构" class="headerlink" title="二、Spring运行架构"></a>二、Spring运行架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring01.png" alt=""><br><a id="more"></a></p>
 <h3 id="三、Spring-IOC"><a href="#三、Spring-IOC" class="headerlink" title="三、Spring IOC"></a>三、Spring IOC</h3><p>IOC：Inversion of Control(控制反转)，将对象的创建权反转给(交给)Spring。</p>
-<h4 id="1-IOC的底层实现"><a href="#1-IOC的底层实现" class="headerlink" title="1.IOC的底层实现"></a>1.IOC的底层实现</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring02.png" alt=""></p>
-<h4 id="2-示例"><a href="#2-示例" class="headerlink" title="2.示例"></a>2.示例</h4><p>(1)下载spring<br><a href="http://spring.io/" target="_blank" rel="noopener">http://spring.io/</a><br>(2)相关文件夹说明<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring03.png" alt=""><br>(3)创建项目导入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring04.png" alt=""><br>(4)编写接口和实现类<br>①.User接口</p>
+<h4 id="1-IOC的底层实现"><a href="#1-IOC的底层实现" class="headerlink" title="1.IOC的底层实现"></a>1.IOC的底层实现</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring02.png" alt=""></p>
+<h4 id="2-示例"><a href="#2-示例" class="headerlink" title="2.示例"></a>2.示例</h4><p>(1)下载spring<br><a href="http://spring.io/" target="_blank" rel="noopener">http://spring.io/</a><br>(2)相关文件夹说明<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring03.png" alt=""><br>(3)创建项目导入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring04.png" alt=""><br>(4)编写接口和实现类<br>①.User接口</p>
 <pre><code>public interface User {
 
 public void test();
@@ -306,7 +324,7 @@ ApplicationContext a=new ClassPathXmlApplicationContext(&quot;applicationContext
 &lt;property name=&quot;name&quot; value=&quot;zx&quot; /&gt;
 &lt;/bean&gt; 
 </code></pre><p>把name属性依赖(设置)到UserImpl类中。</p>
-<h3 id="五、Spring工厂类"><a href="#五、Spring工厂类" class="headerlink" title="五、Spring工厂类"></a>五、Spring工厂类</h3><h4 id="1-工厂类结构图"><a href="#1-工厂类结构图" class="headerlink" title="1.工厂类结构图"></a>1.工厂类结构图</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring05.png" alt=""></p>
+<h3 id="五、Spring工厂类"><a href="#五、Spring工厂类" class="headerlink" title="五、Spring工厂类"></a>五、Spring工厂类</h3><h4 id="1-工厂类结构图"><a href="#1-工厂类结构图" class="headerlink" title="1.工厂类结构图"></a>1.工厂类结构图</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring05.png" alt=""></p>
 <h4 id="2-FactoryBean与ApplicationContext区别"><a href="#2-FactoryBean与ApplicationContext区别" class="headerlink" title="2.FactoryBean与ApplicationContext区别"></a>2.FactoryBean与ApplicationContext区别</h4><p>以上是两个工厂类，FactoryBean是老版的工厂类，ApplicationContext是新版的工厂类。<br>区别：</p>
 <blockquote>
 <p>1.BeanFactory：调用getBean的时候，才会生成类的实例。</p>
@@ -315,7 +333,7 @@ ApplicationContext a=new ClassPathXmlApplicationContext(&quot;applicationContext
 <h4 id="3-ApplicationContext的两个实现类"><a href="#3-ApplicationContext的两个实现类" class="headerlink" title="3.ApplicationContext的两个实现类"></a>3.ApplicationContext的两个实现类</h4><blockquote>
 <p>   ClassPathXmlApplicationContext    ：加载类路径下的配置文件<br>   FileSystemXmlApplicationContext    ：加载文件系统下的配置文件</p>
 </blockquote>
-<h3 id="六、Spring配置"><a href="#六、Spring配置" class="headerlink" title="六、Spring配置"></a>六、Spring配置</h3><h4 id="1-Schema配置"><a href="#1-Schema配置" class="headerlink" title="1.Schema配置"></a>1.Schema配置</h4><p>复制.xsd的连接，window–&gt;preference–&gt;XML–&gt;XML CataLog，按照下图配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring06.png" alt=""></p>
+<h3 id="六、Spring配置"><a href="#六、Spring配置" class="headerlink" title="六、Spring配置"></a>六、Spring配置</h3><h4 id="1-Schema配置"><a href="#1-Schema配置" class="headerlink" title="1.Schema配置"></a>1.Schema配置</h4><p>复制.xsd的连接，window–&gt;preference–&gt;XML–&gt;XML CataLog，按照下图配置<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring06.png" alt=""></p>
 <h4 id="2-Bean的相关配置"><a href="#2-Bean的相关配置" class="headerlink" title="2.Bean的相关配置"></a>2.Bean的相关配置</h4><p>(1)&lt; bean&gt;标签的id和name</p>
 <blockquote>
 <p>id：使用了约束中的唯一约束。里面不能出现特殊字符的。<br>name：没有使用约束中的唯一约束（理论上可以出现重复的，但是实际开发不能出现的）。里面可以出现特殊字符。</p>
@@ -332,7 +350,7 @@ ApplicationContext a=new ClassPathXmlApplicationContext(&quot;applicationContext
 <p>scope:<br>1.singleton：默认的，Spring会采用单例模式创建这个对象。<br>2.prototype：多例模式。<br>3.request：应用在web项目中，Spring创建这个类以后，将这个类存入到request范围中。<br>4.session：应用在web项目中，Spring创建这个类以后，将这个类存入到session范围中。<br>5.globalsession：应用在web项目中，必须在porlet环境下使用。但是如果没有这种环境，相对于session。</p>
 </blockquote>
 <p><strong>注意：</strong><br><strong>1.单例模式：每次用只创建一个对象，每次new的是同一个对象</strong><br><strong>2.多例模式：每次用都创建不同的对象，每次new的都是新的对象</strong><br><strong>3.Porlet环境：有子应用的程序，只要在父应用登陆过，子应用就不用登陆就可以实现操作。</strong></p>
-<h3 id="七、Spring属性注入"><a href="#七、Spring属性注入" class="headerlink" title="七、Spring属性注入"></a>七、Spring属性注入</h3><h4 id="1-设置属性的方式"><a href="#1-设置属性的方式" class="headerlink" title="1.设置属性的方式"></a>1.设置属性的方式</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring07.png" alt=""></p>
+<h3 id="七、Spring属性注入"><a href="#七、Spring属性注入" class="headerlink" title="七、Spring属性注入"></a>七、Spring属性注入</h3><h4 id="1-设置属性的方式"><a href="#1-设置属性的方式" class="headerlink" title="1.设置属性的方式"></a>1.设置属性的方式</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring07.png" alt=""></p>
 <h4 id="2-Spring的构造方法注入"><a href="#2-Spring的构造方法注入" class="headerlink" title="2.Spring的构造方法注入"></a>2.Spring的构造方法注入</h4><pre><code>  &lt;bean name=&quot;user&quot; class=&quot;pers.zx.spring.test.UserImpl&quot;&gt;
  &lt;constructor-arg name=&quot;name&quot; value=&quot;zx&quot; /&gt;
  &lt;constructor-arg name=&quot;age&quot; value=&quot;20&quot; /&gt;
@@ -367,7 +385,7 @@ public void setCustomer(Customer customer) {
    &lt;!-- value:设置普通类型的值 ref:设置其他的类的id或name --&gt;
    &lt;property name=&quot;customer&quot; ref=&quot;customer&quot; /&gt;
  &lt;/bean&gt;
-</code></pre><h4 id="4-P名称空间的属性注入"><a href="#4-P名称空间的属性注入" class="headerlink" title="4.P名称空间的属性注入"></a>4.P名称空间的属性注入</h4><p>(1)引入名称空间<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring08.png" alt=""><br>(2)编写xml</p>
+</code></pre><h4 id="4-P名称空间的属性注入"><a href="#4-P名称空间的属性注入" class="headerlink" title="4.P名称空间的属性注入"></a>4.P名称空间的属性注入</h4><p>(1)引入名称空间<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring08.png" alt=""><br>(2)编写xml</p>
 <blockquote>
 <p>普通属性     p:属性名=”值”<br>    对象属性     p:属性名-ref=”值”<br>(3)例子</p>
 </blockquote>
@@ -432,11 +450,11 @@ public void setCustomer(Customer customer) {
     &lt;/property&gt;
 &lt;/bean&gt;
 </code></pre><p><strong>在具体collectionBean类中要有相应的set方法。而要获取值的时候相应的类中要有get方法。</strong></p>
-<h3 id="六、Spring分模块开发"><a href="#六、Spring分模块开发" class="headerlink" title="六、Spring分模块开发"></a>六、Spring分模块开发</h3><h4 id="1-一次加载多个配置文件"><a href="#1-一次加载多个配置文件" class="headerlink" title="1.一次加载多个配置文件"></a>1.一次加载多个配置文件</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring09.png" alt=""></p>
-<h4 id="2-在一个配置文件中引入多个"><a href="#2-在一个配置文件中引入多个" class="headerlink" title="2.在一个配置文件中引入多个"></a>2.在一个配置文件中引入多个</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring10.png" alt=""></p>
+<h3 id="六、Spring分模块开发"><a href="#六、Spring分模块开发" class="headerlink" title="六、Spring分模块开发"></a>六、Spring分模块开发</h3><h4 id="1-一次加载多个配置文件"><a href="#1-一次加载多个配置文件" class="headerlink" title="1.一次加载多个配置文件"></a>1.一次加载多个配置文件</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring09.png" alt=""></p>
+<h4 id="2-在一个配置文件中引入多个"><a href="#2-在一个配置文件中引入多个" class="headerlink" title="2.在一个配置文件中引入多个"></a>2.在一个配置文件中引入多个</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring10.png" alt=""></p>
 <p><strong>注意：在编写dao时如何用service调用它，就可以将dao和service层的实现类放到spring中，然后将dao注入到service中。此时就可以直接在service中调用dao中的方法了，不用在service中getBean</strong></p>
-<h3 id="七、如何解决Spring的工厂每次都创建"><a href="#七、如何解决Spring的工厂每次都创建" class="headerlink" title="七、如何解决Spring的工厂每次都创建"></a>七、如何解决Spring的工厂每次都创建</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring11.png" alt=""></p>
-<h3 id="八、Spring-IoC注解的方式"><a href="#八、Spring-IoC注解的方式" class="headerlink" title="八、Spring IoC注解的方式"></a>八、Spring IoC注解的方式</h3><h4 id="1-示例"><a href="#1-示例" class="headerlink" title="1.示例"></a>1.示例</h4><p>(1)spring4中，除了基础包还需要引入aop的jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring12.png" alt=""><br>(2)创建applicationContext.xml，为其引入约束<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring13.png" alt=""><br>将下面这段代码添加到xml中<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring14.png" alt=""><br>(3)创建接口和实现类</p>
+<h3 id="七、如何解决Spring的工厂每次都创建"><a href="#七、如何解决Spring的工厂每次都创建" class="headerlink" title="七、如何解决Spring的工厂每次都创建"></a>七、如何解决Spring的工厂每次都创建</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring11.png" alt=""></p>
+<h3 id="八、Spring-IoC注解的方式"><a href="#八、Spring-IoC注解的方式" class="headerlink" title="八、Spring IoC注解的方式"></a>八、Spring IoC注解的方式</h3><h4 id="1-示例"><a href="#1-示例" class="headerlink" title="1.示例"></a>1.示例</h4><p>(1)spring4中，除了基础包还需要引入aop的jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring12.png" alt=""><br>(2)创建applicationContext.xml，为其引入约束<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring13.png" alt=""><br>将下面这段代码添加到xml中<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring14.png" alt=""><br>(3)创建接口和实现类</p>
 <pre><code>public interface User {
 
 public void test();
@@ -466,10 +484,12 @@ xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
 xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot;
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt; &lt;!-- bean definitions here --&gt;
-</code></pre><!-- spring的IOC的注解的入门 -->
-<!-- 配置组件扫描，扫描使用IOC的注解的类 -->
-<p>&lt;context:component-scan base-package=”pers.zx.spring.test” /&gt;<br></p>
-<p>(5)test方法</p>
+
+&lt;!-- spring的IOC的注解的入门 --&gt;
+&lt;!-- 配置组件扫描，扫描使用IOC的注解的类 --&gt;
+&lt;context:component-scan base-package=&quot;pers.zx.spring.test&quot; /&gt;
+&lt;/beans&gt;
+</code></pre><p>(5)test方法</p>
 <pre><code>@Test
 public void test() {
 
@@ -490,12 +510,12 @@ public void test() {
 <p>(3)Bean的其他注解</p>
 <blockquote>
 <p>1.生命周期相关的注解<br>@PostConstruce：初始化方法<br>@PreDestroy：销毁方法<br>在相应的方法上面加这些注解</p>
-<p>2.Bean作用范围的注解<br>@Scope<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring15.png" alt=""><br>@Scope(“prototype”)</p>
+<p>2.Bean作用范围的注解<br>@Scope<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring15.png" alt=""><br>@Scope(“prototype”)</p>
 </blockquote>
-<h4 id="3-XML配置与注解的比较"><a href="#3-XML配置与注解的比较" class="headerlink" title="3.XML配置与注解的比较"></a>3.XML配置与注解的比较</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring18.png" alt=""><br>(1)适用场景<br>XML：可以适用任何场景<br>好处：结构清晰，方便维护<br><br><br>注解：有些对方用不了，比如某个类不是自己提供的。<br>好处：开发迅速方便。</p>
-<p>(2)XML与注解整合开发<br>就是取双方的优点整合到一起<br>XML：配置Bean<br>注解：配置属性<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring16.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring17.png" alt=""><br>由于在纯xml中注入属性需要set方法，这里用注解的话就不需要set方法了，需要到xml里配置&lt; context:annotation-config/&gt;,取代原先扫描包的标签。</p>
+<h4 id="3-XML配置与注解的比较"><a href="#3-XML配置与注解的比较" class="headerlink" title="3.XML配置与注解的比较"></a>3.XML配置与注解的比较</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring18.png" alt=""><br>(1)适用场景<br>XML：可以适用任何场景<br>好处：结构清晰，方便维护<br><br><br>注解：有些对方用不了，比如某个类不是自己提供的。<br>好处：开发迅速方便。</p>
+<p>(2)XML与注解整合开发<br>就是取双方的优点整合到一起<br>XML：配置Bean<br>注解：配置属性<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring16.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring17.png" alt=""><br>由于在纯xml中注入属性需要set方法，这里用注解的话就不需要set方法了，需要到xml里配置&lt; context:annotation-config/&gt;,取代原先扫描包的标签。</p>
 <p><strong>注意：在XML注入时，被注入的属性或对象都要设置set方法。</strong></p>
-<h3 id="九、Spring-AOP概述"><a href="#九、Spring-AOP概述" class="headerlink" title="九、Spring AOP概述"></a>九、Spring AOP概述</h3><p>AOP(Aspect Oriented Programming),，面向切面编程。通过预编译方式和运行期动态代理实现程序功能的统一维护的技术。它是OOP(面向对象编程)的扩展和延申，主要是为了解决OOP开发遇到的问题。<br>看一个图来了解以下AOP:<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring19.png" alt=""></p>
+<h3 id="九、Spring-AOP概述"><a href="#九、Spring-AOP概述" class="headerlink" title="九、Spring AOP概述"></a>九、Spring AOP概述</h3><p>AOP(Aspect Oriented Programming),，面向切面编程。通过预编译方式和运行期动态代理实现程序功能的统一维护的技术。它是OOP(面向对象编程)的扩展和延申，主要是为了解决OOP开发遇到的问题。<br>看一个图来了解以下AOP:<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring19.png" alt=""></p>
 <p><strong>AOP的优点：</strong></p>
 <blockquote>
 <p>在不修改源代码的情况下对程序进行增强<br>AOP可以进行权限校验，日志记录，性能监控，事务控制</p>
@@ -650,8 +670,8 @@ public void test() {
 }
 }
 </code></pre><h3 id="十、Spring-Aop开发（AspectJ的XML方式）"><a href="#十、Spring-Aop开发（AspectJ的XML方式）" class="headerlink" title="十、Spring Aop开发（AspectJ的XML方式）"></a>十、Spring Aop开发（AspectJ的XML方式）</h3><p>AspectJ是一种面向切面编程的框架。</p>
-<h4 id="1-AOP术语"><a href="#1-AOP术语" class="headerlink" title="1.AOP术语"></a>1.AOP术语</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring20.png" alt=""></p>
-<h4 id="2-AspectJ-示例"><a href="#2-AspectJ-示例" class="headerlink" title="2.AspectJ 示例"></a>2.AspectJ 示例</h4><p>(1)添加jar包，我们在Spring整合Jutils单元测试的时候要引入spring-test-4.2.4.RELEASE,这样就可以和方便的测试，不用每次都创建工厂了，通过注解的方式，在测试类中可以看到<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring21.png" alt=""><br>(2)在src下创建application.xml，并添加约束<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxpring22.png" alt=""><br>(3)编写User接口和UserImpl实现类</p>
+<h4 id="1-AOP术语"><a href="#1-AOP术语" class="headerlink" title="1.AOP术语"></a>1.AOP术语</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring20.png" alt=""></p>
+<h4 id="2-AspectJ-示例"><a href="#2-AspectJ-示例" class="headerlink" title="2.AspectJ 示例"></a>2.AspectJ 示例</h4><p>(1)添加jar包，我们在Spring整合Jutils单元测试的时候要引入spring-test-4.2.4.RELEASE,这样就可以和方便的测试，不用每次都创建工厂了，通过注解的方式，在测试类中可以看到<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring21.png" alt=""><br>(2)在src下创建application.xml，并添加约束<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring22.png" alt=""><br>(3)编写User接口和UserImpl实现类</p>
 <pre><code>package pers.zx.AspectJ.test;
 
 public interface User {
@@ -900,6 +920,500 @@ public void end() {
 <p>(2) .. 放在参数中代表任意个数参数，放在类名后面是其任意子类，包后面就是任意子包<br>public <em> pers.zx.spring.test.clazz.method(..); //代表任意个数参数<br>public </em> pers.zx.test..*.method(..);//test的所有子包下的所有类的method方法</p>
 <p>(3) + 表示本类和其子类<br>public  * pers.zx.test.User+.metnod(..);//user及其子类下面的method方法</p>
 </blockquote>
+<h3 id="十一、Spring-AOP开发（基于AspectJ注解的开发）"><a href="#十一、Spring-AOP开发（基于AspectJ注解的开发）" class="headerlink" title="十一、Spring AOP开发（基于AspectJ注解的开发）"></a>十一、Spring AOP开发（基于AspectJ注解的开发）</h3><h4 id="1-示例-1"><a href="#1-示例-1" class="headerlink" title="1.示例"></a>1.示例</h4><p>(1)创建项目，添加jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring23.png" alt=""><br>(2)在src下创建applicationContext.xml,并引入约束</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
+
+
+&lt;/beans&gt; 
+</code></pre><p>(3)编写User类</p>
+<pre><code>package pers.zx.spring.ann;
+
+public class User {
+
+public void save() {
+    System.out.println(&quot;save被调用&quot;);
+}
+
+public void add() {
+    System.out.println(&quot;add被调用&quot;);
+}
+}
+</code></pre><p>(4)编写切面类</p>
+<pre><code>package pers.zx.spring.ann;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+//为切面类配置注解
+@Aspect
+public class AspectAnn {
+
+@Before(value=&quot;execution(* pers.zx.spring.ann.User.save(..))&quot;)
+public void before() {
+
+System.out.println(&quot;before&quot;);
+}
+}
+</code></pre><p>(5)配置xml文件</p>
+<pre><code>&lt;!-- 在配置文件中开启注解的AOP的开发============ --&gt;
+&lt;aop:aspectj-autoproxy/&gt;
+&lt;!-- 配置目标类================ --&gt;
+&lt;bean id=&quot;user&quot; class=&quot;pers.zx.spring.ann.User&quot;&gt;    
+&lt;/bean&gt;
+&lt;!-- 配置切面类================ --&gt;
+&lt;bean id=&quot;aspectAnn&quot; class=&quot;pers.zx.spring.ann.AspectAnn&quot; &gt;
+</code></pre><p>(6)编写测试类</p>
+<pre><code>package pers.zx.spring.ann;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class AspetcJTest {
+
+@Autowired
+@Qualifier(value=&quot;user&quot;)
+private User user;
+@Test
+public void test() {
+    user.save();
+    user.add();
+}
+
+}
+</code></pre><h4 id="2-Spring注解的AOP通知类型"><a href="#2-Spring注解的AOP通知类型" class="headerlink" title="2.Spring注解的AOP通知类型"></a>2.Spring注解的AOP通知类型</h4><p>(1)前置通知<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring24.png" alt=""><br>(2)后置通知<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring25.png" alt=""><br>(3)环绕通知<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring26.png" alt=""><br>(4)异常通知<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring27.png" alt=""><br>(5)最终通知<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring28.png" alt=""></p>
+<h4 id="3-Spring注解的AOP切入点"><a href="#3-Spring注解的AOP切入点" class="headerlink" title="3.Spring注解的AOP切入点"></a>3.Spring注解的AOP切入点</h4><p>为了不用给每个通知都配相同方法，可以设置切入点，在用到改方法的地方引入切入点就可以了。</p>
+<pre><code>@Before(value=&quot;AspectAnn.pointcut()&quot;)
+public void before() {
+
+System.out.println(&quot;before&quot;);
+}
+//save切入点，以后所有使用save方法的通知都可以直接 类名.pointcut()来调用    @Pointcut(value=&quot;execution(* pers.zx.spring.ann.User.save(..))&quot;)
+private void pointcut(){}
+</code></pre><h3 id="十二、spring-JDBC模板"><a href="#十二、spring-JDBC模板" class="headerlink" title="十二、spring JDBC模板"></a>十二、spring JDBC模板</h3><p>Spring是EE开发的一站式的框架，有EE开发的每层的解决方案。Spring对持久层也提供了解决方案：ORM模块和JDBC的模板。<br>Spring提供了很多的模板用于简化开发：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring29.png" alt=""></p>
+<h4 id="1-JDBC模板示例"><a href="#1-JDBC模板示例" class="headerlink" title="1.JDBC模板示例"></a>1.JDBC模板示例</h4><p>(1)引入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring30.png" alt=""></p>
+<p>(2)创建数据库<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring31.png" alt=""></p>
+<p>(3)编写测试类</p>
+<pre><code>package pers.zx.spring.jdbc;
+
+import org.junit.Test;
+import org.springframework.jdbc.core.JdbcTemplate;
+import com.mchange.v2.c3p0.DriverManagerDataSource;
+
+public class JdbcDemo01 {
+
+@Test
+//jdbc模板的使用类似于Dbutils
+public void JdbcTest() {
+    //创建连接池
+    DriverManagerDataSource dataSource=new DriverManagerDataSource();
+    dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
+    dataSource.setJdbcUrl(&quot;jdbc:mysql:///zx&quot;);
+    dataSource.setUser(&quot;root&quot;);
+    dataSource.setPassword(&quot;*****&quot;);
+
+    //创建Jbdc模板对象
+    JdbcTemplate jdbc=new JdbcTemplate(dataSource);
+    jdbc.update(&quot;insert into user values(null,?,?)&quot;, &quot;zx&quot;,20);
+}
+}
+</code></pre><h4 id="2-将Jdbc模板和连接池都交给spring管理-IoC"><a href="#2-将Jdbc模板和连接池都交给spring管理-IoC" class="headerlink" title="2.将Jdbc模板和连接池都交给spring管理(IoC)"></a>2.将Jdbc模板和连接池都交给spring管理(IoC)</h4><p>(1)添加applicationContext.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
+
+
+&lt;!-- 配置Spring内置连接池 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.DriverManagerDataSource&quot;&gt;
+&lt;!-- 属性注入 --&gt;
+&lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql:///zx&quot;/&gt;
+&lt;property name=&quot;user&quot; value=&quot;root&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;****&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 配置Spring JDBC的模板 --&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;/beans&gt; 
+</code></pre><p>(2)编写测试类</p>
+<pre><code>package pers.zx.spring.jdbc;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class JdbcDemo02 {
+
+@Autowired
+@Qualifier(value=&quot;jdbcTemplate&quot;)
+private JdbcTemplate jdbcTemplate;
+@Test
+public void test() {
+    jdbcTemplate.update(&quot;insert into user values(null,?,?)&quot;, &quot;zxx&quot;,20);
+}
+}
+</code></pre><h4 id="3-DBCP连接池的使用"><a href="#3-DBCP连接池的使用" class="headerlink" title="3.DBCP连接池的使用"></a>3.DBCP连接池的使用</h4><p>(1)引入jar包<br>com.springsource.org.apache.commons.dbcp-1.2.2.osgi<br>com.springsource.org.apache.commons.pool-1.5.3<br>(2)配置applicationContext.xml</p>
+<pre><code> &lt;!--配置DBCP连接池  --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
+ &lt;!-- 属性注入 --&gt;
+&lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql:///zx&quot;/&gt;
+&lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;19960213zx&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 配置Spring JDBC的模板 --&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+&lt;!-- 注入DriverManagerDataSource 类--&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h4 id="4-C3P0连接池使用"><a href="#4-C3P0连接池使用" class="headerlink" title="4.C3P0连接池使用"></a>4.C3P0连接池使用</h4><p>(1)引入jar包<br>com.springsource.com.mchange.v2.c3p0-0.9.1.2<br>(2)配置applicationContext.xml</p>
+<pre><code>    &lt;!-- 配置C3P0连接池 --&gt;
+ &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+
+&lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql:///zx&quot;/&gt;
+&lt;property name=&quot;user&quot; value=&quot;root&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;19960213zx&quot;/&gt;
+&lt;/bean&gt; 
+&lt;!-- 配置Spring JDBC的模板 --&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+&lt;!-- 注入DriverManagerDataSource 类--&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h4 id="5-JDBC模板使用外部引入的属性文件"><a href="#5-JDBC模板使用外部引入的属性文件" class="headerlink" title="5.JDBC模板使用外部引入的属性文件"></a>5.JDBC模板使用外部引入的属性文件</h4><p>(1)jdbc.properties</p>
+<pre><code>jdbc.driverClass=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql:///zx
+jdbc.username=root
+jdbc.password=*****
+</code></pre><p>(2)在applicationContext.xml配置属性文件<br>①.第一种</p>
+<pre><code>&lt;!-- 引入bean标签来引入配置文件（很少使用） --&gt;
+&lt;bean class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
+&lt;property name=&quot;location&quot; value=&quot;classpath:jdbc.properties&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+ &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+
+&lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+&lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+&lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt; 
+&lt;!-- 配置Spring JDBC的模板 --&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+&lt;!-- 注入DriverManagerDataSource 类--&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>②.第二种</p>
+<pre><code>&lt;!-- context标签引入 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+ &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+
+&lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+&lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+&lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt; 
+&lt;!-- 配置Spring JDBC的模板 --&gt;
+&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+&lt;!-- 注入DriverManagerDataSource 类--&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h4 id="6-使用JDBC的模板完成CRUD操作"><a href="#6-使用JDBC的模板完成CRUD操作" class="headerlink" title="6.使用JDBC的模板完成CRUD操作"></a>6.使用JDBC的模板完成CRUD操作</h4><pre><code>public class JdbcDemo2 {
+@Resource(name=&quot;jdbcTemplate&quot;)
+private JdbcTemplate jdbcTemplate;
+
+@Test
+// 保存操作
+public void demo1(){
+    jdbcTemplate.update(&quot;insert into account values (null,?,?)&quot;, &quot;kk&quot;,23);
+}
+
+@Test
+// 修改操作
+public void demo2(){
+    jdbcTemplate.update(&quot;update account set name = ? ,money = ? where id = ?&quot;, &quot;ll&quot;,12,6);
+}
+
+@Test
+// 删除操作
+public void demo3(){
+    jdbcTemplate.update(&quot;delete from account where id = ?&quot;, 6);
+}
+
+@Test
+// 查询操作：
+public void demo4(){
+    String name = jdbcTemplate.queryForObject(&quot;select name from account where id = ?&quot;, String.class, 5);
+    System.out.println(name);
+}
+
+@Test
+// 统计查询
+public void demo5(){
+    Long count = jdbcTemplate.queryForObject(&quot;select count(*) from account&quot;, Long.class);
+    System.out.println(count);
+}
+
+@Test
+// 封装到一个对象中
+public void demo6(){
+    Account account = jdbcTemplate.queryForObject(&quot;select * from account where id = ?&quot;, new MyRowMapper(), 5);
+    System.out.println(account);
+}
+
+@Test
+// 查询多条记录
+public void demo7(){
+    List&lt;Account&gt; list = jdbcTemplate.query(&quot;select * from account&quot;, new MyRowMapper());
+    for (Account account : list) {
+        System.out.println(account);
+    }
+}
+
+class MyRowMapper implements RowMapper&lt;Account&gt;{
+
+    @Override
+    public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Account account = new Account();
+        account.setId(rs.getInt(&quot;id&quot;));
+        account.setName(rs.getString(&quot;name&quot;));
+        account.setMoney(rs.getDouble(&quot;money&quot;));
+        return account;
+    }
+
+}
+}
+</code></pre><h3 id="十三、Spring事务管理"><a href="#十三、Spring事务管理" class="headerlink" title="十三、Spring事务管理"></a>十三、Spring事务管理</h3><h4 id="1-事务的回顾"><a href="#1-事务的回顾" class="headerlink" title="1.事务的回顾"></a>1.事务的回顾</h4><p>(1)事务：逻辑上的一组操作，组成这组操作的各个单元，要么全都成功，要么全都失败。<br>(2)事务的特性<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring32.png" alt=""><br>(3)不考虑隔离性会引发的安全性问题<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring33.png" alt=""><br>(4)事务的隔离级别<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring34.png" alt=""></p>
+<h4 id="2-Spring事务管理的API"><a href="#2-Spring事务管理的API" class="headerlink" title="2.Spring事务管理的API"></a>2.Spring事务管理的API</h4><p>(1)PlatformTransactionManager：平台事务管理器<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring35.png" alt=""></p>
+<p>(2)TransactionDefinition    ：事务定义信息<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring36.png" alt=""><br>(3)TransactionStatus：事务的状态<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring37.png" alt=""></p>
+<p><strong>事务管理的API的关系：</strong><br>Spring进行事务管理的时候，首先平台事务管理器根据事务定义信息进行事务的管理，在事务管理过程中，会产生各种状态，将这些状态的信息记录到事务状态的对象中。</p>
+<h4 id="3-Spring事务传播"><a href="#3-Spring事务传播" class="headerlink" title="3.Spring事务传播"></a>3.Spring事务传播</h4><p>主要用来解决业务层方法互相调用的问题。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring38.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring39.png" alt=""></p>
+<h4 id="4-编程式事务管理"><a href="#4-编程式事务管理" class="headerlink" title="4.编程式事务管理"></a>4.编程式事务管理</h4><p><strong>AccountDao&amp;AccountDaoImpl</strong></p>
+<pre><code>// 转账的DAO的接口
+public interface AccountDao {
+public void outMoney(String from ,Double money);
+public void inMoney(String to ,Double money);
+}
+///////////////////////////////////
+public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {
+
+@Override
+public void outMoney(String from, Double money) {
+    this.getJdbcTemplate().update(&quot;update account set money = money - ? where name = ?&quot;, money,from);
+}
+
+@Override
+public void inMoney(String to, Double money) {
+    this.getJdbcTemplate().update(&quot;update account set money = money + ? where name = ?&quot;, money ,to);
+}
+
+}
+</code></pre><p><strong>AccountService&amp;AccountServiceImpl</strong></p>
+<pre><code>public interface AccountService {
+
+public void transfer(String from,String to,Double money);
+
+}
+/////////////////////////////////////////
+public class AccountServiceImpl implements AccountService {
+
+// 注入DAO:
+private AccountDao accountDao;
+
+public void setAccountDao(AccountDao accountDao) {
+    this.accountDao = accountDao;
+}
+
+// 注入事务管理的模板
+private TransactionTemplate trsactionTemplate;
+
+public void setTrsactionTemplate(TransactionTemplate trsactionTemplate) {
+    this.trsactionTemplate = trsactionTemplate;
+}
+
+@Override
+
+ // from：转出账号
+ //to：转入账号
+//money：转账金额
+public void transfer(final String from, final String to, final Double money) {
+
+    trsactionTemplate.execute(new TransactionCallbackWithoutResult() {
+        @Override
+        protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+            accountDao.outMoney(from, money);
+            int d = 1/0;
+            accountDao.inMoney(to, money);
+        }
+    });
+
+}
+
+}
+</code></pre><p><strong>applicationContext.xml</strong></p>
+<pre><code>&lt;!-- 配置Service============= --&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;pers.zx.spring.test.AccountServiceImpl&quot;&gt;
+    &lt;property name=&quot;accountDao&quot; ref=&quot;accountDao&quot;/&gt;
+    &lt;!-- 注入 事务管理的模板 --&gt;
+    &lt;property name=&quot;trsactionTemplate&quot; ref=&quot;transactionTemplate&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置DAO================= --&gt;
+&lt;bean id=&quot;accountDao&quot; class=&quot;pers.zx.spring.test.AccountDaoImpl&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置连接池和JDBC的模板 --&gt;
+&lt;!-- 第二种方式通过context标签引入的 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+
+&lt;!-- 配置C3P0连接池=============================== --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+    &lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置平台事务管理器============================= --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务管理的模板 --&gt;
+&lt;bean id=&quot;transactionTemplate&quot; class=&quot;org.springframework.transaction.support.TransactionTemplate&quot;&gt;
+    &lt;property name=&quot;transactionManager&quot; ref=&quot;transactionManager&quot;/&gt;
+&lt;/bean&gt;
+</code></pre><p><strong><strong>配置事务管理器，然后将数据库连接池注入到其中，然后配置事务管理模板，将事务管理器注入到其中，最后由于是在service层中进行事务管理，所以要将事务管理模板注入到service中。</strong></strong></p>
+<p><strong>测试</strong></p>
+<pre><code>@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:tx.xml&quot;)
+public class SpringDemo1 {
+
+@Resource(name=&quot;accountService&quot;)
+private AccountService accountService;
+
+@Test
+public void demo1(){
+    accountService.transfer(&quot;zx&quot;, &quot;zxx&quot;, 1);
+}
+}
+</code></pre><h4 id="5-声明式事务管理-XML方式———AOP思想"><a href="#5-声明式事务管理-XML方式———AOP思想" class="headerlink" title="5.声明式事务管理 XML方式———AOP思想"></a>5.声明式事务管理 XML方式———AOP思想</h4><p>(1)配置applicationContext.xml</p>
+<pre><code>&lt;!-- 配置Service============= --&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.tx.demo2.AccountServiceImpl&quot;&gt;
+    &lt;property name=&quot;accountDao&quot; ref=&quot;accountDao&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置DAO================= --&gt;
+&lt;bean id=&quot;accountDao&quot; class=&quot;com.itheima.tx.demo2.AccountDaoImpl&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置连接池和JDBC的模板 --&gt;
+&lt;!-- 第二种方式通过context标签引入的 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+
+&lt;!-- 配置C3P0连接池=============================== --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+    &lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务管理器=============================== --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务的增强=============================== --&gt;
+&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;!-- 事务管理的规则 --&gt;
+        &lt;!-- &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot;/&gt;
+        &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;find*&quot; read-only=&quot;true&quot;/&gt; --&gt;
+        &lt;tx:method name=&quot;*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!-- aop的配置 --&gt;
+&lt;aop:config&gt;
+    &lt;aop:pointcut expression=&quot;execution(* com.itheima.tx.demo2.AccountServiceImpl.*(..))&quot; id=&quot;pointcut1&quot;/&gt;
+    &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;pointcut1&quot;/&gt;
+&lt;/aop:config&gt;
+</code></pre><p>其他类保持去掉原先事务的状态就可以了，这里为transfer方法添加了事务。</p>
+<h4 id="6-声明式事务管理-注解方式"><a href="#6-声明式事务管理-注解方式" class="headerlink" title="6.声明式事务管理 注解方式"></a>6.声明式事务管理 注解方式</h4><p>(1)配置applicationContext.xml</p>
+<pre><code>&lt;!-- 配置Service============= --&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.tx.demo3.AccountServiceImpl&quot;&gt;
+    &lt;property name=&quot;accountDao&quot; ref=&quot;accountDao&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置DAO================= --&gt;
+&lt;bean id=&quot;accountDao&quot; class=&quot;com.itheima.tx.demo3.AccountDaoImpl&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置连接池和JDBC的模板 --&gt;
+&lt;!-- 第二种方式通过context标签引入的 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+
+&lt;!-- 配置C3P0连接池=============================== --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+    &lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务管理器=============================== --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 开启注解事务================================ --&gt;
+&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+</code></pre><p>需要配置事务管理器以及开启事务，之后去相应的service类上去配置@Transactional</p>
+<p>(2)@Transactional<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring40.png" alt=""></p>
 
       
 
@@ -1181,14 +1695,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1197,7 +1703,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,11 +1731,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,15 +1739,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,11 +1751,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,11 +1783,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1289,7 +1799,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,7 +1807,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
