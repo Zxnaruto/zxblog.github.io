@@ -28,7 +28,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh10.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh12.png">
-<meta property="og:updated_time" content="2019-03-27T07:51:43.719Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh13.png">
+<meta property="og:updated_time" content="2019-03-27T10:30:49.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH框架整合">
 <meta name="twitter:description" content="一、SSH整合回顾 二、创建项目引入jar包1.Struts2 jar包 2.Hibernate jar包 3.Spring jar包 注意：日志jar包可以去掉一些。也可以不去。不要忘了连接数据库的jar包 三、引入配置文件1.Struts2(1)web.xml配置核心过滤器 &amp;lt;!-- 配置Struts2的核心过滤器 --&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-nam">
@@ -393,7 +394,7 @@ public String save() {
 
 }
 </code></pre><p>(2)Action交给Spring管理<br>①.引入struts-spring-plugin.jar<br>②.配置spring配置文件<br>管理action类，并在该类中注入service，注意设置Action类为多例的<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh09.png" alt=""><br>③.配置sturts.xml<br>将class换成applicationContext.xml中管理的Action类的id<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh10.png" alt=""></p>
-<h3 id="六、spring整合hibernate"><a href="#六、spring整合hibernate" class="headerlink" title="六、spring整合hibernate"></a>六、spring整合hibernate</h3><p>(1)service调用dao<br>把dao交给spring,然后在service中注入dao,注入dao就是在service中编写对象及其set方法，并在applicationContext.xml中注入<br>①.applicationContext.xml</p>
+<h3 id="六、spring整合hibernate"><a href="#六、spring整合hibernate" class="headerlink" title="六、spring整合hibernate"></a>六、spring整合hibernate</h3><h4 id="1-带hibernate-cfg-xml的"><a href="#1-带hibernate-cfg-xml的" class="headerlink" title="1.带hibernate.cfg.xml的"></a>1.带hibernate.cfg.xml的</h4><p>(1)service调用dao<br>把dao交给spring,然后在service中注入dao,注入dao就是在service中编写对象及其set方法，并在applicationContext.xml中注入<br>①.applicationContext.xml</p>
 <pre><code>&lt;!-- 配置dao --&gt;
 &lt;bean id=&quot;customerDao&quot; class=&quot;pers.zx.ssh.dao.impl.CustomerDaoImpl&quot;&gt;
 
@@ -417,7 +418,132 @@ public void save(Customer customer) {
 
 }
 </code></pre><p>(2)具体整合<br>①.创建表<br>②.编写实体和映射Customer.hbm.xml<br>③.spring与hibernate的整合<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh11.png" alt=""><br>④.配置spring事务管理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh12.png" alt=""></p>
+<h4 id="2-不带hibernate-cfg-xml的"><a href="#2-不带hibernate-cfg-xml的" class="headerlink" title="2.不带hibernate.cfg.xml的"></a>2.不带hibernate.cfg.xml的</h4><p>去掉hibernate.cfg.xml，将其中的内容写道applicationContext.xml中，由于用到c3p0连接池，为了方便配置，引入外部配置文件jdbc.properties</p>
+<p><strong>applicationContext.xml</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
 
+&lt;!-- 引入外部属性文件 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+ &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+
+&lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+&lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+&lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+&lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt; 
+&lt;!-- spring整合hibernate --&gt;
+&lt;!-- 引入hibernate的配置信息 --&gt;
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;
+&lt;!-- 注入连接池 --&gt;
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;!--配置Hibernate相关属性  --&gt;
+&lt;property name=&quot;hibernateProperties&quot;&gt;
+&lt;props&gt;
+&lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;
+&lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
+&lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
+&lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;!-- 设置映射文件 --&gt;
+&lt;property name=&quot;mappingResources&quot;&gt;
+&lt;list&gt;
+&lt;value&gt;pers/zx/ssh/bean/Customer.hbm.xml&lt;/value&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 配置action --&gt;
+&lt;bean id=&quot;customerWeb&quot; class=&quot;pers.zx.ssh.web.CustomerWeb&quot; scope=&quot;prototype&quot;&gt;
+&lt;property name=&quot;customerService&quot; ref=&quot;customerService&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 配置dao --&gt;
+&lt;bean id=&quot;customerDao&quot; class=&quot;pers.zx.ssh.dao.impl.CustomerDaoImpl&quot;&gt;
+&lt;!-- 注入sessionFactory --&gt;
+&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 配置service --&gt;
+&lt;bean id=&quot;customerService&quot; class=&quot;pers.zx.ssh.service.impl.CustomerServiceImpl&quot;&gt;
+&lt;property name=&quot;customerDao&quot; ref=&quot;customerDao&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务管理器 --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate5.HibernateTransactionManager&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 开启注解事务 --&gt;
+&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+
+
+&lt;/beans&gt; 
+</code></pre><h4 id="3-Hibernate模板操作"><a href="#3-Hibernate模板操作" class="headerlink" title="3.Hibernate模板操作"></a>3.Hibernate模板操作</h4><blockquote>
+<p>1.保存操作<br>save(Object obj);<br>2.修改操作<br>update(Object obj);<br>3.删除操作<br>delete(Object obj);<br>4.查询操作<br>(1)查询一个<br>get(Class c,Serializable id);<br>load(Class c,Serializable id);<br>(2)查询多个<br>List find(String hql,Object… args);<br>List findByCriteria(DetachedCriteria dc);<br>List findByCriteria(DetachedCriteria dc,int firstResult,int maxResults);//分页查询<br>List findByNamedQuery(String name,Object… args);//命名查询</p>
+</blockquote>
+<pre><code>@Override
+public void save(Customer customer) {
+    System.out.println(&quot;DAO中的save方法执行了...&quot;);
+    this.getHibernateTemplate().save(customer);
+}
+
+@Override
+public void update(Customer customer) {
+    this.getHibernateTemplate().update(customer);
+}
+
+@Override
+public void delete(Customer customer) {
+    this.getHibernateTemplate().delete(customer);
+}
+
+@Override
+public Customer findById(Long cust_id) {
+//        return this.getHibernateTemplate().get(Customer.class, cust_id);
+    return this.getHibernateTemplate().load(Customer.class, cust_id);
+}
+
+@Override
+public List&lt;Customer&gt; findAllByHQL() {
+    List&lt;Customer&gt; list = (List&lt;Customer&gt;) this.getHibernateTemplate().find(&quot;from Customer&quot;);
+    return list;
+}
+
+@Override
+public List&lt;Customer&gt; findAllByQBC() {
+    DetachedCriteria criteria = DetachedCriteria.forClass(Customer.class);
+    List&lt;Customer&gt; list = (List&lt;Customer&gt;) this.getHibernateTemplate().findByCriteria(criteria);
+    return list;
+}
+
+@Override
+public List&lt;Customer&gt; findAllByNamedQuery() {
+    return (List&lt;Customer&gt;) this.getHibernateTemplate().findByNamedQuery(&quot;queryAll&quot;);
+}
+</code></pre><h3 id="七、解决延迟加载"><a href="#七、解决延迟加载" class="headerlink" title="七、解决延迟加载"></a>七、解决延迟加载</h3><p>延迟加载产生的原因：在查询对象的时候关联对象的信息会延迟加载。此时会报no-session异常。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh13.png" alt=""></p>
+<p>解决方法：在web.xml中配置防止延迟加载的过滤器OpenSessionInViewFilter，它会在web层开启session<br>(注意：要把该过滤器加载struts过滤器前面，否则就没用了 ，因为其本身就是对action的过滤，若是action执行完了，就没效果了)</p>
+<pre><code>&lt;!-- 解决延迟加载问题的过滤器 --&gt;
+  &lt;filter&gt;
+  &lt;filter-name&gt;OpenSessionInViewFilter&lt;/filter-name&gt;
+  &lt;filter-class&gt;org.springframework.orm.hibernate5.support.OpenSessionInViewFilter&lt;/filter-class&gt;
+  &lt;/filter&gt; 
+
+  &lt;filter-mapping&gt;
+  &lt;filter-name&gt;OpenSessionInViewFilter&lt;/filter-name&gt;
+  &lt;url-pattern&gt;*.action&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+</code></pre>
       
 
       
@@ -702,6 +828,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -710,7 +840,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,14 +852,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
@@ -738,7 +860,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -754,15 +888,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,6 +912,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -790,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,15 +948,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
             
             <div class="clearfix"></div>
