@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>SSH框架整合 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、SSH整合回顾 二、创建项目引入jar包1.Struts2 jar包 2.Hibernate jar包 3.Spring jar包 注意：日志jar包可以去掉一些。也可以不去。不要忘了连接数据库的jar包 三、引入配置文件1.Struts2(1)web.xml配置核心过滤器 &amp;lt;!-- 配置Struts2的核心过滤器 --&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-nam">
+  <meta name="description" content="一、SSH整合回顾">
 <meta name="keywords" content="ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH框架整合">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/27/SSH框架整合/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、SSH整合回顾 二、创建项目引入jar包1.Struts2 jar包 2.Hibernate jar包 3.Spring jar包 注意：日志jar包可以去掉一些。也可以不去。不要忘了连接数据库的jar包 三、引入配置文件1.Struts2(1)web.xml配置核心过滤器 &amp;lt;!-- 配置Struts2的核心过滤器 --&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-nam">
+<meta property="og:description" content="一、SSH整合回顾">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh02.png">
@@ -29,10 +29,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh11.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh12.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh13.png">
-<meta property="og:updated_time" content="2019-03-27T10:30:49.755Z">
+<meta property="og:updated_time" content="2019-03-27T10:40:42.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH框架整合">
-<meta name="twitter:description" content="一、SSH整合回顾 二、创建项目引入jar包1.Struts2 jar包 2.Hibernate jar包 3.Spring jar包 注意：日志jar包可以去掉一些。也可以不去。不要忘了连接数据库的jar包 三、引入配置文件1.Struts2(1)web.xml配置核心过滤器 &amp;lt;!-- 配置Struts2的核心过滤器 --&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-nam">
+<meta name="twitter:description" content="一、SSH整合回顾">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -237,7 +237,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、SSH整合回顾"><a href="#一、SSH整合回顾" class="headerlink" title="一、SSH整合回顾"></a>一、SSH整合回顾</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh01.png" alt=""></p>
+        <h3 id="一、SSH整合回顾"><a href="#一、SSH整合回顾" class="headerlink" title="一、SSH整合回顾"></a>一、SSH整合回顾</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh01.png" alt=""><br><a id="more"></a></p>
 <h3 id="二、创建项目引入jar包"><a href="#二、创建项目引入jar包" class="headerlink" title="二、创建项目引入jar包"></a>二、创建项目引入jar包</h3><h4 id="1-Struts2-jar包"><a href="#1-Struts2-jar包" class="headerlink" title="1.Struts2 jar包"></a>1.Struts2 jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh02.png" alt=""></p>
 <h4 id="2-Hibernate-jar包"><a href="#2-Hibernate-jar包" class="headerlink" title="2.Hibernate jar包"></a>2.Hibernate jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh03.png" alt=""></p>
 <h4 id="3-Spring-jar包"><a href="#3-Spring-jar包" class="headerlink" title="3.Spring jar包"></a>3.Spring jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh04.png" alt=""></p>
@@ -824,11 +824,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,15 +836,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,7 +860,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,7 +868,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,19 +876,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,11 +908,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,19 +932,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
