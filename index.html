@@ -192,6 +192,265 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SSH框架整合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/03/27/SSH框架整合/">SSH框架整合</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/03/27/SSH框架整合/" class="archive-article-date">
+  	<time datetime="2019-03-27T07:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、SSH整合回顾"><a href="#一、SSH整合回顾" class="headerlink" title="一、SSH整合回顾"></a>一、SSH整合回顾</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh01.png" alt=""></p>
+<h3 id="二、创建项目引入jar包"><a href="#二、创建项目引入jar包" class="headerlink" title="二、创建项目引入jar包"></a>二、创建项目引入jar包</h3><h4 id="1-Struts2-jar包"><a href="#1-Struts2-jar包" class="headerlink" title="1.Struts2 jar包"></a>1.Struts2 jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh02.png" alt=""></p>
+<h4 id="2-Hibernate-jar包"><a href="#2-Hibernate-jar包" class="headerlink" title="2.Hibernate jar包"></a>2.Hibernate jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh03.png" alt=""></p>
+<h4 id="3-Spring-jar包"><a href="#3-Spring-jar包" class="headerlink" title="3.Spring jar包"></a>3.Spring jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh04.png" alt=""></p>
+<p><strong>注意：日志jar包可以去掉一些。也可以不去。不要忘了连接数据库的jar包</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh05.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh06.png" alt=""></p>
+<h3 id="三、引入配置文件"><a href="#三、引入配置文件" class="headerlink" title="三、引入配置文件"></a>三、引入配置文件</h3><h4 id="1-Struts2"><a href="#1-Struts2" class="headerlink" title="1.Struts2"></a>1.Struts2</h4><p>(1)web.xml<br>配置核心过滤器</p>
+<pre><code>&lt;!-- 配置Struts2的核心过滤器 --&gt;
+&lt;filter&gt;
+&lt;filter-name&gt;struts2&lt;/filter-name&gt;
+&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;struts2&lt;/filter-name&gt;
+&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>(2)struts.xml<br>配置action映射</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE struts PUBLIC
+&quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;
+&quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;
+&lt;struts&gt;
+
+&lt;/struts&gt;
+</code></pre><p>####2.Hibernate<br>(1)hibernate.cfg.xml<br>去掉与线程绑定的session，以及事务隔离级别，这个都交给spring做。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+&quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+
+&lt;hibernate-configuration&gt;
+&lt;session-factory&gt;
+&lt;!-- 建立数据库连接的基本参数 --&gt;
+&lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///hibernate&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+&lt;property name=&quot;hibernate.connection.password&quot;&gt;19960213zx&lt;/property&gt;
+&lt;!-- 配置hibernate的方言 --&gt;
+&lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
+&lt;!-- 配置C3P0连接池 --&gt;
+    &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+    &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
+    &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
+    &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
+    &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
+    &lt;!--设定数据库连接的过期时间,以秒为单位,
+    如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
+    &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
+     &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;    
+    &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+
+&lt;!-- 可选配置 --&gt;
+&lt;!-- 打印SQL --&gt;
+&lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+&lt;!-- 格式化SQL --&gt;
+&lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+
+&lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><p>(2)ORM映射文件<br>具体对象具体映射</p>
+<h4 id="3-Spring"><a href="#3-Spring" class="headerlink" title="3.Spring"></a>3.Spring</h4><p>(1)web.xml<br>配置监听器，防止每次创建工厂</p>
+<pre><code>&lt;!-- Spring的核心监听器 --&gt;
+  &lt;listener&gt;
+  &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+
+  &lt;!-- 加载Spring的配置文件的路径的，默认加载的/WEB-INF/applicationContext.xml --&gt;
+  &lt;context-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+</code></pre><p>(2)applicationContext.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
+
+
+
+
+&lt;/beans&gt; 
+</code></pre><p>(3)日志记录<br>log4j.properties</p>
+<pre><code>### direct log messages to stdout ###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.err
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+### direct messages to file mylog.log ###
+log4j.appender.file=org.apache.log4j.FileAppender
+log4j.appender.file.File=c\:mylog.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+### set log levels - for more verbose logging change &apos;info&apos; to &apos;debug&apos; ###
+# error warn info debug trace
+log4j.rootLogger= info, stdout
+</code></pre><h3 id="四、创建包结构及相关类"><a href="#四、创建包结构及相关类" class="headerlink" title="四、创建包结构及相关类"></a>四、创建包结构及相关类</h3><p>没有utils是因为spring实现了工具类的封装<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh07.png" alt=""></p>
+<h3 id="五、Spring整合struts2"><a href="#五、Spring整合struts2" class="headerlink" title="五、Spring整合struts2"></a>五、Spring整合struts2</h3><p>(0)传统方式在web层不用struts2来获取service方法(spring下)<br>在相应的web层方法中写如下代码：</p>
+<pre><code>//保存客户的方法
+public String save() {
+    //传统方法：web层没有使用struts的话，就用这种方式调用service层的方法
+    WebApplicationContext applicationContext=WebApplicationContextUtils.
+            getWebApplicationContext(ServletActionContext.getServletContext());
+    CustomerService customerService=(CustomerService)applicationContext.
+            getBean(&quot;customerService&quot;);//获取的是配置文件中的id=customerService
+    customerService.save(customer);
+    System.out.println(&quot;Actionsave&quot;);
+    return NONE;
+}
+</code></pre><p>(1)Action由Struts2自己创建<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh08.png" alt=""><br>①.配置struts.xml</p>
+<pre><code>&lt;package name=&quot;ssh01&quot; extends=&quot;struts-default&quot; namespace=&quot;/&quot;&gt;
+&lt;action name=&quot;customer_*&quot; class=&quot;pers.zx.ssh.web.CustomerWeb&quot; method=&quot;{1}&quot;&gt;
+
+&lt;/action&gt;
+</code></pre><p>②.在applicationContext.xml中配置service</p>
+<pre><code>&lt;!-- 配置service --&gt;
+&lt;bean id=&quot;customerService&quot; class=&quot;pers.zx.ssh.service.impl.CustomerServiceImpl&quot;&gt;
+
+&lt;/bean&gt;
+</code></pre><p>③.编写action类</p>
+<pre><code>public class CustomerWeb extends ActionSupport implements ModelDriven&lt;Customer&gt;{
+
+//会获取页面的值
+private Customer customer=new Customer();
+public Customer getModel() {
+    // TODO Auto-generated method stub
+    return customer;
+}
+
+//注入customerService
+private CustomerService customerService;
+
+public void setCustomerService(CustomerService customerService) {
+    this.customerService = customerService;
+}
+
+//保存客户的方法
+public String save() {        
+    //spring与struts整合
+    customerService.save(customer);
+    System.out.println(&quot;Actionsave&quot;);
+    return NONE;
+}
+
+}
+</code></pre><p>(2)Action交给Spring管理<br>①.引入struts-spring-plugin.jar<br>②.配置spring配置文件<br>管理action类，并在该类中注入service，注意设置Action类为多例的<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh09.png" alt=""><br>③.配置sturts.xml<br>将class换成applicationContext.xml中管理的Action类的id<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh10.png" alt=""></p>
+<h3 id="六、spring整合hibernate"><a href="#六、spring整合hibernate" class="headerlink" title="六、spring整合hibernate"></a>六、spring整合hibernate</h3><p>(1)service调用dao<br>把dao交给spring,然后在service中注入dao,注入dao就是在service中编写对象及其set方法，并在applicationContext.xml中注入<br>①.applicationContext.xml</p>
+<pre><code>&lt;!-- 配置dao --&gt;
+&lt;bean id=&quot;customerDao&quot; class=&quot;pers.zx.ssh.dao.impl.CustomerDaoImpl&quot;&gt;
+
+&lt;/bean&gt;
+&lt;!-- 配置service --&gt;
+&lt;bean id=&quot;customerService&quot; class=&quot;pers.zx.ssh.service.impl.CustomerServiceImpl&quot;&gt;
+&lt;property name=&quot;customerDao&quot; ref=&quot;customerDao&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>②.service类中的注入</p>
+<pre><code> //注入dao
+private CustomerDao customerDao;
+
+public void setCustomerDao(CustomerDao customerDao) {
+    this.customerDao = customerDao;
+}
+
+public void save(Customer customer) {
+    // TODO Auto-generated method stub
+    customerDao.save(customer);
+    System.out.println(&quot;service&quot;);
+
+}
+</code></pre><p>(2)具体整合<br>①.创建表<br>②.编写实体和映射Customer.hbm.xml<br>③.spring与hibernate的整合<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh11.png" alt=""><br>④.配置spring事务管理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssh12.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/27/SSH框架整合/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -942,87 +1201,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JDBC的一些应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/03/04/JDBC的一些应用/">JDBC的一些应用</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/03/04/JDBC的一些应用/" class="archive-article-date">
-  	<time datetime="2019-03-04T08:14:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、获取元数据"><a href="#一、获取元数据" class="headerlink" title="一、获取元数据"></a>一、获取元数据</h4>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/04/JDBC的一些应用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/04/JDBC的一些应用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/8/">8</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1148,6 +1326,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1160,7 +1342,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,7 +1350,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1180,11 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,11 +1374,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,15 +1390,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1236,15 +1418,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,7 +1430,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1260,15 +1438,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
             
             <div class="clearfix"></div>
