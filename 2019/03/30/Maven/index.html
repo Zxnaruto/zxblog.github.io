@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>Maven | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本 maven的优点：(1)依赖管理：通过包名，项目名以及版本号去Maven仓库找相应的jar包。(2)一步构">
+  <meta name="description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本">
 <meta name="keywords" content="maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/03/30/Maven/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本 maven的优点：(1)依赖管理：通过包名，项目名以及版本号去Maven仓库找相应的jar包。(2)一步构">
+<meta property="og:description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven02.png">
@@ -35,10 +35,21 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven17.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven18.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven19.png">
-<meta property="og:updated_time" content="2019-03-30T05:35:24.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven26.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven29.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven30.png">
+<meta property="og:updated_time" content="2019-03-30T10:34:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven">
-<meta name="twitter:description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本 maven的优点：(1)依赖管理：通过包名，项目名以及版本号去Maven仓库找相应的jar包。(2)一步构">
+<meta name="twitter:description" content="一、Maven依赖管理Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。(2)artifactId：项目的名称(3)version：jar的版本">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -243,7 +254,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、Maven依赖管理"><a href="#一、Maven依赖管理" class="headerlink" title="一、Maven依赖管理"></a>一、Maven依赖管理</h3><p>Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。<br>所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。<br>(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。<br>(2)artifactId：项目的名称<br>(3)version：jar的版本</p>
+        <h3 id="一、Maven依赖管理"><a href="#一、Maven依赖管理" class="headerlink" title="一、Maven依赖管理"></a>一、Maven依赖管理</h3><p>Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。<br>所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。<br>(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。<br>(2)artifactId：项目的名称<br>(3)version：jar的版本<br><a id="more"></a></p>
 <p><strong>maven的优点：</strong><br>(1)依赖管理：通过包名，项目名以及版本号去Maven仓库找相应的jar包。<br>(2)一步构建：一个命令就可以完成项目的构建。<br>(3)maven跨平台，可以在window、linux上使用<br>(4)maven遵循规范开发有利于提高团队的开发效率，降低项目的维护成本。</p>
 <h4 id="1-maven下载及包结构"><a href="#1-maven下载及包结构" class="headerlink" title="1.maven下载及包结构"></a>1.maven下载及包结构</h4><p>(1)下载地址<br><a href="http://maven.apache.org/" target="_blank" rel="noopener">http://maven.apache.org/</a><br>(2)包结构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven01.png" alt=""></p>
 <h4 id="2-maven仓库"><a href="#2-maven仓库" class="headerlink" title="2.maven仓库"></a>2.maven仓库</h4><p>(1)本地仓库<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven02.png" alt=""></p>
@@ -294,6 +305,221 @@ var _hmt = _hmt || [];
 <pre><code>&lt;scope&gt;provided&lt;/scope&gt;
 </code></pre><h4 id="10-常用的maven命令"><a href="#10-常用的maven命令" class="headerlink" title="10.常用的maven命令"></a>10.常用的maven命令</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven18.png" alt=""></p>
 <h4 id="11-pom基本配置"><a href="#11-pom基本配置" class="headerlink" title="11.pom基本配置"></a>11.pom基本配置</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven19.png" alt=""></p>
+<h3 id="二、Maven工程"><a href="#二、Maven工程" class="headerlink" title="二、Maven工程"></a>二、Maven工程</h3><h4 id="1-工程拆分"><a href="#1-工程拆分" class="headerlink" title="1.工程拆分"></a>1.工程拆分</h4><p>将项目的模块拆分成不同的工程，在用到的地方引入就好了。类似于把不同的工程搭在一起，如果一个工程写的通用的话，可以用到很多地方。比如：dao</p>
+<h4 id="2-工程聚合"><a href="#2-工程聚合" class="headerlink" title="2.工程聚合"></a>2.工程聚合</h4><p>通过一个父工程把各个子工程聚合在一起形成一个完整的项目。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven20.png" alt=""></p>
+<h4 id="3-工程间继承"><a href="#3-工程间继承" class="headerlink" title="3.工程间继承"></a>3.工程间继承</h4><p>由于工程之间也有继承关系，所以只需要在父工程中引入所有依赖就可以了，子工程继承父工程就可以了。</p>
+<h4 id="4-举个例子"><a href="#4-举个例子" class="headerlink" title="4.举个例子"></a>4.举个例子</h4><p><strong>1.创建工程</strong><br>以crm系统为例，里面由dao\service\web三个模块。<br>(1)创建父工程crm：new一个maven工程，选择pom<br>(2)创建子工程crm_dao：new 一个maven模型，选择jar<br>(3)创建子工程crm_service：new 一个maven模型，选择jar<br>(4)创建子工程crm_web：new 一个maven模型，选择war<br><strong>子工程中的pom.xml</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven21.png" alt=""><br><strong>父工程中的pom.xml文件</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven22.png" alt=""></p>
+<p><strong>2.添加模块之间的依赖</strong><br>(1)service层依赖dao层<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven23.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven24.png" alt=""><br>ctrl+s保存<br>这样在service中就可以包含dao层中的类了，web层依赖service层也一样的操作。</p>
+<p>注意：依赖具有传递性，web层依赖service层的时候，也会加入dao是应为service层依赖了dao层。</p>
+<p><strong>3.使用execution排除jar包冲突</strong><br>在引入jar包依赖的时候会可能产生jar包冲突，这时可以在pom视图下进行操作<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven25.png" alt=""></p>
+<p>4.依赖传递的原则<br>(1)第一声明者优先：谁在pom文件中声明在上面，就用谁。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven26.png" alt=""><br>(2)路径近者优先，在jar包中层级越低就越先被引用，类似于目录层级。</p>
+<p><strong>4.使用版本锁定来解决jar包冲突</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven27.png" alt=""><br><strong>5.定义版本常量</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven28.png" alt=""><br>好处：在升级的时候直接换常量的版本号就可以了，不用每个都改。</p>
+<p><strong>6.maven的依赖管理</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven29.png" alt=""></p>
+<h3 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h3><h4 id="1-PO持久化对象"><a href="#1-PO持久化对象" class="headerlink" title="1.PO持久化对象"></a>1.PO持久化对象</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven30.png" alt=""></p>
+<h4 id="2-分模块开发ssh"><a href="#2-分模块开发ssh" class="headerlink" title="2.分模块开发ssh"></a>2.分模块开发ssh</h4><p><strong>dao</strong><br>在dao层编写实体映射的xml(放的地方要和实体的包名一样，在src/main/resources下)，以及spring的配置文件(在src/main/resources下)，还有hibernate.cfg.xml(在src/main/resources下，最外层)。<br>(1)src/main/resources/pers/zx/ssh/domian/Customer.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+&quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot; 
+&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot; &gt;
+
+&lt;hibernate-mapping&gt;
+&lt;class name=&quot;cn.itcast.crm.domain.Customer&quot; table=&quot;customer&quot; &gt;
+    &lt;id name=&quot;custId&quot; type=&quot;java.lang.Long&quot;&gt;
+        &lt;column name=&quot;cust_id&quot; /&gt;
+        &lt;!-- 6种生成策略  ： identity,native,sequence,uuid,increment, assigned  --&gt;
+    &lt;/id&gt;
+
+    &lt;property name=&quot;custName&quot; type=&quot;string&quot;&gt;
+        &lt;column name=&quot;cust_name&quot; length=&quot;32&quot; not-null=&quot;true&quot;&gt;&lt;/column&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;custUserId&quot; column=&quot;cust_user_id&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;custCreateId&quot; column=&quot;cust_create_id&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;custIndustry&quot; column=&quot;cust_industry&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;custLevel&quot; column=&quot;cust_level&quot;&gt;&lt;/property&gt;
+
+    &lt;property name=&quot;custLinkman&quot; type=&quot;string&quot;&gt;
+        &lt;column name=&quot;cust_linkman&quot; length=&quot;64&quot;&gt;&lt;/column&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;custPhone&quot; type=&quot;string&quot;&gt;
+        &lt;column name=&quot;cust_phone&quot; length=&quot;64&quot;&gt;&lt;/column&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;custMobile&quot; type=&quot;string&quot;&gt;
+        &lt;column name=&quot;cust_mobile&quot; length=&quot;16&quot;&gt;&lt;/column&gt;
+    &lt;/property&gt;
+
+&lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre><p>(2)src/main/resources/spring/applicationContext-dao.xml，编写数据源，和sessionFactory并向dao中注入sessionFactory</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd &quot;&gt;
+
+&lt;!-- 数据源 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/crm?characterEncoding=utf-8&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;user&quot; value=&quot;root&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot; value=&quot;root&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- sessionFactory --&gt;
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot; &gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:hibernate.cfg.xml&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;mappingLocations&quot; value=&quot;classpath:pers/zx/ssh/domain/*.hbm.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 数据访问层 --&gt;
+&lt;bean id=&quot;customerDao&quot; class=&quot;cn.itcast.crm.dao.impl.CustomerDao&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>(3)src/main/resources/hibernate.cfg.xml,其中是hibernate的一些配置</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot; &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot; &gt;
+&lt;hibernate-configuration&gt;
+  &lt;session-factory&gt;
+  &lt;!-- 方言 --&gt;
+  &lt;property name=&quot;dialect&quot;&gt;org.hibernate.dialect.Oracle10gDialect&lt;/property&gt;
+  &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+  &lt;property name=&quot;format_sql&quot;&gt;false&lt;/property&gt;
+
+  &lt;property name=&quot;hbm2ddl.auto&quot;&gt;none&lt;/property&gt;
+
+  &lt;!-- 懒加载 --&gt;
+  &lt;property name=&quot;hibernate.enable_lazy_load_no_trans&quot;&gt;true&lt;/property&gt;
+
+  &lt;!-- 实体类的验证 --&gt;
+  &lt;property name=&quot;javax.persistence.validation.mode&quot;&gt;none&lt;/property&gt;
+
+  &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><p><strong>service</strong><br>需要编写spring的配置文件applicationContext.xml，其中编写事务，注入dao<br>(1)src/main/resources/spring/applicationContext-services.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd &quot;&gt;
+
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate5.HibernateTransactionManager&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 通知 --&gt;
+&lt;tx:advice id=&quot;advice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;tx:method name=&quot;add*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;*&quot; read-only=&quot;true&quot;/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!-- 切面 --&gt;
+&lt;aop:config&gt;
+    &lt;aop:pointcut expression=&quot;execution(* pers.zx.ssh.service.impl.*.*(..))&quot; id=&quot;myPointCut&quot;/&gt;
+    &lt;aop:advisor advice-ref=&quot;advice&quot; pointcut-ref=&quot;myPointCut&quot;/&gt;
+&lt;/aop:config&gt;
+
+&lt;!-- 业务 --&gt;
+&lt;bean id=&quot;customerService&quot; class=&quot;cn.itcast.crm.service.impl.CustomerService&quot;&gt;
+    &lt;property name=&quot;customerDao&quot; ref=&quot;customerDao&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 仅供测试用 --&gt;
+&lt;!-- &lt;import resource=&quot;classpath:spring/applicationContext-dao.xml&quot;/&gt; --&gt;
+&lt;/beans&gt;
+</code></pre><p><strong>web</strong><br>编写web层的spring文件，以及struts.xml配置action,还有web.xml配置过滤器。<br>(1)struts.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts 
+PUBLIC &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot; 
+&quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot; &gt;
+&lt;struts&gt;
+&lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;
+    &lt;action name=&quot;custsomer_*&quot; class=&quot;customerAction&quot; method=&quot;{1}&quot;&gt;
+        &lt;result name=&quot;list&quot;&gt;/list.jsp&lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+&lt;/struts&gt;
+</code></pre><p>(2)applicationContext-web.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd &quot;&gt;
+&lt;!-- 整合struts--&gt;
+&lt;bean id=&quot;customerAction&quot; class=&quot;pers.zx.ssh.web.action.CustomerAction&quot; scope=&quot;prototype&quot;&gt;
+    &lt;property name=&quot;customerService&quot; ref=&quot;customerService&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre><p>(3)web.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; version=&quot;2.5&quot;&gt;
+  &lt;display-name&gt;crm07_web&lt;/display-name&gt;
+
+  &lt;!-- 加载spring --&gt;
+  &lt;context-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath*:spring/applicationContext-*.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+  &lt;listener&gt;
+  &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;!-- openSessionInView --&gt;
+  &lt;filter&gt;
+  &lt;filter-name&gt;openSessionInView&lt;/filter-name&gt;
+  &lt;filter-class&gt;org.springframework.orm.hibernate5.support.OpenSessionInViewFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+  &lt;filter-name&gt;openSessionInView&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+
+  &lt;!-- struts --&gt;
+  &lt;filter&gt;
+  &lt;filter-name&gt;struts&lt;/filter-name&gt;
+  &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+  &lt;filter-name&gt;struts&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre><p><strong>小结</strong><br>三个spring文件的注入是通用的在service注入了的对象，可以直接在web层使用id名进行注入。<br>三个spring的分工：<br>dao：注入数据源，映射文件和hibernate.cfg.xml</p>
+<blockquote>
+<p>映射文件：实体映射<br>hibernate.cfg.xml：hibernate的一些配置，包括方言等。不加入映射是因为在spring中加入。<br>数据源：数据库所需的连接<br>其他的就是sessionFactory用来管理实体类和注入配置文件<br>在dao中注入sessionFactory<br>dao的实现类要继承相应的模板类</p>
+</blockquote>
+<p>service：编写事务管理，注入service类并为其注入dao对象属性</p>
+<blockquote>
+<p>事务中要注入dao层的sessionFactory属性<br>注入dao属性</p>
+</blockquote>
+<p>web：注入action类并注入service属性</p>
+<p><strong>注意：该方法还可以整合不要hibernate.cfg.xml文件，配置在dao中的spring中，</strong><br><strong>别忘了在相应的类中要设置set方法。</strong></p>
+<p><strong>配置文件一环套一环，</strong><br><strong>dao需要dataSource以及映射文件和hibernate.cfg.xml，而这三个放在sessionFactory中，所以dao注入sessionFactory。可以实现对数据库的操作。</strong></p>
+<p><strong>service的事务管理的是数据库数据事务，而整个数据库有关的操作都在sessionFactory中，所以在service层的事务中要注入sessionFactory。事务又要和切面关联，可以完成对数据库操作的事务管理，而service层又要用到dao层的方法，所以service类注入dao。</strong></p>
+<p><strong>在web层需要注入service层，这是因为要用到其中的方法。</strong></p>
 
       
 
@@ -571,11 +797,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,15 +817,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,15 +837,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,11 +845,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +861,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +873,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,15 +889,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,11 +897,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,7 +925,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">

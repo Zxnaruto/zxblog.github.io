@@ -216,58 +216,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、Maven依赖管理"><a href="#一、Maven依赖管理" class="headerlink" title="一、Maven依赖管理"></a>一、Maven依赖管理</h3><p>Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。<br>所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。<br>(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。<br>(2)artifactId：项目的名称<br>(3)version：jar的版本</p>
-<p><strong>maven的优点：</strong><br>(1)依赖管理：通过包名，项目名以及版本号去Maven仓库找相应的jar包。<br>(2)一步构建：一个命令就可以完成项目的构建。<br>(3)maven跨平台，可以在window、linux上使用<br>(4)maven遵循规范开发有利于提高团队的开发效率，降低项目的维护成本。</p>
-<h4 id="1-maven下载及包结构"><a href="#1-maven下载及包结构" class="headerlink" title="1.maven下载及包结构"></a>1.maven下载及包结构</h4><p>(1)下载地址<br><a href="http://maven.apache.org/" target="_blank" rel="noopener">http://maven.apache.org/</a><br>(2)包结构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven01.png" alt=""></p>
-<h4 id="2-maven仓库"><a href="#2-maven仓库" class="headerlink" title="2.maven仓库"></a>2.maven仓库</h4><p>(1)本地仓库<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven02.png" alt=""></p>
-<p>(2)远程仓库<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven03.png" alt=""><br>(3)中央仓库<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven04.png" alt=""></p>
-<p>(4)本地仓库的配置<br>去F:\Maven\maven-3.3.9\conf下面的setttings.xml中，使用标签</p>
-<blockquote>
-<p>&lt; localRepository&gt;url&lt; /localRepository&gt;</p>
-</blockquote>
-<p>进行配置</p>
-<p>maven找jar包先从本地仓库找，本地仓库没有就去远程仓库找，如果远程仓库没有就会去中央仓库去下载。最终的使用都是使用的本地仓库的jar包。</p>
-<h4 id="3-maven的目录结构"><a href="#3-maven的目录结构" class="headerlink" title="3.maven的目录结构"></a>3.maven的目录结构</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven05.png" alt=""></p>
-<h4 id="4-maven常用命令"><a href="#4-maven常用命令" class="headerlink" title="4.maven常用命令"></a>4.maven常用命令</h4><p>(1)mvn compile<br>将src/main/java下的文件编译为class文件输出到target目录下。<br>(2)mvn  test<br>test是maven工厂的测试命令，执行src/test/java下的单元测试类<br>(3)mvn clean<br>清理命令，执行clean会删除target目录的内容<br>(4)mvn package<br>打包命令，对java工厂打包成jar包，对web工程打包war包<br>(5)mvn install<br>安装命令,执行install将maven打包成jar或war包发布到本地仓库</p>
-<h4 id="5-maven的生命周期"><a href="#5-maven的生命周期" class="headerlink" title="5.maven的生命周期"></a>5.maven的生命周期</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven06.png" alt=""></p>
-<h4 id="6-maven的概念模型"><a href="#6-maven的概念模型" class="headerlink" title="6.maven的概念模型"></a>6.maven的概念模型</h4><p>maven包含了一个项目对象模型(Project Object Model)、一组标准集合、一个项目生命周期(Project Lifecycle)、一个依赖管理系统(Dependency Management System)、和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。</p>
-<p>maven概念模型图：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven07.png" alt=""></p>
-<p>具体解释<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven08.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven09.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven10.png" alt=""></p>
-<h4 id="7-maven工程创建"><a href="#7-maven工程创建" class="headerlink" title="7.maven工程创建"></a>7.maven工程创建</h4><p>(1)相关工程<br>jar:：java工程<br>war：web工程<br>pom：聚合工程<br>(2)创建步骤<br>Maven Project<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven12.png" alt=""></p>
-<p><strong>注意项目在初次创建web工程时会报错，那是因为缺少WEB-INF和web.xml，去src/main/webApp下创建就好了。</strong></p>
-<p>配置Jdk版本<br>pom.xml</p>
-<pre><code>&lt;!-- 配置jdk版本 --&gt;
-&lt;build&gt;
-&lt;plugins&gt;
-&lt;plugin&gt;
-&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-&lt;configuration&gt;
- &lt;source&gt;1.7&lt;/source&gt;
- &lt;target&gt;1.7&lt;/target&gt;
- &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-&lt;/configuration&gt;
-&lt;/plugin&gt;
-&lt;/plugins&gt;
-&lt;/build&gt;
-</code></pre><p><strong>update project，项目不正常报错，都update一下就可以了。</strong></p>
-<p>配置tomcat</p>
-<pre><code>&lt;!-- 配置tomcat --&gt;
-&lt;plugin&gt;
-&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-&lt;artifactId&gt;tomcat-maven-plugin&lt;/artifactId&gt;
-&lt;version&gt;1.1&lt;/version&gt;
-&lt;configuration&gt;
-&lt;path&gt;/&lt;/path&gt;
-&lt;port&gt;8080&lt;/port&gt;
-&lt;/configuration&gt;
-&lt;/plugin&gt;
-</code></pre><h4 id="8-maven添加依赖管理的方式"><a href="#8-maven添加依赖管理的方式" class="headerlink" title="8.maven添加依赖管理的方式"></a>8.maven添加依赖管理的方式</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven15.png" alt=""><br>(1)网址搜索<br>搜索相应的包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven13.png" alt=""><br>(2)pom.xml的dependence<br>搜索，前提是本地仓库有<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven14.png" alt=""></p>
-<h4 id="9-依赖的作用范围"><a href="#9-依赖的作用范围" class="headerlink" title="9.依赖的作用范围"></a>9.依赖的作用范围</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven16.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven17.png" alt=""><br>依赖的范围由强到弱的顺序是：compile&gt;provided&gt;runtime&gt;test</p>
-<pre><code>&lt;scope&gt;provided&lt;/scope&gt;
-</code></pre><h4 id="10-常用的maven命令"><a href="#10-常用的maven命令" class="headerlink" title="10.常用的maven命令"></a>10.常用的maven命令</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven18.png" alt=""></p>
-<h4 id="11-pom基本配置"><a href="#11-pom基本配置" class="headerlink" title="11.pom基本配置"></a>11.pom基本配置</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmaven19.png" alt=""></p>
-
+        <h3 id="一、Maven依赖管理"><a href="#一、Maven依赖管理" class="headerlink" title="一、Maven依赖管理"></a>一、Maven依赖管理</h3><p>Maven中的pom.xml文件指的是项目对象模型，把项目当作对象来管理。<br>所谓依赖管理就是对项目所有依赖的jar包进行规范化管理。<br>(1)grouoId：一般用包名来表示，表示项目是由那个组织开发的。<br>(2)artifactId：项目的名称<br>(3)version：jar的版本<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2019/03/30/Maven/#more">more >></a>
+        
       
 
       
@@ -1190,11 +1142,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,15 +1162,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,15 +1182,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1190,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1258,11 +1206,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,7 +1218,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1286,15 +1234,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,11 +1242,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,7 +1270,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
