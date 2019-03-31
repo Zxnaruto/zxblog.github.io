@@ -19,7 +19,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis02.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis03.png">
-<meta property="og:updated_time" content="2019-03-31T08:08:18.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis04.png">
+<meta property="og:updated_time" content="2019-03-31T17:51:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis">
 <meta name="twitter:description" content="一、MyBatis简介Mybatis是面向sql的持久层框架，类似于Hibernate，它封装了jdbc访问数据库的过程，我们开发过程中，只需专注于sql语句本身的拼装，其它复杂的过程全部可以交给mybatis去完成。">
@@ -645,7 +646,468 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
 <p>mybatis需要实体类，实体的映射文件，核心配置文件，实现类。<br>如果需要配置包扫描则需要将实体类和实体的映射文件放到同一个包下，且名称一样。具体要找的时候它会更具具体在包中配置的类名或者在核心配置文件中配置的别名去找。</p>
 <p>实体映射文件&lt; mapper&gt;中有id=””,paramterType=””,resultType=””<br>我们以动态dao为例：id接口中方法名，paramterType输入的参数类型，resultType返回结果类型。</p>
 <p>SqlMapConfig：&lt; properties&gt;属性、&lt; environments&gt;数据库配置、&lt; mappping&gt;映射文件位置</p>
+<h3 id="九、输入输出映射"><a href="#九、输入输出映射" class="headerlink" title="九、输入输出映射"></a>九、输入输出映射</h3><h4 id="1-包装的pojo"><a href="#1-包装的pojo" class="headerlink" title="1.包装的pojo"></a>1.包装的pojo</h4><p>所谓的包装的pojo就是在实体中还有实体。<br>这时在配置文件中所配置的属性就是包装类的属性。被包装的类.属性名</p>
+<pre><code>&lt;mapper namespace=&quot;pers.zx.mybatis.mapper.Mapper&quot;&gt;
 
+&lt;select id=&quot;getPojo&quot; parameterType=&quot;pers.zx.mybatis.demo.Pojo&quot; resultType=&quot;pers.zx.mybatis.demo.User&quot;&gt;
+&lt;!-- user是pojo中包装的实体 --&gt;
+SELECT * FROM USER WHERE username LIKE &apos;%${user.username}%&apos;
+&lt;/select&gt;
+
+&lt;/mapper&gt;
+</code></pre><h4 id="2-resultMap"><a href="#2-resultMap" class="headerlink" title="2.resultMap"></a>2.resultMap</h4><p>防止表中字段与实体中的字段不一致。</p>
+<pre><code>&lt;mapper namespace=&quot;pers.zx.mybatis.mapper.Ordermapper&quot;&gt;
+
+
+&lt;!-- resultMap入门
+     type:映射成的pojo类型
+     id：resultMap唯一标识
+--&gt;
+&lt;resultMap type=&quot;pers.zx.mybatis.demo.Order&quot; id=&quot;orderMap&quot;&gt;
+    &lt;!-- id标签用于绑定主键 --&gt;
+    &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;
+
+    &lt;!-- 使用result绑定普通字段 --&gt;
+    &lt;result property=&quot;userId&quot; column=&quot;user_id&quot;/&gt;
+    &lt;result property=&quot;number&quot; column=&quot;number&quot;/&gt;
+    &lt;result property=&quot;createtime&quot; column=&quot;createtime&quot;/&gt;
+    &lt;result property=&quot;note&quot; column=&quot;note&quot;/&gt;
+&lt;/resultMap&gt;
+&lt;!-- 使用resultMap --&gt;
+&lt;select id=&quot;getOrderListResultMap&quot; resultMap=&quot;orderMap&quot;&gt;
+    select * from `order`;
+&lt;/select&gt;
+</code></pre><p></p>
+<h3 id="十、动态标签的使用"><a href="#十、动态标签的使用" class="headerlink" title="十、动态标签的使用"></a>十、动态标签的使用</h3><h4 id="1-if标签"><a href="#1-if标签" class="headerlink" title="1.if标签"></a>1.if标签</h4><pre><code>&lt;!-- 演示动态sql-if标签的使用情景 --&gt;
+&lt;select id=&quot;getUserByWhere&quot; parameterType=&quot;pers.zx.mybatis.demo.User&quot; resultType=&quot;pers.zx.mybatis.demo.User&quot;&gt;
+    &lt;!-- SELECT * FROM USER WHERE username LIKE &apos;%${username}%&apos; and id = #{id} --&gt;
+    SELECT * FROM USER where 1 = 1
+    &lt;!-- if标签的使用 --&gt;
+    &lt;if test=&quot;id != null&quot;&gt;
+        and id = #{id}
+    &lt;/if&gt;
+    &lt;if test=&quot;username != null and username != &apos;&apos;&quot;&gt;
+        and username LIKE &apos;%${username}%&apos;
+    &lt;/if&gt;
+&lt;/select&gt;
+</code></pre><h4 id="2-where标签"><a href="#2-where标签" class="headerlink" title="2.where标签"></a>2.where标签</h4><pre><code>&lt;!-- 演示动态sql-where标签的使用情景 --&gt;
+&lt;select id=&quot;getUserByWhere2&quot; parameterType=&quot;pers.zx.mybatis.demo.User&quot;
+    resultType=&quot;pers.zx.mybatis.demo.User&quot;&gt;
+    &lt;!-- include:引入sql片段,refid引入片段id --&gt;
+    SELECT
+    *
+    FROM USER
+    &lt;!-- where会自动加上where同处理多余的and --&gt;
+    &lt;where&gt;
+        &lt;!-- if标签的使用 --&gt;
+        &lt;if test=&quot;id != null&quot;&gt;
+            and id = #{id}
+        &lt;/if&gt;
+        &lt;if test=&quot;username != null and username != &apos;&apos;&quot;&gt;
+            and username LIKE &apos;%${username}%&apos;
+        &lt;/if&gt;
+    &lt;/where&gt;
+</code></pre><p></p>
+<h4 id="3-sql片段的用法"><a href="#3-sql片段的用法" class="headerlink" title="3.sql片段的用法"></a>3.sql片段的用法</h4><pre><code>定义
+&lt;!-- sql片段 定义，id:片段唯一标识 --&gt;
+&lt;sql id=&quot;user_column&quot;&gt;
+    `id`,
+    `username`,
+    `birthday`,
+    `sex`,
+    `address`,
+    `uuid2`
+&lt;/sql&gt;
+
+使用
+SELECT
+    &lt;!-- sql片段的使用：include:引入sql片段,refid引入片段id --&gt;
+    &lt;include refid=&quot;user_column&quot; /&gt;
+    FROM USER
+</code></pre><h4 id="4-foreach标签"><a href="#4-foreach标签" class="headerlink" title="4.foreach标签"></a>4.foreach标签</h4><pre><code>&lt;!-- 演示动态sql-foreach标签的使用情景 --&gt;
+&lt;select id=&quot;getUserByIds&quot; parameterType=&quot;queryvo&quot;
+    resultType=&quot;pers.zx.mybatis.demo.User&quot;&gt;
+
+    SELECT
+    *
+    FROM USER
+    &lt;!-- where会自动加上where同处理多余的and --&gt;
+    &lt;where&gt;
+        &lt;!-- id IN(1,10,25,30,34) --&gt;
+        &lt;!-- foreach循环标签 
+             collection:要遍历的集合，来源入参 
+             open:循环开始前的sql 
+             separator:分隔符 
+             close:循环结束拼接的sql
+        --&gt;
+        &lt;foreach item=&quot;uid&quot; collection=&quot;ids&quot; open=&quot;id IN(&quot; separator=&quot;,&quot;
+            close=&quot;)&quot;&gt;
+            #{uid}
+        &lt;/foreach&gt;        &lt;/where&gt;
+&lt;/select&gt;
+</code></pre><h3 id="十一、关联查询"><a href="#十一、关联查询" class="headerlink" title="十一、关联查询"></a>十一、关联查询</h3><h4 id="1-一对一关联"><a href="#1-一对一关联" class="headerlink" title="1.一对一关联"></a>1.一对一关联</h4><blockquote>
+<p>方法一，使用resultType</p>
+<ol>
+<li>新建OrderUser的pojo，继承自Order。<br>public class OrderUser extends Order {<br> private String username;<br> private String address;<br>…….get,set<br>}</li>
+<li>修改order的映射文件，新增查询方法getOrderUser。<!-- 一对一关联查询，使用resultType -->
+&lt; select id=”getOrderUser” resultType=”orderuser全路径”&gt;<br> SELECT<br>   o.<code>id</code> //有’’<br>   o.<code>user_id</code> userId,<br>   o.<code>number</code>,<br>   o.<code>createtime</code>,<br>   o.<code>note</code>,<br>   u.<code>username</code>,<br>   u.<code>address</code><br> FROM <code>order</code> o<br> LEFT JOIN <code>user</code> u<br> ON u.id = o.<code>user_id</code><br>&lt; /select&gt;</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>方法二，使用resultMap</p>
+<ol>
+<li>改造order的pojo<br> private Integer id;<br> private Integer userId;<br> private String number;<br> private Date createtime;<br> private String note;<br> private User user;</li>
+<li>修改order的映射文件</li>
+</ol>
+</blockquote>
+<pre><code>&lt;!-- 一对一关联查询-resultMap --&gt;
+&lt;resultMap type=&quot;order&quot; id=&quot;order_user_map&quot;&gt;
+    &lt;!-- id标签用于绑定主键 --&gt;
+    &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;
+    &lt;!-- 使用result绑定普通字段 --&gt;
+    &lt;result property=&quot;userId&quot; column=&quot;user_id&quot;/&gt;
+    &lt;result property=&quot;number&quot; column=&quot;number&quot;/&gt;
+    &lt;result property=&quot;createtime&quot; column=&quot;createtime&quot;/&gt;
+    &lt;result property=&quot;note&quot; column=&quot;note&quot;/&gt;
+
+    &lt;!-- association:配置一对一关联
+         property:绑定的用户属性
+         javaType:属性数据类型，支持别名
+    --&gt;
+    &lt;association property=&quot;user&quot; javaType=&quot;com.itheima.mybatis.pojo.User&quot;&gt;
+        &lt;id property=&quot;id&quot; column=&quot;user_id&quot;/&gt;
+
+        &lt;result property=&quot;username&quot; column=&quot;username&quot;/&gt;
+        &lt;result property=&quot;address&quot; column=&quot;address&quot;/&gt;
+        &lt;result property=&quot;sex&quot; column=&quot;sex&quot;/&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+&lt;!-- 一对一关联查询-使用resultMap --&gt;
+&lt;select id=&quot;getOrderUser2&quot; resultMap=&quot;order_user_map&quot;&gt;
+    SELECT
+      o.`id`,
+      o.`user_id`,
+      o.`number`,
+      o.`createtime`,
+      o.`note`,
+      u.`username`,
+      u.`address`,
+      u.`sex`
+    FROM `order` o
+    LEFT JOIN `user` u
+    ON u.id = o.`user_id`
+&lt;/select&gt;
+</code></pre><h4 id="2-一对多关联"><a href="#2-一对多关联" class="headerlink" title="2.一对多关联"></a>2.一对多关联</h4><blockquote>
+<p>1.修改user类<br>private Integer id;<br>    private String username;// 用户姓名<br>    private String sex;// 性别<br>    private Date birthday;// 生日<br>    private String address;// 地址<br>    private List&lt; Order&gt; orders;</p>
+<p>2.修改user的映射文件</p>
+</blockquote>
+<pre><code>&lt;!-- 一对多关联查询 --&gt;
+&lt;resultMap type=&quot;user&quot; id=&quot;user_order_map&quot;&gt;
+    &lt;id property=&quot;id&quot; column=&quot;id&quot; /&gt;
+    &lt;result property=&quot;username&quot; column=&quot;username&quot; /&gt;
+    &lt;result property=&quot;birthday&quot; column=&quot;birthday&quot; /&gt;
+    &lt;result property=&quot;address&quot; column=&quot;address&quot; /&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot; /&gt;
+    &lt;result property=&quot;uuid2&quot; column=&quot;uuid2&quot; /&gt;
+
+    &lt;!-- collection:配置一对多关系
+         property:用户下的order属性
+         ofType:property的数据类型，支持别名
+    --&gt;
+    &lt;collection property=&quot;orders&quot; ofType=&quot;orders的全路径&quot;&gt;
+        &lt;!-- id标签用于绑定主键 --&gt;
+        &lt;id property=&quot;id&quot; column=&quot;oid&quot;/&gt;
+        &lt;!-- 使用result绑定普通字段 --&gt;
+        &lt;result property=&quot;userId&quot; column=&quot;id&quot;/&gt;
+        &lt;result property=&quot;number&quot; column=&quot;number&quot;/&gt;
+        &lt;result property=&quot;createtime&quot; column=&quot;createtime&quot;/&gt;
+    &lt;/collection&gt;
+
+&lt;/resultMap&gt;
+&lt;!-- 一对多关联查询 --&gt;
+&lt;select id=&quot;getUserOrder&quot; resultMap=&quot;user_order_map&quot;&gt;
+    SELECT
+    u.`id`,
+    u.`username`,
+    u.`birthday`,
+    u.`sex`,
+    u.`address`,
+    u.`uuid2`,
+    o.`id` oid,
+    o.`number`,
+    o.`createtime`
+    FROM `user` u
+    LEFT JOIN `order` o
+    ON o.`user_id` = u.`id`
+&lt;/select&gt;
+</code></pre><h3 id="十二、Mybatis整合Spring"><a href="#十二、Mybatis整合Spring" class="headerlink" title="十二、Mybatis整合Spring"></a>十二、Mybatis整合Spring</h3><p><strong>传统dao</strong><br>1.创建项目导入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis04.png" alt=""><br>2.创建配置文件<br>SqlMapConfig.xml<br>applicationContext.xml<br>3.创建实体类</p>
+<pre><code>package pers.zx.mybatis.domain;
+
+import java.util.Date;
+import java.util.List;
+
+public class User {
+
+private Integer id;
+private String username;// 用户姓名
+private String sex;// 性别
+private Date birthday;// 生日
+private String address;// 地址
+
+
+public Integer getId() {
+    return id;
+}
+
+public void setId(Integer id) {
+    this.id = id;
+}
+
+public String getUsername() {
+    return username;
+}
+
+public void setUsername(String username) {
+    this.username = username;
+}
+
+public String getSex() {
+    return sex;
+}
+
+public void setSex(String sex) {
+    this.sex = sex;
+}
+
+public Date getBirthday() {
+    return birthday;
+}
+
+public void setBirthday(Date birthday) {
+    this.birthday = birthday;
+}
+
+public String getAddress() {
+    return address;
+}
+
+public void setAddress(String address) {
+    this.address = address;
+}
+
+@Override
+public String toString() {
+    return &quot;User [id=&quot; + id + &quot;, username=&quot; + username + &quot;, sex=&quot; + sex + &quot;, birthday=&quot; + birthday + &quot;, address=&quot;+ address + &quot;]&quot;;
+}
+
+}
+</code></pre><p>4.编写实体类的映射文件user.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;user&quot;&gt;
+&lt;!-- 插入实体 --&gt;
+&lt;!--方式一： useGeneratedKeys=&quot;true&quot;使用自增，可以执行获取id的语句  keyProperty=&quot;id&quot;获取的id --&gt;
+&lt;insert id=&quot;insertUser&quot; parameterType=&quot;pers.zx.mybatis.demo.User&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot; &gt;
+INSERT INTO user(username,birthday,sex,address) values(#{username},
+#{birthday},
+#{sex},
+
+#{address}
+);
+
+&lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre><p>5.配置SqlMapConfig.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+&lt;mappers&gt;
+&lt;mapper resource=&quot;mybatis/User.xml&quot;/&gt;
+&lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre><p>6.编写UserDao和UserDaoImpl</p>
+<pre><code>package pers.zx.mybatis.dao;
+
+public interface UserDao {
+
+void insertUser();
+}
+
+package pers.zx.mybatis.dao.impl;
+
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import pers.zx.mybatis.dao.UserDao;
+import pers.zx.mybatis.domain.User;
+
+public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
+
+@Override
+public void insertUser() {
+    // TODO Auto-generated method stub
+    SqlSession sqlSession=super.getSqlSession();
+    User user=new User();
+    user.setUsername(&quot;xxxzz&quot;);
+    sqlSession.insert(&quot;user.insertUser&quot;, user);
+}
+
+}
+</code></pre><p>7.编写applicationContext.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+</code></pre><!-- 加载配置文件 -->
+<p>   &lt;context:property-placeholder location=”classpath:jdbc.properties” /&gt;</p>
+<pre><code>&lt;!-- 数据库连接池 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
+    destroy-method=&quot;close&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot; /&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+    &lt;!-- 连接池的最大数据库连接数 --&gt;
+    &lt;property name=&quot;maxActive&quot; value=&quot;10&quot; /&gt;
+    &lt;!-- 最大空闲数 --&gt;
+    &lt;property name=&quot;maxIdle&quot; value=&quot;5&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- SqlSessionFactory配置 --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+    &lt;!-- 加载mybatis核心配置文件 --&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:SqlMapConfig.xml&quot; /&gt;
+    &lt;!-- 别名包扫描 --&gt;
+    &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;pers.zx.mybatis.domain&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 传统Dao配置 --&gt;
+&lt;bean id=&quot;userDao&quot; class=&quot;pers.zx.mybatis.dao.impl.UserDaoImpl&quot;&gt;
+    &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 动态代理配置方式:第一种 --&gt;
+&lt;!-- &lt;bean id=&quot;baseMapper&quot; class=&quot;org.mybatis.spring.mapper.MapperFactoryBean&quot; abstract=&quot;true&quot; lazy-init=&quot;true&quot;&gt;
+  &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot; /&gt;
+&lt;/bean&gt; --&gt;
+ &lt;!-- 配置一个接口 --&gt;
+&lt;!-- &lt;bean parent=&quot;baseMapper&quot;&gt;
+  &lt;property name=&quot;mapperInterface&quot; value=&quot;pers.zx.mybatis.mapper.UserMapper&quot; /&gt;
+&lt;/bean&gt; --&gt;
+
+&lt;!-- 动态代理，第二种方式：包扫描（推荐）： --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;!-- basePackage多个包用&quot;,&quot;分隔 --&gt;
+    &lt;!-- &lt;property name=&quot;basePackage&quot; value=&quot;com.itheima.mybatis.mapper&quot; /&gt; --&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;com.itheima.ssm.mapper&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre><p>8.编写测试类</p>
+<pre><code>public class TestofSM {
+
+
+@Test
+public void test() {
+     ApplicationContext    applicationContext = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+    UserDao userDao=applicationContext.getBean(UserDao.class);
+    userDao.insertUser();
+}
+}
+</code></pre><p><strong>动态Dao</strong><br>(1)mapper和mapper.xml</p>
+<pre><code>import pers.zx.mybatis.domain.User;
+
+public interface Mapper {
+
+void insertUser(User user);
+
+}
+
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;mapper namespace=&quot;pers.zx.mybatis.mapper.Mapper&quot;&gt;
+
+&lt;insert id=&quot;insertUser&quot; parameterType=&quot;pers.zx.mybatis.domain.User&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot; &gt;
+
+INSERT INTO user(username,birthday,sex,address) values(#{username},
+#{birthday},
+#{sex},
+
+#{address}
+);
+
+&lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre><p>(2)applicationContext.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+</code></pre><!-- 加载配置文件 -->
+<p>   &lt;context:property-placeholder location=”classpath:jdbc.properties” /&gt;</p>
+<pre><code>&lt;!-- 数据库连接池 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
+    destroy-method=&quot;close&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot; /&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+    &lt;!-- 连接池的最大数据库连接数 --&gt;
+    &lt;property name=&quot;maxActive&quot; value=&quot;10&quot; /&gt;
+    &lt;!-- 最大空闲数 --&gt;
+    &lt;property name=&quot;maxIdle&quot; value=&quot;5&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- SqlSessionFactory配置 --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+    &lt;!-- 加载mybatis核心配置文件 --&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:SqlMapConfig.xml&quot; /&gt;
+    &lt;!-- 别名包扫描 --&gt;
+    &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;pers.zx.mybatis.domain&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 传统Dao配置 --&gt;
+&lt;bean id=&quot;userDao&quot; class=&quot;pers.zx.mybatis.dao.impl.UserDaoImpl&quot;&gt;
+    &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 动态代理配置方式:第一种 --&gt;
+&lt;!-- &lt;bean id=&quot;baseMapper&quot; class=&quot;org.mybatis.spring.mapper.MapperFactoryBean&quot; abstract=&quot;true&quot; lazy-init=&quot;true&quot;&gt;
+  &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot; /&gt;
+&lt;/bean&gt; --&gt;
+ &lt;!-- 配置一个接口 --&gt;
+&lt;!-- &lt;bean parent=&quot;baseMapper&quot;&gt;
+  &lt;property name=&quot;mapperInterface&quot; value=&quot;pers.zx.mybatis.mapper.UserMapper&quot; /&gt;
+&lt;/bean&gt; --&gt;
+
+&lt;!-- 动态代理，第二种方式：包扫描（推荐）： --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;!-- basePackage多个包用&quot;,&quot;分隔 --&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;pers.zx.mybatis.mapper&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
       
 
       
@@ -926,6 +1388,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
@@ -935,10 +1401,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,11 +1420,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,15 +1436,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -990,7 +1448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -998,7 +1460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1018,10 +1480,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1030,11 +1488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1042,11 +1500,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,7 +1516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
