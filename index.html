@@ -192,6 +192,245 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SpringMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/04/02/SpringMVC/">SpringMVC</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/04/02/SpringMVC/" class="archive-article-date">
+  	<time datetime="2019-04-01T16:19:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p>SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。</p>
+<h3 id="二、入门"><a href="#二、入门" class="headerlink" title="二、入门"></a>二、入门</h3><h4 id="1-动态web创建项目导入jar包"><a href="#1-动态web创建项目导入jar包" class="headerlink" title="1.动态web创建项目导入jar包"></a>1.动态web创建项目导入jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc01.png" alt=""></p>
+<h4 id="2-编写测试类及jsp"><a href="#2-编写测试类及jsp" class="headerlink" title="2.编写测试类及jsp"></a>2.编写测试类及jsp</h4><p>(1)测试类</p>
+<pre><code>package com.xiaohuizi.springmvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloController {
+
+@RequestMapping(&quot;/hello&quot;)
+public ModelAndView hello() {
+
+    System.out.println(&quot;hello springmvc&quot;);
+    //创建modelandview对象
+    ModelAndView andView=new ModelAndView();
+    //设置模型数据
+    andView.addObject(&quot;msg&quot;,&quot;hello zx&quot;);
+    //设置视图name
+    andView.setViewName(&quot;/WEB-INF/jsp/hello.jsp&quot;);
+    return andView;
+
+}
+}
+</code></pre><p>(2)jsp</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;hello&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${msg}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="3-配置web-xml文件"><a href="#3-配置web-xml文件" class="headerlink" title="3.配置web.xml文件"></a>3.配置web.xml文件</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+  &lt;display-name&gt;SpringMVC01&lt;/display-name&gt;
+  &lt;welcome-file-list&gt;
+&lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+
+  &lt;!-- 配置前端控制器 --&gt;
+  &lt;servlet&gt;
+&lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
+&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+&lt;!-- 加载springmvc核心配置文件 --&gt;
+&lt;init-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;
+&lt;/init-param&gt;
+  &lt;/servlet&gt;
+  &lt;!-- 配置拦截路径 --&gt;
+  &lt;servlet-mapping&gt;
+&lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
+&lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre><h4 id="4-配置springmvc-xml"><a href="#4-配置springmvc-xml" class="headerlink" title="4.配置springmvc.xml"></a>4.配置springmvc.xml</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;
+
+&lt;!-- 配置@Controller处理器，包扫描器 --&gt;
+&lt;context:component-scan base-package=&quot;com.xiaohuizi.springmvc.controller&quot; /&gt;
+&lt;/beans&gt;
+</code></pre><h4 id="5-SpringMVC执行过程"><a href="#5-SpringMVC执行过程" class="headerlink" title="5.SpringMVC执行过程"></a>5.SpringMVC执行过程</h4><p>首先经过拦截器，通过拦截器加载核心配置文件springmvc.xml，之后通过核心配置文件找到所要扫描的包，更具url找到相应的动作，然后执行相应的动作，最终结果返回给jsp页面。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc02.png" alt=""></p>
+<h4 id="6-小结"><a href="#6-小结" class="headerlink" title="6.小结"></a>6.小结</h4><p>SpringMvc的核心就是在web.xml中配置的拦截器，以及springmvc.xml。</p>
+<h3 id="三、SpringMVC默认组件加载"><a href="#三、SpringMVC默认组件加载" class="headerlink" title="三、SpringMVC默认组件加载"></a>三、SpringMVC默认组件加载</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc03.png" alt=""></p>
+<h4 id="1-处理器映射器与处理器适配器"><a href="#1-处理器映射器与处理器适配器" class="headerlink" title="1.处理器映射器与处理器适配器"></a>1.处理器映射器与处理器适配器</h4><p>(1)处理器映射器<br>在springmvc.xml中配置</p>
+<pre><code>&lt;!-- 配置处理器映射器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping&quot;/&gt;
+</code></pre><p>(2)处理器适配器</p>
+<pre><code>&lt;!-- 处理器适配器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter&quot; /&gt;
+</code></pre><p>(3)小结<br>映射器与处理器必须配合使用，他们是springmvc处理其组件所必须的，比如：通过注解来找到和执行方法。</p>
+<h4 id="2-注解驱动"><a href="#2-注解驱动" class="headerlink" title="2.注解驱动"></a>2.注解驱动</h4><p>有了注解驱动就可以不用配置上面的映射器和适配器了。</p>
+<pre><code>&lt;!-- 注解驱动配置，代替映射器与适配器的单独配置，同时支持json响应(推荐使用) --&gt;
+&lt;mvc:annotation-driven /&gt;
+</code></pre><h4 id="3-视图解析器"><a href="#3-视图解析器" class="headerlink" title="3.视图解析器"></a>3.视图解析器</h4><p>用来管理视图的，即以什么方式访问页面的配置</p>
+<pre><code>&lt;!-- 配置视图解析器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    &lt;!-- 配置视图响应的前缀 --&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+    &lt;!-- 配置视图响应的后缀 --&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>此时动作中只需要编写jsp的名就好了。</p>
+<p><strong>注意：不配置这些的话springmvc也会按照默认的方式来处理，就如开始时不配置也可以正常运行一样。</strong></p>
+<h3 id="四、SpringMVC架构"><a href="#四、SpringMVC架构" class="headerlink" title="四、SpringMVC架构"></a>四、SpringMVC架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc04.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc05.png" alt=""></p>
+<p><strong>springmvc有三大核心组件映射器找到相应的方法，适配器创建实例执行方法，视图解析器返回处理结果。</strong></p>
+<h3 id="五、参数绑定"><a href="#五、参数绑定" class="headerlink" title="五、参数绑定"></a>五、参数绑定</h3><p>就是如何获取页面的数据返回给后台</p>
+<h4 id="1-默认的方式"><a href="#1-默认的方式" class="headerlink" title="1.默认的方式"></a>1.默认的方式</h4><p>通过request和response来获取和传递。</p>
+<pre><code>@RequestMapping(&quot;itemEdit&quot;)
+public ModelAndView itemEdit(HttpServletRequest request,HttpServletResponse response,HttpSession session){
+    ModelAndView mav = new ModelAndView();
+
+    //request获取参数
+    String id = request.getParameter(&quot;id&quot;);
+    System.out.println(&quot;id为：&quot; + id);
+    //其它对象输出
+    System.out.println(&quot;response对象:&quot; + response);
+    System.out.println(&quot;session对象:&quot; + session);
+
+    //查询商品信息
+    Item item = itemServices.getItemById(new Integer(id));
+    //设置商品数据返回页面
+    mav.addObject(&quot;item&quot;, item);
+    //设置视图名称
+    mav.setViewName(&quot;itemEdit&quot;);
+    return mav;
+}
+</code></pre><p>(1)除了modelandView还可以使用Model向页面传值<br>他俩本质都是以request对象向页面传值<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc06.png" alt=""></p>
+<p>(2)ModelMap也可以向页面传值<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc07.png" alt=""></p>
+<h4 id="2-绑定简单类型"><a href="#2-绑定简单类型" class="headerlink" title="2.绑定简单类型"></a>2.绑定简单类型</h4><pre><code>// @RequestParam用法：页面入参名字与方法名参数名不一致时使用{
+//     value:传入的参数名，required：是否必填,defaultValue:默认值
+// }
+
+@RequestMapping(&quot;itemEdit&quot;)
+`public ModelAndView itemEdit(@RequestParam(value=&quot;id&quot;,required=true,defaultValue=&quot;1&quot;)Integer ids)`{
+    ModelAndView mav = new ModelAndView();
+
+    //查询商品信息
+    Item item = itemServices.getItemById(ids);
+    //设置商品数据返回页面
+    mav.addObject(&quot;item&quot;, item);
+    //设置视图名称
+    mav.setViewName(&quot;itemEdit&quot;);
+    return mav;
+}
+</code></pre><p>页面传回来的参数的名称如果与方法中的不一致时可以用@RequsetParam注解，其中的value值就是页面里定义的那个参数名。<br>如果参数一样，可以不用，比如</p>
+<pre><code>public ModelAndView itemEdit(Integer id)
+</code></pre><h4 id="3-绑定pojo对象"><a href="#3-绑定pojo对象" class="headerlink" title="3.绑定pojo对象"></a>3.绑定pojo对象</h4><p>表单提交的name属性必需与pojo的属性名称一致。</p>
+<pre><code>@RequestMapping(&quot;updateItem&quot;)
+public String updateItem(Item item,Model model){
+    //更新商品
+    itemServices.update(item);
+    //返回商品模型
+    model.addAttribute(&quot;item&quot;, item);
+    //返回担任提示
+    model.addAttribute(&quot;msg&quot;, &quot;修改商品成功&quot;);
+    //返回修改商品页面
+    return &quot;itemEdit&quot;;
+}
+</code></pre><h4 id="4-包装的pojo"><a href="#4-包装的pojo" class="headerlink" title="4.包装的pojo"></a>4.包装的pojo</h4><p>通过点(.)传递属性。user.name</p>
+<pre><code>private String name;
+private User user;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/04/02/SpringMVC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mybatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,96 +1169,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JavaWeb基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/03/06/JavaWeb基础/">JavaWeb基础</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/03/06/JavaWeb基础/" class="archive-article-date">
-  	<time datetime="2019-03-06T03:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、Servlet"><a href="#一、Servlet" class="headerlink" title="一、Servlet"></a>一、Servlet</h4><p>Servle是和平台无关的服务器端组件，它运行在Servlet容器中。Servlet容器负责Servlet和客户的通信以及调用Servlet的方法。Servlet和客户的通信采用“请求/响应”的模式。</p>
-<h5 id="1-Servlet的功能："><a href="#1-Servlet的功能：" class="headerlink" title="1.Servlet的功能："></a>1.Servlet的功能：</h5><ul>
-<li>创建并返回基于客户请求的动态HTML页面</li>
-<li>创建可嵌入到现有HTML页面中的部分HTML页面</li>
-<li>与其他服务器资源进行通信(如数据库等)</li>
-</ul>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/06/JavaWeb基础/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/06/JavaWeb基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/9/">9</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1149,15 +1298,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1189,11 +1338,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1261,19 +1414,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
