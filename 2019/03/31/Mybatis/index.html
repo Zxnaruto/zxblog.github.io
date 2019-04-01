@@ -20,7 +20,8 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis02.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis03.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis04.png">
-<meta property="og:updated_time" content="2019-03-31T17:51:58.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis05.png">
+<meta property="og:updated_time" content="2019-04-01T03:09:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis">
 <meta name="twitter:description" content="一、MyBatis简介Mybatis是面向sql的持久层框架，类似于Hibernate，它封装了jdbc访问数据库的过程，我们开发过程中，只需专注于sql语句本身的拼装，其它复杂的过程全部可以交给mybatis去完成。">
@@ -1107,6 +1108,120 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 &lt;/bean&gt;
 
 &lt;/beans&gt;
+</code></pre><h3 id="十三、逆向工程"><a href="#十三、逆向工程" class="headerlink" title="十三、逆向工程"></a>十三、逆向工程</h3><h4 id="1-项目结构"><a href="#1-项目结构" class="headerlink" title="1.项目结构"></a>1.项目结构</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxmybatis05.png" alt=""></p>
+<h4 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2.配置文件"></a>2.配置文件</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration
+  PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+  &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+
+&lt;generatorConfiguration&gt;
+&lt;context id=&quot;testTables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+    &lt;commentGenerator&gt;
+        &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;
+        &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;
+    &lt;/commentGenerator&gt;
+    &lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;
+    &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
+        connectionURL=&quot;jdbc:mysql://localhost:3306/hibernate&quot; userId=&quot;root&quot;
+        password=&quot;root&quot;&gt;
+    &lt;/jdbcConnection&gt;
+    &lt;!-- &lt;jdbcConnection driverClass=&quot;oracle.jdbc.OracleDriver&quot;
+        connectionURL=&quot;jdbc:oracle:thin:@127.0.0.1:1521:yycg&quot; 
+        userId=&quot;yycg&quot;
+        password=&quot;yycg&quot;&gt;
+    &lt;/jdbcConnection&gt; --&gt;
+
+    &lt;!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+        NUMERIC 类型解析为java.math.BigDecimal --&gt;
+    &lt;javaTypeResolver&gt;
+        &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot; /&gt;
+    &lt;/javaTypeResolver&gt;
+
+    &lt;!-- targetProject:生成PO类的位置 --&gt;
+    &lt;javaModelGenerator targetPackage=&quot;com.zx.mybatis.domain&quot;
+        targetProject=&quot;.\src&quot;&gt;
+        &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
+        &lt;!-- 从数据库返回的值被清理前后的空格 --&gt;
+        &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
+    &lt;/javaModelGenerator&gt;
+    &lt;!-- targetProject:mapper映射文件生成的位置 --&gt;
+    &lt;sqlMapGenerator targetPackage=&quot;com.zx.mybatis.mapper&quot; 
+        targetProject=&quot;.\src&quot;&gt;
+        &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
+    &lt;/sqlMapGenerator&gt;
+    &lt;!-- targetPackage：mapper接口生成的位置 --&gt;
+    &lt;javaClientGenerator type=&quot;XMLMAPPER&quot;
+        targetPackage=&quot;com.zx.mybatis.mapper&quot; 
+        targetProject=&quot;.\src&quot;&gt;
+        &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
+    &lt;/javaClientGenerator&gt;
+    &lt;!-- 指定数据库表 --&gt;
+    &lt;table schema=&quot;&quot; tableName=&quot;user&quot;&gt;&lt;/table&gt;
+    &lt;table schema=&quot;&quot; tableName=&quot;order&quot;&gt;&lt;/table&gt;
+
+
+    &lt;!-- 有些表的字段需要指定java类型
+     &lt;table schema=&quot;&quot; tableName=&quot;&quot;&gt;
+        &lt;columnOverride column=&quot;&quot; javaType=&quot;&quot; /&gt;
+    &lt;/table&gt; --&gt;
+&lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre><h4 id="3-生成类"><a href="#3-生成类" class="headerlink" title="3.生成类"></a>3.生成类</h4><pre><code>import java.io.File;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybatis.generator.api.MyBatisGenerator;
+import org.mybatis.generator.config.Configuration;
+import org.mybatis.generator.config.xml.ConfigurationParser;
+
+import org.mybatis.generator.internal.DefaultShellCallback;
+
+public class GeneratorSqlmap {
+
+public void generator() throws Exception{
+
+    List&lt;String&gt; warnings = new ArrayList&lt;String&gt;();
+    boolean overwrite = true;
+    //指定 逆向工程配置文件
+    File configFile = new File(&quot;generatorConfig.xml&quot;); 
+    ConfigurationParser cp = new ConfigurationParser(warnings);
+    Configuration config = cp.parseConfiguration(configFile);
+    DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+    MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config,
+            callback, warnings);
+    myBatisGenerator.generate(null);
+
+} 
+public static void main(String[] args) throws Exception {
+    try {
+        GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
+        generatorSqlmap.generator();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+}
+
+}
+</code></pre><h4 id="4-说明"><a href="#4-说明" class="headerlink" title="4.说明"></a>4.说明</h4><p>逆向工程会生成相应的实体类，以及对应的mapper接口和mapper映射文件，还有一个对应的example类。其中example类是用来完成一些数据库连接操作的。<br>注意：逆向工程只能对单表操作。而且生成的方法中名字长的方法被用的越多。</p>
+<pre><code>@Test
+public void testSelectByExample() {
+    UserMapper userMapper = applicationContext.getBean(UserMapper.class);
+    UserExample example = new UserExample();
+    //创建Criteria
+    Criteria criteria = example.createCriteria();
+    //设置查询条件
+    criteria.andUsernameLike(&quot;%张%&quot;);
+    criteria.andSexEqualTo(&quot;2&quot;);
+    List&lt;User&gt; list = userMapper.selectByExample(example);
+    for (User user : list) {
+        System.out.println(user);
+    }
+}
 </code></pre>
       
 
@@ -1388,11 +1503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,6 +1516,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1424,10 +1543,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -1436,15 +1551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1456,11 +1567,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,15 +1595,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,19 +1619,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
