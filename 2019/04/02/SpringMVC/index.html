@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>SpringMVC | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。 二、入门1.动态web创建项目导入jar包 2.编写测试类及jsp(1)测试类 package com.xiaohuizi.springmvc.controller;">
+  <meta name="description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。">
 <meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/04/02/SpringMVC/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。 二、入门1.动态web创建项目导入jar包 2.编写测试类及jsp(1)测试类 package com.xiaohuizi.springmvc.controller;">
+<meta property="og:description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc01.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc02.png">
@@ -23,10 +23,17 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc05.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc06.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc07.png">
-<meta property="og:updated_time" content="2019-04-01T16:21:34.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc08.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc09.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc11.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc12.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc13.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc14.png">
+<meta property="og:updated_time" content="2019-04-02T06:52:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC">
-<meta name="twitter:description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。 二、入门1.动态web创建项目导入jar包 2.编写测试类及jsp(1)测试类 package com.xiaohuizi.springmvc.controller;">
+<meta name="twitter:description" content="一、简介SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -231,7 +238,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p>SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。</p>
+        <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p>SpringMVC是基于servlet的web层框架。不同于Struts2基于类级别的拦截器，SpringMVC是基于方法进行拦截的。还有就是SpringMVC是单实例的，相比struts2多实例的要更加减少服务器的负担。<br><a id="more"></a></p>
 <h3 id="二、入门"><a href="#二、入门" class="headerlink" title="二、入门"></a>二、入门</h3><h4 id="1-动态web创建项目导入jar包"><a href="#1-动态web创建项目导入jar包" class="headerlink" title="1.动态web创建项目导入jar包"></a>1.动态web创建项目导入jar包</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc01.png" alt=""></p>
 <h4 id="2-编写测试类及jsp"><a href="#2-编写测试类及jsp" class="headerlink" title="2.编写测试类及jsp"></a>2.编写测试类及jsp</h4><p>(1)测试类</p>
 <pre><code>package com.xiaohuizi.springmvc.controller;
@@ -392,7 +399,171 @@ public String updateItem(Item item,Model model){
 </code></pre><h4 id="4-包装的pojo"><a href="#4-包装的pojo" class="headerlink" title="4.包装的pojo"></a>4.包装的pojo</h4><p>通过点(.)传递属性。user.name</p>
 <pre><code>private String name;
 private User user;
-</code></pre>
+</code></pre><h4 id="5-数组参数的绑定"><a href="#5-数组参数的绑定" class="headerlink" title="5.数组参数的绑定"></a>5.数组参数的绑定</h4><p>在相应的方法里设置接收的数组参数要和页面的参数名一致，就可以把值传回来。</p>
+<pre><code>public String queryItem(QueryVo vo, Integer[] ids)
+</code></pre><h4 id="6-List参数绑定"><a href="#6-List参数绑定" class="headerlink" title="6.List参数绑定"></a>6.List参数绑定</h4><p>利用实体中的set设置值get获取值，在方法中利用包装实体获得参数值，页面需要用到foreach的valuestatus，来完成下标的获取，status.index</p>
+<h4 id="7-RequestMapping用法"><a href="#7-RequestMapping用法" class="headerlink" title="7.@RequestMapping用法"></a>7.@RequestMapping用法</h4><p>1.放在类名上为请求的url设置分类<br>原先：http:///move.action<br>后来：http:///people/move.action</p>
+<p>2.限定请求方法<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc08.png" alt=""><br>3.路径映射可以是数组<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc09.png" alt=""></p>
+<h4 id="8-Controller方法返回值"><a href="#8-Controller方法返回值" class="headerlink" title="8.Controller方法返回值"></a>8.Controller方法返回值</h4><p>1.ModelAndView<br>返回ModelAndView中设置的值，跳转到相应的页面和返回相应的属性值<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc10.png" alt=""><br>2.void返回值<br>通过request和response向页面传值，或跳转页面<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc11.png" alt=""><br>3.返回字符串<br>就是返回逻辑视图，也就是页面<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc12.png" alt=""><br>return “item”转发<br>return “forward: item”;转发<br>return “redirect:item”重定向</p>
+<h4 id="9-乱码的问题"><a href="#9-乱码的问题" class="headerlink" title="9.乱码的问题"></a>9.乱码的问题</h4><pre><code>乱码问题{
+ 提交问题{
+post乱码：过滤器解决;
+
+&lt;!-- 解决post乱码问题 --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;encoding&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;!-- 设置编码参是UTF8 --&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;encoding&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+get乱码：tomcat配置 URIEncoding=&quot;utf-8&quot;
+ }
+
+ 响应乱码{
+response乱码：获取getWriter之前，response.setCharacterEncoding(&quot;utf-8&quot;);
+ }
+
+}
+</code></pre><h4 id="10-异常处理"><a href="#10-异常处理" class="headerlink" title="10.异常处理"></a>10.异常处理</h4><p>1.编写全局异常类</p>
+<pre><code>public class CustomerException implements HandlerExceptionResolver {
+
+@Override
+public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object hanlder,
+        Exception e) {
+    //记录日志
+    e.printStackTrace();
+    //错误消息 
+    String msg = &quot;很抱歉，系统发生异常了，请联系管理员&quot;;
+
+    //响应用户错误提示
+    ModelAndView mav = new ModelAndView();
+    //返回错误消息
+    mav.addObject(&quot;msg&quot;, msg);
+    //响应错误提示页面
+    mav.setViewName(&quot;msg&quot;);
+    return mav;
+}
+}
+</code></pre><p>2.配置springmvc.xml</p>
+<pre><code>&lt;bean class=&quot;全局异常处理类的位置&quot;/&gt;
+</code></pre><p>3.更加友好的异常处理(具体到具体错误)<br>在全局异常处理类的基础上，自定义异常类<br>(1)自定义异常类</p>
+<pre><code>public class MyException extends Exception {
+
+//错误消息
+private String msg;
+
+public MyException() {
+    super();
+}
+public MyException(String msg) {
+    super();
+    this.msg = msg;
+}
+public String getMsg() {
+    return msg;
+}
+public void setMsg(String msg) {
+    this.msg = msg;
+}
+}
+</code></pre><p>(2)修改全局异常类</p>
+<pre><code>public class CustomerExceptionResolver implements HandlerExceptionResolver {
+
+@Override
+public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object hanlder,
+        Exception ex) {
+    String result = &quot;系统发生异常了，请联系管理员！&quot;;
+    //自定义异常处理
+    if(ex instanceof MyException){
+        result = ((MyException)ex).getMsg();
+    }
+    ModelAndView mav = new ModelAndView();
+    mav.addObject(&quot;msg&quot;, result);
+    mav.setViewName(&quot;msg&quot;);
+    return mav;
+}
+
+}
+</code></pre><p>(3)在测试类中添加相应的new MyException(“msg”)<br>如果出现异常则会抛出。</p>
+<h4 id="11-json交互"><a href="#11-json交互" class="headerlink" title="11.json交互"></a>11.json交互</h4><p>引入jar包<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc13.png" alt=""><br>通过在方法上配置@ResponseBody或者在接收参数上配置@RequestBody，就可以向页面发送json数据，或者从页面接收json数据</p>
+<pre><code>@RequestMapping(&quot;getItem&quot;)
+//@ResponseBody把pojo转成json串响应用户
+@ResponseBody
+//@RequestBody用于接收用户传入json串转成pojo
+public Item getItem(@RequestBody Item item2) {
+
+    System.out.println(&quot;接收到的json商品数据为：&quot; + item2);
+
+    Item item = itemServices.getItemById(3);
+    return item;
+}
+</code></pre><h4 id="12-Restful"><a href="#12-Restful" class="headerlink" title="12.Restful"></a>12.Restful</h4><p>使得连接更加简介</p>
+<pre><code>//RESTful风格url上的参数通过{}点位符绑定
+//点位符参数名与方法参数名不一致时，通过@PathVariable绑定
+@RequestMapping(&quot;/item/{id}&quot;)
+public String testRest(@PathVariable(&quot;id&quot;) Integer ids, Model model) {
+    Item item = itemServices.getItemById(ids);
+    model.addAttribute(&quot;item&quot;, item);
+    return &quot;itemEdit&quot;;
+}
+</code></pre><h4 id="13-拦截器"><a href="#13-拦截器" class="headerlink" title="13.拦截器"></a>13.拦截器</h4><p>(1)拦截器类</p>
+<pre><code>public class MyInterceptor1 implements HandlerInterceptor {
+
+//在Controller方法执行后被执行
+//处理异常、记录日志
+@Override
+public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
+        throws Exception {
+    System.out.println(&quot;MyInterceptor1.afterCompletion.....&quot;);
+}
+
+//在Controller方法执行后，返回ModelAndView之前被执行
+//设置或者清理页面共用参数等等
+@Override
+public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
+        throws Exception {
+    System.out.println(&quot;MyInterceptor1.postHandle.....&quot;);
+}
+
+//在Controller方法执行前被执行
+//登录拦截、权限认证等等
+@Override
+public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
+
+    System.out.println(&quot;MyInterceptor1.preHandle.....&quot;);
+
+    //返回true放行，false拦截
+    return true;
+}
+
+}
+</code></pre><p>(2)在springmvc.xml中配置拦截器</p>
+<pre><code>&lt;!-- 拦截器定义 --&gt;
+&lt;mvc:interceptors&gt;
+    &lt;!-- 定义一个拦截器 --&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;!-- path配置&lt;/**&gt;拦截所有请求，包括二级以上目录，&lt;/*&gt;拦截所有请求，不包括二级以上目录 --&gt;
+        &lt;mvc:mapping path=&quot;/**&quot;/&gt;
+        &lt;bean class=&quot;com.itheima.springmvc.interceptor.MyInterceptor1&quot; /&gt;
+    &lt;/mvc:interceptor&gt;
+
+    &lt;!-- 定义一个拦截器 --&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;!-- path配置&lt;/**&gt;拦截所有请求，包括二级以上目录，&lt;/*&gt;拦截所有请求，不包括二级以上目录 --&gt;
+        &lt;mvc:mapping path=&quot;/**&quot;/&gt;
+        &lt;bean class=&quot;com.itheima.springmvc.interceptor.MyInterceptor2&quot; /&gt;
+    &lt;/mvc:interceptor&gt;
+&lt;/mvc:interceptors&gt;
+</code></pre><p>(3)拦截器调用顺序<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringmvc14.png" alt=""></p>
+
       
 
       
@@ -677,6 +848,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -685,19 +860,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,6 +876,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
@@ -717,15 +888,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,11 +896,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,11 +916,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,10 +952,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
@@ -793,7 +960,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,11 +968,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
