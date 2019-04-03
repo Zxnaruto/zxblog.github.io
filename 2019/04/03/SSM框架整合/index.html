@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Tag: Struts | XiaoHuZiZx</title>
+  <title>SSM框架整合 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHuZiZx">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/tags/Struts/index.html">
+  <meta name="description" content="一、ssm工程架构">
+<meta name="keywords" content="ssm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM框架整合">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/04/03/SSM框架整合/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
+<meta property="og:description" content="一、ssm工程架构">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm01.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm02.png">
+<meta property="og:updated_time" content="2019-04-03T09:36:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoHuZiZx">
+<meta name="twitter:title" content="SSM框架整合">
+<meta name="twitter:description" content="一、ssm工程架构">
+<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm01.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -190,340 +198,552 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SSM框架整合" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SSM框架整合
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/04/03/SSM框架整合/" class="archive-article-date">
+  	<time datetime="2019-04-03T09:31:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+        
+
+		<span class="archive-article-date">
+			浏览次数: <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      
+      </header>
+ 
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、ssm工程架构"><a href="#一、ssm工程架构" class="headerlink" title="一、ssm工程架构"></a>一、ssm工程架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm01.png" alt=""><br><a id="more"></a></p>
+<h3 id="二、导入jar包"><a href="#二、导入jar包" class="headerlink" title="二、导入jar包"></a>二、导入jar包</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm02.png" alt=""></p>
+<h3 id="三、具体实现"><a href="#三、具体实现" class="headerlink" title="三、具体实现"></a>三、具体实现</h3><h4 id="1-创建实体对象"><a href="#1-创建实体对象" class="headerlink" title="1.创建实体对象"></a>1.创建实体对象</h4><p>包含对象属性，及get\set方法</p>
+<h4 id="2-创建实体mapper接口和映射的xml-dao层"><a href="#2-创建实体mapper接口和映射的xml-dao层" class="headerlink" title="2.创建实体mapper接口和映射的xml(dao层)"></a>2.创建实体mapper接口和映射的xml(dao层)</h4><p>mapper接口：里面是相应方法的声明<br>mapper.xml：配置映射接口，以及相应的实现语句</p>
+<p>注意：映射为接口的全路径，而且里面方法的id为接口中方法的名称，入参类型为方法的参数类型，返回结果类型也是方法的返回结果类型。</p>
+<h4 id="3-创建service层"><a href="#3-创建service层" class="headerlink" title="3.创建service层"></a>3.创建service层</h4><p>里面含有service接口和实现类，接口中声明相应的方法，接口实现类中实现这些方法，具体就是使用dao层的方法，来实现相应的操作。</p>
+<h4 id="4-创建web层"><a href="#4-创建web层" class="headerlink" title="4.创建web层"></a>4.创建web层</h4><p>调用service层的方法，利用各种传参的方式把运行结果返回给页面。</p>
+<h4 id="5-配置文件"><a href="#5-配置文件" class="headerlink" title="5.配置文件"></a>5.配置文件</h4><p>(1)SqlMapConfig.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+
+&lt;/configuration&gt;
+</code></pre><p>是一个空的配置文件，但也必须有。<br>(2)applicationContext-dao.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+
+&lt;!-- 配置 读取properties文件 jdbc.properties --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot; /&gt;
+
+&lt;!-- 配置 数据源 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driverClass}&quot; /&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置SqlSessionFactory --&gt;
+&lt;bean class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;!-- 设置MyBatis核心配置文件 --&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:SqlMapConfig.xml&quot; /&gt;
+    &lt;!-- 设置数据源 --&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+    &lt;!-- 别名包扫描 --&gt;
+    &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;pers.zx.ssm.domain&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置Mapper扫描 --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;!-- 设置Mapper扫描包 --&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;pers.zx.ssm.mapper&quot; /&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>配置和设置数据源，并且要类似于ssh那样注入dao，这里是配置扫描mapper。</p>
+<p>(3)applicationContext-service.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+
+&lt;!-- 配置Service扫描 --&gt;
+&lt;context:component-scan base-package=&quot;pers.zx.ssm.service&quot; /&gt;
+</code></pre><p></p>
+<p>使用注解方式来注入。</p>
+<p>(4)applicationCOntext-tran.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+
+&lt;!-- 事务管理器 --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;!-- 数据源 --&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- 通知 --&gt;
+&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;!-- 传播行为 --&gt;
+        &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;insert*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;add*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;create*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot; /&gt;
+        &lt;tx:method name=&quot;find*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;
+        &lt;tx:method name=&quot;select*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;
+        &lt;tx:method name=&quot;get*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;
+        &lt;tx:method name=&quot;query*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!-- 切面 --&gt;
+&lt;aop:config&gt;
+    &lt;aop:advisor advice-ref=&quot;txAdvice&quot;
+        pointcut=&quot;execution(* pers.zx.ssm.service.*.*(..))&quot; /&gt;
+&lt;/aop:config&gt;
+
+&lt;/beans&gt;
+</code></pre><p>进行事务管理，这里不和service写在一起是应为分开更好管理。不同的配置文件的属性也可以共享。比如这里注入dataSource</p>
+<p>(5)springmvc.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;
+&lt;!-- 配置Controller扫描 --&gt;
+&lt;context:component-scan base-package=&quot;pers.zx.ssm.web&quot; /&gt;
+&lt;!-- 属性文件的加载 --&gt;
+&lt;context:property-placeholder location=&quot;classpath:crm.properties&quot;/&gt;
+
+&lt;!-- 配置注解驱动 --&gt;
+&lt;mvc:annotation-driven /&gt;
+&lt;!-- 解决静态资源无法被springmvc处理 --&gt;
+</code></pre><p>  <a href="mvc:default-servlet-handler/" target="_blank" rel="noopener">mvc:default-servlet-handler/</a></p>
+<pre><code>&lt;!-- 配置视图解析器 --&gt;
+&lt;bean    class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    &lt;!-- 前缀 --&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+    &lt;!-- 后缀 --&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+&lt;/bean&gt;
+
+
+&lt;/beans&gt;
+</code></pre><p>配置springmvc的三个核心：处理器、适配器、视图解析器。由于也用注解，所以也要扫包，至于用属性文件是因为为了方便配置，至于为啥写到这，是因为是在web层用的。其中还配置了一个防止静态资源无法加载的标签。</p>
+<p>(6)web.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+  &lt;display-name&gt;SSM&lt;/display-name&gt;
+  &lt;welcome-file-list&gt;
+&lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+      &lt;!-- 配置spring --&gt;
+&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:spring/applicationContext-*.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+
+&lt;!-- 配置监听器加载spring --&gt;
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;!-- 配置过滤器，解决post的乱码问题 --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;encoding&lt;/filter-name&gt;    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;encoding&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+&lt;!-- 配置SpringMVC --&gt;
+&lt;servlet&gt;
+    &lt;servlet-name&gt;ssm&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:spring/springmvc.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;!-- 配置springmvc什么时候启动，参数必须为整数 --&gt;
+    &lt;!-- 如果为0或者大于0，则springMVC随着容器启动而启动 --&gt;
+    &lt;!-- 如果小于0，则在第一次请求进来的时候启动 --&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;ssm&lt;/servlet-name&gt;
+    &lt;!-- 所有的请求都进入springMVC --&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre><p>加载spring配置文件，配置spring监听器，配置springmvc拦截器，配置过滤器解决乱码问题。</p>
+<p>(7)jdbc.properties</p>
+<pre><code>jdbc.driverClass=com.mysql.jdbc.Driver
+    jdbc.url=jdbc:mysql:///ssm?characterEncoding=utf-8
+jdbc.username=root
+jdbc.password=root
+</code></pre><p>(8)crm.properties</p>
+<pre><code>customer_from_type=002
+customer_industry_type=001
+customer_level_type=006
+</code></pre><p>(9)log4j.properties</p>
+<pre><code># Global logging configuration
+log4j.rootLogger=DEBUG, stdout
+# Console output...
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+</code></pre><h3 id="四、代码"><a href="#四、代码" class="headerlink" title="四、代码"></a>四、代码</h3><p>(1)实体</p>
+<pre><code>package pers.zx.ssm.domain;
+
+public class BaseDict {
+private String dict_id;
+private String dict_type_code;
+private String dict_type_name;
+private String dict_item_name;
+private String dict_item_code;
+private Integer dict_sort;
+private String dict_enable;
+private String dict_memo;
+public String getDict_id() {
+    return dict_id;
+}
+public void setDict_id(String dict_id) {
+    this.dict_id = dict_id;
+}
+public String getDict_type_code() {
+    return dict_type_code;
+}
+public void setDict_type_code(String dict_type_code) {
+    this.dict_type_code = dict_type_code;
+}
+public String getDict_type_name() {
+    return dict_type_name;
+}
+public void setDict_type_name(String dict_type_name) {
+    this.dict_type_name = dict_type_name;
+}
+public String getDict_item_name() {
+    return dict_item_name;
+}
+public void setDict_item_name(String dict_item_name) {
+    this.dict_item_name = dict_item_name;
+}
+public String getDict_item_code() {
+    return dict_item_code;
+}
+public void setDict_item_code(String dict_item_code) {
+    this.dict_item_code = dict_item_code;
+}
+public Integer getDict_sort() {
+    return dict_sort;
+}
+public void setDict_sort(Integer dict_sort) {
+    this.dict_sort = dict_sort;
+}
+public String getDict_enable() {
+    return dict_enable;
+}
+public void setDict_enable(String dict_enable) {
+    this.dict_enable = dict_enable;
+}
+public String getDict_memo() {
+    return dict_memo;
+}
+public void setDict_memo(String dict_memo) {
+    this.dict_memo = dict_memo;
+}
+
+
+}
+</code></pre><p>(2)mapper<br>接口</p>
+<pre><code>public interface BaseDictMapper {
+
+List&lt;BaseDict&gt; getBaseDictByCode(String code);
+}
+</code></pre><p>映射</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;pers.zx.ssm.mapper.BaseDictMapper&quot;&gt;
+    &lt;select id=&quot;getBaseDictByCode&quot; parameterType=&quot;string&quot; resultType=&quot;basedict&quot;&gt;
+    SELECT
+      `dict_id`,
+      `dict_type_code`,
+      `dict_type_name`,
+      `dict_item_name`,
+      `dict_item_code`,
+      `dict_sort`,
+      `dict_enable`,
+      `dict_memo`
+    FROM `base_dict`
+    WHERE dict_type_code = #{code}
+&lt;/select&gt;
+
+&lt;/mapper&gt;
+</code></pre><p>(3)service<br>接口</p>
+<pre><code>public interface BaseDictService {
+
+List&lt;BaseDict&gt; getBaseDictByCode(String code);
+}
+</code></pre><p>实现类</p>
+<pre><code>@Service
+public class BaseDictServiceImpl implements BaseDictService {
+
+@Autowired
+private BaseDictMapper baseDictMapper;//注入BaseDictMapper
+public List&lt;BaseDict&gt; getBaseDictByCode(String code) {
+
+    return baseDictMapper.getBaseDictByCode(code);
+}
+
+}
+</code></pre><p>(4)web(Controller)</p>
+<pre><code>@Controller
+@RequestMapping(&quot;customer&quot;)
+public class CustomerController {
+
+@Autowired
+private BaseDictService baseDictService;
+@Autowired
+private CustomerService customerService;
+@Value(&quot;${customer_from_type}&quot;)
+private String customer_from_type;
+
+@Value(&quot;${customer_industry_type}&quot;)
+private String customer_industry_type;
+
+@Value(&quot;${customer_level_type}&quot;)
+private String customer_level_type;
+
+@RequestMapping(&quot;list&quot;)
+public String list(Model model,QueryVo vo) {
+    // 查询来源
+            List&lt;BaseDict&gt; fromType = baseDictService.getBaseDictByCode(customer_from_type);
+            // 查询行业
+            List&lt;BaseDict&gt; industryType = baseDictService.getBaseDictByCode(customer_industry_type);
+            // 查询级别
+            List&lt;BaseDict&gt; levelType = baseDictService.getBaseDictByCode(customer_level_type);
+
+            // 设置数据模型返回
+            model.addAttribute(&quot;fromType&quot;, fromType);
+            model.addAttribute(&quot;industryType&quot;, industryType);
+            model.addAttribute(&quot;levelType&quot;, levelType);
+            //跟据查询条件分页查询用户列表
+            Page&lt;Customer&gt; page = customerService.getCustomerByQueryVo(vo);
+
+            //设置分页数返回
+            model.addAttribute(&quot;page&quot;, page);
+
+            //返回查询条件
+            model.addAttribute(&quot;vo&quot;, vo);
+    return &quot;customer&quot;;
+}
+}
+</code></pre><p>五、小结<br>这里用的是注解的方式+xml的方式。其中配置spring的配置文件的方式有些类似于分模块开发的ssh。但也要注意一些细节，比如web.xml的配置不同，因为struts和springmvc不同。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you,么么哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/ap.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://zxnaruto.github.io/zxblog.github.io/uploads/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zxblog.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Struts2综合应用之NinjaManagementSystem-忍者信息管理系统/" class="archive-article-date">
-  	<time datetime="2018-07-04T09:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Struts2综合应用之NinjaManagementSystem-忍者信息管理系统/">Struts2综合应用之NinjaManagementSystem(忍者信息管理系统)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+     
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/04/03/SSM框架整合/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/07/04/Struts2框架结构/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:36:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/zxblog.github.io/2019/04/02/SpringMVC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringMVC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/07/04/Struts2框架结构/">Struts2框架结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/" class="archive-article-date">
-  	<time datetime="2018-05-19T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/20/Struts2拦截器实例/">Struts2拦截器实例</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/" class="archive-article-date">
-  	<time datetime="2018-05-18T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/19/Struts2自定义拦截器/">Struts2自定义拦截器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/" class="archive-article-date">
-  	<time datetime="2018-05-13T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/14/struts2传值方式与动态result/">struts2传值方式与动态result</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zxblog.github.io/2018/05/11/struts2应用之一HelloWorld/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:22:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zxblog.github.io/2018/05/11/struts2应用之一HelloWorld/">struts2应用之一HelloWorld</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Struts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="SSM框架整合" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAwfJDC",
+        conf: "69772892f08535443ed942691be63dc1"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -559,9 +779,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
