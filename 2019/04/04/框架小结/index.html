@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>框架小结 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。 2.运行所需struts所需jar包，相应的action类(一般继承ActionSupport)，web.xml，struts.xml，相应的jsp页面(1)web.xml：配置struts2的过滤器StrutsPrepareAndExe">
-<meta name="keywords" content="hibernate,maven,mybatis,ssh,ssm,struts2,springmvc,spring,servlet,mvc">
+  <meta name="description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。">
+<meta name="keywords" content="hibernate,maven,ssh,mybatis,ssm,springmvc,spring,struts2,servlet,mvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="框架小结">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/04/04/框架小结/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。 2.运行所需struts所需jar包，相应的action类(一般继承ActionSupport)，web.xml，struts.xml，相应的jsp页面(1)web.xml：配置struts2的过滤器StrutsPrepareAndExe">
+<meta property="og:description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-04T11:55:56.000Z">
+<meta property="og:updated_time" content="2019-04-04T14:02:41.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="框架小结">
-<meta name="twitter:description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。 2.运行所需struts所需jar包，相应的action类(一般继承ActionSupport)，web.xml，struts.xml，相应的jsp页面(1)web.xml：配置struts2的过滤器StrutsPrepareAndExe">
+<meta name="twitter:description" content="一、Struts21.简介struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -224,6 +224,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、Struts2"><a href="#一、Struts2" class="headerlink" title="一、Struts2"></a>一、Struts2</h3><h4 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h4><p>struts2是一个基于MVC设计模式的web层框架。它的核心是过滤器(StrutsPrepareAndExecuteFilter)。</p>
+<a id="more"></a>
 <h4 id="2-运行所需"><a href="#2-运行所需" class="headerlink" title="2.运行所需"></a>2.运行所需</h4><p>struts所需jar包，相应的action类(一般继承ActionSupport)，web.xml，struts.xml，相应的jsp页面<br>(1)web.xml：配置struts2的过滤器StrutsPrepareAndExecuteFilter，以及一些常量的配置。<br>(2)struts.xml：配置相应的action及其所属类的路径，还有以及相应结果的返回方法。</p>
 <h4 id="3-运行过程"><a href="#3-运行过程" class="headerlink" title="3.运行过程"></a>3.运行过程</h4><p>(1)配置文件执行流程：<br>默认的属性文件default.properties—–&gt;加载struts-default.xml—–&gt;struts-plugin.xml—–&gt;struts.xml—–&gt;加载struts.properties—–&gt;加载配置提供类—-&gt;加载web.xml，过滤器初始化参数—-&gt;加载Bean对象<br>(2)在配置文件都加载后大致的执行过程<br>用户发送请求的action,这个action请求会先经过核心过滤器，核心过滤器里面有一连串的拦截器<br>，在经过他们后，根据action名找到相应的执行类，通过配置找到相应要执行的方法，执行完方法后会有个返回值，再根据这个返回值，会执行相应的操作，调用相应的返回结果。</p>
 <h4 id="4-过滤器中拦截器的调用"><a href="#4-过滤器中拦截器的调用" class="headerlink" title="4.过滤器中拦截器的调用"></a>4.过滤器中拦截器的调用</h4><p>拦截器其实就是利用一个action的代理在递归的调用，如果访问都没有错，那么就执行相应的动作。<br><strong>具体过程：</strong><br>先初始化，然后执行doFilter,之后调用executeaction（）方法，在其内部调用dispatcher.serviceAction();创建代理，代理会执行innovation.invoke（）方法,这个方法就是一个递归，会递归执行所有拦截器。如果都没有错，那么就执行相应的动作。</p>
@@ -467,19 +468,15 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -488,6 +485,10 @@ var _hmt = _hmt || [];
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -756,19 +757,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,11 +781,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,15 +797,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,7 +837,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -844,7 +849,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,19 +857,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,6 +874,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
