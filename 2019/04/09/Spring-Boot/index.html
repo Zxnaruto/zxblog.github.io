@@ -21,7 +21,34 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot03.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot04.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot05.png">
-<meta property="og:updated_time" content="2019-04-08T16:57:08.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot06.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot07.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot08.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot09.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot10.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot11.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot12.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot13.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot14.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot15.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot16.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot17.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot18.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot19.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot20.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot21.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot22.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot23.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot24.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot25.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot26.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot27.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot28.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot29.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot30.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot31.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot32.png">
+<meta property="og:updated_time" content="2019-04-09T12:55:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot">
 <meta name="twitter:description" content="一、Spring Boot入门1.简介Spring Boot是J2EE开发的一站式框架，简化Spring开发，整合Spring整个技术栈，包含Spring全家桶。 2.Spring Boot优点 1.快速创建独立运行的Spring项目以及与主流框架集成2.使用嵌入式的Servlet容器，应用无需打成WAR包3.starters自动依赖与版本控制4.大量的自动配置，简化开发，也可修改默认值5.无需配">
@@ -290,7 +317,7 @@ public static void main(String[] args) {
 <pre><code>import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+//@RestController就是@Controller和 @ResponseBody的结合
 @Controller
 public class HelloWorldController {
 @ResponseBody
@@ -336,12 +363,80 @@ classes = {AutoConfigurationExcludeFilter.class}
 </code></pre><p>也是一些注解<br>其中<br><strong>1</strong><br><strong>①.@SpringBootConfiguration</strong>：表示被标注的类是SpringBoot的配置类<br><strong>②.在@SpringBootConfiguration中有个@Configuration</strong>：表明被配置的类是一个配置类<br><strong>③.在@Configuration中有@Componment</strong>：在配置类下面通过组件来完成操作。</p>
 <p><strong>2</strong><br><strong>①.@EnableAutoConfiguration</strong>：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span></span><br><span class="line"><span class="meta">@Import</span>(&#123;EnableAutoConfigurationImportSelector.class&#125;)</span><br></pre></td></tr></table></figure>
-<p><strong>②.在@EnableAutoConfiguration中有个@AutoConfigurationPackage</strong>：自动配置包</p>
+<p><strong>②.在@EnableAutoConfiguration中有个@AutoConfigurationPackage</strong>：自动配置包，定义默认的包扫描规则 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Import</span>(&#123;Registrar.class&#125;)</span><br></pre></td></tr></table></figure>
 <p><strong>③.@Import({Registrar.class})</strong>：其中import是Spring底层的注解，功能是给容器导入一个组件，而它导入的组件Registrar.class目的是将@SpringBootApplication标注的类的所在包以及子包都扫描到Spring容器，这也就是为什么@Controller等注解可以被识别。</p>
 <p><strong>④.@Import({EnableAutoConfigurationImportSelector.class})</strong>：导入组件的选择器，将所需要导入的组件以全类名的方式返回，这些组件就会被添加到容器中。来供程序运行使用。</p>
 <p><strong>⑤.SpringFactoriesLoader.loadFactoryNames(EnableAutoConﬁguration.class,classLoader)；</strong>：Spring Boot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConﬁguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；以前我们需要自己配置的东西，自动配置类都帮我们配置；<br>J2EE的整体整合解决方案和自动配置都在spring-boot-autoconﬁgure-1.5.20.RELEASE.jar；<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot05.png" alt=""></p>
-<h3 id="二、Spring-Boot配置"><a href="#二、Spring-Boot配置" class="headerlink" title="二、Spring Boot配置"></a>二、Spring Boot配置</h3><h3 id="三、Spring-Boot与日志"><a href="#三、Spring-Boot与日志" class="headerlink" title="三、Spring Boot与日志"></a>三、Spring Boot与日志</h3><h3 id="四、Spring-Boot与web开发"><a href="#四、Spring-Boot与web开发" class="headerlink" title="四、Spring Boot与web开发"></a>四、Spring Boot与web开发</h3><h3 id="五、Spring-Boot与Docker"><a href="#五、Spring-Boot与Docker" class="headerlink" title="五、Spring Boot与Docker"></a>五、Spring Boot与Docker</h3><h3 id="六、Spring-Boot与数据访问"><a href="#六、Spring-Boot与数据访问" class="headerlink" title="六、Spring Boot与数据访问"></a>六、Spring Boot与数据访问</h3><h3 id="七、Spring-Boot启动配置原理"><a href="#七、Spring-Boot启动配置原理" class="headerlink" title="七、Spring Boot启动配置原理"></a>七、Spring Boot启动配置原理</h3><h3 id="八、Spring-Boot自定义starters"><a href="#八、Spring-Boot自定义starters" class="headerlink" title="八、Spring Boot自定义starters"></a>八、Spring Boot自定义starters</h3><h3 id="九、Spring-Boot与缓存"><a href="#九、Spring-Boot与缓存" class="headerlink" title="九、Spring Boot与缓存"></a>九、Spring Boot与缓存</h3><h3 id="十、Spring-Boot与消息"><a href="#十、Spring-Boot与消息" class="headerlink" title="十、Spring Boot与消息"></a>十、Spring Boot与消息</h3><h3 id="十一、Spring-Boot与检索"><a href="#十一、Spring-Boot与检索" class="headerlink" title="十一、Spring Boot与检索"></a>十一、Spring Boot与检索</h3><h3 id="十二、Spring-Boot与任务"><a href="#十二、Spring-Boot与任务" class="headerlink" title="十二、Spring Boot与任务"></a>十二、Spring Boot与任务</h3><h3 id="十三、Spring-Boot与安全"><a href="#十三、Spring-Boot与安全" class="headerlink" title="十三、Spring Boot与安全"></a>十三、Spring Boot与安全</h3><h3 id="十四、Spring-Boot与分布式"><a href="#十四、Spring-Boot与分布式" class="headerlink" title="十四、Spring Boot与分布式"></a>十四、Spring Boot与分布式</h3><h3 id="十五、Spring-Boot与开发热部署"><a href="#十五、Spring-Boot与开发热部署" class="headerlink" title="十五、Spring Boot与开发热部署"></a>十五、Spring Boot与开发热部署</h3><h3 id="十六、Spring-Boot与监控管理"><a href="#十六、Spring-Boot与监控管理" class="headerlink" title="十六、Spring Boot与监控管理"></a>十六、Spring Boot与监控管理</h3>
+<h4 id="7-使用Spring-Initializer快速创建Spring-Boot项目"><a href="#7-使用Spring-Initializer快速创建Spring-Boot项目" class="headerlink" title="7.使用Spring Initializer快速创建Spring Boot项目"></a>7.使用Spring Initializer快速创建Spring Boot项目</h4><p><strong>IDEA</strong><br>1.创建项目<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot06.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot07.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot08.png" alt=""><br> 2.项目结构<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot09.png" alt=""><br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot10.png" alt=""></p>
+<h3 id="二、Spring-Boot配置"><a href="#二、Spring-Boot配置" class="headerlink" title="二、Spring Boot配置"></a>二、Spring Boot配置</h3><h4 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1.配置文件"></a>1.配置文件</h4><p>(1)Spring Boot全局配置文件有两个：</p>
+<blockquote>
+<p>application.xml<br>application.yml</p>
+</blockquote>
+<p>其作用都是修改Spring Boot自动配置的默认值。<br>其中我们不熟悉的是application.yml<br>YAML:以数据为中心，比json、xml更适合做配置文件<br>很简洁<br>yml例子：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
+<p>XML:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">port</span>&gt;</span>8081<span class="tag">&lt;/<span class="name">port</span>&gt;</span>     </span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>(2)yml语法<br>①.yml基本语法<br>k:(空格)v：表示一对键值对（空格必须有）</p>
+<blockquote>
+<p>1.使用缩进表示层级关系<br>  2.缩进时不允许使用Tab键，只允许使用空格。<br>  3.缩进的空格数目不重要，只要相同层级的元素左侧对齐即可<br>  4.大小写敏感</p>
+</blockquote>
+<p>②.yml支持的三种数据结构</p>
+<blockquote>
+<p>对象：键值对的集合<br>数组：一组按次序排列的值<br>字面量：单个的、不可再分的值（数字，字符串，布尔）<br>文档：多个文档用 - - - 隔开 </p>
+</blockquote>
+<p>③.例子<br><strong>字面量</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot11.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot12.png" alt=""><br><strong>对象</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot13.png" alt=""><br><strong>数组</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot14.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot15.png" alt=""></p>
+<p>④.yml配置文件值获取<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot16.png" alt=""><br>@ConfigurationProperties(prefix = “person”）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定；prefix = “person”：配置文件中哪个下面的所有属性进行一一映射<br>@Component ：将组件加入容器中，只有这样才可以用@ConfigurationProperties</p>
+<p><strong>对实体属性的设置，通过@ConfigurationProperties和@Component 进行配置文件和实体的关联。即属性注入。</strong></p>
+<p>⑤.为了编写有提示，可以在pom.xml中配置</p>
+<pre><code>&lt;!‐‐导入配置文件处理器，配置文件进行绑定就会有提示‐‐&gt;
+ &lt;dependency&gt;          
+ &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              
+ &lt;artifactId&gt;spring‐boot‐configuration‐processor&lt;/artifactId&gt;              
+ &lt;optional&gt;true&lt;/optional&gt;              
+ &lt;/dependency
+</code></pre><p>⑥.properties配置文件编写<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot17.png" alt=""><br>防止properties输出乱码<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot18.png" alt=""></p>
+<h4 id="2-Value与-ConfigurationProperties区别"><a href="#2-Value与-ConfigurationProperties区别" class="headerlink" title="2.@Value与@ConfigurationProperties区别"></a>2.@Value与@ConfigurationProperties区别</h4><p>二者都是对属性注入值的注解<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot19.png" alt=""><br>不管是yml还是properties文件都可以获取值。<br>(1)具体使用<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot20.png" alt=""><br>(2)用法<br>如果说，我们只是在某个业务逻辑中需要获取一下配置文件中的某项值，使用@Value<br>如果说，我们专门编写了一个javaBean来和配置文件进行映射，我们就直接使用@ConﬁgurationProperties</p>
+<h4 id="3-PropertySource、-ImportResource、-Bean、-Validated"><a href="#3-PropertySource、-ImportResource、-Bean、-Validated" class="headerlink" title="3.@PropertySource、@ImportResource、@Bean、@Validated"></a>3.@PropertySource、@ImportResource、@Bean、@Validated</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@PropertySource</span>：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line"> <span class="meta">@ImportResource</span>：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line"> <span class="meta">@Bean</span>：：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容器中这个组件默认的id就是方法名  </span><br><span class="line"></span><br><span class="line">1.#####################################</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@ConfigurationProperties</span>(prefix = "person")默认从全局配置文件中获取值；</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@PropertySource</span>(value = &#123;"classpath:person.properties"&#125;)从配置文件中获取值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@PropertySource</span>(value = &#123;<span class="string">"classpath:person.properties"</span>&#125;)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="comment">//@ConfigurationProperties(prefix = "person")</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">  </span><br><span class="line">2.#######################################</span><br><span class="line">在主入口类上加，就可以将配置文件里的内容注入到容器中</span><br><span class="line"><span class="meta">@ImportResource</span>(locations = &#123;<span class="string">"classpath:beans.xml"</span>&#125;)</span><br><span class="line">xml</span><br><span class="line">&lt;bean id="helloService" class="com.atguigu.springboot.service.HelloService"&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>SpringBoot推荐使用全注解的方式，结合@Bean和@Configuration的配置类，来实现配置的属性注入和值的获取</strong></p>
+<pre><code> // @Configuration：指明当前类是一个配置类；就是来替代之前的Spring配置文件
+ //在配置文件中用&lt;bean&gt;&lt;bean/&gt;标签添加组件
+
+@Configuration
+public class MyAppConfig {
+
+//将方法的返回值添加到容器中；容器中这个组件默认的id就是方法名
+@Bean
+public HelloService helloService(){
+    System.out.println(&quot;配置类@Bean给容器中添加组件了...&quot;);
+    return new HelloService();
+}
+
+}
+</code></pre><p><strong>有了这个配置类，在启动程序后，配置的组件就会自动加入到容器中。</strong></p>
+<h4 id="4-SpringBoot占位符的使用"><a href="#4-SpringBoot占位符的使用" class="headerlink" title="4.SpringBoot占位符的使用"></a>4.SpringBoot占位符的使用</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot21.png" alt=""></p>
+<h4 id="5-SpringBoot-Profiles"><a href="#5-SpringBoot-Profiles" class="headerlink" title="5.SpringBoot Profiles"></a>5.SpringBoot Profiles</h4><p>通过不同的配置文件来进行不同阶段的执行、测试等等。<br><strong>1.多个profile文件</strong><br>我们在编写主配置文件的时候，文件名可以是application-{profile}.properties/yml<br>比如：application-dev.properties<br>默认使用的是application.properties的配置<br><strong>2.yml支持多文档块方式</strong></p>
+<pre><code>server:   
+port: 8081 
+spring:   
+profiles:     
+active: prod   
+---
+server:   
+port: 8083 
+spring:   profiles: dev    
+---  
+server:   
+ port: 8084 
+ spring:   
+ profiles: prod  #指定属于哪个环境
+</code></pre><p><strong>3.激活指定proﬁle</strong></p>
+<p>(1)在配置文件application.properties中指定 spring.proﬁles.active=dev<br>(2)命令行：<br>  java -jar spring-boot-02-conﬁg-0.0.1-SNAPSHOT.jar –spring.proﬁles.active=dev；<br>  可以直接在测试的时候，配置传入命令行参数<br> (3)虚拟机参数；<br> -Dspring.proﬁles.active=dev </p>
+<h4 id="6-配置文件的加载位置"><a href="#6-配置文件的加载位置" class="headerlink" title="6.配置文件的加载位置"></a>6.配置文件的加载位置</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot22.png" alt=""></p>
+<h4 id="7-外部配置文件的加载顺序"><a href="#7-外部配置文件的加载顺序" class="headerlink" title="7.外部配置文件的加载顺序"></a>7.外部配置文件的加载顺序</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot23.png" alt=""></p>
+<h4 id="8-SpringBoot自动配置"><a href="#8-SpringBoot自动配置" class="headerlink" title="8.SpringBoot自动配置"></a>8.SpringBoot自动配置</h4><p>1.可配置的属性参考<br>参考[<a href="https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/#common-application-properties]" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/#common-application-properties]</a><br>2.自动配制原理<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot24.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot25.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot26.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot27.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot28.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot29.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot30.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot31.png" alt=""><br>xxxxAutoConﬁgurartion：自动配置类<br>给容器中添加组件<br>xxxxProperties:封装配置文件中相关属性</p>
+<p><strong>在不配置的时候会启用默认配置，配置时会通过自动配置注解扫描到配置，通过反射来获取并执行配置</strong><br>3.细节<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot32.png" alt=""><br><strong>我们可以在配置文件中配置debug=true来看控制台启用了那些自动配置组件。</strong></p>
+<h3 id="三、Spring-Boot与日志"><a href="#三、Spring-Boot与日志" class="headerlink" title="三、Spring Boot与日志"></a>三、Spring Boot与日志</h3><h3 id="四、Spring-Boot与web开发"><a href="#四、Spring-Boot与web开发" class="headerlink" title="四、Spring Boot与web开发"></a>四、Spring Boot与web开发</h3><h3 id="五、Spring-Boot与Docker"><a href="#五、Spring-Boot与Docker" class="headerlink" title="五、Spring Boot与Docker"></a>五、Spring Boot与Docker</h3><h3 id="六、Spring-Boot与数据访问"><a href="#六、Spring-Boot与数据访问" class="headerlink" title="六、Spring Boot与数据访问"></a>六、Spring Boot与数据访问</h3><h3 id="七、Spring-Boot启动配置原理"><a href="#七、Spring-Boot启动配置原理" class="headerlink" title="七、Spring Boot启动配置原理"></a>七、Spring Boot启动配置原理</h3><h3 id="八、Spring-Boot自定义starters"><a href="#八、Spring-Boot自定义starters" class="headerlink" title="八、Spring Boot自定义starters"></a>八、Spring Boot自定义starters</h3><h3 id="九、Spring-Boot与缓存"><a href="#九、Spring-Boot与缓存" class="headerlink" title="九、Spring Boot与缓存"></a>九、Spring Boot与缓存</h3><h3 id="十、Spring-Boot与消息"><a href="#十、Spring-Boot与消息" class="headerlink" title="十、Spring Boot与消息"></a>十、Spring Boot与消息</h3><h3 id="十一、Spring-Boot与检索"><a href="#十一、Spring-Boot与检索" class="headerlink" title="十一、Spring Boot与检索"></a>十一、Spring Boot与检索</h3><h3 id="十二、Spring-Boot与任务"><a href="#十二、Spring-Boot与任务" class="headerlink" title="十二、Spring Boot与任务"></a>十二、Spring Boot与任务</h3><h3 id="十三、Spring-Boot与安全"><a href="#十三、Spring-Boot与安全" class="headerlink" title="十三、Spring Boot与安全"></a>十三、Spring Boot与安全</h3><h3 id="十四、Spring-Boot与分布式"><a href="#十四、Spring-Boot与分布式" class="headerlink" title="十四、Spring Boot与分布式"></a>十四、Spring Boot与分布式</h3><h3 id="十五、Spring-Boot与开发热部署"><a href="#十五、Spring-Boot与开发热部署" class="headerlink" title="十五、Spring Boot与开发热部署"></a>十五、Spring Boot与开发热部署</h3><h3 id="十六、Spring-Boot与监控管理"><a href="#十六、Spring-Boot与监控管理" class="headerlink" title="十六、Spring Boot与监控管理"></a>十六、Spring Boot与监控管理</h3>
       
 
       
@@ -618,14 +713,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -634,19 +721,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,19 +745,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,7 +769,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,19 +793,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">struts2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,7 +817,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,11 +829,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,11 +845,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
