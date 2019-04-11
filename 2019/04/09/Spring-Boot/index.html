@@ -87,7 +87,25 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot69.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot70.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot71.png">
-<meta property="og:updated_time" content="2019-04-10T16:54:06.000Z">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot72.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot73.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot74.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot75.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot76.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot77.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot78.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot79.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot80.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot81.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot82.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot83.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot84.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot85.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot86.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot87.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot88.png">
+<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot89.png">
+<meta property="og:updated_time" content="2019-04-11T08:59:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot">
 <meta name="twitter:description" content="一、Spring Boot入门1.简介Spring Boot是J2EE开发的一站式框架，简化Spring开发，整合Spring整个技术栈，包含Spring全家桶。 2.Spring Boot优点 1.快速创建独立运行的Spring项目以及与主流框架集成2.使用嵌入式的Servlet容器，应用无需打成WAR包3.starters自动依赖与版本控制4.大量的自动配置，简化开发，也可修改默认值5.无需配">
@@ -580,7 +598,23 @@ public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// super.addViewControllers(registry);</span></span><br><span class="line">        <span class="comment">//浏览器发送 /atguigu 请求来到 success</span></span><br><span class="line">        registry.addViewController(<span class="string">"/atguigu"</span>).setViewName(<span class="string">"success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//所有的WebMvcConfigurerAdapter组件都会一起起作用</span></span><br><span class="line">    <span class="meta">@Bean</span> <span class="comment">//将组件注册在容器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WebMvcConfigurerAdapter <span class="title">webMvcConfigurerAdapter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        WebMvcConfigurerAdapter adapter = <span class="keyword">new</span> WebMvcConfigurerAdapter() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">                registry.addViewController(<span class="string">"/"</span>).setViewName(<span class="string">"login"</span>);</span><br><span class="line">                registry.addViewController(<span class="string">"/index.html"</span>).setViewName(<span class="string">"login"</span>);</span><br><span class="line">                registry.addViewController(<span class="string">"/main.html"</span>).setViewName(<span class="string">"dashboard"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//注册拦截器</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//super.addInterceptors(registry);</span></span><br><span class="line">                <span class="comment">//静态资源；  *.css , *.js</span></span><br><span class="line">                <span class="comment">//SpringBoot已经做好了静态资源映射,所以不需要拦截</span></span><br><span class="line"><span class="comment">//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")</span></span><br><span class="line"><span class="comment">//                        .excludePathPatterns("/index.html","/","/user/login");</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> adapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LocaleResolver <span class="title">localeResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyLocaleResolver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>配置动作</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot71.png" alt=""></p>
 <p><strong>==注意：从国际化配置文件中获取值#{属性名 }，从一般属性获取值${属性名 }==</strong><br><strong>==从域对象中获取值${ 域对象.属性名}==</strong></p>
-<h3 id="五、Spring-Boot与Docker"><a href="#五、Spring-Boot与Docker" class="headerlink" title="五、Spring Boot与Docker"></a>五、Spring Boot与Docker</h3><h3 id="六、Spring-Boot与数据访问"><a href="#六、Spring-Boot与数据访问" class="headerlink" title="六、Spring Boot与数据访问"></a>六、Spring Boot与数据访问</h3><h3 id="七、Spring-Boot启动配置原理"><a href="#七、Spring-Boot启动配置原理" class="headerlink" title="七、Spring Boot启动配置原理"></a>七、Spring Boot启动配置原理</h3><h3 id="八、Spring-Boot自定义starters"><a href="#八、Spring-Boot自定义starters" class="headerlink" title="八、Spring Boot自定义starters"></a>八、Spring Boot自定义starters</h3><h3 id="九、Spring-Boot与缓存"><a href="#九、Spring-Boot与缓存" class="headerlink" title="九、Spring Boot与缓存"></a>九、Spring Boot与缓存</h3><h3 id="十、Spring-Boot与消息"><a href="#十、Spring-Boot与消息" class="headerlink" title="十、Spring Boot与消息"></a>十、Spring Boot与消息</h3><h3 id="十一、Spring-Boot与检索"><a href="#十一、Spring-Boot与检索" class="headerlink" title="十一、Spring Boot与检索"></a>十一、Spring Boot与检索</h3><h3 id="十二、Spring-Boot与任务"><a href="#十二、Spring-Boot与任务" class="headerlink" title="十二、Spring Boot与任务"></a>十二、Spring Boot与任务</h3><h3 id="十三、Spring-Boot与安全"><a href="#十三、Spring-Boot与安全" class="headerlink" title="十三、Spring Boot与安全"></a>十三、Spring Boot与安全</h3><h3 id="十四、Spring-Boot与分布式"><a href="#十四、Spring-Boot与分布式" class="headerlink" title="十四、Spring Boot与分布式"></a>十四、Spring Boot与分布式</h3><h3 id="十五、Spring-Boot与开发热部署"><a href="#十五、Spring-Boot与开发热部署" class="headerlink" title="十五、Spring Boot与开发热部署"></a>十五、Spring Boot与开发热部署</h3><h3 id="十六、Spring-Boot与监控管理"><a href="#十六、Spring-Boot与监控管理" class="headerlink" title="十六、Spring Boot与监控管理"></a>十六、Spring Boot与监控管理</h3>
+<p><strong>4.Restful风格</strong><br>何谓Restful，就是以简洁的uri的形式访问页面。<br>URI: /资源名称/资源标识符   使用HTTP请求方式来区分对资源的CRUD操作<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot72.png" alt=""><br>请求架构<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot73.png" alt=""></p>
+<p><strong>5.员工列表查询</strong><br><strong>1.修改页面的跳转链接为Restful风格</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot74.png" alt=""><br><strong>2.创建Controller类来进行跳转</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmployeeController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EmployeeDao employeeDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    DepartmentDao departmentDao;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询所有员工返回列表页面</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/emps"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String  <span class="title">list</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">        Collection&lt;Employee&gt; employees = employeeDao.getAll();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//放在请求域中</span></span><br><span class="line">        model.addAttribute(<span class="string">"emps"</span>,employees);</span><br><span class="line">        <span class="comment">// thymeleaf默认就会拼串</span></span><br><span class="line">        <span class="comment">// classpath:/templates/xxxx.html</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"emp/list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.修改页面公共部分的bar</strong><br>如何修改<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot75.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot76.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot77.png" alt=""><br>进行修改，找到公共的部分<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot78.png" alt=""><br>修改其他页公共的部分，去掉原有的添加<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot79.png" alt=""><br>使用第二种方式来截取公共片段<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot80.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot81.png" alt=""></p>
+<p><strong>4.抽取公共的bar到commons/bar.html</strong><br>在需要引入的页面，按如下配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">th:replace</span>=<span class="string">"commons/bar::topbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"commons/bar::#sidebar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>5.侧边栏选中的高亮设置</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot82.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot83.png" alt=""><br><strong>再举个例子，根据跳转的页面设置</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot84.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot85.png" alt=""></p>
+<p><strong>6.list页面员工查询列表编写</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot86.png" alt=""></p>
+<p><strong>7.员工添加编写</strong><br>1.添加跳转到添加页面的链接<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot87.png" alt=""><br>2.编写Controller中的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//来到员工添加页面</span></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/emp"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toAddPage</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">    <span class="comment">//来到添加页面,查出所有的部门，在页面显示</span></span><br><span class="line">    Collection&lt;Department&gt; departments = departmentDao.getDepartments();</span><br><span class="line">    model.addAttribute(<span class="string">"depts"</span>,departments);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"emp/add"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//员工添加</span></span><br><span class="line"><span class="comment">//SpringMVC自动将请求参数和入参对象的属性进行一一绑定；要求请求参数的名字和javaBean入参的对象里面的属性名是一样的</span></span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/emp"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">addEmp</span><span class="params">(Employee employee)</span></span>&#123;</span><br><span class="line">    <span class="comment">//来到员工列表页面</span></span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"保存的员工信息："</span>+employee);</span><br><span class="line">    <span class="comment">//保存员工</span></span><br><span class="line">    employeeDao.save(employee);</span><br><span class="line">    <span class="comment">// redirect: 表示重定向到一个地址  /代表当前项目路径</span></span><br><span class="line">    <span class="comment">// forward: 表示转发到一个地址</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"redirect:/emps"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.编写add页面<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot88.png" alt=""></p>
+<p><strong>8.员工修改</strong><br>1.页面的跳转链接</p>
+<pre><code>&lt;a class=&quot;btn btn-sm btn-primary&quot; th:href=&quot;@{/emp/}+${emp.id}&quot;&gt;编辑&lt;/a&gt;
+</code></pre><p>2.controller代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//来到修改页面，查出当前员工，在页面回显</span></span><br><span class="line">  <span class="meta">@GetMapping</span>(<span class="string">"/emp/&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toEditPage</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id,Model model)</span>&#123;</span><br><span class="line">      Employee employee = employeeDao.get(id);</span><br><span class="line">      model.addAttribute(<span class="string">"emp"</span>,employee);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//页面要显示所有的部门列表</span></span><br><span class="line">      Collection&lt;Department&gt; departments = departmentDao.getDepartments();</span><br><span class="line">      model.addAttribute(<span class="string">"depts"</span>,departments);</span><br><span class="line">      <span class="comment">//回到修改页面(add是一个修改添加二合一的页面);</span></span><br><span class="line">      <span class="keyword">return</span> <span class="string">"emp/add"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//员工修改；需要提交员工id；</span></span><br><span class="line">  <span class="meta">@PutMapping</span>(<span class="string">"/emp"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">updateEmployee</span><span class="params">(Employee employee)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"修改的员工数据："</span>+employee);</span><br><span class="line">      employeeDao.save(employee);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"redirect:/emps"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.页面<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspringboot89.png" alt=""><br><strong>通过Controller传的emp值是否为空来区分是添加还是修改</strong></p>
+<p><strong>9.删除员工</strong><br>1.添加删除的链接<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;button th:attr="del_uri=@&#123;/emp/&#125;+$&#123;emp.id&#125;" class="btn btn-sm btn-danger deleteBtn"&gt;删除&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;form id=<span class="string">"deleteEmpForm"</span>  method=<span class="string">"post"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_method"</span> value=<span class="string">"delete"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">         $(<span class="string">".deleteBtn"</span>).click(function()&#123;</span><br><span class="line">         <span class="comment">//删除当前员工的</span></span><br><span class="line">         $(<span class="string">"#deleteEmpForm"</span>).attr(<span class="string">"action"</span>,$(<span class="keyword">this</span>).attr(<span class="string">"del_uri"</span>)).submit();</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.Controller类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//员工删除</span></span><br><span class="line">  <span class="meta">@DeleteMapping</span>(<span class="string">"/emp/&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">deleteEmployee</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</span><br><span class="line">      employeeDao.delete(id);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"redirect:/emps"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>==小结：SpringBoot有自动配置功能，使得我们可以修改少量配置就可完成程序搭建。只需要编写自己的业务逻辑代码。==</strong><br><strong>==1.自动扫包：只要是在主程序入口的同级包或子包就可以自动扫描，不用配置文件进行配置==</strong><br><strong>==2.thymeleaf模板需要在页面引入头，以th:的方式在标签中使用，或[[]] [( )]方式在标签外使用，功能很强大==</strong><br><strong>==3.在进行web项目开发的时候，当我们要修改默认的自动配置，就可以创建自己的自动配置类@Configuration，他会与原有的自动配置配合使用，也就是对配置的增强。比如这里的首页设置，国际化，过滤器。核心是@Bean注入到IOC容器中我们才可以使用。==</strong><br><strong>==4.Controller中的所有路劲都是由thymeleaf控制解析的，所以只需要写名称，路径和后缀都会自动加上。==</strong><br><strong>==5.SpringBoot就是快速的注解模式开发，所用的注解与spring有很大的相同之处，当然也有功能更强大注解，在SpringBoot中和spring原理都是一样的要想使用，都必须注入到容器中。==</strong><br><strong>==6.对于整体的web架构不变，还是不同层之间的访问，注入是关键，配置也是关键==</strong><br><strong>==7.从页面获取值只要实体和页面的属性一样，就会自动绑定值，可以直接使用。在页面使用thymeleaf语法取。在后台直接实体名取。==</strong><br><strong>==8.页面整合与截取：th:fragment截取，th:repleace/insert等替换==</strong><br><strong>==9.上面只是简单的controller控制页面跳转以及一些常用的配置细节，还未用到service层，dao层也是简单模拟==</strong><br><strong>==10.SpringBoot的访问路径：thymeleaf会自动解析到classpath:templates/….xxx.html,静态资源路径classpath:static。springBoot都有自己的配置，我们可以找到配置位置来修改属性，使用自己的配置。==</strong></p>
+<h4 id="8-错误消息处理"><a href="#8-错误消息处理" class="headerlink" title="8.错误消息处理"></a>8.错误消息处理</h4><h3 id="五、Spring-Boot与Docker"><a href="#五、Spring-Boot与Docker" class="headerlink" title="五、Spring Boot与Docker"></a>五、Spring Boot与Docker</h3><h3 id="六、Spring-Boot与数据访问"><a href="#六、Spring-Boot与数据访问" class="headerlink" title="六、Spring Boot与数据访问"></a>六、Spring Boot与数据访问</h3><h3 id="七、Spring-Boot启动配置原理"><a href="#七、Spring-Boot启动配置原理" class="headerlink" title="七、Spring Boot启动配置原理"></a>七、Spring Boot启动配置原理</h3><h3 id="八、Spring-Boot自定义starters"><a href="#八、Spring-Boot自定义starters" class="headerlink" title="八、Spring Boot自定义starters"></a>八、Spring Boot自定义starters</h3><h3 id="九、Spring-Boot与缓存"><a href="#九、Spring-Boot与缓存" class="headerlink" title="九、Spring Boot与缓存"></a>九、Spring Boot与缓存</h3><h3 id="十、Spring-Boot与消息"><a href="#十、Spring-Boot与消息" class="headerlink" title="十、Spring Boot与消息"></a>十、Spring Boot与消息</h3><h3 id="十一、Spring-Boot与检索"><a href="#十一、Spring-Boot与检索" class="headerlink" title="十一、Spring Boot与检索"></a>十一、Spring Boot与检索</h3><h3 id="十二、Spring-Boot与任务"><a href="#十二、Spring-Boot与任务" class="headerlink" title="十二、Spring Boot与任务"></a>十二、Spring Boot与任务</h3><h3 id="十三、Spring-Boot与安全"><a href="#十三、Spring-Boot与安全" class="headerlink" title="十三、Spring Boot与安全"></a>十三、Spring Boot与安全</h3><h3 id="十四、Spring-Boot与分布式"><a href="#十四、Spring-Boot与分布式" class="headerlink" title="十四、Spring Boot与分布式"></a>十四、Spring Boot与分布式</h3><h3 id="十五、Spring-Boot与开发热部署"><a href="#十五、Spring-Boot与开发热部署" class="headerlink" title="十五、Spring Boot与开发热部署"></a>十五、Spring Boot与开发热部署</h3><h3 id="十六、Spring-Boot与监控管理"><a href="#十六、Spring-Boot与监控管理" class="headerlink" title="十六、Spring Boot与监控管理"></a>十六、Spring Boot与监控管理</h3>
       
 
       
@@ -857,11 +891,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,15 +911,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,19 +931,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -917,19 +947,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,11 +963,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,7 +979,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,11 +991,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,6 +1008,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -990,10 +1028,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
