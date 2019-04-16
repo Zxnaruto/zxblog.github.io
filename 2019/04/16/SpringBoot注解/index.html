@@ -6,56 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>SSH应用之成绩管理 | XiaoHuZiZx</title>
+  <title>SpringBoot注解 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、总体设计1.1 数据库设计&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(c">
-<meta name="keywords" content="java,SSH">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH应用之成绩管理">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2018/07/09/SSH应用之成绩管理/index.html">
+<meta property="og:title" content="SpringBoot注解">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/04/16/SpringBoot注解/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、总体设计1.1 数据库设计&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(c">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH24.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH01.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH02.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH03.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH04.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH05.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH06.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH07.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH08.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH09.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH10.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH11.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH12.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH13.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH14.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH15.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH16.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH17.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH18.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH19.jpg">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH20.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH25.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH26.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH27.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH28.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH29.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH30.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH31.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH32.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH33.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH34.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH35.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH21.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH22.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH23.png">
-<meta property="og:updated_time" content="2018-07-09T08:35:32.489Z">
+<meta property="og:updated_time" content="2019-04-16T12:21:40.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH应用之成绩管理">
-<meta name="twitter:description" content="一、总体设计1.1 数据库设计&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(c">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH24.png">
+<meta name="twitter:title" content="SpringBoot注解">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
   
@@ -231,20 +194,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SSH应用之成绩管理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SpringBoot注解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SSH应用之成绩管理
+      SpringBoot注解
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2018/07/09/SSH应用之成绩管理/" class="archive-article-date">
-  	<time datetime="2018-07-09T07:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+        <a href="/zxblog.github.io/2019/04/16/SpringBoot注解/" class="archive-article-date">
+  	<time datetime="2019-04-16T12:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
 </a>
         
         
@@ -259,29 +222,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、总体设计"><a href="#一、总体设计" class="headerlink" title="一、总体设计"></a>一、总体设计</h3><h4 id="1-1-数据库设计"><a href="#1-1-数据库设计" class="headerlink" title="1.1 数据库设计"></a>1.1 数据库设计</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;该数据库中一共有两张表，一张是学生成绩表，一张是班级表。班级表(t_class)包括：班级编号(classNo)、班级名(className)。其中班级编号为主键。学生成绩表(t_score)包括：学号(stuNo)、姓名(stuName)、平时成绩(dailyScore)、考试成绩(examScore)、班级编号(clsNo)。其中学号为主键，班级编号为外键。<br> <a id="more"></a><br> &nbsp; &nbsp;&nbsp;&nbsp;如下表：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH24.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; 数据库ER-图为：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH01.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; 建成数据库t_score表：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH02.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; 建成数据库t_class表：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH03.png" alt=""></p>
-<h4 id="1-2-项目过程设计"><a href="#1-2-项目过程设计" class="headerlink" title="1.2 项目过程设计"></a>1.2 项目过程设计</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;1.用户可以查询、修该、删除、新增学生成绩信息。其用例图如下：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH04.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp;2.具体操作如下：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH05.png" alt=""></p>
-<h3 id="二、详细设计"><a href="#二、详细设计" class="headerlink" title="二、详细设计"></a>二、详细设计</h3><h4 id="2-1-环境搭建及素材准备"><a href="#2-1-环境搭建及素材准备" class="headerlink" title="2.1 环境搭建及素材准备"></a>2.1 环境搭建及素材准备</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;1.素材准备<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;选取几张.jpg格式的图片放到一个images文件夹中，待工程建好后，将文件夹放到WebRoot文件夹下，等待调用。主要是为了页面美观。<br>&nbsp; &nbsp;&nbsp;&nbsp;2.环境搭建<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;在数据库创建好后：<br>&nbsp; &nbsp;&nbsp;&nbsp; (1) 打开MyEclipse–&gt;File–&gt;New–&gt;Web Project<br>&nbsp; &nbsp;&nbsp;&nbsp;  (2) 切换到Hibernate面板<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH06.jpg" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; (3)在DB Browser中右键新建一个数据源<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH07.jpg" alt=""><br>  <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH08.jpg" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; (4)Struts2,Hibernate,Spring整合<br>&nbsp; &nbsp;&nbsp;&nbsp;  导入Spring (注意：注意需要导入的包，如下图)<br>  <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH09.jpg" alt=""><br>   <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH10.jpg" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp;导入Hibernate (注意：如果需要使用Spring配置文件来统一管理如图选择)<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH11.jpg" alt=""><br>  <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH12.jpg" alt=""><br>   <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH13.jpg" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp;  选择数据源<br>   <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH14.jpg" alt=""><br> &nbsp; &nbsp;&nbsp;&nbsp;  取消创建SessionFactory<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH15.jpg" alt=""><br>   &nbsp; &nbsp;&nbsp;&nbsp;导入Struts2 (注意：需要导入的包如下图)<br>   <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH16.jpg" alt=""><br>   <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH17.jpg" alt="">  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">解决冲突包，由于三个框架的整合要解决几个框架中冲突的JAR包</span><br><span class="line">          Windows --- preferences --- 在文本框中搜索struts 2(中间有空格)---选择struts 2---选择antlr-2.7.2.jar--- Remove --- OK</span><br><span class="line">      在web.xml中编写监听器，以及applicationContext路径</span><br><span class="line">          &lt;!--监听器--&gt;    </span><br><span class="line">          &lt;listener&gt;</span><br><span class="line">&lt;listener-class&gt;</span><br><span class="line">org.springframework.web.context.ContextLoaderListener</span><br><span class="line">&lt;/listener-class&gt;</span><br><span class="line">          &lt;/listener&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--配置applicationContext读取路径--&gt;</span><br><span class="line">         &lt;context-param&gt;</span><br><span class="line">         &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">         &lt;param-value&gt;classpath*:applicationContext*.xml&lt;/param-value&gt;</span><br><span class="line">         &lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="2-2-实现过程"><a href="#2-2-实现过程" class="headerlink" title="2.2 实现过程"></a>2.2 实现过程</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;类图：<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH18.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp; 1.学成绩信息显示<br>   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;(1) 在src中建edu.rg.score.entity、edu.rg.score.action、edu.rg.score.dao、edu.rg.score.service四个package。<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (2)切换为Hibernate面板用t_class表做逆向生成类。<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH19.jpg" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  (3) 在edu.rg.score.dao包中，新建ScoreDao类，在其中添加查询学生成绩信息的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询学员列表</span><br><span class="line">public List&lt;Score&gt; getScoreList()&#123;</span><br><span class="line">return this.getHibernateTemplate().find(&quot;from Score&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (4) 在edu.rg.score.service包中，新建ScoreService类，添加将dao层注入的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service层代码：</span><br><span class="line">public ScoreDao scoreDao;//使用依赖注入</span><br><span class="line">public List&lt;Score&gt; getScoreList()&#123;</span><br><span class="line">return scoreDao.getScoreList();&#125;</span><br><span class="line">public void setScoreDao(ScoreDao scoreDao) &#123;</span><br><span class="line"> this.scoreDao = scoreDao;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (5) 在edu.rg.score.action包中，新建HelloAction类，添加代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Score&gt; list;</span><br><span class="line">private ScoreService scoreService;//使用依赖注入</span><br><span class="line">public String execute()&#123;</span><br><span class="line">list = scoreService.getScoreList();</span><br><span class="line">return &quot;success&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  (6)在applicationContext.xml中对这三个类进行注入，举一个例子(dao注入)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- dao注入 --&gt;</span><br><span class="line"> &lt;bean id=&quot;scoreDao&quot; class=&quot;edu.rg.score.dao.ScoreDao&quot;&gt;</span><br><span class="line"> &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (7)在index.jsp中引入指令和添加迭代集合数据的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;</span><br></pre></td></tr></table></figure></p>
-<p> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH20.png" alt="">  </p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (8)在struts.xml中配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"> &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"> &lt;action name=&quot;score&quot; class=&quot;edu.rg.score.action.HelloAction&quot;&gt;</span><br><span class="line"> &lt;result name=&quot;success&quot;&gt;index.jsp&lt;/result&gt;</span><br><span class="line">&lt;/action&gt;</span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure>
-<p><br><br>  &nbsp; &nbsp;&nbsp;&nbsp;2.学生成绩信息添加<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (1)在ScoreDao类中添加增加学生信息<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH25.png" alt=""><br> <br><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (2)在ScoreService类中编写调用dao的方法<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH26.png" alt=""><br><br><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (3)在HelloAction类中引入dao实体<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH27.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (4)新建add.jsp，作为添加页面，单标签action的地址<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 提交元素的name属性</p>
-<p> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH28.png" alt="">  </p>
-<p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  (5)在index.jsp中添加页面跳转<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH29.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;3.学生成绩信息修改与删除<br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  (1)在ScoreDao类中添加个根据id查询学生成绩信息、修改学生信息及删除学生信息<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH30.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (2)在Score1Service类中添加调用dao的方法<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH31.png" alt=""><br> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (3)在HelloAction类中添加执行<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH32.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (4)新建edit.jsp,为修改页面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH33.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (5)在index.jsp中添加页面跳转<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH34.png" alt=""><br>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (6)在struts.xml中添加响应<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH35.png" alt="">  </p>
-<h4 id="2-3-实现结果"><a href="#2-3-实现结果" class="headerlink" title="2.3 实现结果"></a>2.3 实现结果</h4><p>  &nbsp; &nbsp;&nbsp;&nbsp; 1.初始界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH21.png" alt=""><br> &nbsp; &nbsp;&nbsp;&nbsp; 2.修改界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH22.png" alt=""><br>&nbsp; &nbsp;&nbsp;&nbsp;  3.添加界面<br> <img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/SSH23.png" alt="">  </p>
-<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>&nbsp; &nbsp;&nbsp;&nbsp; 该成绩管理系统通过Struts作为动作的控制器、Hibernate和Spring作为数据库操作和依赖注入完成的一个简单的SSH框架的应用。<br><br></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h4><ul>
-<li>如有不正确还请见谅。</li>
-<li>需要本程序代码请访问: <a href="https://github.com/Zxnaruto/Frame" target="_blank" rel="noopener">ScoreManagement</a></li>
-<li>另外，我做了一些关于Spring、Struts、Hibernate的小应用可以帮助理解这些框架，如需代码请访问我的Github：<a href="https://github.com/Zxnaruto" target="_blank" rel="noopener">https://github.com/Zxnaruto</a></li>
-</ul>
-
+        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line">@ResponseBody:向浏览器返回页面信息，可以是json格式</span><br><span class="line">@RequestMapping("/hello"):请求访问的路径</span><br><span class="line">@Controller:表明是一个控制器，将其注入到容器中</span><br><span class="line">@RestController：就是@Controller和 @ResponseBody的结合</span><br><span class="line"></span><br><span class="line">@SpringBootConfiguration：表示被标注的类是SpringBoot的配置类</span><br><span class="line">@Configuration：表明被配置的类是一个配置类</span><br><span class="line">@Componment：将组建加入容器，进行使用</span><br><span class="line">@EnableAutoConfiguration：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line">@AutoConfigurationPackage：自动配置包，定义默认的包扫描规则 </span><br><span class="line">@Import(&#123;Registrar.class&#125;)：import是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line">@ConfigurationProperties(prefix = "person"）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = "person"：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line">@Validated：进行数据验证的注解</span><br><span class="line">@Value:进行单项属性值注入</span><br><span class="line">@PropertySource：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line">@ImportResource：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line">@Bean：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line">@PostMapping(value = "/user/login")：相当于@RequestMapping以及设置请求方式为post</span><br><span class="line">@DeleteMapping</span><br><span class="line">@PutMapping</span><br><span class="line">@GetMapping</span><br><span class="line"></span><br><span class="line">@RequestParam("username")：设置获取页面的username属性</span><br><span class="line"></span><br><span class="line">@Mapper:注解Mybatis中的mapper接口</span><br><span class="line">@MapperScan(value="包名")：在包名下的所有类都被认为添加了@Mapper，它是添加在程序入口类上的</span><br><span class="line">@Options:配置一些选项，比如配置主键自增为true</span><br><span class="line"></span><br><span class="line">@Entity:表明此类是一个实体</span><br><span class="line">@Column(name = "last_name",length = 50) //这是和数据表对应的一个列</span><br><span class="line">@id</span><br><span class="line">@GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键</span><br></pre></td></tr></table></figure>
       
 
       
@@ -320,34 +261,8 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
      
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zxblog.github.io/categories/Java开发和框架//" class="article-tag-list-link color5">Java开发和框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -397,7 +312,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2018/07/09/SSH应用之成绩管理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/04/16/SpringBoot注解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -411,18 +326,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2018/07/19/初识Spring-Boot/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初识Spring Boot
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2018/07/08/Spring-框架结构/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring 框架结构</div>
+    <a href="/zxblog.github.io/2019/04/09/Spring-Boot/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Boot</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -452,7 +358,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="SSH应用之成绩管理" ></div> 
+  <div id="SOHUCS" sid="SpringBoot注解" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
