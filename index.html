@@ -192,6 +192,287 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/08/09/设计模式/">设计模式</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/08/09/设计模式/" class="archive-article-date">
+  	<time datetime="2019-08-09T07:54:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、建模语言基础"><a href="#一、建模语言基础" class="headerlink" title="一、建模语言基础"></a>一、建模语言基础</h4><h5 id="1-类之间的关系"><a href="#1-类之间的关系" class="headerlink" title="1.类之间的关系"></a>1.类之间的关系</h5><p><strong>关联关系</strong><br>关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。<br><strong>(1)单项关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx05.png" alt=""><br><strong>(2)双向关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx06.png" alt=""><br><strong>(3)自关联</strong><br>在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx07.png" alt=""><br><strong>(4)重数性关联</strong><br>重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx08.png" alt=""></p>
+<p><br><br><strong>聚合关系</strong></p>
+<ul>
+<li>聚合关系(Aggregation)表示一个整体与部分的关系。通常在定义一个整体类后，再去分析这个整体类的组成结构，从而找出一些成员类，该整体类和成员类之间就形成了聚合关系。 </li>
+<li>在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，但是成员对象可以脱离整体对象独立存在。在UML中，聚合关系用带空心菱形的直线表示。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx09.png" alt=""><br><br><br><strong>组合关系</strong></li>
+<li>组合关系(Composition)也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。</li>
+<li>在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。在UML中，组合关系用带实心菱形的直线表示。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx10.png" alt=""><br><br><br><strong>依赖关系</strong></li>
+<li>依赖关系(Dependency)是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。</li>
+<li>在UML中，依赖关系用带箭头的虚线表示，由依赖的一方指向被依赖的一方。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx11.png" alt=""><br><br><br><strong>泛化关系</strong></li>
+<li>泛化关系(Generalization)也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在UML中，泛化关系用带空心三角形的直线来表示。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx12.png" alt=""></li>
+</ul>
+<p><br><br><strong>接口与实现关系</strong></p>
+<ul>
+<li>接口之间也可以有与类之间关系类似的继承关系和依赖关系，但是接口和类之间还存在一种实现关系(Realization)，在这种关系中，类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，类与接口之间的实现关系用带空心三角形的虚线来表示。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx12.png" alt=""></li>
+</ul>
+<h4 id="二、面向对象设计原则"><a href="#二、面向对象设计原则" class="headerlink" title="二、面向对象设计原则"></a>二、面向对象设计原则</h4><h5 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1.单一职责原则"></a>1.单一职责原则</h5><p>类的职责要单一，不能将太多的职责放在一个类中。一个对象应该只包含单一的职责，并且该职责被完整地封装在<strong>一个类中</strong>。<br>单一职责原则是实现<strong>高内聚、低耦合</strong>的指导方针，在很多代码重构手法中都能找到它的存在，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。<br>
+        
+          <a class="article-more-a" href="/zxblog.github.io/2019/08/09/设计模式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/08/09/设计模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-分布式项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2019/08/09/分布式项目/">分布式项目</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2019/08/09/分布式项目/" class="archive-article-date">
+  	<time datetime="2019-08-09T07:54:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、分布式架构"><a href="#一、分布式架构" class="headerlink" title="一、分布式架构"></a>一、分布式架构</h4><p>需要按照功能点把系统拆分，拆分成独立的功能工程，可以单独为某一个节点添加服务器，需要系统之间配合才能完成整个业务逻辑这就叫做分布式。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs01.png" alt=""><br>如图所示，把整个系统的功能模块独立出来，做成单独的系统，然后一起协同工作。对于单独的系统，可以对其功能以及性能做灵活的更改。</p>
+<p><strong>集群</strong>：相当于同一个工程代码拷贝多份部署到多台服务器，每台服务器单独独立部署运行。<br><strong>分布式架构</strong>：<br>    把系统按照模块拆分成多个子系统；多个子系统相互协作才能完成业务流程系统之间需要进行通信。<br>优点：<br>1、把模块拆分，使用接口通信，降低模块之间的耦合度。<br>2、把项目拆分成若干个子项目，不同的团队负责不同的子项目。<br>3、增加功能时只需要再增加一个子项目，调用其他系统的接口就可以。<br>4、可以灵活的进行分布式部署。</p>
+<p><strong>缺点</strong>：<br>1、系统之间交互需要使用远程通信，需要开发接口，增加工作量。<br>2、各个模块有一些通用的业务逻辑无法公用。</p>
+<p>所以就需要结合另一种架构SOA架构。</p>
+<h4 id="二、SOA架构"><a href="#二、SOA架构" class="headerlink" title="二、SOA架构"></a>二、SOA架构</h4><p><strong>SOA</strong>：Service Oriented Architecture面向服务的架构。也就是把工程都拆分成服务层工程、表现层工程。服务层中包含业务逻辑，只需要对外提供服务即可。表现层只需要处理和页面的交互，业务逻辑都是调用服务层的服务来实现。工程都可以独立部署。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs02.png" alt=""></p>
+<h4 id="三、项目SOA架构"><a href="#三、项目SOA架构" class="headerlink" title="三、项目SOA架构"></a>三、项目SOA架构</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs03.png" alt=""><br>可以看出，整体项目基础是SOA的分布式架构，每个功能块都是独立的系统，它们的业务逻辑由于有相似之处，所以都封装到了服务层工程，然后结合一些中间件以及持久层，就完成了整个系统的架构。</p>
+<h4 id="四、工程搭建"><a href="#四、工程搭建" class="headerlink" title="四、工程搭建"></a>四、工程搭建</h4><p><strong>使用maven管理工程</strong><br>好处：<br>Jar包的管理<br>工程之间的依赖管理<br>自动打包<br>统一的版本的控制。</p>
+<p><strong>后台管理系统工程搭建分析</strong><br>Maven的常见打包方式：jar、war、pom<br>Pom工程一般都是父工程，管理jar包的版本、maven插件的版本、统一的依赖管理。聚合工程。</p>
+<p>taotao-parent：父工程，打包方式pom，管理jar包的版本号。<br>    |           项目中所有工程都应该继承父工程。<br>|–taotao-common：通用的工具类通用的pojo,util。打包方式jar<br>|–taotao-manager：服务层工程。聚合工程。Pom工程<br> &nbsp; |–taotao-manager-dao：打包方式jar<br>   &nbsp; |–taotao-manager-pojo：打包方式jar<br>  &nbsp;  |–taotao-manager-interface：打包方式jar<br>  &nbsp;  |–taotao-manager-service：打包方式：war  (为了发布服务的方便)<br>|–taotao-manager-web：表现层工程。打包方式war</p>
+<p>注意：项目跑的命令：clean tomcat7:run</p>
+<h4 id="五、系统间消息通知的中间件"><a href="#五、系统间消息通知的中间件" class="headerlink" title="五、系统间消息通知的中间件"></a>五、系统间消息通知的中间件</h4><p><strong>1.如何实现远程通信？</strong><br>1、使用WebService：效率不高,它是基于soap协议（http+xml）。项目中不推荐使用。<br>2、使用restful形式的服务：http+json。很多项目中应用。如果服务越来越多，服务与服务之间的调用关系复杂，调用服务的URL管理复杂，什么时候添加机器难以确定。<br>3、使用dubbo。使用rpc协议进行远程调用，直接使用socket通信。传输效率高，并且可以统计出系统之间的调用关系、调用次数，管理服务。</p>
+<p><strong>2.dubbo</strong><br>DUBBO是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs04.png" alt=""></p>
+<p>•    单一应用架构 </p>
+<ul>
+<li>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。</li>
+<li>此时，用于简化增删改查工作量的 数据访问框架(ORM) 是关键。</li>
+</ul>
+<p>•    垂直应用架构 </p>
+<ul>
+<li>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，将应用拆成互不相干的几个应用，以提升效率。</li>
+<li>此时，用于加速前端页面开发的 Web框架(MVC) 是关键。</li>
+</ul>
+<p>•    分布式服务架构 </p>
+<ul>
+<li>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。</li>
+<li>此时，用于提高业务复用及整合的 分布式服务框架(RPC) 是关键。</li>
+</ul>
+<p>•    流动计算架构 </p>
+<ul>
+<li>当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。</li>
+<li>此时，用于提高机器利用率的 资源调度和治理中心(SOA) 是关键。</li>
+</ul>
+<p><strong>Dubbo就是资源调度和治理中心的管理工具。</strong></p>
+<p><strong>Dubbo 就是类似于webservice的关于系统之间通信的框架，并可以统计和管理服务之间的调用情况（包括服务被谁调用了，调用的次数是如何，以及服务的使用状况）。</strong></p>
+<p><strong>Dubbo架构</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs05.jpg" alt=""></p>
+<p><strong>简要说明：</strong><br>init：初始化<br>async：异步<br>sync：同步</p>
+<p><strong>Dubbo执行流程：</strong><br>首先，容器进行初始化，然后将服务器所有用的信息，包括可调用的端口号，ip地址等等发送给注册器，服务注册器接收信息，当用户要请求服务器执行操作的时候，会根据注册器异步提供给用户的通知，用户就可以根据这个通知来调用具体的服务器来执行操作。<br>其中，监控器会异步的监视整个系统的运行情况，包括各种调用信息。</p>
+<p><strong>节点角色说明：</strong><br>•    Provider: 暴露服务的服务提供方。<br>•    Consumer: 调用远程服务的服务消费方。<br>•    Registry: 服务注册与发现的注册中心。<br>•    Monitor: 统计服务的调用次调和调用时间的监控中心。<br>•    Container: 服务运行容器。<br><strong>调用关系说明：</strong><br>•    0. 服务容器负责启动，加载，运行服务提供者。<br>•    1. 服务提供者在启动时，向注册中心注册自己提供的服务。<br>•    2. 服务消费者在启动时，向注册中心订阅自己所需的服务。<br>•    3. 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。<br>•    4. 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。<br>•    5. 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</p>
+<p>dubbo使用：<br>在没有中间件dubbo之前，我们是以在配置文件中注入的方式来实现具体对象的注入的。即，具体对象的类及类名，如下。</p>
+<pre><code>&lt;bean id=&quot;xxxService&quot; class=&quot;com.xxx.XxxServiceImpl&quot; /&gt;
+&lt;bean id=&quot;xxxAction&quot; class=&quot;com.xxx.XxxAction&quot;&gt;
+&lt;property name=&quot;xxxService&quot; ref=&quot;xxxService&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>在使用了dubbo之后，由于服务层与表示层分开了，独立成不一样的系统了，所以则需要在服务层的配置文件中注入，以及标明dubbo的引用。然后在表示层引用服务层注入的属性，然后在声明dubbo就可以了。这样两个系统之间就可以通信了。如下：<br>远程服务：<br>在本地服务的基础上，只需做简单配置，即可完成远程化：</p>
+<p>将上面的local.xml配置拆分成两份，将服务定义部分放在服务提供方remote-provider.xml，将服务引用部分放在服务消费方remote-consumer.xml。<br>并在提供方增加暴露服务配置&lt; dubbo:service&gt;，在消费方增加引用服务配置&lt; dubbo:reference&gt;。<br>服务层发布服务：</p>
+<pre><code>&lt;!-- 和本地服务一样实现远程服务 --&gt;
+&lt;bean id=&quot;xxxService&quot; class=&quot;com.xxx.XxxServiceImpl&quot; /&gt;
+&lt;!-- 增加暴露远程服务配置 --&gt;
+&lt;dubbo:service interface=&quot;com.xxx.XxxService&quot; ref=&quot;xxxService&quot; /&gt;
+</code></pre><p>表现层调用服务：</p>
+<pre><code>&lt;!-- 增加引用远程服务配置 --&gt;
+&lt;dubbo:reference id=&quot;xxxService&quot; interface=&quot;com.xxx.XxxService&quot; /&gt;
+&lt;!-- 和本地服务一样使用远程服务 --&gt;
+&lt;bean id=&quot;xxxAction&quot; class=&quot;com.xxx.XxxAction&quot;&gt;
+&lt;property name=&quot;xxxService&quot; ref=&quot;xxxService&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p><strong>注意：</strong><br>1.dubbo作为系统间进行消息传递的中间件，需要引入依赖并在表示层和服务层配置，来实现表现层的系统和服务层的系统之间的通信。<br>2.dubbo推荐的服务注册中心用的是zookeeper。来负责服务地址的注册与查找，相当于目录服务，服务提供者和消费者只在启动时与注册中心交互，注册中心不转发请求，压力较小。</p>
+<h4 id="六、分页"><a href="#六、分页" class="headerlink" title="六、分页"></a>六、分页</h4><p><strong>pagehelper</strong></p>
+<pre><code>在Mybatis的全局文件中配置SqlMapConfig.xml中配置拦截器插件:
+&lt;plugins&gt;
+&lt;!-- com.github.pagehelper为PageHelper类所在包名 --&gt;
+&lt;plugin interceptor=&quot;com.github.pagehelper.PageHelper&quot;&gt;
+    &lt;!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库--&gt;        
+    &lt;property name=&quot;dialect&quot; value=&quot;mysql&quot;/&gt;
+&lt;/plugin&gt;
+&lt;/plugins&gt;
+
+在代码中使用
+1、设置分页信息：
+//获取第1页，10条内容，默认查询总数count
+PageHelper.startPage(1, 10);
+
+//紧跟着的第一个select方法会被分页
+List&lt;Country&gt; list = countryMapper.selectIf(1);
+
+2、取分页信息第一种方法
+    //分页后，实际返回的结果list类型是Page&lt;E&gt;，如果想取出分页信息，需要强制转换为Page&lt;E&gt;，
+Page&lt;Country&gt; listCountry = (Page&lt;Country&gt;)list;
+listCountry.getTotal();
+3、取分页信息的第二种方法，推荐使用第二种
+//获取第1页，10条内容，默认查询总数count
+PageHelper.startPage(1, 10);
+List&lt;Country&gt; list = countryMapper.selectAll();
+//用PageInfo对结果进行包装
+PageInfo page = new PageInfo(list);
+
+例：
+//设置分页信息
+PageHelper.startPage(page, rows);
+//创建example对象，不用设置查询条件
+TbItemExample example=new TbItemExample();
+//根据mapper调用查询所有数据的方法
+List&lt;TbItem&gt; list=mapper.selectByExample(example);
+//获取分页信息
+PageInfo&lt;TbItem&gt; info=new PageInfo&lt;&gt;(list);
+</code></pre><h4 id="七、git"><a href="#七、git" class="headerlink" title="七、git"></a>七、git</h4><p><strong>git服务器的搭建(Linux环境下)</strong><br>1.Git需要很多依赖环境：因此安装git需要先安装下列软件：</p>
+<pre><code>[root@xiaohuzi ~]# yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel gcc-c++
+</code></pre><p>2.去github上下载相应的git的linux版本，然后利用Putty工具上传到虚拟机上<br>然后解压<br>上传：<br>F:/Xshell&gt; pscp F:/git/git-2.22.0.tar.gz <a href="mailto:root@192.168.25.128" target="_blank" rel="noopener">root@192.168.25.128</a>: /<br>解压<br>tar -xvf git-2.22.0.tar.gz</p>
+<p>3.安装命令：(进入git解压目录)<br>[root@xiaohuzi git-2.9.3]# make prefix=/usr/local all<br>[root@xiaohuzi git-2.9.3]# make prefix=/usr/local install</p>
+<p>4.添加Linux的用户，用户名为git的用户：<br>[root@itcast-01 ~]# useradd git</p>
+<p>设置git用户的密码<br>[root@xiaohuzi  ~]# passwd git</p>
+<p>切换到git用户<br>[root@xiaohuzi  ~]# su - git</p>
+<p>5.初始化仓库，仓库名为taotao.git：<br>[git@itcast-01 root]$ cd<br>[git@itcast-01 ~]$ git init –bare taotao.git<br>始化空的 Git 仓库于 /home/git/taotao.git/</p>
+<p>至此仓库就创建好了。下面就可以把项目通过ip地址来传到仓库以及从仓库中下载项目。<br>项目右键，Team，share project，git<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs06.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/fbs07.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.githuindexb.io/codeimages/fbs08.png" alt=""><br>添加代码到git中，右键项目，team, add to index</p>
+<p>右键项目，team，commit。上传到本地仓库。<br><img src="https://zxnaruto.github.io/zxblog.githuindexb.io/codeimages/fbs10.png" alt=""><br>右键项目，team，push上传到虚拟机的仓库<br><img src="https://zxnaruto.github.io/zxblog.githuindexb.io/codeimages/fbs09.png" alt=""><br>pull是拉项目下来。需要具体的ip地址。<br><img src="https://zxnaruto.github.io/zxblog.githuindexb.io/codeimages/fbs12.png" alt=""></p>
+<p>第一次按照上面那样，后面检入检出如下图<br><img src="https://zxnaruto.github.io/zxblog.githuindexb.io/codeimages/fbs11.png" alt=""></p>
+<p><strong>注意：</strong><br>Commit提交的作用是把代码提交到本地。<br>Push的作用是把本地的代码提交到远程的git服务器。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2019/08/09/分布式项目/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SpringBoot注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -391,15 +672,15 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -865,174 +1146,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/03/25/Spring/">Spring</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/03/25/Spring/" class="archive-article-date">
-  	<time datetime="2019-03-25T07:10:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、Spring的概述"><a href="#一、Spring的概述" class="headerlink" title="一、Spring的概述"></a>一、Spring的概述</h3><p>Spring是一个分层的Java EE/SE开发的一站式框架。</p>
-<blockquote>
-<p>一站式：有每一层的解决方案。<br>WEB层：SpringMVC<br>Service层：Spring的Bean管理，Spring声明式事务<br>DAO层：Spring的JDBC模板，Spring的ORM模板</p>
-</blockquote>
-<h3 id="二、Spring运行架构"><a href="#二、Spring运行架构" class="headerlink" title="二、Spring运行架构"></a>二、Spring运行架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxspring01.png" alt=""><br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/25/Spring/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/25/Spring/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/03/21/Struts2/">Struts2</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/03/21/Struts2/" class="archive-article-date">
-  	<time datetime="2019-03-21T11:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、Struts2概述"><a href="#一、Struts2概述" class="headerlink" title="一、Struts2概述"></a>一、Struts2概述</h3><p>Struts2是一个基于MVC设计模式的web层框架。</p>
-<h4 id="1-常见的web层框架"><a href="#1-常见的web层框架" class="headerlink" title="1.常见的web层框架"></a>1.常见的web层框架</h4><p>struts2、struts、Webwork、SpringMVC</p>
-<h4 id="2-Web层框架基于前端控制器模型设计"><a href="#2-Web层框架基于前端控制器模型设计" class="headerlink" title="2.Web层框架基于前端控制器模型设计"></a>2.Web层框架基于前端控制器模型设计</h4><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxstruts01.png" alt=""><br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/21/Struts2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/03/21/Struts2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/zxblog.github.io/page/2/">2</a><a class="page-number" href="/zxblog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/9/">9</a><a class="extend next" rel="next" href="/zxblog.github.io/page/2/">Next &raquo;</a>
@@ -1162,10 +1275,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1174,15 +1283,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,11 +1307,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,11 +1319,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,31 +1375,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,7 +1387,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
