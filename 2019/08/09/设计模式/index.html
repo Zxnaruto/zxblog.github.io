@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
   <title>设计模式 | XiaoHuZiZx</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联(2)双向关联(3)自关联在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。(4)重数性关联重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接">
+  <meta name="description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/08/09/设计模式/index.html">
 <meta property="og:site_name" content="XiaoHuZiZx">
-<meta property="og:description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联(2)双向关联(3)自关联在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。(4)重数性关联重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接">
+<meta property="og:description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx05.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx06.png">
@@ -29,10 +29,10 @@
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx02.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx03.png">
 <meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx04.png">
-<meta property="og:updated_time" content="2019-08-09T15:33:28.756Z">
+<meta property="og:updated_time" content="2019-08-11T06:30:42.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
-<meta name="twitter:description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联(2)双向关联(3)自关联在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。(4)重数性关联重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接">
+<meta name="twitter:description" content="一、建模语言基础1.类之间的关系关联关系关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。(1)单项关联">
 <meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx05.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuZiZx" type="application/atom+xml">
@@ -237,7 +237,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、建模语言基础"><a href="#一、建模语言基础" class="headerlink" title="一、建模语言基础"></a>一、建模语言基础</h4><h5 id="1-类之间的关系"><a href="#1-类之间的关系" class="headerlink" title="1.类之间的关系"></a>1.类之间的关系</h5><p><strong>关联关系</strong><br>关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。<br><strong>(1)单项关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx05.png" alt=""><br><strong>(2)双向关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx06.png" alt=""><br><strong>(3)自关联</strong><br>在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx07.png" alt=""><br><strong>(4)重数性关联</strong><br>重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx08.png" alt=""></p>
+        <h4 id="一、建模语言基础"><a href="#一、建模语言基础" class="headerlink" title="一、建模语言基础"></a>一、建模语言基础</h4><h5 id="1-类之间的关系"><a href="#1-类之间的关系" class="headerlink" title="1.类之间的关系"></a>1.类之间的关系</h5><p><strong>关联关系</strong><br>关联关系(Association)是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系。<br><strong>(1)单项关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx05.png" alt=""><br><a id="more"></a></p>
+<p><strong>(2)双向关联</strong><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx06.png" alt=""><br><strong>(3)自关联</strong><br>在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx07.png" alt=""><br><strong>(4)重数性关联</strong><br>重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx08.png" alt=""></p>
 <p><br><br><strong>聚合关系</strong></p>
 <ul>
 <li>聚合关系(Aggregation)表示一个整体与部分的关系。通常在定义一个整体类后，再去分析这个整体类的组成结构，从而找出一些成员类，该整体类和成员类之间就形成了聚合关系。 </li>
@@ -252,7 +253,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>接口之间也可以有与类之间关系类似的继承关系和依赖关系，但是接口和类之间还存在一种实现关系(Realization)，在这种关系中，类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，类与接口之间的实现关系用带空心三角形的虚线来表示。<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx12.png" alt=""></li>
 </ul>
-<h4 id="二、面向对象设计原则"><a href="#二、面向对象设计原则" class="headerlink" title="二、面向对象设计原则"></a>二、面向对象设计原则</h4><h5 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1.单一职责原则"></a>1.单一职责原则</h5><p>类的职责要单一，不能将太多的职责放在一个类中。一个对象应该只包含单一的职责，并且该职责被完整地封装在<strong>一个类中</strong>。<br>单一职责原则是实现<strong>高内聚、低耦合</strong>的指导方针，在很多代码重构手法中都能找到它的存在，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。<br><a id="more"></a><br><strong>(1)单一职责原则实例</strong><br>某基于Java的C/S系统的“登录功能”通过如下登录类(Login)实现：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx01.png" alt=""><br>现使用单一职责原则对其进行重构，得到如下结果：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx02.png" alt=""><br>我们可以看到一个类里面只有一个单一的职责(功能)，其他类通过声明其对象进行调用。</p>
+<h4 id="二、面向对象设计原则"><a href="#二、面向对象设计原则" class="headerlink" title="二、面向对象设计原则"></a>二、面向对象设计原则</h4><h5 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1.单一职责原则"></a>1.单一职责原则</h5><p>类的职责要单一，不能将太多的职责放在一个类中。一个对象应该只包含单一的职责，并且该职责被完整地封装在<strong>一个类中</strong>。<br>单一职责原则是实现<strong>高内聚、低耦合</strong>的指导方针，在很多代码重构手法中都能找到它的存在，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。<br><!--more--><br><strong>(1)单一职责原则实例</strong><br>某基于Java的C/S系统的“登录功能”通过如下登录类(Login)实现：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx01.png" alt=""><br>现使用单一职责原则对其进行重构，得到如下结果：<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/sjmszx02.png" alt=""><br>我们可以看到一个类里面只有一个单一的职责(功能)，其他类通过声明其对象进行调用。</p>
 <p><br></p>
 <h5 id="2-开闭原则"><a href="#2-开闭原则" class="headerlink" title="2.开闭原则"></a>2.开闭原则</h5><p>软件实体对扩展是开放的，但对修改是关闭的，即在不修改一个软件实体的基础上去扩展其他功能。<br>(1)分析</p>
 <ul>
@@ -546,7 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +559,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,7 +567,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +591,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color2">Struts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,11 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,19 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,11 +667,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
