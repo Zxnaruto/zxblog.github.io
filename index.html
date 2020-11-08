@@ -221,64 +221,9 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>a.使用CrosFilter实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrosConfig</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> CorsConfiguration <span class="title">buildConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(<span class="string">"http://localhost:3000"</span>);</span><br><span class="line">        corsConfiguration.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.addAllowedMethod(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.setMaxAge(<span class="number">3600L</span>);</span><br><span class="line">        corsConfiguration.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>,buildConfig());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<blockquote>
-<p>b.实现WebMvcConfigurer接口，重写addCorsMappings方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">"http://localhost:3000"</span>)</span><br><span class="line">                .allowedHeaders(<span class="string">"*"</span>)</span><br><span class="line">                .allowedMethods(<span class="string">"*"</span>)</span><br><span class="line">                .allowCredentials(<span class="keyword">true</span>)</span><br><span class="line">                .maxAge(<span class="number">3600</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>c.在Controller的类或方法上使用注解<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span>(value = <span class="string">"http://localhost:3000"</span>)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>2.前端通过react的axios来发请求实现</strong></p>
-<p>以登录发post的请求为例</p>
-<blockquote>
-<p>a.第一种，普通传值方式，传Json对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> LoginApi = &#123;</span><br><span class="line">     login: <span class="keyword">async</span> (account) =&gt;&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">await</span> axios.post(<span class="string">'http://localhost:8080/login'</span>,account);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>此时，后台会接收一个JSON对象的字符串，通过@RequestBody获取即可</p>
-<blockquote>
-<p>b.第二种，利用URLSearchParams进行传值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> LoginApi = &#123;</span><br><span class="line">    login: <span class="keyword">async</span> (&#123;username,password&#125;) =&gt;&#123;</span><br><span class="line">        <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">        params.append(<span class="string">'username'</span>,username);</span><br><span class="line">        params.append(<span class="string">'password'</span>,password);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">await</span> axios.post(<span class="string">'http://localhost:8080/login'</span>,params);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>此时，后台会获取一个JSON对象，使用@RequestParam获取对象中的值</p>
-<p><strong>3.说说axiox.post的参数</strong></p>
-<p>axios.post(url,data,config)</p>
-<p>config:是指一些Content或header的配置</p>
-<p><strong>4.URLSearchParams</strong></p>
-<p>URLSearchParams的方法,该接口不继承任何属性。</p>
-<blockquote>
-<p>URLSearchParams.append(); //插入一个指定的键/值对作为新的搜索参数。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.delete(); //从搜索参数列表里删除指定的搜索参数及其对应的值。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.entries(); //返回一个iterator可以遍历所有键/值对的对象。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.get(); //获取指定搜索参数的第一个值。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.getAll(); //获取指定搜索参数的所有值，返回是一个数组。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.has(); //返回 Boolean 判断是否存在此搜索参数。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.keys(); //返回iterator 此对象包含了键/值对的所有键名。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.set(); //设置一个搜索参数的新值，假如原来有多个值将删除其他所有的值。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.sort(); //按键名排序。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.toString(); //返回搜索参数组成的字符串，可直接使用在URL上。</p>
-</blockquote>
-<blockquote>
-<p>URLSearchParams.values(); //返回iterator 此对象包含了键/值对的所有值。</p>
-</blockquote>
-<p>例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var paramsString = <span class="string">"q=URLUtils.searchParams&amp;topic=api"</span></span><br><span class="line">var searchParams = <span class="keyword">new</span> URLSearchParams(paramsString);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (let p of searchParams) &#123;</span><br><span class="line">  console.log(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">searchParams.has(<span class="string">"topic"</span>) === <span class="keyword">true</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.get(<span class="string">"topic"</span>) === <span class="string">"api"</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.getAll(<span class="string">"topic"</span>); <span class="comment">// ["api"]</span></span><br><span class="line">searchParams.get(<span class="string">"foo"</span>) === <span class="keyword">null</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.append(<span class="string">"topic"</span>, <span class="string">"webdev"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams&amp;topic=api&amp;topic=webdev"</span></span><br><span class="line">searchParams.set(<span class="string">"topic"</span>, <span class="string">"More webdev"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams&amp;topic=More+webdev"</span></span><br><span class="line">searchParams.delete(<span class="string">"topic"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams"</span></span><br></pre></td></tr></table></figure></p>
-<p>URLSearchParams 构造函数不会解析完整 URL，但是如果字符串起始位置有 ? 的话会被去除。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var paramsString1 = <span class="string">"http://example.com/search?query=%40"</span>;</span><br><span class="line">var searchParams1 = <span class="keyword">new</span> URLSearchParams(paramsString1);</span><br><span class="line"></span><br><span class="line">searchParams1.has(<span class="string">"query"</span>); <span class="comment">// false </span></span><br><span class="line">searchParams1.has(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">searchParams1.get(<span class="string">"query"</span>); <span class="comment">// null</span></span><br><span class="line">searchParams1.get(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// "@" (equivalent to decodeURIComponent('%40'))</span></span><br><span class="line"></span><br><span class="line">var paramsString2 = <span class="string">"?query=value"</span>;</span><br><span class="line">var searchParams2 = <span class="keyword">new</span> URLSearchParams(paramsString2);</span><br><span class="line">searchParams2.has(<span class="string">"query"</span>); <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line">var url = <span class="keyword">new</span> URL(<span class="string">"http://example.com/search?query=%40"</span>);</span><br><span class="line">var searchParams3 = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line">searchParams3.has(<span class="string">"query"</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>5.补充axios.get写法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> AccountApi = &#123;</span><br><span class="line">  createAccount: <span class="keyword">async</span> account =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> axios.post(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts`</span>, account);</span><br><span class="line">  &#125;,</span><br><span class="line">  get: <span class="keyword">async</span> id =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> axios.get(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts/<span class="subst">$&#123;id&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.data;</span><br><span class="line">  &#125;,</span><br><span class="line">  get: <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> axios.get(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
+        
+          <a class="article-more-a" href="/zxblog.github.io/2020/03/18/前后端分离跨域请求/#more">more >></a>
+        
       
 
       
@@ -1092,11 +1037,11 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1266,15 +1211,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,19 +1251,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,7 +1283,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1351,6 +1292,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1370,7 +1315,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,7 +1323,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1386,7 +1331,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1395,18 +1352,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,15 +1375,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1446,11 +1387,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1463,6 +1400,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
