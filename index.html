@@ -192,6 +192,232 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前后端分离跨域请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2020/03/18/前后端分离跨域请求/">前后端分离跨域请求</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2020/03/18/前后端分离跨域请求/" class="archive-article-date">
+  	<time datetime="2020-03-18T10:55:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前端使用的是react，后端使用的是springboot</p>
+<p><strong>1.后端跨域请求的三种方式</strong></p>
+<blockquote>
+<p>a.使用CrosFilter实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrosConfig</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> CorsConfiguration <span class="title">buildConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(<span class="string">"http://localhost:3000"</span>);</span><br><span class="line">        corsConfiguration.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.addAllowedMethod(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.setMaxAge(<span class="number">3600L</span>);</span><br><span class="line">        corsConfiguration.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>,buildConfig());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>b.实现WebMvcConfigurer接口，重写addCorsMappings方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">"http://localhost:3000"</span>)</span><br><span class="line">                .allowedHeaders(<span class="string">"*"</span>)</span><br><span class="line">                .allowedMethods(<span class="string">"*"</span>)</span><br><span class="line">                .allowCredentials(<span class="keyword">true</span>)</span><br><span class="line">                .maxAge(<span class="number">3600</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>c.在Controller的类或方法上使用注解<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span>(value = <span class="string">"http://localhost:3000"</span>)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>2.前端通过react的axios来发请求实现</strong></p>
+<p>以登录发post的请求为例</p>
+<blockquote>
+<p>a.第一种，普通传值方式，传Json对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> LoginApi = &#123;</span><br><span class="line">     login: <span class="keyword">async</span> (account) =&gt;&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">await</span> axios.post(<span class="string">'http://localhost:8080/login'</span>,account);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>此时，后台会接收一个JSON对象的字符串，通过@RequestBody获取即可</p>
+<blockquote>
+<p>b.第二种，利用URLSearchParams进行传值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> LoginApi = &#123;</span><br><span class="line">    login: <span class="keyword">async</span> (&#123;username,password&#125;) =&gt;&#123;</span><br><span class="line">        <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">        params.append(<span class="string">'username'</span>,username);</span><br><span class="line">        params.append(<span class="string">'password'</span>,password);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">await</span> axios.post(<span class="string">'http://localhost:8080/login'</span>,params);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>此时，后台会获取一个JSON对象，使用@RequestParam获取对象中的值</p>
+<p><strong>3.说说axiox.post的参数</strong></p>
+<p>axios.post(url,data,config)</p>
+<p>config:是指一些Content或header的配置</p>
+<p><strong>4.URLSearchParams</strong></p>
+<p>URLSearchParams的方法,该接口不继承任何属性。</p>
+<blockquote>
+<p>URLSearchParams.append(); //插入一个指定的键/值对作为新的搜索参数。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.delete(); //从搜索参数列表里删除指定的搜索参数及其对应的值。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.entries(); //返回一个iterator可以遍历所有键/值对的对象。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.get(); //获取指定搜索参数的第一个值。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.getAll(); //获取指定搜索参数的所有值，返回是一个数组。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.has(); //返回 Boolean 判断是否存在此搜索参数。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.keys(); //返回iterator 此对象包含了键/值对的所有键名。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.set(); //设置一个搜索参数的新值，假如原来有多个值将删除其他所有的值。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.sort(); //按键名排序。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.toString(); //返回搜索参数组成的字符串，可直接使用在URL上。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams.values(); //返回iterator 此对象包含了键/值对的所有值。</p>
+</blockquote>
+<p>例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var paramsString = <span class="string">"q=URLUtils.searchParams&amp;topic=api"</span></span><br><span class="line">var searchParams = <span class="keyword">new</span> URLSearchParams(paramsString);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (let p of searchParams) &#123;</span><br><span class="line">  console.log(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">searchParams.has(<span class="string">"topic"</span>) === <span class="keyword">true</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.get(<span class="string">"topic"</span>) === <span class="string">"api"</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.getAll(<span class="string">"topic"</span>); <span class="comment">// ["api"]</span></span><br><span class="line">searchParams.get(<span class="string">"foo"</span>) === <span class="keyword">null</span>; <span class="comment">// true</span></span><br><span class="line">searchParams.append(<span class="string">"topic"</span>, <span class="string">"webdev"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams&amp;topic=api&amp;topic=webdev"</span></span><br><span class="line">searchParams.set(<span class="string">"topic"</span>, <span class="string">"More webdev"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams&amp;topic=More+webdev"</span></span><br><span class="line">searchParams.delete(<span class="string">"topic"</span>);</span><br><span class="line">searchParams.toString(); <span class="comment">// "q=URLUtils.searchParams"</span></span><br></pre></td></tr></table></figure></p>
+<p>URLSearchParams 构造函数不会解析完整 URL，但是如果字符串起始位置有 ? 的话会被去除。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var paramsString1 = <span class="string">"http://example.com/search?query=%40"</span>;</span><br><span class="line">var searchParams1 = <span class="keyword">new</span> URLSearchParams(paramsString1);</span><br><span class="line"></span><br><span class="line">searchParams1.has(<span class="string">"query"</span>); <span class="comment">// false </span></span><br><span class="line">searchParams1.has(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">searchParams1.get(<span class="string">"query"</span>); <span class="comment">// null</span></span><br><span class="line">searchParams1.get(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// "@" (equivalent to decodeURIComponent('%40'))</span></span><br><span class="line"></span><br><span class="line">var paramsString2 = <span class="string">"?query=value"</span>;</span><br><span class="line">var searchParams2 = <span class="keyword">new</span> URLSearchParams(paramsString2);</span><br><span class="line">searchParams2.has(<span class="string">"query"</span>); <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line">var url = <span class="keyword">new</span> URL(<span class="string">"http://example.com/search?query=%40"</span>);</span><br><span class="line">var searchParams3 = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line">searchParams3.has(<span class="string">"query"</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>5.补充axios.get写法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> AccountApi = &#123;</span><br><span class="line">  createAccount: <span class="keyword">async</span> account =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> axios.post(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts`</span>, account);</span><br><span class="line">  &#125;,</span><br><span class="line">  get: <span class="keyword">async</span> id =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> axios.get(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts/<span class="subst">$&#123;id&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.data;</span><br><span class="line">  &#125;,</span><br><span class="line">  get: <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> axios.get(<span class="string">`<span class="subst">$&#123;baseURL&#125;</span>/accounts`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2020/03/18/前后端分离跨域请求/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringBoot常用注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2020/02/16/SpringBoot常用注解/">SpringBoot常用注解</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2020/02/16/SpringBoot常用注解/" class="archive-article-date">
+  	<time datetime="2020-02-16T12:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span>:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line"><span class="meta">@ResponseBody</span>:向浏览器返回页面信息，可以是json格式</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>):请求访问的路径</span><br><span class="line"><span class="meta">@Controller</span>:表明是一个控制器，将其注入到容器中</span><br><span class="line"><span class="meta">@RestController</span>：就是<span class="meta">@Controller</span>和 <span class="meta">@ResponseBody</span>的结合</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span>：表示被标注的类是SpringBoot的配置类</span><br><span class="line"><span class="meta">@Configuration</span>：表明被配置的类是一个配置类</span><br><span class="line"><span class="meta">@Componment</span>：将组建加入容器，进行使用</span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span>：自动配置包，定义默认的包扫描规则 </span><br><span class="line"><span class="meta">@Import</span>(&#123;Registrar.class&#125;)：<span class="keyword">import</span>是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = <span class="string">"person"</span>：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line"><span class="meta">@Validated</span>：进行数据验证的注解</span><br><span class="line"><span class="meta">@Value</span>:进行单项属性值注入</span><br><span class="line"><span class="meta">@PropertySource</span>：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line"><span class="meta">@ImportResource</span>：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line"><span class="meta">@Bean</span>：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user/login"</span>)：相当于<span class="meta">@RequestMapping</span>以及设置请求方式为post</span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestParam</span>(<span class="string">"username"</span>)：设置获取页面传来的JSON对象的username属性</span><br><span class="line"><span class="meta">@RequestBody</span>:解析前端传回的JSON字符串，将其变为JAVA对象</span><br><span class="line"><span class="meta">@Pathvariable</span>：获取URL中的参数</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span>:注解Mybatis中的mapper接口</span><br><span class="line"><span class="meta">@MapperScan</span>(value=<span class="string">"包名"</span>)：在包名下的所有类都被认为添加了<span class="meta">@Mapper</span>，它是添加在程序入口类上的</span><br><span class="line"><span class="meta">@Options</span>:配置一些选项，比如配置主键自增为<span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span>:表明此类是一个实体</span><br><span class="line"><span class="meta">@Column</span>(name = <span class="string">"last_name"</span>,length = <span class="number">50</span>) <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line"><span class="meta">@id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)<span class="comment">//自增主键</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2020/02/16/SpringBoot常用注解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -718,73 +944,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SpringBoot注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/04/16/SpringBoot注解/">SpringBoot注解</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/04/16/SpringBoot注解/" class="archive-article-date">
-  	<time datetime="2019-04-16T12:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line">@ResponseBody:向浏览器返回页面信息，可以是json格式</span><br><span class="line">@RequestMapping("/hello"):请求访问的路径</span><br><span class="line">@Controller:表明是一个控制器，将其注入到容器中</span><br><span class="line">@RestController：就是@Controller和 @ResponseBody的结合</span><br><span class="line"></span><br><span class="line">@SpringBootConfiguration：表示被标注的类是SpringBoot的配置类</span><br><span class="line">@Configuration：表明被配置的类是一个配置类</span><br><span class="line">@Componment：将组建加入容器，进行使用</span><br><span class="line">@EnableAutoConfiguration：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line">@AutoConfigurationPackage：自动配置包，定义默认的包扫描规则 </span><br><span class="line">@Import(&#123;Registrar.class&#125;)：import是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line">@ConfigurationProperties(prefix = "person"）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = "person"：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line">@Validated：进行数据验证的注解</span><br><span class="line">@Value:进行单项属性值注入</span><br><span class="line">@PropertySource：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line">@ImportResource：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line">@Bean：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line">@PostMapping(value = "/user/login")：相当于@RequestMapping以及设置请求方式为post</span><br><span class="line">@DeleteMapping</span><br><span class="line">@PutMapping</span><br><span class="line">@GetMapping</span><br><span class="line"></span><br><span class="line">@RequestParam("username")：设置获取页面的username属性</span><br><span class="line"></span><br><span class="line">@Mapper:注解Mybatis中的mapper接口</span><br><span class="line">@MapperScan(value="包名")：在包名下的所有类都被认为添加了@Mapper，它是添加在程序入口类上的</span><br><span class="line">@Options:配置一些选项，比如配置主键自增为true</span><br><span class="line"></span><br><span class="line">@Entity:表明此类是一个实体</span><br><span class="line">@Column(name = "last_name",length = 50) //这是和数据表对应的一个列</span><br><span class="line">@id</span><br><span class="line">@GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/04/16/SpringBoot注解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Spring-Boot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -933,11 +1092,11 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">struts2</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -957,87 +1116,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zxblog.github.io/2019/04/04/框架小结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSM框架整合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2019/04/03/SSM框架整合/">SSM框架整合</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2019/04/03/SSM框架整合/" class="archive-article-date">
-  	<time datetime="2019-04-03T09:31:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、ssm工程架构"><a href="#一、ssm工程架构" class="headerlink" title="一、ssm工程架构"></a>一、ssm工程架构</h3><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/zxssm01.png" alt=""><br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2019/04/03/SSM框架整合/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2019/04/03/SSM框架整合/">展开全文 >></a>
         </p>
       
 
@@ -1192,11 +1270,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,10 +1283,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,6 +1299,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1264,11 +1342,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1276,11 +1354,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,7 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1300,11 +1378,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,6 +1402,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
@@ -1340,15 +1422,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,11 +1442,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,6 +1455,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
               </li>
              
               <li class="article-tag-list-item">

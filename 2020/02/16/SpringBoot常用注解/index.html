@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>SpringBoot注解 | zCoder</title>
+  <title>SpringBoot常用注解 | zCoder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:">
+<meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot注解">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/04/16/SpringBoot注解/index.html">
+<meta property="og:title" content="SpringBoot常用注解">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2020/02/16/SpringBoot常用注解/index.html">
 <meta property="og:site_name" content="zCoder">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T12:21:40.501Z">
+<meta property="og:updated_time" content="2020-11-08T03:27:16.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot注解">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:表明是一">
+<meta name="twitter:title" content="SpringBoot常用注解">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用@ResponseBody:向浏览器返回页面信息，可以是json格式@RequestMapping(&quot;/hello&quot;):请求访问的路径@Controller:">
   
     <link rel="alternative" href="/atom.xml" title="zCoder" type="application/atom+xml">
   
@@ -194,20 +195,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SpringBoot注解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SpringBoot常用注解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SpringBoot注解
+      SpringBoot常用注解
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2019/04/16/SpringBoot注解/" class="archive-article-date">
-  	<time datetime="2019-04-16T12:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
+        <a href="/zxblog.github.io/2020/02/16/SpringBoot常用注解/" class="archive-article-date">
+  	<time datetime="2020-02-16T12:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
 </a>
         
         
@@ -222,7 +223,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line">@ResponseBody:向浏览器返回页面信息，可以是json格式</span><br><span class="line">@RequestMapping("/hello"):请求访问的路径</span><br><span class="line">@Controller:表明是一个控制器，将其注入到容器中</span><br><span class="line">@RestController：就是@Controller和 @ResponseBody的结合</span><br><span class="line"></span><br><span class="line">@SpringBootConfiguration：表示被标注的类是SpringBoot的配置类</span><br><span class="line">@Configuration：表明被配置的类是一个配置类</span><br><span class="line">@Componment：将组建加入容器，进行使用</span><br><span class="line">@EnableAutoConfiguration：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line">@AutoConfigurationPackage：自动配置包，定义默认的包扫描规则 </span><br><span class="line">@Import(&#123;Registrar.class&#125;)：import是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line">@ConfigurationProperties(prefix = "person"）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = "person"：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line">@Validated：进行数据验证的注解</span><br><span class="line">@Value:进行单项属性值注入</span><br><span class="line">@PropertySource：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line">@ImportResource：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line">@Bean：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line">@PostMapping(value = "/user/login")：相当于@RequestMapping以及设置请求方式为post</span><br><span class="line">@DeleteMapping</span><br><span class="line">@PutMapping</span><br><span class="line">@GetMapping</span><br><span class="line"></span><br><span class="line">@RequestParam("username")：设置获取页面的username属性</span><br><span class="line"></span><br><span class="line">@Mapper:注解Mybatis中的mapper接口</span><br><span class="line">@MapperScan(value="包名")：在包名下的所有类都被认为添加了@Mapper，它是添加在程序入口类上的</span><br><span class="line">@Options:配置一些选项，比如配置主键自增为true</span><br><span class="line"></span><br><span class="line">@Entity:表明此类是一个实体</span><br><span class="line">@Column(name = "last_name",length = 50) //这是和数据表对应的一个列</span><br><span class="line">@id</span><br><span class="line">@GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键</span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span>:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line"><span class="meta">@ResponseBody</span>:向浏览器返回页面信息，可以是json格式</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>):请求访问的路径</span><br><span class="line"><span class="meta">@Controller</span>:表明是一个控制器，将其注入到容器中</span><br><span class="line"><span class="meta">@RestController</span>：就是<span class="meta">@Controller</span>和 <span class="meta">@ResponseBody</span>的结合</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span>：表示被标注的类是SpringBoot的配置类</span><br><span class="line"><span class="meta">@Configuration</span>：表明被配置的类是一个配置类</span><br><span class="line"><span class="meta">@Componment</span>：将组建加入容器，进行使用</span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span>：自动配置包，定义默认的包扫描规则 </span><br><span class="line"><span class="meta">@Import</span>(&#123;Registrar.class&#125;)：<span class="keyword">import</span>是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = <span class="string">"person"</span>：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line"><span class="meta">@Validated</span>：进行数据验证的注解</span><br><span class="line"><span class="meta">@Value</span>:进行单项属性值注入</span><br><span class="line"><span class="meta">@PropertySource</span>：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line"><span class="meta">@ImportResource</span>：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line"><span class="meta">@Bean</span>：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user/login"</span>)：相当于<span class="meta">@RequestMapping</span>以及设置请求方式为post</span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestParam</span>(<span class="string">"username"</span>)：设置获取页面传来的JSON对象的username属性</span><br><span class="line"><span class="meta">@RequestBody</span>:解析前端传回的JSON字符串，将其变为JAVA对象</span><br><span class="line"><span class="meta">@Pathvariable</span>：获取URL中的参数</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span>:注解Mybatis中的mapper接口</span><br><span class="line"><span class="meta">@MapperScan</span>(value=<span class="string">"包名"</span>)：在包名下的所有类都被认为添加了<span class="meta">@Mapper</span>，它是添加在程序入口类上的</span><br><span class="line"><span class="meta">@Options</span>:配置一些选项，比如配置主键自增为<span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span>:表明此类是一个实体</span><br><span class="line"><span class="meta">@Column</span>(name = <span class="string">"last_name"</span>,length = <span class="number">50</span>) <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line"><span class="meta">@id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)<span class="comment">//自增主键</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -261,6 +262,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
      
       
 
@@ -312,7 +324,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/04/16/SpringBoot注解/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2020/02/16/SpringBoot常用注解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +338,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2019/08/09/分布式项目/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/zxblog.github.io/2020/03/18/前后端分离跨域请求/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          分布式项目
+          前后端分离跨域请求
         
       </div>
     </a>
   
   
-    <a href="/zxblog.github.io/2019/04/09/Spring-Boot/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot</div>
+    <a href="/zxblog.github.io/2020/02/01/算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -367,7 +379,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="SpringBoot注解" ></div> 
+  <div id="SOHUCS" sid="SpringBoot常用注解" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -501,11 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,10 +526,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,6 +542,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,11 +585,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,11 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,7 +609,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,6 +645,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
@@ -649,15 +665,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,11 +685,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,6 +698,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
               </li>
              
               <li class="article-tag-list-item">
