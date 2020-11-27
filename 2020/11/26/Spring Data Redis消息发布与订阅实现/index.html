@@ -6,33 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zxnaruto.github.io/zxblog.github.io">
-  <title>Mac使用心得 | zCoder</title>
+  <title>Spring Data Redis消息发布与订阅实现 | zCoder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Mac基本快捷键操作1.锁屏：command+control+q2.复制：command+c3.粘贴：command+v4.撤销：command+z5.剪贴：command+x6.打开终端：command+space –&amp;gt;输入Terminal.app7.全选：command+a8.在方达中创建一个文件夹：shift+command+n9.切换窗口：command+Tab10.Option">
-<meta name="keywords" content="Mac,git,zsh,jdk,homebrew,tomcat">
+  <meta name="description" content="在Spring boot中，使用Redis来实现消息的发布与订阅，这里写了一个发布者和两个订阅者，发布者通过convertAndSend向不同的Channel中发布消息，订阅者通过RedisMessageListenerContainer充当消息侦听器容器，MessageListenerAdapter充当消息侦听适配器，将消息委托给MessageListener进行消费。">
+<meta name="keywords" content="spring boot,redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac使用心得">
-<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2019/12/26/Mac使用心得/index.html">
+<meta property="og:title" content="Spring Data Redis消息发布与订阅实现">
+<meta property="og:url" content="http://zxnaruto.github.io/zxblog.github.io/2020/11/26/Spring Data Redis消息发布与订阅实现/index.html">
 <meta property="og:site_name" content="zCoder">
-<meta property="og:description" content="一、Mac基本快捷键操作1.锁屏：command+control+q2.复制：command+c3.粘贴：command+v4.撤销：command+z5.剪贴：command+x6.打开终端：command+space –&amp;gt;输入Terminal.app7.全选：command+a8.在方达中创建一个文件夹：shift+command+n9.切换窗口：command+Tab10.Option">
+<meta property="og:description" content="在Spring boot中，使用Redis来实现消息的发布与订阅，这里写了一个发布者和两个订阅者，发布者通过convertAndSend向不同的Channel中发布消息，订阅者通过RedisMessageListenerContainer充当消息侦听器容器，MessageListenerAdapter充当消息侦听适配器，将消息委托给MessageListener进行消费。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_3.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_1.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_2.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_1.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_2.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_3.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_4.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_5.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_1.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_2.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_3.png">
-<meta property="og:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_4.png">
-<meta property="og:updated_time" content="2019-12-26T06:55:27.747Z">
+<meta property="og:updated_time" content="2020-11-27T03:03:45.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac使用心得">
-<meta name="twitter:description" content="一、Mac基本快捷键操作1.锁屏：command+control+q2.复制：command+c3.粘贴：command+v4.撤销：command+z5.剪贴：command+x6.打开终端：command+space –&amp;gt;输入Terminal.app7.全选：command+a8.在方达中创建一个文件夹：shift+command+n9.切换窗口：command+Tab10.Option">
-<meta name="twitter:image" content="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_3.png">
+<meta name="twitter:title" content="Spring Data Redis消息发布与订阅实现">
+<meta name="twitter:description" content="在Spring boot中，使用Redis来实现消息的发布与订阅，这里写了一个发布者和两个订阅者，发布者通过convertAndSend向不同的Channel中发布消息，订阅者通过RedisMessageListenerContainer充当消息侦听器容器，MessageListenerAdapter充当消息侦听适配器，将消息委托给MessageListener进行消费。">
   
     <link rel="alternative" href="/atom.xml" title="zCoder" type="application/atom+xml">
   
@@ -208,20 +195,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Mac使用心得" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring Data Redis消息发布与订阅实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Mac使用心得
+      Spring Data Redis消息发布与订阅实现
     </h1>
   
 
         
-        <a href="/zxblog.github.io/2019/12/26/Mac使用心得/" class="archive-article-date">
-  	<time datetime="2019-12-26T06:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
+        <a href="/zxblog.github.io/2020/11/26/Spring Data Redis消息发布与订阅实现/" class="archive-article-date">
+  	<time datetime="2020-11-26T08:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-26</time>
 </a>
         
         
@@ -236,107 +223,20 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、Mac基本快捷键操作"><a href="#一、Mac基本快捷键操作" class="headerlink" title="一、Mac基本快捷键操作"></a>一、Mac基本快捷键操作</h3><p>1.锁屏：command+control+q<br>2.复制：command+c<br>3.粘贴：command+v<br>4.撤销：command+z<br>5.剪贴：command+x<br>6.打开终端：command+space –&gt;输入Terminal.app<br>7.全选：command+a<br>8.在方达中创建一个文件夹：shift+command+n<br>9.切换窗口：command+Tab<br>10.Option+Command+电源按钮：睡眠<br><a id="more"></a></p>
-<h3 id="二、Mac鼠标操作"><a href="#二、Mac鼠标操作" class="headerlink" title="二、Mac鼠标操作"></a>二、Mac鼠标操作</h3><p>1.在触摸板上滑动鼠标选择位置，双击触摸板打开应用<br>2.两指同时滑动可以浏览网页，以及一些需要滑动的东西</p>
-<h3 id="三、Mac图标"><a href="#三、Mac图标" class="headerlink" title="三、Mac图标"></a>三、Mac图标</h3><p>1.访达相当于windows中的我的电脑<br>2.启动台相当于应用的集合，里面可以找到你所安装的未设置在程序坞中的应用<br>3.所谓程序坞就是指电脑屏幕下方的快捷栏，可以添加常用的应用</p>
-<h3 id="四、Mac命令行的用法"><a href="#四、Mac命令行的用法" class="headerlink" title="四、Mac命令行的用法"></a>四、Mac命令行的用法</h3><p>1.使用下面的命令打开相应路径下的文件(可视化的打开)</p>
-<pre><code>open /path
-</code></pre><p>2.访问目录</p>
-<pre><code>cd /path
-</code></pre><p>3.使用终端的权限</p>
-<pre><code>sudo + 命令
-</code></pre><p>4.编辑文件</p>
-<pre><code>vim path+filename
-i:insert 插入
-a:add 添加
-q!:强制退出不保存修改
-wq!:保存修改强制退出
-</code></pre><p><strong>5.Mac命令部分集合</strong><br>(1)目录操作</p>
-<ul>
-<li>mkdir：创建文件或目录 –&gt; mkdir filename </li>
-<li>rmdir：删除文件或目录 –&gt; rmdir filename</li>
-<li>mvdir：移动或重命名一个文件或目录 –&gt;mvdir filename</li>
-<li>pwd：查看当前目录的路径</li>
-<li>ls：显示当前目录下的所有文件 –&gt; ls -l</li>
-<li>dircmp：比较两个文件的内容 –&gt; dircmp file1 file2</li>
-</ul>
-<p>(2)文件操作</p>
-<ul>
-<li>cat：查看文件 –&gt; cat filename </li>
-<li>pg：分页格式化的显示文件内容</li>
-<li>more：分屏显示文件内容 –&gt; more filename</li>
-<li>od：显示非文本文件的内容 –&gt; od -c filename</li>
-<li>cp：复制文件或目录 cp file1 file2</li>
-<li>rm：删除文件或目录 rm - rf  file</li>
-<li>find：查找文件，使用正则表达式的方式 –&gt; find -name “*.c” -print</li>
-<li>file：显示文件类型 –&gt; file filename</li>
-</ul>
-<p>(3)选择操作</p>
-<ul>
-<li>head：显示文件的最初几行 –&gt; head -10 filename</li>
-<li>tail：显示文件的最后几行 –&gt; tail -10 filename</li>
-<li>wc：统计文件中的字数 –&gt; wc file</li>
-</ul>
-<p>(4)安全操作</p>
-<ul>
-<li>passwd：修改用户密码 </li>
-<li>chmod：改变文件或目录的权限 –&gt; chmod ug+x filename</li>
-<li>xlock：给终端上锁 –&gt; xlock -remote</li>
-</ul>
-<p>(5)进程操作</p>
-<ul>
-<li>ps：显示进程的当前状态 –&gt; ps -ef | grep name</li>
-<li>kill：终止进程 –&gt; kill -9  name<br>(6)时间操作</li>
-<li>date：显示当前系统的日期和时间</li>
-<li>cal：显示日历 cal 8 1996</li>
-<li>time：统计程序的执行时间 –&gt; time a.out</li>
-</ul>
-<p>(8)其他操作</p>
-<ul>
-<li>clear：清空屏幕或窗口的内容</li>
-</ul>
-<h3 id="五、Mac安装JDK"><a href="#五、Mac安装JDK" class="headerlink" title="五、Mac安装JDK"></a>五、Mac安装JDK</h3><p>1.先去官网下载JDK：…dmg文件<br><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_3.png" alt=""><br>2.双击文件进行安装<br>3.安装完后使用java -version 查看jdk的安装情况<br>4.配置环境变量<br>(1)sudo vim /etc/profile<br>(2)编辑文件(i或a)，在文件的尾部添加如下代码</p>
-<pre><code>export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=.:$PATH:$JAVA_HOME/bin
-export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
-</code></pre><p>(3)esc–&gt;shift+:–&gt;wq!写入</p>
-<p>(4)java -version查看是否安装成功<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_1.png" alt=""><br>(5)查看Jdk的位置<br>/usr/libexec/java_home -v<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day001_2.png" alt=""></p>
-<h3 id="六、Mac安装Tomcat"><a href="#六、Mac安装Tomcat" class="headerlink" title="六、Mac安装Tomcat"></a>六、Mac安装Tomcat</h3><p>1.去官网下载你所想要安装的tomcat的版本<br><a href="https://tomcat.apache.org" target="_blank" rel="noopener">https://tomcat.apache.org</a><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_1.png" alt=""><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_2.png" alt=""><br>2.解压到你所想要放的目录<br>如果不知道mac如何看文件夹的路径的做法<br>a.首先command+space，打开搜索栏，输入你所想要查询的文件夹的名字，找到他<br>b.然后，可以打开终端，将相应的文件夹拖到终端中，就会显示文件的路径了，下图是我截图<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_3.png" alt=""><br>3.使用cd 进入该路径下的bin文件夹<br>4.执行./startup.sh，你会看到没有权限执行，此时你需要执行下面的命令修改一下权限<br>sudo chmod 755 *.sh 然后在./startup.sh，你就会看到运行成功<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_4.png" alt=""><br>5.去浏览器中输入<a href="https://localhost:8080，看到以下页面证明访问成功" target="_blank" rel="noopener">https://localhost:8080，看到以下页面证明访问成功</a><br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day002_5.png" alt=""><br>6.在bin目录下，输入./shutdown.sh 关闭tomcat</p>
-<h3 id="七、Mac安装zsh"><a href="#七、Mac安装zsh" class="headerlink" title="七、Mac安装zsh"></a>七、Mac安装zsh</h3><p>1.在终端情况下输入下面的指令进行安装</p>
-<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-</code></pre><p>2.zsh与bash的切换<br>a.切换为zsh：chsh -s /bin/zsh –&gt;关闭终端然后重新进入<br>b.切换为bash：chsh -s /bin/bash –&gt;关闭终端重新进入</p>
-<p>3.关于zsh的配置，可以切换主题，配置方便的插件</p>
-<h3 id="八、Mac安装git"><a href="#八、Mac安装git" class="headerlink" title="八、Mac安装git"></a>八、Mac安装git</h3><p>在有Homebrew下，brew install git，就可以了<br>更新的话直接覆盖也可以</p>
-<h3 id="九、Mac安装Homebrew"><a href="#九、Mac安装Homebrew" class="headerlink" title="九、Mac安装Homebrew"></a>九、Mac安装Homebrew</h3><p>1.打开终端、输入下面的操作</p>
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre><p> 应该会要让你验证，输入你的苹果密码就可以</p>
-<p> 2.Homebrew的常用命令</p>
-<ul>
-<li>brew –help：查看命令</li>
-<li>man brew：完整的命令帮助</li>
-<li>brew install something：安装软件包</li>
-<li>brew uninstall something：卸载软件包</li>
-<li>brew search something：搜索软件包</li>
-<li>brew list：显示已经安装的软件包</li>
-<li>brew update：同步远程更新软件，指的是安装的所有</li>
-<li>brew upgrade something：单独更新某个软件</li>
-<li>brew info something：查看软件包的信息</li>
-<li>brew home something：访问某个软件的官方网站</li>
-<li>brew cleanup：清理所有已近安装的软件的老版本</li>
-<li>brew cleanup something：清理某个已经安装的软件的老版本</li>
-</ul>
-<h3 id="十、git-amp-github配置"><a href="#十、git-amp-github配置" class="headerlink" title="十、git&amp;github配置"></a>十、git&amp;github配置</h3><p>1.首先，利用homebrew安装好git，或者你自带git然后更新或直接使用<br>2.创建ssh key，配置git</p>
-<pre><code>git config --global user.name &quot;xin.zhai&quot;
-git config --global user.email &quot;xin.zhai@thoughtworks.com&quot;
-</code></pre><p>3.通过终端命令创建ssh key</p>
-<pre><code>ssh-keygen -f rsa -C &quot;xin.zhai@thoughtworks.com&quot;
-</code></pre><p>回车<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_1.png" alt=""><br>直接使用其推荐的路径<br>下面你也可以设置密码，在你进行操作的时候使用，比如测试连接git是否成功，以及clone项目，上传本地项目。</p>
-<p>4.打开ssh文件，复制里面的key到github</p>
-<pre><code>cat /Users/xin.zhai/.ssh/id_rsa.pub
-</code></pre><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_2.png" alt=""><br>5.复制key到github中，如下图<br><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_3.png" alt=""><br>6.测试连接是否成功</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p><img src="https://zxnaruto.github.io/zxblog.github.io/codeimages/day003_4.png" alt=""></p>
-<h3 id="十一、笔记"><a href="#十一、笔记" class="headerlink" title="十一、笔记"></a>十一、笔记</h3><p>1.Mac上的return键<br>就是回车键</p>
+        <p>在Spring boot中，使用Redis来实现消息的发布与订阅，这里写了一个发布者和两个订阅者，发布者通过convertAndSend向不同的Channel中发布消息，订阅者通过RedisMessageListenerContainer充当消息侦听器容器，MessageListenerAdapter充当消息侦听适配器，将消息委托给MessageListener进行消费。</p>
+<a id="more"></a>
+<h4 id="Publisher"><a href="#Publisher" class="headerlink" title="Publisher"></a>Publisher</h4><p><strong>1.pom.xml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2.application.yml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: redis-publisher</span><br><span class="line">  redis:</span><br><span class="line">    host: localhost</span><br><span class="line">    port: 6379</span><br><span class="line">server:</span><br><span class="line">  port: 8080</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.RedisConfig</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 自定义RedisTemplate</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"all"</span>)</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title">redisTemplate</span><span class="params">(RedisConnectionFactory factory)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 为了方便开发，一般直接使用&lt;String,Object&gt;</span></span><br><span class="line">        RedisTemplate&lt;String, Object&gt; template = <span class="keyword">new</span> RedisTemplate&lt;String, Object&gt;();</span><br><span class="line">        template.setConnectionFactory(factory);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Json序列化配置</span></span><br><span class="line">        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = <span class="keyword">new</span> Jackson2JsonRedisSerializer(Object.class);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);</span><br><span class="line">        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);</span><br><span class="line">        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//String序列化</span></span><br><span class="line">        StringRedisSerializer stringRedisSerializer = <span class="keyword">new</span> StringRedisSerializer();</span><br><span class="line">        <span class="comment">//key采取String的方式序列化</span></span><br><span class="line">        template.setKeySerializer(stringRedisSerializer);</span><br><span class="line">        <span class="comment">// hash的key采用String方式序列化</span></span><br><span class="line">        template.setHashKeySerializer(stringRedisSerializer);</span><br><span class="line">        <span class="comment">// value的序列化方式选择jackson</span></span><br><span class="line">        template.setValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.setHashKeySerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.afterPropertiesSet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.Publisher</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Publisher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Publisher</span><span class="params">(RedisTemplate redisTemplate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.redisTemplate = redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向指定channel发送消息</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publish</span><span class="params">(String channel, Object object)</span> </span>&#123;</span><br><span class="line">        redisTemplate.convertAndSend(channel,object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.Test</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span>(classes = PublisherApplication.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Publisher publisher;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"发布消息"</span>);</span><br><span class="line">        publisher.publish(<span class="string">"channel1"</span>,<span class="string">"今天还好"</span>);</span><br><span class="line">        publisher.publish(<span class="string">"channel2"</span>,<span class="string">"来对a啊"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Subscriber"><a href="#Subscriber" class="headerlink" title="Subscriber"></a>Subscriber</h4><p><strong>1.pom.xml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2.application.yml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: redis-subscriber1</span><br><span class="line">  redis:</span><br><span class="line">    host: localhost</span><br><span class="line">    port: 6379</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.RedisConfig</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 自定义RedisTemplate</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"all"</span>)</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title">redisTemplate</span><span class="params">(RedisConnectionFactory factory)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 为了方便开发，一般直接使用&lt;String,Object&gt;</span></span><br><span class="line">        RedisTemplate&lt;String, Object&gt; template = <span class="keyword">new</span> RedisTemplate&lt;String, Object&gt;();</span><br><span class="line">        template.setConnectionFactory(factory);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Json序列化配置</span></span><br><span class="line">        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = <span class="keyword">new</span> Jackson2JsonRedisSerializer(Object.class);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);</span><br><span class="line">        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);</span><br><span class="line">        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//String序列化</span></span><br><span class="line">        StringRedisSerializer stringRedisSerializer = <span class="keyword">new</span> StringRedisSerializer();</span><br><span class="line">        <span class="comment">//key采取String的方式序列化</span></span><br><span class="line">        template.setKeySerializer(stringRedisSerializer);</span><br><span class="line">        <span class="comment">// hash的key采用String方式序列化</span></span><br><span class="line">        template.setHashKeySerializer(stringRedisSerializer);</span><br><span class="line">        <span class="comment">// value的序列化方式选择jackson</span></span><br><span class="line">        template.setValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.setHashKeySerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.afterPropertiesSet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.MessageConfig</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Messageconfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Subscriber subscriber;</span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Messageconfig</span><span class="params">(Subscriber subscriber, RedisTemplate redisTemplate)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.subscriber = subscriber;</span><br><span class="line">      <span class="keyword">this</span>.redisTemplate = redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//RedisMessageListenerContainer充当消息侦听器容器。</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">RedisMessageListenerContainer <span class="title">container</span><span class="params">(MessageListenerAdapter listenerAdapter)</span> </span>&#123;</span><br><span class="line">        RedisMessageListenerContainer container = <span class="keyword">new</span> RedisMessageListenerContainer();</span><br><span class="line">        container.setConnectionFactory(redisTemplate.getConnectionFactory());</span><br><span class="line">        List&lt;Topic&gt; topicList = <span class="keyword">new</span> ArrayList&lt;Topic&gt;();</span><br><span class="line">        topicList.add(<span class="keyword">new</span> PatternTopic(<span class="string">"channel1"</span>));</span><br><span class="line">        container.addMessageListener(listenerAdapter,topicList);</span><br><span class="line">        <span class="keyword">return</span> container;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//消息侦听器适配器，能将消息委托给目标侦听器方法</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">MessageListenerAdapter <span class="title">listenerAdapter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MessageListenerAdapter(subscriber);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.Subcriber</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subscriber</span> <span class="keyword">implements</span> <span class="title">MessageListener</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Subscriber</span><span class="params">(RedisTemplate redisTemplate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.redisTemplate = redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 每次新消息到达时，都会调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, <span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">        RedisSerializer&lt;?&gt; keySerializer = redisTemplate.getKeySerializer();</span><br><span class="line">        RedisSerializer&lt;?&gt; valueSerializer = redisTemplate.getValueSerializer();</span><br><span class="line">        Object channel = keySerializer.deserialize(message.getChannel());</span><br><span class="line">        Object body = valueSerializer.deserialize(message.getBody());</span><br><span class="line">        System.out.println(<span class="string">"Channel："</span>+ channel);</span><br><span class="line">        System.out.println(<span class="string">"消息："</span>+String.valueOf(body));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另一个Subscriber与上面的大致一致，除了监听的channel不一致</p>
+<p>参考：<br><a href="https://my.oschina.net/itsaysay/blog/4554714" target="_blank" rel="noopener">https://my.oschina.net/itsaysay/blog/4554714</a></p>
 
       
 
@@ -381,27 +281,11 @@ git config --global user.email &quot;xin.zhai@thoughtworks.com&quot;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring boot</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">zsh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">homebrew</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -458,7 +342,7 @@ git config --global user.email &quot;xin.zhai@thoughtworks.com&quot;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2019/12/26/Mac使用心得/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zxnaruto.github.io/zxblog.github.io/2020/11/26/Spring Data Redis消息发布与订阅实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -472,18 +356,9 @@ git config --global user.email &quot;xin.zhai@thoughtworks.com&quot;
   
 <nav id="article-nav">
   
-    <a href="/zxblog.github.io/2019/12/29/一周Tips for 01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一周Tips for 01
-        
-      </div>
-    </a>
   
-  
-    <a href="/zxblog.github.io/2019/11/13/设计模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式基础</div>
+    <a href="/zxblog.github.io/2020/11/26/Spring Cache用Redis做缓存/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Cache用Redis做缓存</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -513,7 +388,7 @@ git config --global user.email &quot;xin.zhai@thoughtworks.com&quot;
   
 
   
-  <div id="SOHUCS" sid="Mac使用心得" ></div> 
+  <div id="SOHUCS" sid="Spring Data Redis消息发布与订阅实现" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
