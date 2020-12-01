@@ -192,6 +192,95 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hadoop-HA-高可用-集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/">Hadoop HA(高可用)集群搭建</a>
+    </h1>
+  
+
+        
+        <a href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/" class="archive-article-date">
+  	<time datetime="2018-08-19T03:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+</a>
+        
+        
+
+      
+      </header>
+ 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、配置zookeeper"><a href="#一、配置zookeeper" class="headerlink" title="一、配置zookeeper"></a>一、配置zookeeper</h4><ul>
+<li>1.上传zookeeper压缩包，解压</li>
+<li>2.进入zookeeper解压好的文件夹中，进入conf</li>
+<li>3.cp zoo_sample.cfg  zoo.cfg 复制生成文件zoo.cfg</li>
+<li>4.修改vim zoo.cfg<br> datadir=/opt/zookeeper<br>添加<br>server.1=changda01:2888:3888<br>server.2=changda02:2888:3888<br>server.3=changda03:2888:3888<br>保存退出
+        
+          <a class="article-more-a" href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+     
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zxblog.github.io/2018/08/19/Hadoop-HA-高可用-集群搭建/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jQuery-Ajax应用：以用户登陆为例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -999,88 +1088,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="new-数据库表与表之间的关系" class="article article-type-new  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">数据库表与表之间的关系</a>
-    </h1>
-  
-
-        
-        <a href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/" class="archive-article-date">
-  	<time datetime="2018-07-05T06:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-        
-
-      
-      </header>
- 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-一对一关系"><a href="#1-一对一关系" class="headerlink" title="1.一对一关系"></a>1.一对一关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对一关系就是指属性之间存在外键关系，且被关联外键的属性必须加unique约束。否则就变成了一对多的关系，这里要特别注意。</p>
-<h4 id="2-一对多关系"><a href="#2-一对多关系" class="headerlink" title="2.一对多关系"></a>2.一对多关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓一对多关系也是指属性之间存在外键关系，且被关联的属性不用加unique约束。<br>
-        
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-     
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zxblog.github.io/2018/07/05/数据库表与表之间的关系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/zxblog.github.io/page/7/">&laquo; Prev</a><a class="page-number" href="/zxblog.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zxblog.github.io/page/6/">6</a><a class="page-number" href="/zxblog.github.io/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/zxblog.github.io/page/9/">9</a><a class="page-number" href="/zxblog.github.io/page/10/">10</a><a class="page-number" href="/zxblog.github.io/page/11/">11</a><a class="extend next" rel="next" href="/zxblog.github.io/page/9/">Next &raquo;</a>
@@ -1206,22 +1213,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1230,15 +1221,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,7 +1249,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,7 +1297,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rabbitmq</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis-generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">pagehelper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,15 +1317,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cache</a>
+                <a href="javascript:void(0)" class="js-tag color4">rabbitmq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1314,7 +1325,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cache</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1326,10 +1345,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
@@ -1338,15 +1353,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">struts2</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1366,15 +1381,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1382,7 +1393,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,11 +1405,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1410,19 +1433,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,15 +1441,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1447,6 +1454,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mvc</a>
               </li>
              
               <li class="article-tag-list-item">
