@@ -568,7 +568,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span>:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line"><span class="meta">@ResponseBody</span>:向浏览器返回页面信息，可以是json格式</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>):请求访问的路径</span><br><span class="line"><span class="meta">@Controller</span>:表明是一个控制器，将其注入到容器中</span><br><span class="line"><span class="meta">@RestController</span>：就是<span class="meta">@Controller</span>和 <span class="meta">@ResponseBody</span>的结合</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span>：表示被标注的类是SpringBoot的配置类</span><br><span class="line"><span class="meta">@Configuration</span>：表明被配置的类是一个配置类</span><br><span class="line"><span class="meta">@Componment</span>：将组建加入容器，进行使用</span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span>：自动配置包，定义默认的包扫描规则 </span><br><span class="line"><span class="meta">@Import</span>(&#123;Registrar.class&#125;)：<span class="keyword">import</span>是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = <span class="string">"person"</span>：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line"><span class="meta">@Validated</span>：进行数据验证的注解</span><br><span class="line"><span class="meta">@Value</span>:进行单项属性值注入</span><br><span class="line"><span class="meta">@PropertySource</span>：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line"><span class="meta">@ImportResource</span>：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line"><span class="meta">@Bean</span>：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user/login"</span>)：相当于<span class="meta">@RequestMapping</span>以及设置请求方式为post</span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestParam</span>(<span class="string">"username"</span>)：设置获取页面传来的JSON对象的username属性</span><br><span class="line"><span class="meta">@RequestBody</span>:解析前端传回的JSON字符串，将其变为JAVA对象</span><br><span class="line"><span class="meta">@Pathvariable</span>：获取URL中的参数</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span>:注解Mybatis中的mapper接口</span><br><span class="line"><span class="meta">@MapperScan</span>(value=<span class="string">"包名"</span>)：在包名下的所有类都被认为添加了<span class="meta">@Mapper</span>，它是添加在程序入口类上的</span><br><span class="line"><span class="meta">@Options</span>:配置一些选项，比如配置主键自增为<span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span>:表明此类是一个实体</span><br><span class="line"><span class="meta">@Column</span>(name = <span class="string">"last_name"</span>,length = <span class="number">50</span>) <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line"><span class="meta">@id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)<span class="comment">//自增主键</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span>:来标注一个主程序类，说明这是一个Spring Boot应用</span><br><span class="line"><span class="meta">@ResponseBody</span>:向浏览器返回页面信息，可以是json格式</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>):请求访问的路径</span><br><span class="line"><span class="meta">@Controller</span>:表明是一个控制器，将其注入到容器中</span><br><span class="line"><span class="meta">@RestController</span>：就是<span class="meta">@Controller</span>和 <span class="meta">@ResponseBody</span>的结合</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span>：表示被标注的类是SpringBoot的配置类</span><br><span class="line"><span class="meta">@Configuration</span>：表明被配置的类是一个配置类</span><br><span class="line"><span class="meta">@Componment</span>：将组建加入容器，进行使用</span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>：开启自动配置功能，不需要手动配置，SpringBoot会自动配置。</span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span>：自动配置包，定义默认的包扫描规则 </span><br><span class="line"><span class="meta">@Import</span>(&#123;Registrar.class&#125;)：<span class="keyword">import</span>是Spring底层的注解，功能是给容器导入一个组件</span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>）：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置</span><br><span class="line">进行绑定；prefix = <span class="string">"person"</span>：配置文件中哪个下面的所有属性进行一一映射 </span><br><span class="line"></span><br><span class="line"><span class="meta">@Validated</span>：进行数据验证的注解</span><br><span class="line"><span class="meta">@Value</span>:进行单项属性值注入</span><br><span class="line"><span class="meta">@PropertySource</span>：加载指定的properties配置文件,非默认的配置文件</span><br><span class="line"><span class="meta">@ImportResource</span>：加载springboot不包含的外部的配置文件，比如.xml</span><br><span class="line"><span class="meta">@Bean</span>：产生一个bean对象，交给spring管理，将方法的返回值添加到容器中；容</span><br><span class="line">器中这个组件默认的id就是方法名 </span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user/login"</span>)：相当于<span class="meta">@RequestMapping</span>以及设置请求方式为post</span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestParam</span>(<span class="string">"username"</span>)：设置获取页面传来的JSON对象的username属性</span><br><span class="line"><span class="meta">@RequestBody</span>:解析前端传回的JSON字符串，将其变为JAVA对象</span><br><span class="line"><span class="meta">@Pathvariable</span>：获取URL中的参数</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span>:注解Mybatis中的mapper接口</span><br><span class="line"><span class="meta">@MapperScan</span>(value=<span class="string">"包名"</span>)：在包名下的所有类都被认为添加了<span class="meta">@Mapper</span>，它是添加在程序入口类上的</span><br><span class="line"><span class="meta">@Options</span>:配置一些选项，比如配置主键自增为<span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span>:表明此类是一个实体</span><br><span class="line"><span class="meta">@Column</span>(name = <span class="string">"last_name"</span>,length = <span class="number">50</span>) <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line"><span class="meta">@id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)<span class="comment">//自增主键</span></span><br><span class="line"><span class="meta">@Order</span>: 注解<span class="meta">@Order</span>或者接口Ordered的作用是定义Spring IOC容器中Bean的执行顺序的优先级，而不是定义Bean的加载顺序，Bean的加载顺序不受<span class="meta">@Order</span>或Ordered接口的影响</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1201,14 +1201,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
@@ -1217,11 +1209,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1233,15 +1229,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,23 +1269,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis-generator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">pagehelper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1313,11 +1301,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rabbitmq</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis-generator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">pagehelper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,7 +1317,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
+                <a href="javascript:void(0)" class="js-tag color4">rabbitmq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,11 +1333,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1349,7 +1341,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Struts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1373,15 +1373,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1393,7 +1393,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1405,10 +1413,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1417,15 +1421,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,11 +1433,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1458,6 +1454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
